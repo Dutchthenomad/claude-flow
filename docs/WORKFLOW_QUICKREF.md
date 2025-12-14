@@ -90,6 +90,93 @@ git worktree prune
 
 ---
 
+## Parallel Development with Worktrees
+
+### When to Use Each Approach
+
+| Approach | When | Example |
+|----------|------|---------|
+| **Same branch** | Small, sequential changes | Quick bug fix, typo |
+| **Feature branch** | Medium features, single developer | New trading strategy |
+| **Worktree** | Parallel work, multiple sessions | Two Claude sessions on different issues |
+| **Fork** | External contributors | Community PRs |
+
+### Worktree Lifecycle
+
+```
+1. CLAIM ISSUE
+   gh issue edit 4 --add-assignee @me
+
+2. CREATE WORKTREE
+   git worktree add .worktrees/issue-4 -b feat/issue-4-description
+   cd .worktrees/issue-4
+
+3. DEVELOP (isolated)
+   /tdd, implement, /verify
+
+4. SYNC MAIN (before PR)
+   git fetch origin main
+   git rebase origin/main
+
+5. CREATE PR
+   gh pr create --title "feat: ..." --body "Closes #4"
+
+6. MERGE & CLEANUP
+   gh pr merge --squash
+   cd ../..
+   git worktree remove .worktrees/issue-4
+```
+
+### Conflict Prevention Rules
+
+1. **One issue per session** - Check `gh issue list --assignee @me`
+2. **Vertical file ownership** - Each issue owns specific files
+3. **Small, frequent PRs** - Merge every 2-4 hours of work
+4. **Rebase before PR** - `git pull --rebase origin main`
+
+### Hot Files Protocol
+
+Before editing any file > 500 lines:
+1. Check issue comments for coordination
+2. Leave comment: "Working on lines X-Y"
+3. Complete work in single session if possible
+4. Merge immediately after completion
+
+### Multi-Session Coordination
+
+**Session A starts:**
+```bash
+gh issue edit 4 --add-assignee @me
+git worktree add .worktrees/issue-4 -b feat/issue-4
+cd .worktrees/issue-4
+```
+
+**Session B starts (different issue):**
+```bash
+gh issue edit 5 --add-assignee @me
+git worktree add .worktrees/issue-5 -b feat/issue-5
+cd .worktrees/issue-5
+```
+
+**Both work in parallel, merge independently.**
+
+### Issue-to-File Ownership Example
+
+| Issue | Exclusive Files | Shared (Coordinate) |
+|-------|-----------------|---------------------|
+| #4 (Extract Controllers) | `src/ui/controllers/*` | `main_window.py` |
+| #5 (Module Cleanup) | `src/*/__init__.py` | All modules |
+| #2 (WebSocket) | `src/sources/websocket_*.py` | - |
+
+### Merge Order Strategy
+
+For dependent changes:
+1. Foundation issues merge first
+2. Leave comment on blocked issue: "Blocked by #X"
+3. After dependency merges: `git pull --rebase origin main`
+
+---
+
 ## TDD Cycle Checklist
 
 ```
@@ -451,6 +538,23 @@ Or deactivate:
 ---
 
 ## Changelog
+
+### v1.2.0 - 2025-12-13 (Parallel Development)
+
+**Added:**
+- Parallel Development with Worktrees section
+- When to use worktrees vs branches vs forks
+- 6-step worktree lifecycle
+- Conflict prevention rules
+- Hot files protocol
+- Multi-session coordination workflow
+- Issue-to-file ownership example
+- Merge order strategy for dependencies
+
+**Purpose:**
+- Enable multiple Claude sessions to work on different issues simultaneously
+- Prevent merge conflicts through file ownership patterns
+- Standardize parallel development workflow across projects
 
 ### v1.1.0 - 2025-12-06 (Efficiency Update)
 
