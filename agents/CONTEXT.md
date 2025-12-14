@@ -6,6 +6,7 @@ This folder contains **subagent definitions** - specialized AI assistants that C
 ## Contents
 | Agent | Description |
 |-------|-------------|
+| `flow-keeper.md` | **RAG-powered project specialist** - answers questions, creates components, maintains CONTEXT.md |
 | `qa.md` | QA specialist - writes tests, validates coverage |
 | `dev.md` | Developer - implements features, writes code |
 | `github.md` | GitHub operations - PRs, issues, branches |

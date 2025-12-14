@@ -1,28 +1,45 @@
 # Embeddings - Agent Context
 
 ## Purpose
-Vector embedding generation. Converts text chunks into dense vector representations for semantic search.
+Vector embedding generation using sentence-transformers. Converts text chunks to 384-dimensional vectors for semantic search.
 
-## Responsibilities
-- Generate embeddings from text chunks
-- Implement embedding caching
-- Support multiple embedding providers
-- Batch processing for efficiency
-
-## Planned Components
+## Contents
 | File | Description |
 |------|-------------|
-| `embedder.py` | Main embedding generator |
-| `cache.py` | Embedding cache management |
-| `providers/` | Provider implementations (OpenAI, local) |
+| `embedder.py` | Sentence-transformers wrapper |
+| `__init__.py` | Package exports |
 
-## Configuration
-- Default model: `text-embedding-3-small` (1536 dimensions)
-- Alternative: Local models via sentence-transformers
+## Key Functions
 
-## Development Status
-- [x] Initial structure
-- [ ] OpenAI embedder
-- [ ] Caching layer
-- [ ] Local model support
-- [ ] Integration tests
+### `embedder.py`
+- `get_embedder()` - Get or create singleton embedder
+- `embed_text(text)` - Embed single text string
+- `embed_batch(texts)` - Embed list of texts efficiently
+
+## Model Details
+- **Model**: `all-MiniLM-L6-v2`
+- **Dimensions**: 384
+- **Speed**: ~14,000 sentences/sec on CPU
+- **Size**: ~80MB download on first use
+
+## Why This Model?
+1. Runs entirely locally (no API key)
+2. Fast enough for interactive queries
+3. Good quality for code/documentation
+4. Small memory footprint
+
+## Usage
+```python
+from embeddings.embedder import embed_text, embed_batch
+
+# Single text
+vector = embed_text("How do slash commands work?")
+
+# Batch (more efficient)
+vectors = embed_batch(["text1", "text2", "text3"])
+```
+
+## For Future Agents
+- Model downloads on first use (~80MB)
+- Embedder is cached as singleton
+- Batch embedding is 10x faster than individual calls

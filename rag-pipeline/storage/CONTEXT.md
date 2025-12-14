@@ -1,44 +1,49 @@
 # Storage - Agent Context
 
 ## Purpose
-Vector database storage layer. Stores document chunks and their embeddings for efficient similarity search.
+ChromaDB vector storage for the RAG pipeline. Persists embeddings and metadata for semantic retrieval.
 
-## Responsibilities
-- Store document metadata
-- Store chunk embeddings
-- Provide similarity search API
-- Handle database connections
+## Contents
+| File/Dir | Description |
+|----------|-------------|
+| `store.py` | ChromaDB abstraction layer |
+| `chroma/` | Database files (auto-created) |
+| `__init__.py` | Package exports |
 
-## Planned Components
-| File | Description |
-|------|-------------|
-| `db.py` | Database connection and pooling |
-| `schema.sql` | Database schema (documents, chunks) |
-| `operations.py` | CRUD operations |
+## Key Functions
 
-## Database Schema (Planned)
-```sql
--- Documents table
-CREATE TABLE documents (
-    id SERIAL PRIMARY KEY,
-    source_path TEXT,
-    doc_type TEXT,
-    created_at TIMESTAMP
-);
+### `store.py`
+- `get_collection()` - Get or create ChromaDB collection
+- `add_documents(chunks)` - Add chunks with embeddings
+- `query(embedding, top_k)` - Similarity search
+- `clear()` - Delete all documents
+- `count()` - Get document count
 
--- Chunks table with vector
-CREATE TABLE chunks (
-    id SERIAL PRIMARY KEY,
-    document_id INTEGER REFERENCES documents(id),
-    content TEXT,
-    embedding VECTOR(1536),
-    metadata JSONB
-);
+## Database Location
+- Path: `./chroma/`
+- Persistence: Automatic (survives restarts)
+- Format: SQLite + Parquet files
+
+## Schema
+Each document has:
+- `id` - Unique identifier (hash of content)
+- `embedding` - 384-dim vector
+- `document` - Original text chunk
+- `metadata` - Source file, line number, headers
+
+## Usage
+```python
+from storage.store import get_collection, add_documents, query
+
+# Add documents
+collection = get_collection()
+add_documents(chunks_with_embeddings)
+
+# Query
+results = query(query_embedding, top_k=5)
 ```
 
-## Development Status
-- [x] Initial structure
-- [ ] Schema design
-- [ ] PGVector setup
-- [ ] Connection pooling
-- [ ] Integration tests
+## For Future Agents
+- ChromaDB handles persistence automatically
+- Clear database if embedding model changes
+- Collection name: `claude_flow_knowledge`

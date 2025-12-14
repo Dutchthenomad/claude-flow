@@ -41,6 +41,7 @@ integrations/community/ottomator-agents/
 
 # RAG pipeline data (regeneratable)
 rag-pipeline/storage/*.db
+rag-pipeline/storage/chroma/
 rag-pipeline/embeddings/cache/
 
 # Local configuration
