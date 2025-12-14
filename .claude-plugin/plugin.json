@@ -1,0 +1,23 @@
+{
+  "name": "claude-flow",
+  "description": "A systematic development workflow for producing high-quality, test-driven software. Integrates TDD, systematic debugging, verification gates, and agentic orchestration.",
+  "version": "1.0.0",
+  "author": {
+    "name": "nomad",
+    "url": "https://github.com/Dutchthenomad"
+  },
+  "homepage": "https://github.com/Dutchthenomad/claude-flow",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Dutchthenomad/claude-flow.git"
+  },
+  "keywords": [
+    "workflow",
+    "tdd",
+    "testing",
+    "debugging",
+    "agents",
+    "development"
+  ],
+  "license": "MIT"
+}

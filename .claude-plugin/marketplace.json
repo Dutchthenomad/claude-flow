@@ -1,0 +1,15 @@
+{
+  "name": "claude-flow-marketplace",
+  "description": "Self-hosted marketplace for the Claude Flow development workflow system",
+  "owner": {
+    "name": "nomad",
+    "url": "https://github.com/Dutchthenomad"
+  },
+  "plugins": [
+    {
+      "name": "claude-flow",
+      "source": ".",
+      "description": "Systematic development workflow with TDD, debugging, and verification"
+    }
+  ]
+}

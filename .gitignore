@@ -1,0 +1,59 @@
+# Claude-Flow .gitignore
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+.venv/
+ENV/
+env/
+
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Cloned repositories (large, can be re-cloned)
+integrations/anthropic/claude-agent-sdk-python/
+integrations/anthropic/claude-code-action/
+integrations/anthropic/claude-plugins-official/
+integrations/anthropic/claude-cookbooks/
+integrations/anthropic/claude-quickstarts/
+integrations/anthropic/github-mcp-server/
+integrations/anthropic/skills/
+integrations/anthropic/courses/
+integrations/community/superpowers/
+integrations/community/ottomator-agents/
+
+# RAG pipeline data (regeneratable)
+rag-pipeline/storage/*.db
+rag-pipeline/embeddings/cache/
+
+# Local configuration
+*.local.json
+*.local.md
+.env
+.env.*
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
