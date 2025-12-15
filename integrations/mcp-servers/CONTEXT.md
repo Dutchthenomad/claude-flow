@@ -3,6 +3,23 @@
 ## Purpose
 Model Context Protocol server integrations. MCP servers extend Claude's tool capabilities with external services.
 
+## ⚠️ CRITICAL: Local Sync After GitHub MCP Push
+
+**GitHub MCP bypasses local git entirely.** After ANY `create_or_update_file` or `push_files` operation:
+
+```bash
+git pull origin <branch>  # MANDATORY after MCP push
+```
+
+**Why:** MCP commits directly via GitHub API. Local repo doesn't know about it. Failure to sync causes divergence and merge conflicts.
+
+**Correct Workflow:**
+```
+1. mcp__github__get_file_contents → get current SHA
+2. mcp__github__create_or_update_file → push changes
+3. git pull origin <branch> → SYNC LOCAL (don't forget!)
+```
+
 ## Available MCP Servers
 
 | Server | Tools | Purpose | Status |
