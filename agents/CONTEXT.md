@@ -7,6 +7,7 @@ This folder contains **subagent definitions** - specialized AI assistants that C
 | Agent | Description |
 |-------|-------------|
 | `flow-keeper.md` | **RAG-powered project specialist** - answers questions, creates components, maintains CONTEXT.md |
+| `rugs-expert.md` | **RAG-powered rugs.fun specialist** - WebSocket events, game mechanics, REPLAYER (auto-delegates for rugs.fun/REPLAYER questions) |
 | `qa.md` | QA specialist - writes tests, validates coverage |
 | `dev.md` | Developer - implements features, writes code |
 | `github.md` | GitHub operations - PRs, issues, branches |
