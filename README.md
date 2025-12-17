@@ -96,6 +96,7 @@ Control Claude's reasoning depth with keywords:
 
 Claude-Flow includes a comprehensive automated CI/CD pipeline:
 
+- **Qodo AI Code Review** - AI-powered intelligent code analysis (NEW ✨)
 - **Automated Code Review** - Complexity analysis, security scanning, impact analysis
 - **Smart PR Labeling** - Automatic labels based on changes, size, and type
 - **Test Coverage** - Coverage tracking with badges and PR comments
@@ -103,6 +104,7 @@ Claude-Flow includes a comprehensive automated CI/CD pipeline:
 - **Security Scanning** - CodeQL, Trivy, Bandit, and Dependabot
 
 **Documentation**:
+- [Qodo Integration Guide](docs/ci-cd/QODO_INTEGRATION.md) - AI code review setup
 - [CI/CD Guide](docs/ci-cd/CI_CD_GUIDE.md) - Complete reference
 - [Quick Reference](docs/ci-cd/QUICK_REFERENCE.md) - Command cheat sheet
 - [Setup Guide](docs/ci-cd/SETUP_GUIDE.md) - Activation steps
@@ -116,6 +118,7 @@ We welcome contributions! Please see:
 - [Issue Templates](.github/ISSUE_TEMPLATE/) - Report bugs or request features
 
 All PRs are automatically reviewed for:
+- AI-powered code review (Qodo)
 - Code complexity (Radon)
 - Security issues (Bandit, Trivy)
 - Test coverage (pytest)

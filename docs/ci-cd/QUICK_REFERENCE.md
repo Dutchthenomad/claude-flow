@@ -47,6 +47,7 @@ act push -W .github/workflows/coverage.yml
 
 ```bash
 # Using GitHub CLI
+gh workflow run qodo-review.yml    # NEW: Qodo AI review
 gh workflow run code-review.yml
 gh workflow run coverage.yml
 gh workflow run security.yml
@@ -59,6 +60,23 @@ gh run view <run-id>
 
 # Download artifacts
 gh run download <run-id>
+```
+
+### Qodo AI Commands (In PR Comments)
+
+```bash
+# Trigger these by commenting on any PR:
+/review              # Full AI code review
+/describe            # Generate/update PR description
+/improve             # Get code improvement suggestions
+/ask <question>      # Ask AI about the code
+/update_changelog    # Update CHANGELOG.md
+/help                # List all Qodo commands
+
+# Examples:
+# /review --pr_reviewer.num_code_suggestions=5
+# /ask "Why was this approach chosen?"
+# /improve --pr_code_suggestions.num_code_suggestions=3
 ```
 
 ### Checking Workflow Status
@@ -128,6 +146,7 @@ gh pr create --title "feat(commands): add new command for X" \
              --body "Adds new command that does X, Y, Z"
 
 # Automated workflows trigger:
+# - Qodo AI review (if configured, ~2 min)
 # - Code review (complexity, security, impact)
 # - PR labeling (area: commands, type: enhancement)
 # - Coverage (if tests added)
@@ -135,6 +154,7 @@ gh pr create --title "feat(commands): add new command for X" \
 
 **Expected Results**:
 - PR automatically labeled with `area: commands`, `type: enhancement`, size label
+- Qodo AI review with suggestions (~2 min, if configured)
 - Code review comment with complexity analysis (~2 min)
 - Security scan comment (~3 min)
 - Impact analysis comment (~1 min)
@@ -619,6 +639,8 @@ Set in repository settings:
 
 | Secret | Purpose | Required |
 |--------|---------|----------|
+| `OPENAI_KEY` | Qodo AI with OpenAI GPT-4o | Optional (or use GitHub App) |
+| `ANTHROPIC_API_KEY` | Qodo AI with Anthropic Claude | Optional (or use GitHub App) |
 | `CODECOV_TOKEN` | Codecov integration | Optional |
 
 ## Troubleshooting Quick Fixes

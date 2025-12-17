@@ -18,6 +18,7 @@ The CI/CD pipeline is **ready to use immediately** after merging the setup PR. N
 
 ### What's Included Out of the Box
 
+✅ **Qodo AI Code Review** - AI-powered review (requires API key or GitHub App)
 ✅ **Automated Code Review** - Runs on every PR
 ✅ **PR Labeling** - Automatic labels based on changes
 ✅ **Test Coverage** - Python code coverage tracking
@@ -30,9 +31,10 @@ The CI/CD pipeline is **ready to use immediately** after merging the setup PR. N
 After merge, the pipeline will automatically:
 1. Label new PRs within 30 seconds
 2. Post code review comments within 5 minutes
-3. Track coverage on Python changes
-4. Scan for security issues
-5. Create releases when you push tags
+3. Run AI-powered review (if Qodo is configured)
+4. Track coverage on Python changes
+5. Scan for security issues
+6. Create releases when you push tags
 
 ## Workflow Activation
 
@@ -70,7 +72,48 @@ Or via GitHub web interface:
 
 ## Optional Integrations
 
-### 1. Codecov (Enhanced Coverage Reports)
+### 1. Qodo AI Code Review (Recommended)
+
+Qodo provides AI-powered code review with intelligent suggestions. Choose one setup method:
+
+#### Option A: GitHub App (Easiest)
+
+1. **Install the App**
+   - Visit https://github.com/apps/qodo-code-review
+   - Click "Configure"
+   - Select `Dutchthenomad/claude-flow`
+   - Grant permissions
+
+2. **Done!** Qodo will automatically review PRs
+
+**Pros**: No API key management, free tier for public repos, automatic updates
+
+#### Option B: GitHub Actions with API Key
+
+1. **Get an API Key**
+   - OpenAI: https://platform.openai.com/api-keys (GPT-4o)
+   - Anthropic: https://console.anthropic.com/ (Claude)
+   - Gemini: https://makersuite.google.com/app/apikey
+
+2. **Add to GitHub Secrets**
+   ```bash
+   # Using GitHub CLI
+   gh secret set OPENAI_KEY
+   # Or: gh secret set ANTHROPIC_API_KEY
+   
+   # Or via web interface:
+   # Settings → Secrets and variables → Actions → New repository secret
+   ```
+
+3. **Workflow Activates Automatically** on next PR
+
+**Pros**: More control, choice of AI model, works for private repos
+
+**See**: [Qodo Integration Guide](./QODO_INTEGRATION.md) for detailed setup
+
+---
+
+### 2. Codecov (Enhanced Coverage Reports)
 
 Codecov provides:
 - Historical coverage trends
@@ -108,7 +151,9 @@ Codecov provides:
 
 **Status**: Optional but recommended for teams
 
-### 2. Branch Protection Rules
+---
+
+### 3. Branch Protection Rules
 
 Enforce quality standards by requiring checks to pass before merge.
 

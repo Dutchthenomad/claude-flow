@@ -127,18 +127,8 @@ jobs:
           fi
           echo "\`\`\`" >> security_report.md
 
-      - name: Run Trivy filesystem scan
-        uses: aquasecurity/trivy-action@master
-        with:
-          scan-type: 'fs'
-          scan-ref: '.'
-          format: 'sarif'
-          output: 'trivy-results.sarif'
-
-      - name: Upload Trivy results to GitHub Security
-        uses: github/codeql-action/upload-sarif@v4
-        with:
-          sarif_file: 'trivy-results.sarif'
+      # Note: Trivy scan moved to security.yml to avoid duplication
+      # Security results are aggregated in GitHub Security tab
 
       - name: Comment security results
         if: always()
@@ -244,8 +234,12 @@ jobs:
             - ✅ Code complexity analysis
             - 🔒 Security scan results
             - 📊 Change impact analysis
+            - 🤖 AI-powered review (Qodo - if configured)
             
-            All checks completed in approximately 5 minutes. Review the individual reports for detailed findings.
+            **Note**: Qodo AI reviews run independently. If you see additional AI-generated suggestions, 
+            review them alongside these automated checks.
+            
+            All checks completed. Review the individual reports for detailed findings.
             `;
             
             github.rest.issues.createComment({
