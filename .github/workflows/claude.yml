@@ -25,6 +25,11 @@ jobs:
       contains(github.event.comment.body, '@claude')
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
+
       - name: Claude Code Action
         uses: anthropics/claude-code-action@v1
         with:
@@ -39,6 +44,11 @@ jobs:
       contains(github.event.issue.body, '@claude')
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
+
       - name: Claude Code Action
         uses: anthropics/claude-code-action@v1
         with:
@@ -54,6 +64,11 @@ jobs:
       contains(github.event.pull_request.labels.*.name, 'claude-review')
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
       - name: Claude Code Action - Review
         uses: anthropics/claude-code-action@v1
         with:
