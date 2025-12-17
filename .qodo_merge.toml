@@ -1,0 +1,88 @@
+# Qodo Merge Configuration
+# https://docs.qodo.ai/qodo-documentation/qodo-merge/getting-started/configuration
+
+[config]
+model = "gpt-4o"  # Can be changed to gemini-1.5-pro or other supported models
+
+[github_app]
+# Automatically run these commands when PR is opened/updated
+auto_review = true
+auto_describe = true
+auto_improve = false  # Set to true if you want automatic code suggestions
+
+# PR lifecycle events to handle
+handle_pr_actions = ['opened', 'reopened', 'ready_for_review', 'synchronize']
+
+# Commands to run automatically on PR open
+pr_commands = [
+    "/describe --pr_description.add_original_user_description=true",
+    "/review --pr_reviewer.num_code_suggestions=3"
+]
+
+[pr_description]
+# Generate comprehensive PR descriptions
+publish_description_as_comment = false  # Update PR description directly
+add_original_user_description = true
+keep_original_user_title = true
+enable_semantic_files_types = true
+collapsible_file_list = true
+
+[pr_reviewer]
+# Code review settings
+require_all_thresholds_for_incremental_review = false
+require_security_review = true
+require_score_review = true
+require_tests_review = true
+require_estimate_effort_to_review = true
+
+# Number of code suggestions per review
+num_code_suggestions = 3
+
+# Inline comments vs. summary
+inline_code_comments = true
+
+# Extra instructions for organization-specific best practices
+extra_instructions = """
+- Follow the 5 Iron Laws of Claude-Flow (TDD, Verification, Debugging, Planning, Isolation)
+- Ensure all code changes include corresponding tests
+- Verify that changes don't break existing functionality
+- Check for security vulnerabilities and code smells
+- Maintain consistency with existing code style
+"""
+
+[pr_code_suggestions]
+# Code improvement suggestions
+num_code_suggestions = 3
+summarize = true
+rank_suggestions = true
+
+[pr_questions]
+# Allow PR questions
+enable_help = true
+
+[best_practices]
+# Organization-specific best practices
+content = """
+## Claude-Flow Best Practices
+
+1. **Test-Driven Development**: All production code must have corresponding tests
+2. **Verification Gates**: Evidence before claims - always verify changes
+3. **Systematic Debugging**: Root cause analysis before fixes
+4. **Zero-Context Planning**: Plans must be executable without additional context
+5. **Isolated Development**: Use git worktrees for feature isolation
+
+## Code Quality Standards
+- Python: Follow PEP 8, use type hints
+- Documentation: Update relevant docs with code changes
+- Security: No secrets in code, sanitize inputs
+- Testing: Maintain >70% test coverage
+"""
+
+[custom_labels]
+# Custom labels for Claude-Flow workflow stages
+enable = true
+
+[checks]
+# Integration with existing CI/CD
+require_all_checks_pass = false  # Don't block on CI failures
+require_can_be_split_review = false

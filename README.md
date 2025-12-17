@@ -112,6 +112,7 @@ LOCAL (Claude Code)              GITHUB (Actions)
 | `validate.yml` | Markdown lint, shell lint, plugin validation, self-dogfooding |
 | `code-review.yml` | Complexity analysis, security scanning, impact analysis |
 | `claude.yml` | AI-powered PR review using claude-flow methodology |
+| `qodo-review.yml` | Qodo AI-powered intelligent code analysis |
 | `coverage.yml` | Test coverage tracking with badges |
 | `security.yml` | CodeQL, Trivy, Bandit, dependency scanning |
 | `pr-labeler.yml` | Automatic PR labels based on changes |
@@ -123,6 +124,7 @@ Mention `@claude` in any issue or PR comment to get AI-powered assistance. Add t
 
 **Documentation**:
 - [Recursive Loop](docs/ci-cd/RECURSIVE_LOOP.md) - How local and remote integrate
+- [Qodo Integration Guide](docs/ci-cd/QODO_INTEGRATION.md) - AI code review setup
 - [CI/CD Guide](docs/ci-cd/CI_CD_GUIDE.md) - Complete reference
 - [Quick Reference](docs/ci-cd/QUICK_REFERENCE.md) - Command cheat sheet
 - [Setup Guide](docs/ci-cd/SETUP_GUIDE.md) - Activation steps
@@ -136,6 +138,7 @@ We welcome contributions! Please see:
 - [Issue Templates](.github/ISSUE_TEMPLATE/) - Report bugs or request features
 
 All PRs are automatically reviewed for:
+- AI-powered code review (Qodo)
 - Code complexity (Radon)
 - Security issues (Bandit, Trivy)
 - Test coverage (pytest)

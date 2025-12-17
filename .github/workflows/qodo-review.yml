@@ -1,0 +1,91 @@
+name: Qodo AI Code Review
+
+on:
+  pull_request:
+    types: [opened, reopened, ready_for_review, synchronize]
+  issue_comment:
+    types: [created]
+
+permissions:
+  issues: write
+  pull-requests: write
+  contents: write
+
+concurrency:
+  group: qodo-review-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  qodo-review:
+    name: AI Code Review
+    # Skip if PR is from bot or in draft mode
+    if: |
+      github.event.pull_request.draft == false &&
+      github.event.sender.type != 'Bot'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    
+    steps:
+      - name: Qodo AI Review
+        id: qodo
+        uses: qodo-ai/pr-agent@main
+        env:
+          # Required: OpenAI API key for AI reviews
+          # Add OPENAI_KEY or ANTHROPIC_API_KEY to repository secrets
+          OPENAI_KEY: ${{ secrets.OPENAI_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+          # Configuration overrides (optional)
+          CONFIG.MODEL: "gpt-4o"
+          CONFIG.GITHUB_APP.AUTO_REVIEW: "true"
+          CONFIG.GITHUB_APP.AUTO_DESCRIBE: "true"
+          CONFIG.GITHUB_APP.AUTO_IMPROVE: "false"
+          
+          # Customize for Claude-Flow project
+          CONFIG.PR_REVIEWER.EXTRA_INSTRUCTIONS: |
+            Follow Claude-Flow's 5 Iron Laws:
+            1. TDD - No code without tests
+            2. Verification - Evidence before claims
+            3. Debugging - Root cause analysis
+            4. Planning - Zero-context executability
+            5. Isolation - Feature branches with worktrees
+          
+          # Reduce comment noise - inline suggestions only for critical issues
+          CONFIG.PR_REVIEWER.INLINE_CODE_COMMENTS: "true"
+          CONFIG.PR_REVIEWER.NUM_CODE_SUGGESTIONS: "3"
+          
+      - name: Check Qodo Status
+        if: always()
+        run: |
+          echo "Qodo AI review completed"
+          echo "Check PR comments for AI-generated insights"
+          
+      # Notify if Qodo fails (likely due to missing API key)
+      - name: Notify on Failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const message = `## ⚠️ Qodo AI Review Failed
+            
+            The Qodo AI code review could not complete. This is likely due to:
+            
+            1. **Missing API Key**: Add \`OPENAI_KEY\` or \`ANTHROPIC_API_KEY\` to repository secrets
+            2. **Rate Limiting**: API quota may be exceeded
+            3. **Network Issues**: Temporary connectivity problems
+            
+            The PR can still be merged - other automated checks are running independently.
+            
+            **Action Required**: Repository maintainers should configure Qodo API credentials in Settings → Secrets.
+            `;
+            
+            // Only comment on PRs, not issue comments
+            if (context.payload.pull_request) {
+              github.rest.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: message
+              });
+            }

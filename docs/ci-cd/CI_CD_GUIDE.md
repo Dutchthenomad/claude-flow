@@ -14,6 +14,7 @@ Complete reference for Claude-Flow's automated workflows and CI/CD pipeline.
 
 Claude-Flow uses GitHub Actions for comprehensive automation including:
 
+- **Qodo AI Code Review** - AI-powered code analysis and suggestions (NEW ✨)
 - **Automated Code Review** - Complexity analysis, security scanning, impact analysis
 - **Smart PR Labeling** - Area, size, and type-based automatic labels
 - **Test Coverage Tracking** - Coverage reports, badges, and PR comments
@@ -25,13 +26,14 @@ Claude-Flow uses GitHub Actions for comprehensive automation including:
 All workflows run in parallel where possible, completing in ~5 minutes:
 
 ```
-PR Event → [Code Review, PR Labeler, Coverage] → Results
+PR Event → [Qodo AI Review, Code Review, PR Labeler, Coverage] → Results
 Tag Push → [Release Builder] → GitHub Release
 Schedule → [Security Scans] → Security Tab
 ```
 
 ### Key Features
 
+✅ **AI-Powered** - Qodo provides intelligent code review suggestions
 ✅ **Fast** - Parallel execution, ~5 minutes total
 ✅ **Comprehensive** - Multi-layer security and quality checks
 ✅ **Informative** - Detailed PR comments with actionable insights
@@ -40,7 +42,32 @@ Schedule → [Security Scans] → Security Tab
 
 ## Workflows
 
-### 1. Automated Code Review (`.github/workflows/code-review.yml`)
+### 1. Qodo AI Code Review (`.github/workflows/qodo-review.yml`) ✨ NEW
+
+**Triggers**: Pull requests (opened, synchronize, reopened, ready_for_review), issue comments
+
+**Purpose**: AI-powered code review with intelligent suggestions
+
+**Features**:
+- **Smart Analysis** - Context-aware code review using GPT-4o or Claude
+- **Auto-describe** - Generates comprehensive PR descriptions
+- **Code Suggestions** - Actionable improvement recommendations
+- **Security Detection** - Identifies potential vulnerabilities
+- **Interactive** - Respond to `/review`, `/improve`, `/ask` commands
+
+**Configuration**: `.qodo_merge.toml` in repository root
+
+**Setup Required**: 
+- Option 1: Install [Qodo GitHub App](https://github.com/apps/qodo-code-review) (recommended)
+- Option 2: Add `OPENAI_KEY` or `ANTHROPIC_API_KEY` to repository secrets
+
+**Output**: Inline code comments and summary review on PR
+
+**Learn More**: See [Qodo Integration Guide](./QODO_INTEGRATION.md)
+
+---
+
+### 2. Automated Code Review (`.github/workflows/code-review.yml`)
 
 **Triggers**: Pull requests (opened, synchronize, reopened), manual dispatch
 
@@ -102,7 +129,11 @@ All checks completed in approximately 5 minutes.
 
 **Artifacts**: `complexity-report` - Detailed complexity analysis
 
-### 2. PR Labeler (`.github/workflows/pr-labeler.yml`)
+**Note**: Trivy security scan removed from this workflow to avoid duplication with security.yml
+
+---
+
+### 3. PR Labeler (`.github/workflows/pr-labeler.yml`)
 
 **Triggers**: Pull requests (opened, edited, synchronize, reopened)
 
@@ -152,7 +183,9 @@ Based on PR title:
 - Mark work-in-progress PRs with "WIP" prefix
 - Keep PRs under 500 lines when possible
 
-### 3. Test Coverage (`.github/workflows/coverage.yml`)
+---
+
+### 4. Test Coverage (`.github/workflows/coverage.yml`)
 
 **Triggers**: Push to main, pull requests, manual dispatch
 
@@ -185,7 +218,9 @@ Runs tests with coverage tracking:
 
 **Optional**: Set `CODECOV_TOKEN` secret for enhanced Codecov integration
 
-### 4. Automated Release (`.github/workflows/release.yml`)
+---
+
+### 5. Automated Release (`.github/workflows/release.yml`)
 
 **Triggers**: Tag push (v*.*.*), manual dispatch
 
@@ -237,7 +272,9 @@ Categories:
 - 📦 Dependencies
 - Area-specific changes
 
-### 5. Security Scanning (`.github/workflows/security.yml`)
+---
+
+### 6. Security Scanning (`.github/workflows/security.yml`)
 
 **Triggers**: Push to main, pull requests, weekly schedule (Sundays), manual dispatch
 
