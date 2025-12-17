@@ -33,13 +33,6 @@ jobs:
         uses: anthropics/claude-code-action@v1
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
-          model: claude-sonnet-4-20250514
-          timeout_minutes: 10
-          allowed_tools: |
-            Read
-            Glob
-            Grep
-            WebFetch
 
   # Triggered by @claude in new issues
   claude-issue:
@@ -56,14 +49,8 @@ jobs:
         uses: anthropics/claude-code-action@v1
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
-          model: claude-sonnet-4-20250514
-          timeout_minutes: 10
-          allowed_tools: |
-            Read
-            Glob
-            Grep
 
-  # Auto-review on new PRs (optional - controlled by label)
+  # Auto-review on new PRs with claude-review label
   claude-auto-review:
     name: Claude / Auto Review
     if: |
@@ -77,21 +64,10 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Get PR diff
-        id: diff
-        run: |
-          gh pr diff ${{ github.event.pull_request.number }} > pr_diff.txt
-          echo "diff_size=$(wc -l < pr_diff.txt)" >> $GITHUB_OUTPUT
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Claude Code Action - Full Review
-        if: steps.diff.outputs.diff_size < 1000
+      - name: Claude Code Action - Review
         uses: anthropics/claude-code-action@v1
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
-          model: claude-sonnet-4-20250514
-          timeout_minutes: 15
           prompt: |
             You are reviewing a PR for the claude-flow repository.
 
@@ -105,11 +81,11 @@ jobs:
             Please review this PR with these principles in mind:
 
             ## Review Checklist
-            - [ ] Does the code follow TDD principles?
-            - [ ] Are there tests for new functionality?
-            - [ ] Is there evidence of verification?
-            - [ ] Are CONTEXT.md files updated if needed?
-            - [ ] Does the change follow existing patterns?
+            - Does the code follow TDD principles?
+            - Are there tests for new functionality?
+            - Is there evidence of verification?
+            - Are CONTEXT.md files updated if needed?
+            - Does the change follow existing patterns?
 
             ## Areas to Check
             1. Commands (commands/*.md) - Must have frontmatter
@@ -118,34 +94,8 @@ jobs:
             4. Documentation - Should be clear and accurate
 
             Provide specific, actionable feedback.
-          allowed_tools: |
-            Read
-            Glob
-            Grep
-            Bash(git diff:*)
-            Bash(git log:*)
 
-      - name: Claude Code Action - Large PR Summary
-        if: steps.diff.outputs.diff_size >= 1000
-        uses: anthropics/claude-code-action@v1
-        with:
-          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
-          model: claude-sonnet-4-20250514
-          timeout_minutes: 10
-          prompt: |
-            This is a large PR (1000+ lines). Please provide a high-level summary:
-
-            1. What areas are affected?
-            2. What is the main purpose of this PR?
-            3. Are there any obvious concerns?
-
-            Note: For detailed review of large PRs, please break them into smaller PRs.
-          allowed_tools: |
-            Read
-            Glob
-            Grep
-
-  # Methodology enforcement check
+  # Methodology enforcement check (no Claude, just reminder)
   methodology-check:
     name: Claude / Methodology Check
     if: |
