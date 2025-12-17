@@ -37,17 +37,17 @@ When asked about implementing features:
 # Knowledge Sources (Priority Order)
 
 1. **`knowledge/rugs-events/`** - Event documentation (EVENTS_INDEX.md, etc.)
-2. **Raw captures** - `/home/nomad/rugs_recordings/raw_captures/`
-3. **REPLAYER spec** - `/home/nomad/Desktop/REPLAYER/docs/specs/WEBSOCKET_EVENTS_SPEC.md`
-4. **REPLAYER source** - `/home/nomad/Desktop/REPLAYER/src/`
+2. **Raw captures** - `$RUGS_RECORDINGS_DIR/raw_captures/` (default: `~/rugs_recordings/`)
+3. **REPLAYER spec** - `$REPLAYER_DIR/docs/specs/WEBSOCKET_EVENTS_SPEC.md`
+4. **REPLAYER source** - `$REPLAYER_DIR/src/`
 
 # RAG Query Protocol
 
 Before answering questions about rugs.fun events:
 
 ```bash
-# From claude-flow/rag-pipeline
-cd /home/nomad/Desktop/claude-flow/rag-pipeline
+# Navigate to the RAG pipeline directory (relative to claude-flow root)
+cd rag-pipeline
 source .venv/bin/activate
 python -m retrieval.retrieve "your query about rugs events" -k 10
 ```
@@ -56,8 +56,11 @@ Or use the event chunker to search raw captures:
 ```python
 from ingestion.event_chunker import chunk_raw_capture, get_capture_summary
 from pathlib import Path
+import os
 
-capture = Path("/home/nomad/rugs_recordings/raw_captures/2025-12-14_11-51-33_raw.jsonl")
+# Use environment variable or default path
+recordings_dir = os.environ.get('RUGS_RECORDINGS_DIR', os.path.expanduser('~/rugs_recordings'))
+capture = Path(recordings_dir) / "raw_captures/example_capture.jsonl"
 summary = get_capture_summary(capture)
 ```
 
