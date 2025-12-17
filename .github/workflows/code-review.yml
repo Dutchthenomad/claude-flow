@@ -76,7 +76,7 @@ jobs:
           echo "\`\`\`" >> complexity_report.md
 
       - name: Upload complexity report
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: complexity-report
           path: complexity_report.md
