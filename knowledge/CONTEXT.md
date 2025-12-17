@@ -7,6 +7,7 @@ Repository of scraped and curated documentation. This is the **source material**
 | Folder | Description |
 |--------|-------------|
 | `anthropic-docs/` | Official Claude Code and Anthropic documentation |
+| `rugs-events/` | Rugs.fun WebSocket protocol and CDP connection docs |
 
 ## Planned Content
 - Claude Code documentation (complete)
