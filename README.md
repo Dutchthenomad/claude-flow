@@ -1,5 +1,11 @@
 # Claude-Flow
 
+[![Code Review](https://github.com/Dutchthenomad/claude-flow/actions/workflows/code-review.yml/badge.svg)](https://github.com/Dutchthenomad/claude-flow/actions/workflows/code-review.yml)
+[![Coverage](https://github.com/Dutchthenomad/claude-flow/actions/workflows/coverage.yml/badge.svg)](https://github.com/Dutchthenomad/claude-flow/actions/workflows/coverage.yml)
+[![Security](https://github.com/Dutchthenomad/claude-flow/actions/workflows/security.yml/badge.svg)](https://github.com/Dutchthenomad/claude-flow/actions/workflows/security.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![GitHub release](https://img.shields.io/github/v/release/Dutchthenomad/claude-flow)](https://github.com/Dutchthenomad/claude-flow/releases)
+
 A systematic development workflow for producing high-quality, test-driven software with Claude Code.
 
 ## Overview
@@ -85,6 +91,35 @@ Control Claude's reasoning depth with keywords:
 | `think hard` | ~10k | Debugging |
 | `think harder` | ~20k | Complex changes |
 | `ultrathink` | ~32k | Architecture |
+
+## CI/CD Pipeline
+
+Claude-Flow includes a comprehensive automated CI/CD pipeline:
+
+- **Automated Code Review** - Complexity analysis, security scanning, impact analysis
+- **Smart PR Labeling** - Automatic labels based on changes, size, and type
+- **Test Coverage** - Coverage tracking with badges and PR comments
+- **Automated Releases** - Tag-based releases with changelogs
+- **Security Scanning** - CodeQL, Trivy, Bandit, and Dependabot
+
+**Documentation**:
+- [CI/CD Guide](docs/ci-cd/CI_CD_GUIDE.md) - Complete reference
+- [Quick Reference](docs/ci-cd/QUICK_REFERENCE.md) - Command cheat sheet
+- [Setup Guide](docs/ci-cd/SETUP_GUIDE.md) - Activation steps
+- [Onboarding](docs/ci-cd/ONBOARDING.md) - Developer guide
+
+## Contributing
+
+We welcome contributions! Please see:
+- [Developer Onboarding](docs/ci-cd/ONBOARDING.md) - Get started
+- [Pull Request Template](.github/pull_request_template.md) - PR guidelines
+- [Issue Templates](.github/ISSUE_TEMPLATE/) - Report bugs or request features
+
+All PRs are automatically reviewed for:
+- Code complexity (Radon)
+- Security issues (Bandit, Trivy)
+- Test coverage (pytest)
+- Change impact
 
 ## Future Roadmap
 

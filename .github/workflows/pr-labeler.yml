@@ -1,0 +1,93 @@
+name: PR Labeler
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  label:
+    name: Auto-label PR
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Label based on changed files
+        uses: actions/labeler@v5
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          configuration-path: .github/labeler.yml
+
+      - name: Label PR size
+        uses: codelytv/pr-size-labeler@v1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          xs_label: 'size/xs'
+          xs_max_size: 10
+          s_label: 'size/s'
+          s_max_size: 100
+          m_label: 'size/m'
+          m_max_size: 500
+          l_label: 'size/l'
+          l_max_size: 1000
+          xl_label: 'size/xl'
+          fail_if_xl: false
+          message_if_xl: "This PR is very large (>1000 lines). Consider breaking it into smaller PRs for easier review."
+          github_api_url: 'https://api.github.com'
+
+      - name: Add labels based on PR title
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = context.payload.pull_request.title.toLowerCase();
+            const labels = [];
+            
+            // Type-based labels
+            if (title.includes('fix') || title.includes('bug')) {
+              labels.push('type: bug');
+            }
+            if (title.includes('feat') || title.includes('feature') || title.includes('enhancement')) {
+              labels.push('type: enhancement');
+            }
+            if (title.includes('docs') || title.includes('documentation')) {
+              labels.push('type: documentation');
+            }
+            if (title.includes('test')) {
+              labels.push('type: testing');
+            }
+            if (title.includes('refactor') || title.includes('cleanup')) {
+              labels.push('type: refactor');
+            }
+            if (title.includes('security') || title.includes('vuln')) {
+              labels.push('type: security');
+            }
+            if (title.includes('perf') || title.includes('performance')) {
+              labels.push('type: performance');
+            }
+            if (title.includes('ci') || title.includes('workflow')) {
+              labels.push('type: ci/cd');
+            }
+            
+            // Priority labels
+            if (title.includes('urgent') || title.includes('hotfix') || title.includes('critical')) {
+              labels.push('priority: high');
+            }
+            
+            // Add WIP label
+            if (title.includes('wip') || title.includes('[wip]') || title.startsWith('wip:')) {
+              labels.push('status: wip');
+            }
+            
+            // Add labels if any were identified
+            if (labels.length > 0) {
+              await github.rest.issues.addLabels({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                labels: labels
+              });
+            }

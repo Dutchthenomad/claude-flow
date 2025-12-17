@@ -1,0 +1,39 @@
+# CODEOWNERS file for automatic reviewer assignment
+# Lines starting with '#' are comments.
+# Each line is a file pattern followed by one or more owners.
+
+# Default owners for everything in the repo
+* @Dutchthenomad
+
+# Core plugin configuration
+/.claude-plugin/ @Dutchthenomad
+/install.sh @Dutchthenomad
+/uninstall.sh @Dutchthenomad
+
+# Commands - require careful review
+/commands/ @Dutchthenomad
+
+# Agents - specialized behavior
+/agents/ @Dutchthenomad
+
+# Skills - auto-invoked capabilities
+/skills/ @Dutchthenomad
+
+# Hooks - workflow automation
+/hooks/ @Dutchthenomad
+
+# RAG Pipeline - Python code
+/rag-pipeline/ @Dutchthenomad
+
+# Documentation
+/docs/ @Dutchthenomad
+*.md @Dutchthenomad
+
+# CI/CD workflows - critical infrastructure
+/.github/ @Dutchthenomad
+/.github/workflows/ @Dutchthenomad
+
+# Dependencies and configuration
+requirements*.txt @Dutchthenomad
+setup.py @Dutchthenomad
+pyproject.toml @Dutchthenomad

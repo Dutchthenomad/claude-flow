@@ -1,0 +1,75 @@
+# Labeler configuration for automatic PR labeling based on file changes
+
+# Core system files
+'area: core':
+  - '.claude-plugin/**/*'
+  - 'install.sh'
+  - 'uninstall.sh'
+  - 'README.md'
+  - 'CLAUDE.md'
+
+# Commands
+'area: commands':
+  - 'commands/**/*'
+
+# Agents
+'area: agents':
+  - 'agents/**/*'
+
+# Skills
+'area: skills':
+  - 'skills/**/*'
+
+# Hooks
+'area: hooks':
+  - 'hooks/**/*'
+
+# RAG Pipeline
+'area: rag-pipeline':
+  - 'rag-pipeline/**/*'
+
+# Documentation
+'area: documentation':
+  - 'docs/**/*'
+  - '**/*.md'
+  - '!README.md'
+  - '!CLAUDE.md'
+
+# Knowledge base
+'area: knowledge':
+  - 'knowledge/**/*'
+
+# Integrations
+'area: integrations':
+  - 'integrations/**/*'
+
+# CI/CD and workflows
+'area: ci/cd':
+  - '.github/**/*'
+  - '.github/workflows/**/*'
+
+# Testing
+'area: testing':
+  - 'tests/**/*'
+  - '**/*test*.py'
+  - '**/*test*.sh'
+
+# Configuration
+'area: config':
+  - '**/*.json'
+  - '**/*.yml'
+  - '**/*.yaml'
+  - '**/*.toml'
+  - '.gitignore'
+
+# Python dependencies
+'dependencies: python':
+  - '**/requirements*.txt'
+  - 'setup.py'
+  - 'pyproject.toml'
+
+# Scripts
+'area: scripts':
+  - '**/*.sh'
+  - '!install.sh'
+  - '!uninstall.sh'
