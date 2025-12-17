@@ -1,0 +1,136 @@
+name: Test Coverage
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  coverage:
+    name: Test Coverage
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f rag-pipeline/requirements.txt ]; then
+            pip install -r rag-pipeline/requirements.txt
+          fi
+          pip install pytest pytest-cov coverage
+
+      - name: Run tests with coverage
+        id: pytest
+        continue-on-error: true
+        run: |
+          # Create coverage directory
+          mkdir -p coverage_html
+          
+          # Run pytest with coverage if tests exist
+          if [ -d "tests" ] || find . -name "test_*.py" -o -name "*_test.py" | grep -q .; then
+            pytest --cov=rag-pipeline --cov-report=xml --cov-report=html:coverage_html --cov-report=term || true
+          else
+            echo "No tests found. Generating placeholder coverage report."
+            echo "<coverage><packages></packages></coverage>" > coverage.xml
+          fi
+
+      - name: Generate coverage badge
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: tj-actions/coverage-badge-py@v2
+        with:
+          output: coverage.svg
+
+      - name: Upload coverage badge
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Update coverage badge [skip ci]"
+          file_pattern: coverage.svg
+
+      - name: Upload HTML coverage report
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-html-report
+          path: coverage_html/
+
+      - name: Upload coverage to Codecov (if token available)
+        if: env.CODECOV_TOKEN != ''
+        uses: codecov/codecov-action@v4
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+        with:
+          files: ./coverage.xml
+          flags: unittests
+          name: codecov-umbrella
+          fail_ci_if_error: false
+
+      - name: Coverage comment on PR
+        if: github.event_name == 'pull_request'
+        uses: py-cov-action/python-coverage-comment-action@v3
+        with:
+          GITHUB_TOKEN: ${{ github.token }}
+          MINIMUM_GREEN: 70
+          MINIMUM_ORANGE: 50
+
+      - name: Generate coverage summary
+        if: always()
+        run: |
+          echo "## Test Coverage Summary" > coverage_summary.md
+          echo "" >> coverage_summary.md
+          
+          if [ -f coverage.xml ]; then
+            COVERAGE=$(python -c "import xml.etree.ElementTree as ET; tree = ET.parse('coverage.xml'); root = tree.getroot(); print(f\"{float(root.attrib.get('line-rate', 0)) * 100:.1f}\")" 2>/dev/null || echo "N/A")
+            echo "**Overall Coverage**: ${COVERAGE}%" >> coverage_summary.md
+            echo "" >> coverage_summary.md
+            
+            if [ "$COVERAGE" != "N/A" ]; then
+              if [ $(echo "$COVERAGE > 70" | bc -l 2>/dev/null || echo 0) -eq 1 ]; then
+                echo "✅ Coverage is above 70% threshold" >> coverage_summary.md
+              elif [ $(echo "$COVERAGE > 50" | bc -l 2>/dev/null || echo 0) -eq 1 ]; then
+                echo "⚠️ Coverage is between 50-70% (could be improved)" >> coverage_summary.md
+              else
+                echo "❌ Coverage is below 50% threshold" >> coverage_summary.md
+              fi
+            fi
+          else
+            echo "No coverage data available" >> coverage_summary.md
+          fi
+          
+          echo "" >> coverage_summary.md
+          echo "Download the HTML coverage report from the artifacts for detailed information." >> coverage_summary.md
+
+      - name: Comment coverage summary
+        if: github.event_name == 'pull_request' && always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            let summary = '';
+            try {
+              summary = fs.readFileSync('coverage_summary.md', 'utf8');
+            } catch (e) {
+              summary = '## Test Coverage Summary\n\nCoverage analysis completed.';
+            }
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: summary
+            });

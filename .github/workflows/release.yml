@@ -1,0 +1,164 @@
+name: Automated Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+      - 'v*.*.*-alpha*'
+      - 'v*.*.*-beta*'
+      - 'v*.*.*-rc*'
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag to create release for'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  release:
+    name: Create Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Get tag name
+        id: tag
+        run: |
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            echo "tag=${{ github.event.inputs.tag }}" >> $GITHUB_OUTPUT
+          else
+            echo "tag=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Determine if prerelease
+        id: prerelease
+        run: |
+          TAG="${{ steps.tag.outputs.tag }}"
+          if [[ "$TAG" =~ (alpha|beta|rc) ]]; then
+            echo "prerelease=true" >> $GITHUB_OUTPUT
+          else
+            echo "prerelease=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Build release artifacts
+        run: |
+          mkdir -p release-artifacts
+          
+          # Create plugin package
+          tar -czf release-artifacts/claude-flow-plugin.tar.gz \
+            .claude-plugin/ \
+            commands/ \
+            agents/ \
+            skills/ \
+            hooks/ \
+            docs/ \
+            README.md \
+            CLAUDE.md \
+            install.sh \
+            uninstall.sh
+          
+          # Create documentation package
+          tar -czf release-artifacts/claude-flow-docs.tar.gz docs/
+          
+          # Calculate checksums
+          cd release-artifacts
+          sha256sum * > checksums.txt
+          cd ..
+
+      - name: Generate changelog
+        id: changelog
+        uses: mikepenz/release-changelog-builder-action@v4
+        with:
+          configuration: .github/release-changelog-config.json
+          failOnError: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ steps.tag.outputs.tag }}
+          name: Release ${{ steps.tag.outputs.tag }}
+          body: |
+            # Claude-Flow Release ${{ steps.tag.outputs.tag }}
+            
+            ## 📦 What's Changed
+            
+            ${{ steps.changelog.outputs.changelog }}
+            
+            ## 📥 Installation
+            
+            ### Quick Install
+            ```bash
+            wget https://github.com/${{ github.repository }}/archive/${{ steps.tag.outputs.tag }}.tar.gz
+            tar -xzf ${{ steps.tag.outputs.tag }}.tar.gz
+            cd claude-flow-*
+            ./install.sh
+            ```
+            
+            ### Plugin Install
+            Download the `claude-flow-plugin.tar.gz` artifact and extract it to your Claude Code plugins directory.
+            
+            ## 📝 Checksums
+            
+            See `checksums.txt` for SHA256 checksums of all release artifacts.
+            
+            ## 🔗 Links
+            
+            - [Documentation](https://github.com/${{ github.repository }}/tree/${{ steps.tag.outputs.tag }}/docs)
+            - [README](https://github.com/${{ github.repository }}/blob/${{ steps.tag.outputs.tag }}/README.md)
+            
+          files: |
+            release-artifacts/*
+          draft: false
+          prerelease: ${{ steps.prerelease.outputs.prerelease }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Notify team
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const tag = '${{ steps.tag.outputs.tag }}';
+            const isPrerelease = '${{ steps.prerelease.outputs.prerelease }}' === 'true';
+            const releaseType = isPrerelease ? 'Pre-release' : 'Release';
+            
+            const issueBody = `## 🎉 ${releaseType} ${tag} Published
+            
+            A new ${releaseType.toLowerCase()} has been published!
+            
+            **Tag**: \`${tag}\`
+            **Release URL**: https://github.com/${{ github.repository }}/releases/tag/${tag}
+            
+            ### Installation
+            
+            \`\`\`bash
+            wget https://github.com/${{ github.repository }}/archive/${tag}.tar.gz
+            tar -xzf ${tag}.tar.gz
+            cd claude-flow-*
+            ./install.sh
+            \`\`\`
+            
+            ### What's Next
+            
+            - Review the [release notes](https://github.com/${{ github.repository }}/releases/tag/${tag})
+            - Update the documentation if needed
+            - Announce the release to users
+            
+            This issue was automatically created by the release workflow.
+            `;
+            
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `${releaseType} ${tag} published`,
+              body: issueBody,
+              labels: ['release', 'automated']
+            });

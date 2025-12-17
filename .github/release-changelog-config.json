@@ -1,0 +1,81 @@
+{
+  "categories": [
+    {
+      "title": "## 🚀 Features",
+      "labels": ["type: enhancement", "type: feature"]
+    },
+    {
+      "title": "## 🐛 Bug Fixes",
+      "labels": ["type: bug", "type: fix"]
+    },
+    {
+      "title": "## 🔒 Security",
+      "labels": ["type: security", "security"]
+    },
+    {
+      "title": "## 📚 Documentation",
+      "labels": ["type: documentation", "area: documentation"]
+    },
+    {
+      "title": "## ⚡ Performance",
+      "labels": ["type: performance"]
+    },
+    {
+      "title": "## 🧪 Testing",
+      "labels": ["type: testing", "area: testing"]
+    },
+    {
+      "title": "## 🔧 Refactoring",
+      "labels": ["type: refactor", "type: cleanup"]
+    },
+    {
+      "title": "## 🛠️ CI/CD",
+      "labels": ["type: ci/cd", "area: ci/cd"]
+    },
+    {
+      "title": "## 📦 Dependencies",
+      "labels": ["dependencies", "dependencies: python"]
+    },
+    {
+      "title": "## 🤖 Commands",
+      "labels": ["area: commands"]
+    },
+    {
+      "title": "## 🧠 Agents",
+      "labels": ["area: agents"]
+    },
+    {
+      "title": "## 🎯 Skills",
+      "labels": ["area: skills"]
+    },
+    {
+      "title": "## 🔗 Hooks",
+      "labels": ["area: hooks"]
+    },
+    {
+      "title": "## 🔍 RAG Pipeline",
+      "labels": ["area: rag-pipeline"]
+    },
+    {
+      "title": "## 🔌 Integrations",
+      "labels": ["area: integrations"]
+    },
+    {
+      "title": "## 📝 Other Changes",
+      "labels": []
+    }
+  ],
+  "ignore_labels": [
+    "status: wip",
+    "status: duplicate",
+    "status: invalid",
+    "status: wontfix"
+  ],
+  "sort": "ASC",
+  "template": "${{CHANGELOG}}",
+  "pr_template": "- ${{TITLE}} (#${{NUMBER}}) @${{AUTHOR}}",
+  "empty_template": "No changes in this release",
+  "trim_values": true,
+  "max_pull_requests": 200,
+  "max_back_track_time_days": 365
+}
