@@ -35,6 +35,7 @@ jobs:
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          show_full_output: "true"
 
   # Triggered by @claude in new issues
   claude-issue:
@@ -54,6 +55,7 @@ jobs:
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          show_full_output: "true"
 
   # Auto-review on new PRs with claude-review label
   claude-auto-review:
@@ -74,6 +76,7 @@ jobs:
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          show_full_output: "true"
           prompt: |
             You are reviewing a PR for the claude-flow repository.
 
