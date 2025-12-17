@@ -1,0 +1,293 @@
+name: Validate
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+concurrency:
+  group: validate-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  markdown-lint:
+    name: Validate / Markdown
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Lint Markdown files
+        uses: DavidAnson/markdownlint-cli2-action@v19
+        with:
+          globs: |
+            **/*.md
+            !**/node_modules/**
+            !**/integrations/**
+
+  shell-lint:
+    name: Validate / Shell Scripts
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Run ShellCheck
+        uses: ludeeus/action-shellcheck@master
+        with:
+          scandir: '.'
+          severity: warning
+        env:
+          SHELLCHECK_OPTS: -e SC1091
+
+  plugin-structure:
+    name: Validate / Plugin Structure
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Validate plugin.json
+        run: |
+          echo "## Plugin Structure Validation" > plugin_report.md
+          echo "" >> plugin_report.md
+
+          # Check plugin.json exists and is valid JSON
+          if [ -f ".claude-plugin/plugin.json" ]; then
+            echo "### plugin.json" >> plugin_report.md
+            if jq empty .claude-plugin/plugin.json 2>/dev/null; then
+              echo "- [x] Valid JSON" >> plugin_report.md
+
+              # Check required fields
+              NAME=$(jq -r '.name // empty' .claude-plugin/plugin.json)
+              VERSION=$(jq -r '.version // empty' .claude-plugin/plugin.json)
+              DESC=$(jq -r '.description // empty' .claude-plugin/plugin.json)
+
+              [ -n "$NAME" ] && echo "- [x] name: $NAME" >> plugin_report.md || echo "- [ ] **MISSING: name**" >> plugin_report.md
+              [ -n "$VERSION" ] && echo "- [x] version: $VERSION" >> plugin_report.md || echo "- [ ] **MISSING: version**" >> plugin_report.md
+              [ -n "$DESC" ] && echo "- [x] description present" >> plugin_report.md || echo "- [ ] **MISSING: description**" >> plugin_report.md
+            else
+              echo "- [ ] **INVALID JSON**" >> plugin_report.md
+              exit 1
+            fi
+          else
+            echo "- [ ] **MISSING: .claude-plugin/plugin.json**" >> plugin_report.md
+            exit 1
+          fi
+
+          echo "" >> plugin_report.md
+
+          # Check required directories
+          echo "### Required Directories" >> plugin_report.md
+          for dir in commands agents skills hooks; do
+            if [ -d "$dir" ]; then
+              COUNT=$(find "$dir" -name "*.md" -type f | wc -l)
+              echo "- [x] $dir/ ($COUNT files)" >> plugin_report.md
+            else
+              echo "- [ ] **MISSING: $dir/**" >> plugin_report.md
+            fi
+          done
+
+          echo "" >> plugin_report.md
+          cat plugin_report.md
+
+      - name: Upload plugin report
+        uses: actions/upload-artifact@v6
+        with:
+          name: plugin-validation
+          path: plugin_report.md
+
+  self-dogfood:
+    name: Validate / Self-Dogfooding
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Check CONTEXT.md files
+        run: |
+          echo "## Self-Dogfooding Validation" > dogfood_report.md
+          echo "" >> dogfood_report.md
+          echo "Claude-Flow requires CONTEXT.md in every directory." >> dogfood_report.md
+          echo "" >> dogfood_report.md
+
+          # Directories that should have CONTEXT.md
+          REQUIRED_DIRS=(
+            "commands"
+            "agents"
+            "skills"
+            "hooks"
+            "docs"
+            "knowledge"
+            "integrations"
+          )
+
+          MISSING=0
+          echo "### Required CONTEXT.md Files" >> dogfood_report.md
+          for dir in "${REQUIRED_DIRS[@]}"; do
+            if [ -d "$dir" ]; then
+              if [ -f "$dir/CONTEXT.md" ]; then
+                echo "- [x] $dir/CONTEXT.md" >> dogfood_report.md
+              else
+                echo "- [ ] **MISSING: $dir/CONTEXT.md**" >> dogfood_report.md
+                MISSING=$((MISSING + 1))
+              fi
+            fi
+          done
+
+          echo "" >> dogfood_report.md
+
+          # Check for command files having frontmatter
+          echo "### Command File Validation" >> dogfood_report.md
+          INVALID_CMDS=0
+          for cmd in commands/*.md; do
+            if [ -f "$cmd" ] && [ "$(basename "$cmd")" != "CONTEXT.md" ]; then
+              # Check for frontmatter (starts with ---)
+              if head -1 "$cmd" | grep -q "^---"; then
+                echo "- [x] $(basename "$cmd"): has frontmatter" >> dogfood_report.md
+              else
+                echo "- [ ] **$(basename "$cmd")**: missing frontmatter" >> dogfood_report.md
+                INVALID_CMDS=$((INVALID_CMDS + 1))
+              fi
+            fi
+          done
+
+          echo "" >> dogfood_report.md
+
+          # Summary
+          echo "### Summary" >> dogfood_report.md
+          if [ $MISSING -eq 0 ] && [ $INVALID_CMDS -eq 0 ]; then
+            echo "All self-dogfooding checks passed!" >> dogfood_report.md
+          else
+            echo "**Issues found:**" >> dogfood_report.md
+            [ $MISSING -gt 0 ] && echo "- $MISSING missing CONTEXT.md files" >> dogfood_report.md
+            [ $INVALID_CMDS -gt 0 ] && echo "- $INVALID_CMDS commands missing frontmatter" >> dogfood_report.md
+          fi
+
+          cat dogfood_report.md
+
+          # Fail if missing required files (warning only for now)
+          if [ $MISSING -gt 0 ]; then
+            echo "::warning::$MISSING directories missing CONTEXT.md"
+          fi
+
+      - name: Upload dogfood report
+        uses: actions/upload-artifact@v6
+        with:
+          name: dogfood-validation
+          path: dogfood_report.md
+
+  guardrails:
+    name: Validate / Guardrails
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Check forbidden patterns
+        run: |
+          set -euo pipefail
+          ERRORS=0
+          WARNINGS=0
+
+          echo "## Guardrails Check" > guardrails_report.md
+          echo "" >> guardrails_report.md
+
+          # Ban hardcoded /home paths in commands/skills (not knowledge/docs)
+          echo "### Hardcoded Paths" >> guardrails_report.md
+          if grep -r "/home/nomad" commands/ agents/ skills/ hooks/ 2>/dev/null; then
+            echo "- [ ] **Hardcoded /home/nomad path detected**" >> guardrails_report.md
+            ERRORS=$((ERRORS + 1))
+          else
+            echo "- [x] No hardcoded home paths" >> guardrails_report.md
+          fi
+
+          echo "" >> guardrails_report.md
+
+          # Check for TODO/FIXME without issue references
+          echo "### Technical Debt Tracking" >> guardrails_report.md
+          UNTRACKED=$(grep -rn "TODO\|FIXME" commands/ agents/ skills/ hooks/ 2>/dev/null | grep -v "#[0-9]" | head -5 || true)
+          if [ -n "$UNTRACKED" ]; then
+            echo "- [ ] TODO/FIXME without issue reference:" >> guardrails_report.md
+            echo '```' >> guardrails_report.md
+            echo "$UNTRACKED" >> guardrails_report.md
+            echo '```' >> guardrails_report.md
+            WARNINGS=$((WARNINGS + 1))
+          else
+            echo "- [x] All TODOs reference issues" >> guardrails_report.md
+          fi
+
+          echo "" >> guardrails_report.md
+
+          # Summary
+          echo "### Summary" >> guardrails_report.md
+          echo "- Errors: $ERRORS" >> guardrails_report.md
+          echo "- Warnings: $WARNINGS" >> guardrails_report.md
+
+          cat guardrails_report.md
+
+          exit $ERRORS
+
+      - name: Upload guardrails report
+        uses: actions/upload-artifact@v6
+        with:
+          name: guardrails-validation
+          path: guardrails_report.md
+
+  validation-summary:
+    name: Validate / Summary
+    needs: [markdown-lint, shell-lint, plugin-structure, self-dogfood, guardrails]
+    runs-on: ubuntu-latest
+    if: always() && github.event_name == 'pull_request'
+    steps:
+      - name: Download all reports
+        uses: actions/download-artifact@v4
+        with:
+          path: reports
+        continue-on-error: true
+
+      - name: Post validation summary
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const path = require('path');
+
+            let summary = `## Validation Summary
+
+            | Check | Status |
+            |-------|--------|
+            | Markdown Lint | ${{ needs.markdown-lint.result == 'success' && '✅' || '❌' }} |
+            | Shell Lint | ${{ needs.shell-lint.result == 'success' && '✅' || '❌' }} |
+            | Plugin Structure | ${{ needs.plugin-structure.result == 'success' && '✅' || '❌' }} |
+            | Self-Dogfooding | ${{ needs.self-dogfood.result == 'success' && '✅' || '⚠️' }} |
+            | Guardrails | ${{ needs.guardrails.result == 'success' && '✅' || '❌' }} |
+
+            `;
+
+            // Try to append detailed reports
+            const reportDirs = ['plugin-validation', 'dogfood-validation', 'guardrails-validation'];
+            for (const dir of reportDirs) {
+              const reportPath = path.join('reports', dir);
+              if (fs.existsSync(reportPath)) {
+                const files = fs.readdirSync(reportPath);
+                for (const file of files) {
+                  if (file.endsWith('.md')) {
+                    const content = fs.readFileSync(path.join(reportPath, file), 'utf8');
+                    summary += '\n---\n' + content;
+                  }
+                }
+              }
+            }
+
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: summary
+            });
