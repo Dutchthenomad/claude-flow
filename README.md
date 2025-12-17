@@ -1,6 +1,7 @@
 # Claude-Flow
 
 [![Code Review](https://github.com/Dutchthenomad/claude-flow/actions/workflows/code-review.yml/badge.svg)](https://github.com/Dutchthenomad/claude-flow/actions/workflows/code-review.yml)
+[![Validation](https://github.com/Dutchthenomad/claude-flow/actions/workflows/validate.yml/badge.svg)](https://github.com/Dutchthenomad/claude-flow/actions/workflows/validate.yml)
 [![Coverage](https://github.com/Dutchthenomad/claude-flow/actions/workflows/coverage.yml/badge.svg)](https://github.com/Dutchthenomad/claude-flow/actions/workflows/coverage.yml)
 [![Security](https://github.com/Dutchthenomad/claude-flow/actions/workflows/security.yml/badge.svg)](https://github.com/Dutchthenomad/claude-flow/actions/workflows/security.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -92,18 +93,37 @@ Control Claude's reasoning depth with keywords:
 | `think harder` | ~20k | Complex changes |
 | `ultrathink` | ~32k | Architecture |
 
-## CI/CD Pipeline
+## CI/CD Pipeline: The Recursive Loop
 
-Claude-Flow includes a comprehensive automated CI/CD pipeline:
+Claude-Flow creates a **closed-loop development system** where the methodology enforces itself both locally (via Claude Code) and remotely (via GitHub Actions).
 
-- **Qodo AI Code Review** - AI-powered intelligent code analysis (NEW ✨)
-- **Automated Code Review** - Complexity analysis, security scanning, impact analysis
-- **Smart PR Labeling** - Automatic labels based on changes, size, and type
-- **Test Coverage** - Coverage tracking with badges and PR comments
-- **Automated Releases** - Tag-based releases with changelogs
-- **Security Scanning** - CodeQL, Trivy, Bandit, and Dependabot
+```
+LOCAL (Claude Code)              GITHUB (Actions)
+─────────────────────           ─────────────────
+/tdd      ◄───────────────────► Tests pass?
+/verify   ◄───────────────────► Validation checks
+/review   ◄───────────────────► Claude Code Action
+```
+
+### Automated Workflows
+
+| Workflow | Purpose |
+|----------|---------|
+| `validate.yml` | Markdown lint, shell lint, plugin validation, self-dogfooding |
+| `code-review.yml` | Complexity analysis, security scanning, impact analysis |
+| `claude.yml` | AI-powered PR review using claude-flow methodology |
+| `qodo-review.yml` | Qodo AI-powered intelligent code analysis |
+| `coverage.yml` | Test coverage tracking with badges |
+| `security.yml` | CodeQL, Trivy, Bandit, dependency scanning |
+| `pr-labeler.yml` | Automatic PR labels based on changes |
+| `release.yml` | Tag-based releases with changelogs |
+
+### Claude Code Action
+
+Mention `@claude` in any issue or PR comment to get AI-powered assistance. Add the `claude-review` label for automatic methodology review.
 
 **Documentation**:
+- [Recursive Loop](docs/ci-cd/RECURSIVE_LOOP.md) - How local and remote integrate
 - [Qodo Integration Guide](docs/ci-cd/QODO_INTEGRATION.md) - AI code review setup
 - [CI/CD Guide](docs/ci-cd/CI_CD_GUIDE.md) - Complete reference
 - [Quick Reference](docs/ci-cd/QUICK_REFERENCE.md) - Command cheat sheet

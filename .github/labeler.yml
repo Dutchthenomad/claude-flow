@@ -73,3 +73,11 @@
   - '**/*.sh'
   - '!install.sh'
   - '!uninstall.sh'
+
+# Methodology files (triggers Claude review reminder)
+'methodology':
+  - 'commands/**/*'
+  - 'agents/**/*'
+  - 'skills/**/*'
+  - 'hooks/**/*'
+  - 'CLAUDE.md'
