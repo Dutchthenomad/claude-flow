@@ -2,232 +2,128 @@
 
 ## Purpose
 
-This folder contains comprehensive documentation for the **Rugs.fun WebSocket protocol** and **browser connection methods**. It serves as the knowledge base for the `rugs-expert` agent.
+This folder contains the **canonical source of truth** for rugs.fun WebSocket protocol documentation. All downstream formats (JSONL, JSON indexes, vector embeddings) are derived from the spec file.
+
+## Canonical Source
+
+**`WEBSOCKET_EVENTS_SPEC.md`** - Edit this file to update protocol documentation.
+
+All other documentation in this folder is either:
+- **Auto-generated** (in `generated/`) - Do not edit directly
+- **Legacy** - Kept for reference, will be removed after migration
 
 ## Contents
 
-| File | Description | Last Updated |
-|------|-------------|--------------|
-| `EVENTS_INDEX.md` | Complete catalog of all Socket.IO events | 2025-12-14 |
-| `BROWSER_CONNECTION_PROTOCOL.md` | CDP connection guide for authenticated event capture | 2025-12-15 |
-| `QUICK_REFERENCE.md` | Fast lookup for common patterns and commands | 2025-12-15 |
-| `CONNECTION_DIAGRAM.md` | Visual diagrams of connection architecture | 2025-12-15 |
-| `CONTEXT.md` | This file - folder overview | 2025-12-15 |
+| File | Type | Purpose |
+|------|------|---------|
+| `WEBSOCKET_EVENTS_SPEC.md` | **Canonical** | Single source of truth - EDIT THIS |
+| `generated/` | Auto-generated | Derived formats for RAG/queries |
+| `CONTEXT.md` | Documentation | This file |
+| `EVENTS_INDEX.md` | Legacy | Will be removed (merged into spec) |
+| `BROWSER_CONNECTION_PROTOCOL.md` | Reference | CDP connection guide |
+| `QUICK_REFERENCE.md` | Reference | Fast lookup patterns |
+| `CONNECTION_DIAGRAM.md` | Reference | Visual diagrams |
 
-## Integration Points
+## Architecture
 
-### RAG Pipeline
-- Indexed by `rag-pipeline/ingestion/ingest.py`
-- Searchable via `rag-pipeline/retrieval/retrieve.py`
-- Used by `rugs-expert` agent for protocol questions
-
-### REPLAYER Project
-- **Location**: `/home/nomad/Desktop/REPLAYER/`
-- **Implements**: CDP WebSocket interception (Phase 11)
-- **Key Files**:
-  - `src/sources/cdp_websocket_interceptor.py` - Event capture
-  - `src/sources/socketio_parser.py` - Frame parsing
-  - `browser_automation/cdp_browser_manager.py` - CDP connection
-
-### Raw Event Captures
-- **Location**: `/home/nomad/rugs_recordings/raw_captures/`
-- **Format**: JSONL files with timestamped raw Socket.IO frames
-- **Tool**: `src/debug/raw_capture_recorder.py` (REPLAYER)
-- **Analysis**: `scripts/analyze_raw_capture.py`
-
-### RAG Event Catalog
-- **Location**: `/home/nomad/rugs_recordings/rag_events/`
-- **Format**: JSONL files with parsed events
-- **Ingestion**: Automatic via `src/services/rag_ingester.py`
-- **Purpose**: Catalog novel events for future documentation
+```
+WEBSOCKET_EVENTS_SPEC.md (you edit this)
+           │
+           ▼
+    ┌─────────────┐
+    │   Parser    │  python -m rag_pipeline.ingest --source rugs-spec
+    └─────────────┘
+           │
+    ┌──────┴──────┐
+    ▼             ▼
+generated/    ChromaDB
+├── events.jsonl     (vector search)
+├── phase_matrix.json
+└── field_index.json
+```
 
 ## Key Concepts
 
-### Two Connection Methods
+### Game Cycle Phases
 
-1. **Direct WebSocket** (Public Events Only)
-   - Connect to `wss://api.rugs.fun/socket.io/`
-   - Receives broadcast events: `gameStateUpdate`, `standard/newTrade`, etc.
-   - **Limitation**: Auth-required events (`playerUpdate`, `usernameStatus`) not sent
-
-2. **CDP WebSocket Interception** (ALL Events)
-   - Connect to Chrome browser via CDP (port 9222)
-   - Intercept authenticated WebSocket frames
-   - Receives ALL events (public + auth-required)
-   - **Requirement**: Browser with Phantom wallet connected
+| Phase | Indicators | What Happens |
+|-------|------------|--------------|
+| COOLDOWN | `cooldownTimer > 0` | Between games, no trading |
+| PRESALE | `allowPreRoundBuys = true` | Pre-round buys only |
+| ACTIVE | `active = true` | Full trading |
+| RUGGED | `rugged = true` | Game ended, positions liquidated |
 
 ### Event Categories
 
-| Category | Auth Required | Examples |
-|----------|---------------|----------|
-| **Broadcast** | No | `gameStateUpdate`, `standard/newTrade`, `newChatMessage` |
-| **Auth-Required** | Yes | `usernameStatus`, `playerUpdate`, trade responses |
-| **Protocol** | No | `connect`, `disconnect`, ping/pong |
+| Category | Auth | Examples |
+|----------|------|----------|
+| Broadcast | No | `gameStateUpdate`, `standard/newTrade` |
+| Auth-Required | Yes | `playerUpdate`, `usernameStatus` |
+| Request/Response | Yes | `buyOrder`, `sellOrder`, `sidebet` |
 
-### Player Identity
+### Scope Markers
 
-The documented setup uses player **"Dutch"**:
-- **Player ID**: `did:privy:cmaibr7rt0094jp0mc2mbpfu4`
-- **Username**: `Dutch`
-- **Wallet**: Phantom (Solana)
-- **Profile**: `/home/nomad/.gamebot/chrome_profiles/rugs_bot`
+| Scope | Meaning |
+|-------|---------|
+| IN_SCOPE | Actively implemented |
+| OUT_OF_SCOPE | Documented but not used (tournaments, etc.) |
+| FUTURE | Planned for later |
 
-## Usage Examples
+## Usage
 
-### Query the Knowledge Base
+### For Humans
+Edit `WEBSOCKET_EVENTS_SPEC.md` directly. Use any text editor.
 
+### For Agents
+1. Read `WEBSOCKET_EVENTS_SPEC.md` first
+2. Check `generated/phase_matrix.json` for event-phase relationships
+3. Check `generated/field_index.json` for field lookups
+
+### Regenerating Derived Files
 ```bash
 cd /home/nomad/Desktop/claude-flow/rag-pipeline
 source .venv/bin/activate
-python -m retrieval.retrieve "How do I connect to rugs.fun with CDP?"
+python -m ingestion.ingest --source rugs-spec
 ```
 
-### Common Queries
+## Integration Points
 
-1. **"What events require authentication?"**
-   - Returns: `usernameStatus`, `playerUpdate`, trade responses
-   - Reference: `EVENTS_INDEX.md` → Auth-Required Events section
-
-2. **"How do I start Chrome with CDP?"**
-   - Returns: Command-line flags, profile setup
-   - Reference: `BROWSER_CONNECTION_PROTOCOL.md` → Starting Chrome section
-
-3. **"What's in a gameStateUpdate event?"**
-   - Returns: 36+ root fields, nested leaderboard/history objects
-   - Reference: `EVENTS_INDEX.md` → gameStateUpdate section
-
-4. **"How do I parse Socket.IO frames?"**
-   - Returns: Engine.IO protocol, message type prefixes
-   - Reference: `BROWSER_CONNECTION_PROTOCOL.md` → Event Interception Flow
-
-## For Future Agents
-
-### When Adding New Events
-
-1. **Document in EVENTS_INDEX.md**:
-   - Add to appropriate category (Broadcast vs Auth-Required)
-   - Include data structure example
-   - Document all fields with types/descriptions
-   - Note frequency and authentication requirements
-
-2. **Update Event Summary Table**:
-   - Add row to summary table at top of EVENTS_INDEX.md
-   - Include category, frequency, auth requirement
-
-3. **Test Detection**:
-   - Add detection pattern to "Event Detection Patterns" section
-   - Include code example
-
-4. **Re-run Ingestion**:
-   ```bash
-   cd /home/nomad/Desktop/claude-flow/rag-pipeline
-   source .venv/bin/activate
-   python -m ingestion.ingest --force-reindex
-   ```
-
-5. **Verify Retrieval**:
-   ```bash
-   python -m retrieval.retrieve "new event name" --top_k=3
-   ```
-
-### When Updating Connection Protocol
-
-1. **Update BROWSER_CONNECTION_PROTOCOL.md**:
-   - Modify relevant section (Connection Parameters, Troubleshooting, etc.)
-   - Include version/date in change
-   - Add to "Related Documentation" if new external resources
-
-2. **Test Connection**:
-   - Verify instructions work on clean profile
-   - Test CDP connection with `curl` commands
-   - Validate event capture receives expected frames
-
-3. **Update Implementation References**:
-   - Add file paths to "Implementation References" section
-   - Include line counts (use `wc -l`)
-   - Link to relevant test files
-
-4. **Re-run Ingestion** (see above)
-
-### Adding New Documentation Files
-
-When creating new `.md` files in this folder:
-
-1. **Update CONTEXT.md**:
-   - Add row to "Contents" table
-   - Include last-updated date
-   - Brief description (1-2 sentences)
-
-2. **Add Metadata** to new file:
-   ```markdown
-   # Title
-   > Brief description
-   > Last updated: YYYY-MM-DD
-   ```
-
-3. **Link from Existing Docs**:
-   - Add cross-references in EVENTS_INDEX.md or BROWSER_CONNECTION_PROTOCOL.md
-   - Include in "Related Documentation" sections
-
-4. **Run Ingestion** (see above)
-
-## Development Status
-
-- [x] Initial structure (rugs-events folder)
-- [x] EVENTS_INDEX.md (complete event catalog)
-- [x] BROWSER_CONNECTION_PROTOCOL.md (CDP connection guide)
-- [x] CONTEXT.md (this file)
-- [ ] RAG ingestion tested
-- [ ] rugs-expert agent verified
-- [ ] Production ready
+| Project | Location | How It Uses This |
+|---------|----------|------------------|
+| **REPLAYER** | `/home/nomad/Desktop/REPLAYER/` | Event handling implementation |
+| **rugs-rl-bot** | `/home/nomad/Desktop/rugs-rl-bot/` | RL environment design |
+| **VECTRA-PLAYER** | `/home/nomad/Desktop/VECTRA-PLAYER/` | References (source deleted) |
+| **rugs-expert agent** | `agents/rugs-expert.md` | Answers protocol questions |
 
 ## Data Sources
 
 | Source | Location | Purpose |
 |--------|----------|---------|
-| Raw Captures | `/home/nomad/rugs_recordings/raw_captures/` | Protocol debugging |
-| RAG Catalog | `/home/nomad/rugs_recordings/rag_events/` | Novel event detection |
-| REPLAYER Docs | `/home/nomad/Desktop/REPLAYER/docs/` | Implementation specs |
-| Game Recordings | `/home/nomad/rugs_recordings/*.jsonl` | Historical game data (929 games) |
+| Raw Captures | `~/rugs_recordings/raw_captures/` | Protocol validation |
+| Game Recordings | `~/rugs_recordings/*.jsonl` | Historical data (929 games) |
 
 ## Quality Standards
 
-When documenting events or protocols:
+When editing `WEBSOCKET_EVENTS_SPEC.md`:
 
 1. **Completeness**: Document ALL fields, not just important ones
-2. **Examples**: Include real data examples (sanitize sensitive info)
-3. **Types**: Specify data types (string, number, boolean, object, array)
-4. **Frequency**: Note how often events occur (~4/sec, sporadic, once)
-5. **Auth**: Clearly mark auth-required vs public events
-6. **Source**: Reference capture files or analysis scripts
-7. **Date**: Include last-updated date in frontmatter
+2. **Metadata**: Every event needs Scope, Priority, Phases
+3. **Examples**: Include real payload examples
+4. **Types**: Specify data types (string, number, bool, object, array)
+5. **Phase Context**: Note phase-specific behaviors
 
-## Testing the Knowledge Base
+## Development Status
 
-After adding/updating documentation:
-
-```bash
-# 1. Re-index knowledge base
-cd /home/nomad/Desktop/claude-flow/rag-pipeline
-source .venv/bin/activate
-python -m ingestion.ingest --force-reindex
-
-# 2. Test retrieval
-python -m retrieval.retrieve "your test query" --top_k=5
-
-# 3. Verify rugs-expert agent can access
-# (Ask rugs-expert a question that requires the new documentation)
-```
-
-## Related Projects
-
-| Project | Location | Relationship |
-|---------|----------|--------------|
-| **REPLAYER** | `/home/nomad/Desktop/REPLAYER/` | Implements CDP interception |
-| **rugs-rl-bot** | `/home/nomad/Desktop/rugs-rl-bot/` | Uses events for RL training |
-| **CV-BOILER-PLATE-FORK** | `/home/nomad/Desktop/CV-BOILER-PLATE-FORK/` | Provides persistent profile manager |
-| **claude-flow** | `/home/nomad/Desktop/claude-flow/` | RAG pipeline + rugs-expert agent |
+- [x] Canonical spec established (`WEBSOCKET_EVENTS_SPEC.md`)
+- [x] Game Cycle State Machine documented
+- [x] Event-Phase Matrix complete
+- [x] All events have Scope/Priority/Phases markers
+- [x] rugs-expert agent updated
+- [ ] Parser implementation (pending)
+- [ ] Generated files populated (pending)
+- [ ] Legacy files removed (after validation)
 
 ---
 
 *This knowledge base is the authoritative source for rugs.fun protocol documentation.*
+*Last updated: December 18, 2025*
