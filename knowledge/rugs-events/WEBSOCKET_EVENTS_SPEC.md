@@ -34,6 +34,34 @@ This document provides a formal specification of all WebSocket events broadcast 
 
 **Key Insight**: If the user is not logged in with their Phantom wallet, `usernameStatus`, `playerUpdate`, and `playerLeaderboardPosition` will NOT be sent.
 
+### Our Authentication Setup
+
+We use a **dedicated Chrome profile** with automated authentication:
+
+| Component | Details |
+|-----------|---------|
+| **Chrome Profile** | `~/.gamebot/chrome_profiles/rugs_bot` |
+| **Wallet** | Phantom (Solana) - pre-installed in profile |
+| **Player ID** | `did:privy:cmaibr7rt0094jp0mc2mbpfu4` |
+| **Username** | `Dutch` |
+| **Automation** | Puppeteer/Playwright with CDP connection |
+
+**How It Works**:
+1. Puppeteer launches Chrome with the dedicated profile (`--user-data-dir`)
+2. Profile already has Phantom wallet extension installed and configured
+3. Browser navigates to rugs.fun, wallet auto-connects via stored session
+4. CDP WebSocket interception captures ALL events (including auth-required)
+
+**Key Benefit**: Unlike raw WebSocket captures (unauthenticated), our CDP interception through the authenticated browser session receives:
+- `usernameStatus` - Confirms our player identity
+- `playerUpdate` - Server-authoritative balance/position
+- `gameStatePlayerUpdate` - Our leaderboard entry
+- Trade responses (`buyOrderResponse`, `sellOrderResponse`, `sidebetResponse`)
+
+**Profile Setup Script**: `scripts/setup_phantom_profile.py` (CV-BOILER-PLATE-FORK)
+
+**CDP Connection**: See `BROWSER_CONNECTION_PROTOCOL.md` for detailed CDP setup instructions.
+
 ---
 
 ## Current Capture Status
@@ -211,6 +239,12 @@ Which events fire during which phases:
 
 #### God Candle Fields (Celebration Events)
 
+> **NEEDS VALIDATION**: God candles are rare "jackpot" events where the price jumps dramatically.
+> We need to capture live examples to validate these field structures.
+>
+> **PRNG Algorithm**: The game's random number generator is documented at:
+> `/home/nomad/Desktop/claude-flow/knowledge/PRNG-algorithm-source-code.txt`
+
 | Field | Type | Description |
 |-------|------|-------------|
 | `godCandle2x` | float/null | 2x celebration price |
@@ -362,6 +396,18 @@ Each entry represents a player with active position or recent activity:
 
 #### Game History (`gameHistory[]`)
 
+> **HIGH VALUE - ML/RL GOLD MINE**: This rolling window of recent games could replace our passive recording system.
+>
+> **TODO (GitHub Issue)**: Implement server-side game history collection:
+> - Rolling window of last ~10 games (verify exact count)
+> - Track by `gameId` to avoid duplicates
+> - Contains tick-by-tick price data (`prices` array)
+> - Includes all player trades, PnL, positions
+> - Drastically reduces manual data collection effort for RL/ML training
+>
+> **Current System**: We manually record games via CDP WebSocket interception
+> **Proposed System**: Pull historical data directly from `gameHistory[]` on each tick
+
 Array of recent game summaries:
 
 ```json
@@ -373,6 +419,19 @@ Array of recent game summaries:
   "rugPoint": 45.23
 }
 ```
+
+**Full Game History Entry** (needs validation - may include more fields):
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | string | Game ID (format: `YYYYMMDD-uuid`) |
+| `timestamp` | int | Unix timestamp (ms) when game ended |
+| `prices` | array | Tick-by-tick price history |
+| `rugged` | bool | Always `true` (completed games only) |
+| `rugPoint` | float | Final rug multiplier |
+| `globalTrades` | array | All trades in game (TBD - needs validation) |
+| `globalSidebets` | array | All sidebets in game (TBD - needs validation) |
+| `provablyFair` | object | Server seed reveal (TBD - needs validation) |
 
 ---
 
