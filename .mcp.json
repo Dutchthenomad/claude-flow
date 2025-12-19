@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "claude-flow": {
+      "type": "stdio",
+      "command": "python",
+      "args": ["${CLAUDE_PLUGIN_ROOT}/mcp-server/server.py"],
+      "description": "Claude-Flow knowledge base with semantic search, command/agent access, and workflow context"
+    }
+  }
+}
