@@ -1,0 +1,3123 @@
+[
+  {
+    "gameId": "20251215-3889ed88c81a42fc",
+    "rugpool": {
+      "instarugCount": 9,
+      "rugpoolAmount": 7.440795633500021,
+      "totalEntries": 22269,
+      "threshold": 10,
+      "playersWithEntries": 155,
+      "solPerEntry": 0.001,
+      "maxEntriesPerPlayer": 5000,
+      "playerEntries": [
+        {
+          "playerId": "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+          "entries": 5000,
+          "username": "ehiwna",
+          "percentage": 22.452736988638915
+        },
+        {
+          "playerId": "did:privy:cma0m5z4r00afjx0mjpryyqo5",
+          "entries": 4450,
+          "username": "jKolby",
+          "percentage": 19.982935919888632
+        },
+        {
+          "playerId": "did:privy:cmeygisuf00wyl50civj2950w",
+          "entries": 1070,
+          "username": "Wolfeee",
+          "percentage": 4.8048857155687275
+        },
+        {
+          "playerId": "did:privy:cmc56ql2o01ewl70m2961dl9c",
+          "entries": 980,
+          "username": "restlessgambler",
+          "percentage": 4.400736449773227
+        },
+        {
+          "playerId": "did:privy:cma4gg3wj001ijz0memhqm1j7",
+          "entries": 927,
+          "username": "xxiamthereaperxx",
+          "percentage": 4.162737437693655
+        },
+        {
+          "playerId": "did:privy:cmarkpqpa00d0kz0mkgo3iris",
+          "entries": 816,
+          "username": "Clipper",
+          "percentage": 3.6642866765458706
+        },
+        {
+          "playerId": "did:privy:cmgr0n6fu02qvld0djjvkjm59",
+          "entries": 709,
+          "username": "Clixmaster",
+          "percentage": 3.1837981049889983
+        },
+        {
+          "playerId": "did:privy:cmh5xb70v02bqle0dqojmbfmi",
+          "entries": 701,
+          "username": "DelSolx",
+          "percentage": 3.147873725807176
+        },
+        {
+          "playerId": "did:privy:cmhzfppy300hzjm0civauitwq",
+          "entries": 538,
+          "username": "2xJeeterx3",
+          "percentage": 2.4159144999775473
+        },
+        {
+          "playerId": "did:privy:cmfpue0zf002zjr0cb14u2qr0",
+          "entries": 381,
+          "username": "ecole462469",
+          "percentage": 1.7108985585342855
+        }
+      ],
+      "lastDrawing": {
+        "timestamp": 1765750336277,
+        "winners": [
+          {
+            "playerId": "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+            "username": "ehiwna",
+            "entries": 5000,
+            "reward": 3.5956412111666736
+          },
+          {
+            "playerId": "did:privy:cma8r35lw00oalc0mmu10cck7",
+            "username": "CheckItup",
+            "entries": 5000,
+            "reward": 3.5956412111666736
+          },
+          {
+            "playerId": "did:privy:cmeygisuf00wyl50civj2950w",
+            "username": "Wolfeee",
+            "entries": 1121,
+            "reward": 3.5956412111666736
+          }
+        ],
+        "rewardPerWinner": 3.5956412111666736,
+        "totalPoolAmount": 10.78692363350002
+      },
+      "config": {
+        "threshold": 10,
+        "instarugThreshold": 6,
+        "rugpoolPercentage": 0.5
+      }
+    },
+    "trades": []
+  },
+  {
+    "gameId": "20251215-3889ed88c81a42fc",
+    "rugpool": {
+      "instarugCount": 9,
+      "rugpoolAmount": 7.440795633500021,
+      "totalEntries": 22269,
+      "threshold": 10,
+      "playersWithEntries": 155,
+      "solPerEntry": 0.001,
+      "maxEntriesPerPlayer": 5000,
+      "playerEntries": [
+        {
+          "playerId": "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+          "entries": 5000,
+          "username": "ehiwna",
+          "percentage": 22.452736988638915
+        },
+        {
+          "playerId": "did:privy:cma0m5z4r00afjx0mjpryyqo5",
+          "entries": 4450,
+          "username": "jKolby",
+          "percentage": 19.982935919888632
+        },
+        {
+          "playerId": "did:privy:cmeygisuf00wyl50civj2950w",
+          "entries": 1070,
+          "username": "Wolfeee",
+          "percentage": 4.8048857155687275
+        },
+        {
+          "playerId": "did:privy:cmc56ql2o01ewl70m2961dl9c",
+          "entries": 980,
+          "username": "restlessgambler",
+          "percentage": 4.400736449773227
+        },
+        {
+          "playerId": "did:privy:cma4gg3wj001ijz0memhqm1j7",
+          "entries": 927,
+          "username": "xxiamthereaperxx",
+          "percentage": 4.162737437693655
+        },
+        {
+          "playerId": "did:privy:cmarkpqpa00d0kz0mkgo3iris",
+          "entries": 816,
+          "username": "Clipper",
+          "percentage": 3.6642866765458706
+        },
+        {
+          "playerId": "did:privy:cmgr0n6fu02qvld0djjvkjm59",
+          "entries": 709,
+          "username": "Clixmaster",
+          "percentage": 3.1837981049889983
+        },
+        {
+          "playerId": "did:privy:cmh5xb70v02bqle0dqojmbfmi",
+          "entries": 701,
+          "username": "DelSolx",
+          "percentage": 3.147873725807176
+        },
+        {
+          "playerId": "did:privy:cmhzfppy300hzjm0civauitwq",
+          "entries": 538,
+          "username": "2xJeeterx3",
+          "percentage": 2.4159144999775473
+        },
+        {
+          "playerId": "did:privy:cmfpue0zf002zjr0cb14u2qr0",
+          "entries": 381,
+          "username": "ecole462469",
+          "percentage": 1.7108985585342855
+        }
+      ],
+      "lastDrawing": {
+        "timestamp": 1765750336277,
+        "winners": [
+          {
+            "playerId": "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+            "username": "ehiwna",
+            "entries": 5000,
+            "reward": 3.5956412111666736
+          },
+          {
+            "playerId": "did:privy:cma8r35lw00oalc0mmu10cck7",
+            "username": "CheckItup",
+            "entries": 5000,
+            "reward": 3.5956412111666736
+          },
+          {
+            "playerId": "did:privy:cmeygisuf00wyl50civj2950w",
+            "username": "Wolfeee",
+            "entries": 1121,
+            "reward": 3.5956412111666736
+          }
+        ],
+        "rewardPerWinner": 3.5956412111666736,
+        "totalPoolAmount": 10.78692363350002
+      },
+      "config": {
+        "threshold": 10,
+        "instarugThreshold": 6,
+        "rugpoolPercentage": 0.5
+      }
+    }
+  },
+  {
+    "gameId": "20251215-3889ed88c81a42fc",
+    "rugpool": {
+      "instarugCount": 9,
+      "rugpoolAmount": 7.440795633500021,
+      "totalEntries": 22269,
+      "threshold": 10,
+      "playersWithEntries": 155,
+      "solPerEntry": 0.001,
+      "maxEntriesPerPlayer": 5000,
+      "playerEntries": [
+        {
+          "playerId": "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+          "entries": 5000,
+          "username": "ehiwna",
+          "percentage": 22.452736988638915
+        },
+        {
+          "playerId": "did:privy:cma0m5z4r00afjx0mjpryyqo5",
+          "entries": 4450,
+          "username": "jKolby",
+          "percentage": 19.982935919888632
+        },
+        {
+          "playerId": "did:privy:cmeygisuf00wyl50civj2950w",
+          "entries": 1070,
+          "username": "Wolfeee",
+          "percentage": 4.8048857155687275
+        },
+        {
+          "playerId": "did:privy:cmc56ql2o01ewl70m2961dl9c",
+          "entries": 980,
+          "username": "restlessgambler",
+          "percentage": 4.400736449773227
+        },
+        {
+          "playerId": "did:privy:cma4gg3wj001ijz0memhqm1j7",
+          "entries": 927,
+          "username": "xxiamthereaperxx",
+          "percentage": 4.162737437693655
+        },
+        {
+          "playerId": "did:privy:cmarkpqpa00d0kz0mkgo3iris",
+          "entries": 816,
+          "username": "Clipper",
+          "percentage": 3.6642866765458706
+        },
+        {
+          "playerId": "did:privy:cmgr0n6fu02qvld0djjvkjm59",
+          "entries": 709,
+          "username": "Clixmaster",
+          "percentage": 3.1837981049889983
+        },
+        {
+          "playerId": "did:privy:cmh5xb70v02bqle0dqojmbfmi",
+          "entries": 701,
+          "username": "DelSolx",
+          "percentage": 3.147873725807176
+        },
+        {
+          "playerId": "did:privy:cmhzfppy300hzjm0civauitwq",
+          "entries": 538,
+          "username": "2xJeeterx3",
+          "percentage": 2.4159144999775473
+        },
+        {
+          "playerId": "did:privy:cmfpue0zf002zjr0cb14u2qr0",
+          "entries": 381,
+          "username": "ecole462469",
+          "percentage": 1.7108985585342855
+        }
+      ],
+      "lastDrawing": {
+        "timestamp": 1765750336277,
+        "winners": [
+          {
+            "playerId": "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+            "username": "ehiwna",
+            "entries": 5000,
+            "reward": 3.5956412111666736
+          },
+          {
+            "playerId": "did:privy:cma8r35lw00oalc0mmu10cck7",
+            "username": "CheckItup",
+            "entries": 5000,
+            "reward": 3.5956412111666736
+          },
+          {
+            "playerId": "did:privy:cmeygisuf00wyl50civj2950w",
+            "username": "Wolfeee",
+            "entries": 1121,
+            "reward": 3.5956412111666736
+          }
+        ],
+        "rewardPerWinner": 3.5956412111666736,
+        "totalPoolAmount": 10.78692363350002
+      },
+      "config": {
+        "threshold": 10,
+        "instarugThreshold": 6,
+        "rugpoolPercentage": 0.5
+      }
+    }
+  },
+  {
+    "gameId": "20251215-3889ed88c81a42fc",
+    "rugpool": {
+      "instarugCount": 9,
+      "rugpoolAmount": 7.440795633500021,
+      "totalEntries": 22269,
+      "threshold": 10,
+      "playersWithEntries": 155,
+      "solPerEntry": 0.001,
+      "maxEntriesPerPlayer": 5000,
+      "playerEntries": [
+        {
+          "playerId": "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+          "entries": 5000,
+          "username": "ehiwna",
+          "percentage": 22.452736988638915
+        },
+        {
+          "playerId": "did:privy:cma0m5z4r00afjx0mjpryyqo5",
+          "entries": 4450,
+          "username": "jKolby",
+          "percentage": 19.982935919888632
+        },
+        {
+          "playerId": "did:privy:cmeygisuf00wyl50civj2950w",
+          "entries": 1070,
+          "username": "Wolfeee",
+          "percentage": 4.8048857155687275
+        },
+        {
+          "playerId": "did:privy:cmc56ql2o01ewl70m2961dl9c",
+          "entries": 980,
+          "username": "restlessgambler",
+          "percentage": 4.400736449773227
+        },
+        {
+          "playerId": "did:privy:cma4gg3wj001ijz0memhqm1j7",
+          "entries": 927,
+          "username": "xxiamthereaperxx",
+          "percentage": 4.162737437693655
+        },
+        {
+          "playerId": "did:privy:cmarkpqpa00d0kz0mkgo3iris",
+          "entries": 816,
+          "username": "Clipper",
+          "percentage": 3.6642866765458706
+        },
+        {
+          "playerId": "did:privy:cmgr0n6fu02qvld0djjvkjm59",
+          "entries": 709,
+          "username": "Clixmaster",
+          "percentage": 3.1837981049889983
+        },
+        {
+          "playerId": "did:privy:cmh5xb70v02bqle0dqojmbfmi",
+          "entries": 701,
+          "username": "DelSolx",
+          "percentage": 3.147873725807176
+        },
+        {
+          "playerId": "did:privy:cmhzfppy300hzjm0civauitwq",
+          "entries": 538,
+          "username": "2xJeeterx3",
+          "percentage": 2.4159144999775473
+        },
+        {
+          "playerId": "did:privy:cmfpue0zf002zjr0cb14u2qr0",
+          "entries": 381,
+          "username": "ecole462469",
+          "percentage": 1.7108985585342855
+        }
+      ],
+      "lastDrawing": {
+        "timestamp": 1765750336277,
+        "winners": [
+          {
+            "playerId": "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+            "username": "ehiwna",
+            "entries": 5000,
+            "reward": 3.5956412111666736
+          },
+          {
+            "playerId": "did:privy:cma8r35lw00oalc0mmu10cck7",
+            "username": "CheckItup",
+            "entries": 5000,
+            "reward": 3.5956412111666736
+          },
+          {
+            "playerId": "did:privy:cmeygisuf00wyl50civj2950w",
+            "username": "Wolfeee",
+            "entries": 1121,
+            "reward": 3.5956412111666736
+          }
+        ],
+        "rewardPerWinner": 3.5956412111666736,
+        "totalPoolAmount": 10.78692363350002
+      },
+      "config": {
+        "threshold": 10,
+        "instarugThreshold": 6,
+        "rugpoolPercentage": 0.5
+      }
+    }
+  },
+  {
+    "gameId": "20251215-3889ed88c81a42fc",
+    "rugpool": {
+      "instarugCount": 9,
+      "rugpoolAmount": 7.440795633500021,
+      "totalEntries": 22269,
+      "threshold": 10,
+      "playersWithEntries": 155,
+      "solPerEntry": 0.001,
+      "maxEntriesPerPlayer": 5000,
+      "playerEntries": [
+        {
+          "playerId": "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+          "entries": 5000,
+          "username": "ehiwna",
+          "percentage": 22.452736988638915
+        },
+        {
+          "playerId": "did:privy:cma0m5z4r00afjx0mjpryyqo5",
+          "entries": 4450,
+          "username": "jKolby",
+          "percentage": 19.982935919888632
+        },
+        {
+          "playerId": "did:privy:cmeygisuf00wyl50civj2950w",
+          "entries": 1070,
+          "username": "Wolfeee",
+          "percentage": 4.8048857155687275
+        },
+        {
+          "playerId": "did:privy:cmc56ql2o01ewl70m2961dl9c",
+          "entries": 980,
+          "username": "restlessgambler",
+          "percentage": 4.400736449773227
+        },
+        {
+          "playerId": "did:privy:cma4gg3wj001ijz0memhqm1j7",
+          "entries": 927,
+          "username": "xxiamthereaperxx",
+          "percentage": 4.162737437693655
+        },
+        {
+          "playerId": "did:privy:cmarkpqpa00d0kz0mkgo3iris",
+          "entries": 816,
+          "username": "Clipper",
+          "percentage": 3.6642866765458706
+        },
+        {
+          "playerId": "did:privy:cmgr0n6fu02qvld0djjvkjm59",
+          "entries": 709,
+          "username": "Clixmaster",
+          "percentage": 3.1837981049889983
+        },
+        {
+          "playerId": "did:privy:cmh5xb70v02bqle0dqojmbfmi",
+          "entries": 701,
+          "username": "DelSolx",
+          "percentage": 3.147873725807176
+        },
+        {
+          "playerId": "did:privy:cmhzfppy300hzjm0civauitwq",
+          "entries": 538,
+          "username": "2xJeeterx3",
+          "percentage": 2.4159144999775473
+        },
+        {
+          "playerId": "did:privy:cmfpue0zf002zjr0cb14u2qr0",
+          "entries": 381,
+          "username": "ecole462469",
+          "percentage": 1.7108985585342855
+        }
+      ],
+      "lastDrawing": {
+        "timestamp": 1765750336277,
+        "winners": [
+          {
+            "playerId": "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+            "username": "ehiwna",
+            "entries": 5000,
+            "reward": 3.5956412111666736
+          },
+          {
+            "playerId": "did:privy:cma8r35lw00oalc0mmu10cck7",
+            "username": "CheckItup",
+            "entries": 5000,
+            "reward": 3.5956412111666736
+          },
+          {
+            "playerId": "did:privy:cmeygisuf00wyl50civj2950w",
+            "username": "Wolfeee",
+            "entries": 1121,
+            "reward": 3.5956412111666736
+          }
+        ],
+        "rewardPerWinner": 3.5956412111666736,
+        "totalPoolAmount": 10.78692363350002
+      },
+      "config": {
+        "threshold": 10,
+        "instarugThreshold": 6,
+        "rugpoolPercentage": 0.5
+      }
+    }
+  },
+  {
+    "gameId": "20251215-3889ed88c81a42fc",
+    "rugpool": {
+      "instarugCount": 9,
+      "rugpoolAmount": 7.440795633500021,
+      "totalEntries": 22269,
+      "threshold": 10,
+      "playersWithEntries": 155,
+      "solPerEntry": 0.001,
+      "maxEntriesPerPlayer": 5000,
+      "playerEntries": [
+        {
+          "playerId": "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+          "entries": 5000,
+          "username": "ehiwna",
+          "percentage": 22.452736988638915
+        },
+        {
+          "playerId": "did:privy:cma0m5z4r00afjx0mjpryyqo5",
+          "entries": 4450,
+          "username": "jKolby",
+          "percentage": 19.982935919888632
+        },
+        {
+          "playerId": "did:privy:cmeygisuf00wyl50civj2950w",
+          "entries": 1070,
+          "username": "Wolfeee",
+          "percentage": 4.8048857155687275
+        },
+        {
+          "playerId": "did:privy:cmc56ql2o01ewl70m2961dl9c",
+          "entries": 980,
+          "username": "restlessgambler",
+          "percentage": 4.400736449773227
+        },
+        {
+          "playerId": "did:privy:cma4gg3wj001ijz0memhqm1j7",
+          "entries": 927,
+          "username": "xxiamthereaperxx",
+          "percentage": 4.162737437693655
+        },
+        {
+          "playerId": "did:privy:cmarkpqpa00d0kz0mkgo3iris",
+          "entries": 816,
+          "username": "Clipper",
+          "percentage": 3.6642866765458706
+        },
+        {
+          "playerId": "did:privy:cmgr0n6fu02qvld0djjvkjm59",
+          "entries": 709,
+          "username": "Clixmaster",
+          "percentage": 3.1837981049889983
+        },
+        {
+          "playerId": "did:privy:cmh5xb70v02bqle0dqojmbfmi",
+          "entries": 701,
+          "username": "DelSolx",
+          "percentage": 3.147873725807176
+        },
+        {
+          "playerId": "did:privy:cmhzfppy300hzjm0civauitwq",
+          "entries": 538,
+          "username": "2xJeeterx3",
+          "percentage": 2.4159144999775473
+        },
+        {
+          "playerId": "did:privy:cmfpue0zf002zjr0cb14u2qr0",
+          "entries": 381,
+          "username": "ecole462469",
+          "percentage": 1.7108985585342855
+        }
+      ],
+      "lastDrawing": {
+        "timestamp": 1765750336277,
+        "winners": [
+          {
+            "playerId": "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+            "username": "ehiwna",
+            "entries": 5000,
+            "reward": 3.5956412111666736
+          },
+          {
+            "playerId": "did:privy:cma8r35lw00oalc0mmu10cck7",
+            "username": "CheckItup",
+            "entries": 5000,
+            "reward": 3.5956412111666736
+          },
+          {
+            "playerId": "did:privy:cmeygisuf00wyl50civj2950w",
+            "username": "Wolfeee",
+            "entries": 1121,
+            "reward": 3.5956412111666736
+          }
+        ],
+        "rewardPerWinner": 3.5956412111666736,
+        "totalPoolAmount": 10.78692363350002
+      },
+      "config": {
+        "threshold": 10,
+        "instarugThreshold": 6,
+        "rugpoolPercentage": 0.5
+      }
+    }
+  },
+  {
+    "gameId": "20251215-3889ed88c81a42fc",
+    "rugpool": {
+      "instarugCount": 9,
+      "rugpoolAmount": 7.440795633500021,
+      "totalEntries": 22269,
+      "threshold": 10,
+      "playersWithEntries": 155,
+      "solPerEntry": 0.001,
+      "maxEntriesPerPlayer": 5000,
+      "playerEntries": [
+        {
+          "playerId": "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+          "entries": 5000,
+          "username": "ehiwna",
+          "percentage": 22.452736988638915
+        },
+        {
+          "playerId": "did:privy:cma0m5z4r00afjx0mjpryyqo5",
+          "entries": 4450,
+          "username": "jKolby",
+          "percentage": 19.982935919888632
+        },
+        {
+          "playerId": "did:privy:cmeygisuf00wyl50civj2950w",
+          "entries": 1070,
+          "username": "Wolfeee",
+          "percentage": 4.8048857155687275
+        },
+        {
+          "playerId": "did:privy:cmc56ql2o01ewl70m2961dl9c",
+          "entries": 980,
+          "username": "restlessgambler",
+          "percentage": 4.400736449773227
+        },
+        {
+          "playerId": "did:privy:cma4gg3wj001ijz0memhqm1j7",
+          "entries": 927,
+          "username": "xxiamthereaperxx",
+          "percentage": 4.162737437693655
+        },
+        {
+          "playerId": "did:privy:cmarkpqpa00d0kz0mkgo3iris",
+          "entries": 816,
+          "username": "Clipper",
+          "percentage": 3.6642866765458706
+        },
+        {
+          "playerId": "did:privy:cmgr0n6fu02qvld0djjvkjm59",
+          "entries": 709,
+          "username": "Clixmaster",
+          "percentage": 3.1837981049889983
+        },
+        {
+          "playerId": "did:privy:cmh5xb70v02bqle0dqojmbfmi",
+          "entries": 701,
+          "username": "DelSolx",
+          "percentage": 3.147873725807176
+        },
+        {
+          "playerId": "did:privy:cmhzfppy300hzjm0civauitwq",
+          "entries": 538,
+          "username": "2xJeeterx3",
+          "percentage": 2.4159144999775473
+        },
+        {
+          "playerId": "did:privy:cmfpue0zf002zjr0cb14u2qr0",
+          "entries": 381,
+          "username": "ecole462469",
+          "percentage": 1.7108985585342855
+        }
+      ],
+      "lastDrawing": {
+        "timestamp": 1765750336277,
+        "winners": [
+          {
+            "playerId": "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+            "username": "ehiwna",
+            "entries": 5000,
+            "reward": 3.5956412111666736
+          },
+          {
+            "playerId": "did:privy:cma8r35lw00oalc0mmu10cck7",
+            "username": "CheckItup",
+            "entries": 5000,
+            "reward": 3.5956412111666736
+          },
+          {
+            "playerId": "did:privy:cmeygisuf00wyl50civj2950w",
+            "username": "Wolfeee",
+            "entries": 1121,
+            "reward": 3.5956412111666736
+          }
+        ],
+        "rewardPerWinner": 3.5956412111666736,
+        "totalPoolAmount": 10.78692363350002
+      },
+      "config": {
+        "threshold": 10,
+        "instarugThreshold": 6,
+        "rugpoolPercentage": 0.5
+      }
+    }
+  },
+  {
+    "gameId": "20251215-3889ed88c81a42fc",
+    "rugpool": {
+      "instarugCount": 9,
+      "rugpoolAmount": 7.440795633500021,
+      "totalEntries": 22269,
+      "threshold": 10,
+      "playersWithEntries": 155,
+      "solPerEntry": 0.001,
+      "maxEntriesPerPlayer": 5000,
+      "playerEntries": [
+        {
+          "playerId": "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+          "entries": 5000,
+          "username": "ehiwna",
+          "percentage": 22.452736988638915
+        },
+        {
+          "playerId": "did:privy:cma0m5z4r00afjx0mjpryyqo5",
+          "entries": 4450,
+          "username": "jKolby",
+          "percentage": 19.982935919888632
+        },
+        {
+          "playerId": "did:privy:cmeygisuf00wyl50civj2950w",
+          "entries": 1070,
+          "username": "Wolfeee",
+          "percentage": 4.8048857155687275
+        },
+        {
+          "playerId": "did:privy:cmc56ql2o01ewl70m2961dl9c",
+          "entries": 980,
+          "username": "restlessgambler",
+          "percentage": 4.400736449773227
+        },
+        {
+          "playerId": "did:privy:cma4gg3wj001ijz0memhqm1j7",
+          "entries": 927,
+          "username": "xxiamthereaperxx",
+          "percentage": 4.162737437693655
+        },
+        {
+          "playerId": "did:privy:cmarkpqpa00d0kz0mkgo3iris",
+          "entries": 816,
+          "username": "Clipper",
+          "percentage": 3.6642866765458706
+        },
+        {
+          "playerId": "did:privy:cmgr0n6fu02qvld0djjvkjm59",
+          "entries": 709,
+          "username": "Clixmaster",
+          "percentage": 3.1837981049889983
+        },
+        {
+          "playerId": "did:privy:cmh5xb70v02bqle0dqojmbfmi",
+          "entries": 701,
+          "username": "DelSolx",
+          "percentage": 3.147873725807176
+        },
+        {
+          "playerId": "did:privy:cmhzfppy300hzjm0civauitwq",
+          "entries": 538,
+          "username": "2xJeeterx3",
+          "percentage": 2.4159144999775473
+        },
+        {
+          "playerId": "did:privy:cmfpue0zf002zjr0cb14u2qr0",
+          "entries": 381,
+          "username": "ecole462469",
+          "percentage": 1.7108985585342855
+        }
+      ],
+      "lastDrawing": {
+        "timestamp": 1765750336277,
+        "winners": [
+          {
+            "playerId": "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+            "username": "ehiwna",
+            "entries": 5000,
+            "reward": 3.5956412111666736
+          },
+          {
+            "playerId": "did:privy:cma8r35lw00oalc0mmu10cck7",
+            "username": "CheckItup",
+            "entries": 5000,
+            "reward": 3.5956412111666736
+          },
+          {
+            "playerId": "did:privy:cmeygisuf00wyl50civj2950w",
+            "username": "Wolfeee",
+            "entries": 1121,
+            "reward": 3.5956412111666736
+          }
+        ],
+        "rewardPerWinner": 3.5956412111666736,
+        "totalPoolAmount": 10.78692363350002
+      },
+      "config": {
+        "threshold": 10,
+        "instarugThreshold": 6,
+        "rugpoolPercentage": 0.5
+      }
+    }
+  },
+  {
+    "gameId": "20251215-3889ed88c81a42fc",
+    "rugpool": {
+      "instarugCount": 9,
+      "rugpoolAmount": 7.440795633500021,
+      "totalEntries": 22269,
+      "threshold": 10,
+      "playersWithEntries": 155,
+      "solPerEntry": 0.001,
+      "maxEntriesPerPlayer": 5000,
+      "playerEntries": [
+        {
+          "playerId": "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+          "entries": 5000,
+          "username": "ehiwna",
+          "percentage": 22.452736988638915
+        },
+        {
+          "playerId": "did:privy:cma0m5z4r00afjx0mjpryyqo5",
+          "entries": 4450,
+          "username": "jKolby",
+          "percentage": 19.982935919888632
+        },
+        {
+          "playerId": "did:privy:cmeygisuf00wyl50civj2950w",
+          "entries": 1070,
+          "username": "Wolfeee",
+          "percentage": 4.8048857155687275
+        },
+        {
+          "playerId": "did:privy:cmc56ql2o01ewl70m2961dl9c",
+          "entries": 980,
+          "username": "restlessgambler",
+          "percentage": 4.400736449773227
+        },
+        {
+          "playerId": "did:privy:cma4gg3wj001ijz0memhqm1j7",
+          "entries": 927,
+          "username": "xxiamthereaperxx",
+          "percentage": 4.162737437693655
+        },
+        {
+          "playerId": "did:privy:cmarkpqpa00d0kz0mkgo3iris",
+          "entries": 816,
+          "username": "Clipper",
+          "percentage": 3.6642866765458706
+        },
+        {
+          "playerId": "did:privy:cmgr0n6fu02qvld0djjvkjm59",
+          "entries": 709,
+          "username": "Clixmaster",
+          "percentage": 3.1837981049889983
+        },
+        {
+          "playerId": "did:privy:cmh5xb70v02bqle0dqojmbfmi",
+          "entries": 701,
+          "username": "DelSolx",
+          "percentage": 3.147873725807176
+        },
+        {
+          "playerId": "did:privy:cmhzfppy300hzjm0civauitwq",
+          "entries": 538,
+          "username": "2xJeeterx3",
+          "percentage": 2.4159144999775473
+        },
+        {
+          "playerId": "did:privy:cmfpue0zf002zjr0cb14u2qr0",
+          "entries": 381,
+          "username": "ecole462469",
+          "percentage": 1.7108985585342855
+        }
+      ],
+      "lastDrawing": {
+        "timestamp": 1765750336277,
+        "winners": [
+          {
+            "playerId": "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+            "username": "ehiwna",
+            "entries": 5000,
+            "reward": 3.5956412111666736
+          },
+          {
+            "playerId": "did:privy:cma8r35lw00oalc0mmu10cck7",
+            "username": "CheckItup",
+            "entries": 5000,
+            "reward": 3.5956412111666736
+          },
+          {
+            "playerId": "did:privy:cmeygisuf00wyl50civj2950w",
+            "username": "Wolfeee",
+            "entries": 1121,
+            "reward": 3.5956412111666736
+          }
+        ],
+        "rewardPerWinner": 3.5956412111666736,
+        "totalPoolAmount": 10.78692363350002
+      },
+      "config": {
+        "threshold": 10,
+        "instarugThreshold": 6,
+        "rugpoolPercentage": 0.5
+      }
+    }
+  },
+  {
+    "gameId": "20251215-3889ed88c81a42fc",
+    "rugpool": {
+      "instarugCount": 9,
+      "rugpoolAmount": 7.440795633500021,
+      "totalEntries": 22269,
+      "threshold": 10,
+      "playersWithEntries": 155,
+      "solPerEntry": 0.001,
+      "maxEntriesPerPlayer": 5000,
+      "playerEntries": [
+        {
+          "playerId": "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+          "entries": 5000,
+          "username": "ehiwna",
+          "percentage": 22.452736988638915
+        },
+        {
+          "playerId": "did:privy:cma0m5z4r00afjx0mjpryyqo5",
+          "entries": 4450,
+          "username": "jKolby",
+          "percentage": 19.982935919888632
+        },
+        {
+          "playerId": "did:privy:cmeygisuf00wyl50civj2950w",
+          "entries": 1070,
+          "username": "Wolfeee",
+          "percentage": 4.8048857155687275
+        },
+        {
+          "playerId": "did:privy:cmc56ql2o01ewl70m2961dl9c",
+          "entries": 980,
+          "username": "restlessgambler",
+          "percentage": 4.400736449773227
+        },
+        {
+          "playerId": "did:privy:cma4gg3wj001ijz0memhqm1j7",
+          "entries": 927,
+          "username": "xxiamthereaperxx",
+          "percentage": 4.162737437693655
+        },
+        {
+          "playerId": "did:privy:cmarkpqpa00d0kz0mkgo3iris",
+          "entries": 816,
+          "username": "Clipper",
+          "percentage": 3.6642866765458706
+        },
+        {
+          "playerId": "did:privy:cmgr0n6fu02qvld0djjvkjm59",
+          "entries": 709,
+          "username": "Clixmaster",
+          "percentage": 3.1837981049889983
+        },
+        {
+          "playerId": "did:privy:cmh5xb70v02bqle0dqojmbfmi",
+          "entries": 701,
+          "username": "DelSolx",
+          "percentage": 3.147873725807176
+        },
+        {
+          "playerId": "did:privy:cmhzfppy300hzjm0civauitwq",
+          "entries": 538,
+          "username": "2xJeeterx3",
+          "percentage": 2.4159144999775473
+        },
+        {
+          "playerId": "did:privy:cmfpue0zf002zjr0cb14u2qr0",
+          "entries": 381,
+          "username": "ecole462469",
+          "percentage": 1.7108985585342855
+        }
+      ],
+      "lastDrawing": {
+        "timestamp": 1765750336277,
+        "winners": [
+          {
+            "playerId": "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+            "username": "ehiwna",
+            "entries": 5000,
+            "reward": 3.5956412111666736
+          },
+          {
+            "playerId": "did:privy:cma8r35lw00oalc0mmu10cck7",
+            "username": "CheckItup",
+            "entries": 5000,
+            "reward": 3.5956412111666736
+          },
+          {
+            "playerId": "did:privy:cmeygisuf00wyl50civj2950w",
+            "username": "Wolfeee",
+            "entries": 1121,
+            "reward": 3.5956412111666736
+          }
+        ],
+        "rewardPerWinner": 3.5956412111666736,
+        "totalPoolAmount": 10.78692363350002
+      },
+      "config": {
+        "threshold": 10,
+        "instarugThreshold": 6,
+        "rugpoolPercentage": 0.5
+      }
+    }
+  },
+  {
+    "gameId": "20251215-3889ed88c81a42fc",
+    "rugpool": {
+      "instarugCount": 9,
+      "rugpoolAmount": 7.440795633500021,
+      "totalEntries": 22269,
+      "threshold": 10,
+      "playersWithEntries": 155,
+      "solPerEntry": 0.001,
+      "maxEntriesPerPlayer": 5000,
+      "playerEntries": [
+        {
+          "playerId": "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+          "entries": 5000,
+          "username": "ehiwna",
+          "percentage": 22.452736988638915
+        },
+        {
+          "playerId": "did:privy:cma0m5z4r00afjx0mjpryyqo5",
+          "entries": 4450,
+          "username": "jKolby",
+          "percentage": 19.982935919888632
+        },
+        {
+          "playerId": "did:privy:cmeygisuf00wyl50civj2950w",
+          "entries": 1070,
+          "username": "Wolfeee",
+          "percentage": 4.8048857155687275
+        },
+        {
+          "playerId": "did:privy:cmc56ql2o01ewl70m2961dl9c",
+          "entries": 980,
+          "username": "restlessgambler",
+          "percentage": 4.400736449773227
+        },
+        {
+          "playerId": "did:privy:cma4gg3wj001ijz0memhqm1j7",
+          "entries": 927,
+          "username": "xxiamthereaperxx",
+          "percentage": 4.162737437693655
+        },
+        {
+          "playerId": "did:privy:cmarkpqpa00d0kz0mkgo3iris",
+          "entries": 816,
+          "username": "Clipper",
+          "percentage": 3.6642866765458706
+        },
+        {
+          "playerId": "did:privy:cmgr0n6fu02qvld0djjvkjm59",
+          "entries": 709,
+          "username": "Clixmaster",
+          "percentage": 3.1837981049889983
+        },
+        {
+          "playerId": "did:privy:cmh5xb70v02bqle0dqojmbfmi",
+          "entries": 701,
+          "username": "DelSolx",
+          "percentage": 3.147873725807176
+        },
+        {
+          "playerId": "did:privy:cmhzfppy300hzjm0civauitwq",
+          "entries": 538,
+          "username": "2xJeeterx3",
+          "percentage": 2.4159144999775473
+        },
+        {
+          "playerId": "did:privy:cmfpue0zf002zjr0cb14u2qr0",
+          "entries": 381,
+          "username": "ecole462469",
+          "percentage": 1.7108985585342855
+        }
+      ],
+      "lastDrawing": {
+        "timestamp": 1765750336277,
+        "winners": [
+          {
+            "playerId": "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+            "username": "ehiwna",
+            "entries": 5000,
+            "reward": 3.5956412111666736
+          },
+          {
+            "playerId": "did:privy:cma8r35lw00oalc0mmu10cck7",
+            "username": "CheckItup",
+            "entries": 5000,
+            "reward": 3.5956412111666736
+          },
+          {
+            "playerId": "did:privy:cmeygisuf00wyl50civj2950w",
+            "username": "Wolfeee",
+            "entries": 1121,
+            "reward": 3.5956412111666736
+          }
+        ],
+        "rewardPerWinner": 3.5956412111666736,
+        "totalPoolAmount": 10.78692363350002
+      },
+      "config": {
+        "threshold": 10,
+        "instarugThreshold": 6,
+        "rugpoolPercentage": 0.5
+      }
+    }
+  },
+  {
+    "gameId": "20251215-3889ed88c81a42fc",
+    "rugpool": {
+      "instarugCount": 9,
+      "rugpoolAmount": 7.440795633500021,
+      "totalEntries": 22269,
+      "threshold": 10,
+      "playersWithEntries": 155,
+      "solPerEntry": 0.001,
+      "maxEntriesPerPlayer": 5000,
+      "playerEntries": [
+        {
+          "playerId": "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+          "entries": 5000,
+          "username": "ehiwna",
+          "percentage": 22.452736988638915
+        },
+        {
+          "playerId": "did:privy:cma0m5z4r00afjx0mjpryyqo5",
+          "entries": 4450,
+          "username": "jKolby",
+          "percentage": 19.982935919888632
+        },
+        {
+          "playerId": "did:privy:cmeygisuf00wyl50civj2950w",
+          "entries": 1070,
+          "username": "Wolfeee",
+          "percentage": 4.8048857155687275
+        },
+        {
+          "playerId": "did:privy:cmc56ql2o01ewl70m2961dl9c",
+          "entries": 980,
+          "username": "restlessgambler",
+          "percentage": 4.400736449773227
+        },
+        {
+          "playerId": "did:privy:cma4gg3wj001ijz0memhqm1j7",
+          "entries": 927,
+          "username": "xxiamthereaperxx",
+          "percentage": 4.162737437693655
+        },
+        {
+          "playerId": "did:privy:cmarkpqpa00d0kz0mkgo3iris",
+          "entries": 816,
+          "username": "Clipper",
+          "percentage": 3.6642866765458706
+        },
+        {
+          "playerId": "did:privy:cmgr0n6fu02qvld0djjvkjm59",
+          "entries": 709,
+          "username": "Clixmaster",
+          "percentage": 3.1837981049889983
+        },
+        {
+          "playerId": "did:privy:cmh5xb70v02bqle0dqojmbfmi",
+          "entries": 701,
+          "username": "DelSolx",
+          "percentage": 3.147873725807176
+        },
+        {
+          "playerId": "did:privy:cmhzfppy300hzjm0civauitwq",
+          "entries": 538,
+          "username": "2xJeeterx3",
+          "percentage": 2.4159144999775473
+        },
+        {
+          "playerId": "did:privy:cmfpue0zf002zjr0cb14u2qr0",
+          "entries": 381,
+          "username": "ecole462469",
+          "percentage": 1.7108985585342855
+        }
+      ],
+      "lastDrawing": {
+        "timestamp": 1765750336277,
+        "winners": [
+          {
+            "playerId": "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+            "username": "ehiwna",
+            "entries": 5000,
+            "reward": 3.5956412111666736
+          },
+          {
+            "playerId": "did:privy:cma8r35lw00oalc0mmu10cck7",
+            "username": "CheckItup",
+            "entries": 5000,
+            "reward": 3.5956412111666736
+          },
+          {
+            "playerId": "did:privy:cmeygisuf00wyl50civj2950w",
+            "username": "Wolfeee",
+            "entries": 1121,
+            "reward": 3.5956412111666736
+          }
+        ],
+        "rewardPerWinner": 3.5956412111666736,
+        "totalPoolAmount": 10.78692363350002
+      },
+      "config": {
+        "threshold": 10,
+        "instarugThreshold": 6,
+        "rugpoolPercentage": 0.5
+      }
+    }
+  },
+  {
+    "gameId": "20251215-3889ed88c81a42fc",
+    "rugpool": {
+      "instarugCount": 9,
+      "rugpoolAmount": 7.440795633500021,
+      "totalEntries": 22269,
+      "threshold": 10,
+      "playersWithEntries": 155,
+      "solPerEntry": 0.001,
+      "maxEntriesPerPlayer": 5000,
+      "playerEntries": [
+        {
+          "playerId": "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+          "entries": 5000,
+          "username": "ehiwna",
+          "percentage": 22.452736988638915
+        },
+        {
+          "playerId": "did:privy:cma0m5z4r00afjx0mjpryyqo5",
+          "entries": 4450,
+          "username": "jKolby",
+          "percentage": 19.982935919888632
+        },
+        {
+          "playerId": "did:privy:cmeygisuf00wyl50civj2950w",
+          "entries": 1070,
+          "username": "Wolfeee",
+          "percentage": 4.8048857155687275
+        },
+        {
+          "playerId": "did:privy:cmc56ql2o01ewl70m2961dl9c",
+          "entries": 980,
+          "username": "restlessgambler",
+          "percentage": 4.400736449773227
+        },
+        {
+          "playerId": "did:privy:cma4gg3wj001ijz0memhqm1j7",
+          "entries": 927,
+          "username": "xxiamthereaperxx",
+          "percentage": 4.162737437693655
+        },
+        {
+          "playerId": "did:privy:cmarkpqpa00d0kz0mkgo3iris",
+          "entries": 816,
+          "username": "Clipper",
+          "percentage": 3.6642866765458706
+        },
+        {
+          "playerId": "did:privy:cmgr0n6fu02qvld0djjvkjm59",
+          "entries": 709,
+          "username": "Clixmaster",
+          "percentage": 3.1837981049889983
+        },
+        {
+          "playerId": "did:privy:cmh5xb70v02bqle0dqojmbfmi",
+          "entries": 701,
+          "username": "DelSolx",
+          "percentage": 3.147873725807176
+        },
+        {
+          "playerId": "did:privy:cmhzfppy300hzjm0civauitwq",
+          "entries": 538,
+          "username": "2xJeeterx3",
+          "percentage": 2.4159144999775473
+        },
+        {
+          "playerId": "did:privy:cmfpue0zf002zjr0cb14u2qr0",
+          "entries": 381,
+          "username": "ecole462469",
+          "percentage": 1.7108985585342855
+        }
+      ],
+      "lastDrawing": {
+        "timestamp": 1765750336277,
+        "winners": [
+          {
+            "playerId": "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+            "username": "ehiwna",
+            "entries": 5000,
+            "reward": 3.5956412111666736
+          },
+          {
+            "playerId": "did:privy:cma8r35lw00oalc0mmu10cck7",
+            "username": "CheckItup",
+            "entries": 5000,
+            "reward": 3.5956412111666736
+          },
+          {
+            "playerId": "did:privy:cmeygisuf00wyl50civj2950w",
+            "username": "Wolfeee",
+            "entries": 1121,
+            "reward": 3.5956412111666736
+          }
+        ],
+        "rewardPerWinner": 3.5956412111666736,
+        "totalPoolAmount": 10.78692363350002
+      },
+      "config": {
+        "threshold": 10,
+        "instarugThreshold": 6,
+        "rugpoolPercentage": 0.5
+      }
+    }
+  },
+  {
+    "gameId": "20251215-3889ed88c81a42fc",
+    "rugpool": {
+      "instarugCount": 9,
+      "rugpoolAmount": 7.440795633500021,
+      "totalEntries": 22269,
+      "threshold": 10,
+      "playersWithEntries": 155,
+      "solPerEntry": 0.001,
+      "maxEntriesPerPlayer": 5000,
+      "playerEntries": [
+        {
+          "playerId": "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+          "entries": 5000,
+          "username": "ehiwna",
+          "percentage": 22.452736988638915
+        },
+        {
+          "playerId": "did:privy:cma0m5z4r00afjx0mjpryyqo5",
+          "entries": 4450,
+          "username": "jKolby",
+          "percentage": 19.982935919888632
+        },
+        {
+          "playerId": "did:privy:cmeygisuf00wyl50civj2950w",
+          "entries": 1070,
+          "username": "Wolfeee",
+          "percentage": 4.8048857155687275
+        },
+        {
+          "playerId": "did:privy:cmc56ql2o01ewl70m2961dl9c",
+          "entries": 980,
+          "username": "restlessgambler",
+          "percentage": 4.400736449773227
+        },
+        {
+          "playerId": "did:privy:cma4gg3wj001ijz0memhqm1j7",
+          "entries": 927,
+          "username": "xxiamthereaperxx",
+          "percentage": 4.162737437693655
+        },
+        {
+          "playerId": "did:privy:cmarkpqpa00d0kz0mkgo3iris",
+          "entries": 816,
+          "username": "Clipper",
+          "percentage": 3.6642866765458706
+        },
+        {
+          "playerId": "did:privy:cmgr0n6fu02qvld0djjvkjm59",
+          "entries": 709,
+          "username": "Clixmaster",
+          "percentage": 3.1837981049889983
+        },
+        {
+          "playerId": "did:privy:cmh5xb70v02bqle0dqojmbfmi",
+          "entries": 701,
+          "username": "DelSolx",
+          "percentage": 3.147873725807176
+        },
+        {
+          "playerId": "did:privy:cmhzfppy300hzjm0civauitwq",
+          "entries": 538,
+          "username": "2xJeeterx3",
+          "percentage": 2.4159144999775473
+        },
+        {
+          "playerId": "did:privy:cmfpue0zf002zjr0cb14u2qr0",
+          "entries": 381,
+          "username": "ecole462469",
+          "percentage": 1.7108985585342855
+        }
+      ],
+      "lastDrawing": {
+        "timestamp": 1765750336277,
+        "winners": [
+          {
+            "playerId": "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+            "username": "ehiwna",
+            "entries": 5000,
+            "reward": 3.5956412111666736
+          },
+          {
+            "playerId": "did:privy:cma8r35lw00oalc0mmu10cck7",
+            "username": "CheckItup",
+            "entries": 5000,
+            "reward": 3.5956412111666736
+          },
+          {
+            "playerId": "did:privy:cmeygisuf00wyl50civj2950w",
+            "username": "Wolfeee",
+            "entries": 1121,
+            "reward": 3.5956412111666736
+          }
+        ],
+        "rewardPerWinner": 3.5956412111666736,
+        "totalPoolAmount": 10.78692363350002
+      },
+      "config": {
+        "threshold": 10,
+        "instarugThreshold": 6,
+        "rugpoolPercentage": 0.5
+      }
+    }
+  },
+  {
+    "gameId": "20251215-3889ed88c81a42fc",
+    "rugpool": {
+      "instarugCount": 9,
+      "rugpoolAmount": 7.440795633500021,
+      "totalEntries": 22269,
+      "threshold": 10,
+      "playersWithEntries": 155,
+      "solPerEntry": 0.001,
+      "maxEntriesPerPlayer": 5000,
+      "playerEntries": [
+        {
+          "playerId": "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+          "entries": 5000,
+          "username": "ehiwna",
+          "percentage": 22.452736988638915
+        },
+        {
+          "playerId": "did:privy:cma0m5z4r00afjx0mjpryyqo5",
+          "entries": 4450,
+          "username": "jKolby",
+          "percentage": 19.982935919888632
+        },
+        {
+          "playerId": "did:privy:cmeygisuf00wyl50civj2950w",
+          "entries": 1070,
+          "username": "Wolfeee",
+          "percentage": 4.8048857155687275
+        },
+        {
+          "playerId": "did:privy:cmc56ql2o01ewl70m2961dl9c",
+          "entries": 980,
+          "username": "restlessgambler",
+          "percentage": 4.400736449773227
+        },
+        {
+          "playerId": "did:privy:cma4gg3wj001ijz0memhqm1j7",
+          "entries": 927,
+          "username": "xxiamthereaperxx",
+          "percentage": 4.162737437693655
+        },
+        {
+          "playerId": "did:privy:cmarkpqpa00d0kz0mkgo3iris",
+          "entries": 816,
+          "username": "Clipper",
+          "percentage": 3.6642866765458706
+        },
+        {
+          "playerId": "did:privy:cmgr0n6fu02qvld0djjvkjm59",
+          "entries": 709,
+          "username": "Clixmaster",
+          "percentage": 3.1837981049889983
+        },
+        {
+          "playerId": "did:privy:cmh5xb70v02bqle0dqojmbfmi",
+          "entries": 701,
+          "username": "DelSolx",
+          "percentage": 3.147873725807176
+        },
+        {
+          "playerId": "did:privy:cmhzfppy300hzjm0civauitwq",
+          "entries": 538,
+          "username": "2xJeeterx3",
+          "percentage": 2.4159144999775473
+        },
+        {
+          "playerId": "did:privy:cmfpue0zf002zjr0cb14u2qr0",
+          "entries": 381,
+          "username": "ecole462469",
+          "percentage": 1.7108985585342855
+        }
+      ],
+      "lastDrawing": {
+        "timestamp": 1765750336277,
+        "winners": [
+          {
+            "playerId": "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+            "username": "ehiwna",
+            "entries": 5000,
+            "reward": 3.5956412111666736
+          },
+          {
+            "playerId": "did:privy:cma8r35lw00oalc0mmu10cck7",
+            "username": "CheckItup",
+            "entries": 5000,
+            "reward": 3.5956412111666736
+          },
+          {
+            "playerId": "did:privy:cmeygisuf00wyl50civj2950w",
+            "username": "Wolfeee",
+            "entries": 1121,
+            "reward": 3.5956412111666736
+          }
+        ],
+        "rewardPerWinner": 3.5956412111666736,
+        "totalPoolAmount": 10.78692363350002
+      },
+      "config": {
+        "threshold": 10,
+        "instarugThreshold": 6,
+        "rugpoolPercentage": 0.5
+      }
+    }
+  },
+  {
+    "gameId": "20251215-3889ed88c81a42fc",
+    "rugpool": {
+      "instarugCount": 9,
+      "rugpoolAmount": 7.440795633500021,
+      "totalEntries": 22269,
+      "threshold": 10,
+      "playersWithEntries": 155,
+      "solPerEntry": 0.001,
+      "maxEntriesPerPlayer": 5000,
+      "playerEntries": [
+        {
+          "playerId": "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+          "entries": 5000,
+          "username": "ehiwna",
+          "percentage": 22.452736988638915
+        },
+        {
+          "playerId": "did:privy:cma0m5z4r00afjx0mjpryyqo5",
+          "entries": 4450,
+          "username": "jKolby",
+          "percentage": 19.982935919888632
+        },
+        {
+          "playerId": "did:privy:cmeygisuf00wyl50civj2950w",
+          "entries": 1070,
+          "username": "Wolfeee",
+          "percentage": 4.8048857155687275
+        },
+        {
+          "playerId": "did:privy:cmc56ql2o01ewl70m2961dl9c",
+          "entries": 980,
+          "username": "restlessgambler",
+          "percentage": 4.400736449773227
+        },
+        {
+          "playerId": "did:privy:cma4gg3wj001ijz0memhqm1j7",
+          "entries": 927,
+          "username": "xxiamthereaperxx",
+          "percentage": 4.162737437693655
+        },
+        {
+          "playerId": "did:privy:cmarkpqpa00d0kz0mkgo3iris",
+          "entries": 816,
+          "username": "Clipper",
+          "percentage": 3.6642866765458706
+        },
+        {
+          "playerId": "did:privy:cmgr0n6fu02qvld0djjvkjm59",
+          "entries": 709,
+          "username": "Clixmaster",
+          "percentage": 3.1837981049889983
+        },
+        {
+          "playerId": "did:privy:cmh5xb70v02bqle0dqojmbfmi",
+          "entries": 701,
+          "username": "DelSolx",
+          "percentage": 3.147873725807176
+        },
+        {
+          "playerId": "did:privy:cmhzfppy300hzjm0civauitwq",
+          "entries": 538,
+          "username": "2xJeeterx3",
+          "percentage": 2.4159144999775473
+        },
+        {
+          "playerId": "did:privy:cmfpue0zf002zjr0cb14u2qr0",
+          "entries": 381,
+          "username": "ecole462469",
+          "percentage": 1.7108985585342855
+        }
+      ],
+      "lastDrawing": {
+        "timestamp": 1765750336277,
+        "winners": [
+          {
+            "playerId": "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+            "username": "ehiwna",
+            "entries": 5000,
+            "reward": 3.5956412111666736
+          },
+          {
+            "playerId": "did:privy:cma8r35lw00oalc0mmu10cck7",
+            "username": "CheckItup",
+            "entries": 5000,
+            "reward": 3.5956412111666736
+          },
+          {
+            "playerId": "did:privy:cmeygisuf00wyl50civj2950w",
+            "username": "Wolfeee",
+            "entries": 1121,
+            "reward": 3.5956412111666736
+          }
+        ],
+        "rewardPerWinner": 3.5956412111666736,
+        "totalPoolAmount": 10.78692363350002
+      },
+      "config": {
+        "threshold": 10,
+        "instarugThreshold": 6,
+        "rugpoolPercentage": 0.5
+      }
+    }
+  },
+  {
+    "gameId": "20251215-3889ed88c81a42fc",
+    "rugpool": {
+      "instarugCount": 9,
+      "rugpoolAmount": 7.440795633500021,
+      "totalEntries": 22269,
+      "threshold": 10,
+      "playersWithEntries": 155,
+      "solPerEntry": 0.001,
+      "maxEntriesPerPlayer": 5000,
+      "playerEntries": [
+        {
+          "playerId": "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+          "entries": 5000,
+          "username": "ehiwna",
+          "percentage": 22.452736988638915
+        },
+        {
+          "playerId": "did:privy:cma0m5z4r00afjx0mjpryyqo5",
+          "entries": 4450,
+          "username": "jKolby",
+          "percentage": 19.982935919888632
+        },
+        {
+          "playerId": "did:privy:cmeygisuf00wyl50civj2950w",
+          "entries": 1070,
+          "username": "Wolfeee",
+          "percentage": 4.8048857155687275
+        },
+        {
+          "playerId": "did:privy:cmc56ql2o01ewl70m2961dl9c",
+          "entries": 980,
+          "username": "restlessgambler",
+          "percentage": 4.400736449773227
+        },
+        {
+          "playerId": "did:privy:cma4gg3wj001ijz0memhqm1j7",
+          "entries": 927,
+          "username": "xxiamthereaperxx",
+          "percentage": 4.162737437693655
+        },
+        {
+          "playerId": "did:privy:cmarkpqpa00d0kz0mkgo3iris",
+          "entries": 816,
+          "username": "Clipper",
+          "percentage": 3.6642866765458706
+        },
+        {
+          "playerId": "did:privy:cmgr0n6fu02qvld0djjvkjm59",
+          "entries": 709,
+          "username": "Clixmaster",
+          "percentage": 3.1837981049889983
+        },
+        {
+          "playerId": "did:privy:cmh5xb70v02bqle0dqojmbfmi",
+          "entries": 701,
+          "username": "DelSolx",
+          "percentage": 3.147873725807176
+        },
+        {
+          "playerId": "did:privy:cmhzfppy300hzjm0civauitwq",
+          "entries": 538,
+          "username": "2xJeeterx3",
+          "percentage": 2.4159144999775473
+        },
+        {
+          "playerId": "did:privy:cmfpue0zf002zjr0cb14u2qr0",
+          "entries": 381,
+          "username": "ecole462469",
+          "percentage": 1.7108985585342855
+        }
+      ],
+      "lastDrawing": {
+        "timestamp": 1765750336277,
+        "winners": [
+          {
+            "playerId": "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+            "username": "ehiwna",
+            "entries": 5000,
+            "reward": 3.5956412111666736
+          },
+          {
+            "playerId": "did:privy:cma8r35lw00oalc0mmu10cck7",
+            "username": "CheckItup",
+            "entries": 5000,
+            "reward": 3.5956412111666736
+          },
+          {
+            "playerId": "did:privy:cmeygisuf00wyl50civj2950w",
+            "username": "Wolfeee",
+            "entries": 1121,
+            "reward": 3.5956412111666736
+          }
+        ],
+        "rewardPerWinner": 3.5956412111666736,
+        "totalPoolAmount": 10.78692363350002
+      },
+      "config": {
+        "threshold": 10,
+        "instarugThreshold": 6,
+        "rugpoolPercentage": 0.5
+      }
+    }
+  },
+  {
+    "gameId": "20251215-3889ed88c81a42fc",
+    "rugpool": {
+      "instarugCount": 9,
+      "rugpoolAmount": 7.440795633500021,
+      "totalEntries": 22269,
+      "threshold": 10,
+      "playersWithEntries": 155,
+      "solPerEntry": 0.001,
+      "maxEntriesPerPlayer": 5000,
+      "playerEntries": [
+        {
+          "playerId": "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+          "entries": 5000,
+          "username": "ehiwna",
+          "percentage": 22.452736988638915
+        },
+        {
+          "playerId": "did:privy:cma0m5z4r00afjx0mjpryyqo5",
+          "entries": 4450,
+          "username": "jKolby",
+          "percentage": 19.982935919888632
+        },
+        {
+          "playerId": "did:privy:cmeygisuf00wyl50civj2950w",
+          "entries": 1070,
+          "username": "Wolfeee",
+          "percentage": 4.8048857155687275
+        },
+        {
+          "playerId": "did:privy:cmc56ql2o01ewl70m2961dl9c",
+          "entries": 980,
+          "username": "restlessgambler",
+          "percentage": 4.400736449773227
+        },
+        {
+          "playerId": "did:privy:cma4gg3wj001ijz0memhqm1j7",
+          "entries": 927,
+          "username": "xxiamthereaperxx",
+          "percentage": 4.162737437693655
+        },
+        {
+          "playerId": "did:privy:cmarkpqpa00d0kz0mkgo3iris",
+          "entries": 816,
+          "username": "Clipper",
+          "percentage": 3.6642866765458706
+        },
+        {
+          "playerId": "did:privy:cmgr0n6fu02qvld0djjvkjm59",
+          "entries": 709,
+          "username": "Clixmaster",
+          "percentage": 3.1837981049889983
+        },
+        {
+          "playerId": "did:privy:cmh5xb70v02bqle0dqojmbfmi",
+          "entries": 701,
+          "username": "DelSolx",
+          "percentage": 3.147873725807176
+        },
+        {
+          "playerId": "did:privy:cmhzfppy300hzjm0civauitwq",
+          "entries": 538,
+          "username": "2xJeeterx3",
+          "percentage": 2.4159144999775473
+        },
+        {
+          "playerId": "did:privy:cmfpue0zf002zjr0cb14u2qr0",
+          "entries": 381,
+          "username": "ecole462469",
+          "percentage": 1.7108985585342855
+        }
+      ],
+      "lastDrawing": {
+        "timestamp": 1765750336277,
+        "winners": [
+          {
+            "playerId": "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+            "username": "ehiwna",
+            "entries": 5000,
+            "reward": 3.5956412111666736
+          },
+          {
+            "playerId": "did:privy:cma8r35lw00oalc0mmu10cck7",
+            "username": "CheckItup",
+            "entries": 5000,
+            "reward": 3.5956412111666736
+          },
+          {
+            "playerId": "did:privy:cmeygisuf00wyl50civj2950w",
+            "username": "Wolfeee",
+            "entries": 1121,
+            "reward": 3.5956412111666736
+          }
+        ],
+        "rewardPerWinner": 3.5956412111666736,
+        "totalPoolAmount": 10.78692363350002
+      },
+      "config": {
+        "threshold": 10,
+        "instarugThreshold": 6,
+        "rugpoolPercentage": 0.5
+      }
+    }
+  },
+  {
+    "gameId": "20251215-3889ed88c81a42fc",
+    "rugpool": {
+      "instarugCount": 9,
+      "rugpoolAmount": 7.440795633500021,
+      "totalEntries": 22269,
+      "threshold": 10,
+      "playersWithEntries": 155,
+      "solPerEntry": 0.001,
+      "maxEntriesPerPlayer": 5000,
+      "playerEntries": [
+        {
+          "playerId": "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+          "entries": 5000,
+          "username": "ehiwna",
+          "percentage": 22.452736988638915
+        },
+        {
+          "playerId": "did:privy:cma0m5z4r00afjx0mjpryyqo5",
+          "entries": 4450,
+          "username": "jKolby",
+          "percentage": 19.982935919888632
+        },
+        {
+          "playerId": "did:privy:cmeygisuf00wyl50civj2950w",
+          "entries": 1070,
+          "username": "Wolfeee",
+          "percentage": 4.8048857155687275
+        },
+        {
+          "playerId": "did:privy:cmc56ql2o01ewl70m2961dl9c",
+          "entries": 980,
+          "username": "restlessgambler",
+          "percentage": 4.400736449773227
+        },
+        {
+          "playerId": "did:privy:cma4gg3wj001ijz0memhqm1j7",
+          "entries": 927,
+          "username": "xxiamthereaperxx",
+          "percentage": 4.162737437693655
+        },
+        {
+          "playerId": "did:privy:cmarkpqpa00d0kz0mkgo3iris",
+          "entries": 816,
+          "username": "Clipper",
+          "percentage": 3.6642866765458706
+        },
+        {
+          "playerId": "did:privy:cmgr0n6fu02qvld0djjvkjm59",
+          "entries": 709,
+          "username": "Clixmaster",
+          "percentage": 3.1837981049889983
+        },
+        {
+          "playerId": "did:privy:cmh5xb70v02bqle0dqojmbfmi",
+          "entries": 701,
+          "username": "DelSolx",
+          "percentage": 3.147873725807176
+        },
+        {
+          "playerId": "did:privy:cmhzfppy300hzjm0civauitwq",
+          "entries": 538,
+          "username": "2xJeeterx3",
+          "percentage": 2.4159144999775473
+        },
+        {
+          "playerId": "did:privy:cmfpue0zf002zjr0cb14u2qr0",
+          "entries": 381,
+          "username": "ecole462469",
+          "percentage": 1.7108985585342855
+        }
+      ],
+      "lastDrawing": {
+        "timestamp": 1765750336277,
+        "winners": [
+          {
+            "playerId": "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+            "username": "ehiwna",
+            "entries": 5000,
+            "reward": 3.5956412111666736
+          },
+          {
+            "playerId": "did:privy:cma8r35lw00oalc0mmu10cck7",
+            "username": "CheckItup",
+            "entries": 5000,
+            "reward": 3.5956412111666736
+          },
+          {
+            "playerId": "did:privy:cmeygisuf00wyl50civj2950w",
+            "username": "Wolfeee",
+            "entries": 1121,
+            "reward": 3.5956412111666736
+          }
+        ],
+        "rewardPerWinner": 3.5956412111666736,
+        "totalPoolAmount": 10.78692363350002
+      },
+      "config": {
+        "threshold": 10,
+        "instarugThreshold": 6,
+        "rugpoolPercentage": 0.5
+      }
+    }
+  },
+  {
+    "gameId": "20251215-3889ed88c81a42fc",
+    "rugpool": {
+      "instarugCount": 9,
+      "rugpoolAmount": 7.440795633500021,
+      "totalEntries": 22269,
+      "threshold": 10,
+      "playersWithEntries": 155,
+      "solPerEntry": 0.001,
+      "maxEntriesPerPlayer": 5000,
+      "playerEntries": [
+        {
+          "playerId": "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+          "entries": 5000,
+          "username": "ehiwna",
+          "percentage": 22.452736988638915
+        },
+        {
+          "playerId": "did:privy:cma0m5z4r00afjx0mjpryyqo5",
+          "entries": 4450,
+          "username": "jKolby",
+          "percentage": 19.982935919888632
+        },
+        {
+          "playerId": "did:privy:cmeygisuf00wyl50civj2950w",
+          "entries": 1070,
+          "username": "Wolfeee",
+          "percentage": 4.8048857155687275
+        },
+        {
+          "playerId": "did:privy:cmc56ql2o01ewl70m2961dl9c",
+          "entries": 980,
+          "username": "restlessgambler",
+          "percentage": 4.400736449773227
+        },
+        {
+          "playerId": "did:privy:cma4gg3wj001ijz0memhqm1j7",
+          "entries": 927,
+          "username": "xxiamthereaperxx",
+          "percentage": 4.162737437693655
+        },
+        {
+          "playerId": "did:privy:cmarkpqpa00d0kz0mkgo3iris",
+          "entries": 816,
+          "username": "Clipper",
+          "percentage": 3.6642866765458706
+        },
+        {
+          "playerId": "did:privy:cmgr0n6fu02qvld0djjvkjm59",
+          "entries": 709,
+          "username": "Clixmaster",
+          "percentage": 3.1837981049889983
+        },
+        {
+          "playerId": "did:privy:cmh5xb70v02bqle0dqojmbfmi",
+          "entries": 701,
+          "username": "DelSolx",
+          "percentage": 3.147873725807176
+        },
+        {
+          "playerId": "did:privy:cmhzfppy300hzjm0civauitwq",
+          "entries": 538,
+          "username": "2xJeeterx3",
+          "percentage": 2.4159144999775473
+        },
+        {
+          "playerId": "did:privy:cmfpue0zf002zjr0cb14u2qr0",
+          "entries": 381,
+          "username": "ecole462469",
+          "percentage": 1.7108985585342855
+        }
+      ],
+      "lastDrawing": {
+        "timestamp": 1765750336277,
+        "winners": [
+          {
+            "playerId": "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+            "username": "ehiwna",
+            "entries": 5000,
+            "reward": 3.5956412111666736
+          },
+          {
+            "playerId": "did:privy:cma8r35lw00oalc0mmu10cck7",
+            "username": "CheckItup",
+            "entries": 5000,
+            "reward": 3.5956412111666736
+          },
+          {
+            "playerId": "did:privy:cmeygisuf00wyl50civj2950w",
+            "username": "Wolfeee",
+            "entries": 1121,
+            "reward": 3.5956412111666736
+          }
+        ],
+        "rewardPerWinner": 3.5956412111666736,
+        "totalPoolAmount": 10.78692363350002
+      },
+      "config": {
+        "threshold": 10,
+        "instarugThreshold": 6,
+        "rugpoolPercentage": 0.5
+      }
+    }
+  },
+  {
+    "gameId": "20251215-3889ed88c81a42fc",
+    "rugpool": {
+      "instarugCount": 9,
+      "rugpoolAmount": 7.440795633500021,
+      "totalEntries": 22269,
+      "threshold": 10,
+      "playersWithEntries": 155,
+      "solPerEntry": 0.001,
+      "maxEntriesPerPlayer": 5000,
+      "playerEntries": [
+        {
+          "playerId": "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+          "entries": 5000,
+          "username": "ehiwna",
+          "percentage": 22.452736988638915
+        },
+        {
+          "playerId": "did:privy:cma0m5z4r00afjx0mjpryyqo5",
+          "entries": 4450,
+          "username": "jKolby",
+          "percentage": 19.982935919888632
+        },
+        {
+          "playerId": "did:privy:cmeygisuf00wyl50civj2950w",
+          "entries": 1070,
+          "username": "Wolfeee",
+          "percentage": 4.8048857155687275
+        },
+        {
+          "playerId": "did:privy:cmc56ql2o01ewl70m2961dl9c",
+          "entries": 980,
+          "username": "restlessgambler",
+          "percentage": 4.400736449773227
+        },
+        {
+          "playerId": "did:privy:cma4gg3wj001ijz0memhqm1j7",
+          "entries": 927,
+          "username": "xxiamthereaperxx",
+          "percentage": 4.162737437693655
+        },
+        {
+          "playerId": "did:privy:cmarkpqpa00d0kz0mkgo3iris",
+          "entries": 816,
+          "username": "Clipper",
+          "percentage": 3.6642866765458706
+        },
+        {
+          "playerId": "did:privy:cmgr0n6fu02qvld0djjvkjm59",
+          "entries": 709,
+          "username": "Clixmaster",
+          "percentage": 3.1837981049889983
+        },
+        {
+          "playerId": "did:privy:cmh5xb70v02bqle0dqojmbfmi",
+          "entries": 701,
+          "username": "DelSolx",
+          "percentage": 3.147873725807176
+        },
+        {
+          "playerId": "did:privy:cmhzfppy300hzjm0civauitwq",
+          "entries": 538,
+          "username": "2xJeeterx3",
+          "percentage": 2.4159144999775473
+        },
+        {
+          "playerId": "did:privy:cmfpue0zf002zjr0cb14u2qr0",
+          "entries": 381,
+          "username": "ecole462469",
+          "percentage": 1.7108985585342855
+        }
+      ],
+      "lastDrawing": {
+        "timestamp": 1765750336277,
+        "winners": [
+          {
+            "playerId": "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+            "username": "ehiwna",
+            "entries": 5000,
+            "reward": 3.5956412111666736
+          },
+          {
+            "playerId": "did:privy:cma8r35lw00oalc0mmu10cck7",
+            "username": "CheckItup",
+            "entries": 5000,
+            "reward": 3.5956412111666736
+          },
+          {
+            "playerId": "did:privy:cmeygisuf00wyl50civj2950w",
+            "username": "Wolfeee",
+            "entries": 1121,
+            "reward": 3.5956412111666736
+          }
+        ],
+        "rewardPerWinner": 3.5956412111666736,
+        "totalPoolAmount": 10.78692363350002
+      },
+      "config": {
+        "threshold": 10,
+        "instarugThreshold": 6,
+        "rugpoolPercentage": 0.5
+      }
+    }
+  },
+  {
+    "gameId": "20251215-3889ed88c81a42fc",
+    "rugpool": {
+      "instarugCount": 9,
+      "rugpoolAmount": 7.440795633500021,
+      "totalEntries": 22269,
+      "threshold": 10,
+      "playersWithEntries": 155,
+      "solPerEntry": 0.001,
+      "maxEntriesPerPlayer": 5000,
+      "playerEntries": [
+        {
+          "playerId": "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+          "entries": 5000,
+          "username": "ehiwna",
+          "percentage": 22.452736988638915
+        },
+        {
+          "playerId": "did:privy:cma0m5z4r00afjx0mjpryyqo5",
+          "entries": 4450,
+          "username": "jKolby",
+          "percentage": 19.982935919888632
+        },
+        {
+          "playerId": "did:privy:cmeygisuf00wyl50civj2950w",
+          "entries": 1070,
+          "username": "Wolfeee",
+          "percentage": 4.8048857155687275
+        },
+        {
+          "playerId": "did:privy:cmc56ql2o01ewl70m2961dl9c",
+          "entries": 980,
+          "username": "restlessgambler",
+          "percentage": 4.400736449773227
+        },
+        {
+          "playerId": "did:privy:cma4gg3wj001ijz0memhqm1j7",
+          "entries": 927,
+          "username": "xxiamthereaperxx",
+          "percentage": 4.162737437693655
+        },
+        {
+          "playerId": "did:privy:cmarkpqpa00d0kz0mkgo3iris",
+          "entries": 816,
+          "username": "Clipper",
+          "percentage": 3.6642866765458706
+        },
+        {
+          "playerId": "did:privy:cmgr0n6fu02qvld0djjvkjm59",
+          "entries": 709,
+          "username": "Clixmaster",
+          "percentage": 3.1837981049889983
+        },
+        {
+          "playerId": "did:privy:cmh5xb70v02bqle0dqojmbfmi",
+          "entries": 701,
+          "username": "DelSolx",
+          "percentage": 3.147873725807176
+        },
+        {
+          "playerId": "did:privy:cmhzfppy300hzjm0civauitwq",
+          "entries": 538,
+          "username": "2xJeeterx3",
+          "percentage": 2.4159144999775473
+        },
+        {
+          "playerId": "did:privy:cmfpue0zf002zjr0cb14u2qr0",
+          "entries": 381,
+          "username": "ecole462469",
+          "percentage": 1.7108985585342855
+        }
+      ],
+      "lastDrawing": {
+        "timestamp": 1765750336277,
+        "winners": [
+          {
+            "playerId": "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+            "username": "ehiwna",
+            "entries": 5000,
+            "reward": 3.5956412111666736
+          },
+          {
+            "playerId": "did:privy:cma8r35lw00oalc0mmu10cck7",
+            "username": "CheckItup",
+            "entries": 5000,
+            "reward": 3.5956412111666736
+          },
+          {
+            "playerId": "did:privy:cmeygisuf00wyl50civj2950w",
+            "username": "Wolfeee",
+            "entries": 1121,
+            "reward": 3.5956412111666736
+          }
+        ],
+        "rewardPerWinner": 3.5956412111666736,
+        "totalPoolAmount": 10.78692363350002
+      },
+      "config": {
+        "threshold": 10,
+        "instarugThreshold": 6,
+        "rugpoolPercentage": 0.5
+      }
+    }
+  },
+  {
+    "gameId": "20251215-3889ed88c81a42fc",
+    "rugpool": {
+      "instarugCount": 9,
+      "rugpoolAmount": 7.440795633500021,
+      "totalEntries": 22269,
+      "threshold": 10,
+      "playersWithEntries": 155,
+      "solPerEntry": 0.001,
+      "maxEntriesPerPlayer": 5000,
+      "playerEntries": [
+        {
+          "playerId": "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+          "entries": 5000,
+          "username": "ehiwna",
+          "percentage": 22.452736988638915
+        },
+        {
+          "playerId": "did:privy:cma0m5z4r00afjx0mjpryyqo5",
+          "entries": 4450,
+          "username": "jKolby",
+          "percentage": 19.982935919888632
+        },
+        {
+          "playerId": "did:privy:cmeygisuf00wyl50civj2950w",
+          "entries": 1070,
+          "username": "Wolfeee",
+          "percentage": 4.8048857155687275
+        },
+        {
+          "playerId": "did:privy:cmc56ql2o01ewl70m2961dl9c",
+          "entries": 980,
+          "username": "restlessgambler",
+          "percentage": 4.400736449773227
+        },
+        {
+          "playerId": "did:privy:cma4gg3wj001ijz0memhqm1j7",
+          "entries": 927,
+          "username": "xxiamthereaperxx",
+          "percentage": 4.162737437693655
+        },
+        {
+          "playerId": "did:privy:cmarkpqpa00d0kz0mkgo3iris",
+          "entries": 816,
+          "username": "Clipper",
+          "percentage": 3.6642866765458706
+        },
+        {
+          "playerId": "did:privy:cmgr0n6fu02qvld0djjvkjm59",
+          "entries": 709,
+          "username": "Clixmaster",
+          "percentage": 3.1837981049889983
+        },
+        {
+          "playerId": "did:privy:cmh5xb70v02bqle0dqojmbfmi",
+          "entries": 701,
+          "username": "DelSolx",
+          "percentage": 3.147873725807176
+        },
+        {
+          "playerId": "did:privy:cmhzfppy300hzjm0civauitwq",
+          "entries": 538,
+          "username": "2xJeeterx3",
+          "percentage": 2.4159144999775473
+        },
+        {
+          "playerId": "did:privy:cmfpue0zf002zjr0cb14u2qr0",
+          "entries": 381,
+          "username": "ecole462469",
+          "percentage": 1.7108985585342855
+        }
+      ],
+      "lastDrawing": {
+        "timestamp": 1765750336277,
+        "winners": [
+          {
+            "playerId": "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+            "username": "ehiwna",
+            "entries": 5000,
+            "reward": 3.5956412111666736
+          },
+          {
+            "playerId": "did:privy:cma8r35lw00oalc0mmu10cck7",
+            "username": "CheckItup",
+            "entries": 5000,
+            "reward": 3.5956412111666736
+          },
+          {
+            "playerId": "did:privy:cmeygisuf00wyl50civj2950w",
+            "username": "Wolfeee",
+            "entries": 1121,
+            "reward": 3.5956412111666736
+          }
+        ],
+        "rewardPerWinner": 3.5956412111666736,
+        "totalPoolAmount": 10.78692363350002
+      },
+      "config": {
+        "threshold": 10,
+        "instarugThreshold": 6,
+        "rugpoolPercentage": 0.5
+      }
+    }
+  },
+  {
+    "gameId": "20251215-3889ed88c81a42fc",
+    "rugpool": {
+      "instarugCount": 9,
+      "rugpoolAmount": 7.440795633500021,
+      "totalEntries": 22269,
+      "threshold": 10,
+      "playersWithEntries": 155,
+      "solPerEntry": 0.001,
+      "maxEntriesPerPlayer": 5000,
+      "playerEntries": [
+        {
+          "playerId": "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+          "entries": 5000,
+          "username": "ehiwna",
+          "percentage": 22.452736988638915
+        },
+        {
+          "playerId": "did:privy:cma0m5z4r00afjx0mjpryyqo5",
+          "entries": 4450,
+          "username": "jKolby",
+          "percentage": 19.982935919888632
+        },
+        {
+          "playerId": "did:privy:cmeygisuf00wyl50civj2950w",
+          "entries": 1070,
+          "username": "Wolfeee",
+          "percentage": 4.8048857155687275
+        },
+        {
+          "playerId": "did:privy:cmc56ql2o01ewl70m2961dl9c",
+          "entries": 980,
+          "username": "restlessgambler",
+          "percentage": 4.400736449773227
+        },
+        {
+          "playerId": "did:privy:cma4gg3wj001ijz0memhqm1j7",
+          "entries": 927,
+          "username": "xxiamthereaperxx",
+          "percentage": 4.162737437693655
+        },
+        {
+          "playerId": "did:privy:cmarkpqpa00d0kz0mkgo3iris",
+          "entries": 816,
+          "username": "Clipper",
+          "percentage": 3.6642866765458706
+        },
+        {
+          "playerId": "did:privy:cmgr0n6fu02qvld0djjvkjm59",
+          "entries": 709,
+          "username": "Clixmaster",
+          "percentage": 3.1837981049889983
+        },
+        {
+          "playerId": "did:privy:cmh5xb70v02bqle0dqojmbfmi",
+          "entries": 701,
+          "username": "DelSolx",
+          "percentage": 3.147873725807176
+        },
+        {
+          "playerId": "did:privy:cmhzfppy300hzjm0civauitwq",
+          "entries": 538,
+          "username": "2xJeeterx3",
+          "percentage": 2.4159144999775473
+        },
+        {
+          "playerId": "did:privy:cmfpue0zf002zjr0cb14u2qr0",
+          "entries": 381,
+          "username": "ecole462469",
+          "percentage": 1.7108985585342855
+        }
+      ],
+      "lastDrawing": {
+        "timestamp": 1765750336277,
+        "winners": [
+          {
+            "playerId": "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+            "username": "ehiwna",
+            "entries": 5000,
+            "reward": 3.5956412111666736
+          },
+          {
+            "playerId": "did:privy:cma8r35lw00oalc0mmu10cck7",
+            "username": "CheckItup",
+            "entries": 5000,
+            "reward": 3.5956412111666736
+          },
+          {
+            "playerId": "did:privy:cmeygisuf00wyl50civj2950w",
+            "username": "Wolfeee",
+            "entries": 1121,
+            "reward": 3.5956412111666736
+          }
+        ],
+        "rewardPerWinner": 3.5956412111666736,
+        "totalPoolAmount": 10.78692363350002
+      },
+      "config": {
+        "threshold": 10,
+        "instarugThreshold": 6,
+        "rugpoolPercentage": 0.5
+      }
+    }
+  },
+  {
+    "gameId": "20251215-3889ed88c81a42fc",
+    "rugpool": {
+      "instarugCount": 9,
+      "rugpoolAmount": 7.440795633500021,
+      "totalEntries": 22269,
+      "threshold": 10,
+      "playersWithEntries": 155,
+      "solPerEntry": 0.001,
+      "maxEntriesPerPlayer": 5000,
+      "playerEntries": [
+        {
+          "playerId": "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+          "entries": 5000,
+          "username": "ehiwna",
+          "percentage": 22.452736988638915
+        },
+        {
+          "playerId": "did:privy:cma0m5z4r00afjx0mjpryyqo5",
+          "entries": 4450,
+          "username": "jKolby",
+          "percentage": 19.982935919888632
+        },
+        {
+          "playerId": "did:privy:cmeygisuf00wyl50civj2950w",
+          "entries": 1070,
+          "username": "Wolfeee",
+          "percentage": 4.8048857155687275
+        },
+        {
+          "playerId": "did:privy:cmc56ql2o01ewl70m2961dl9c",
+          "entries": 980,
+          "username": "restlessgambler",
+          "percentage": 4.400736449773227
+        },
+        {
+          "playerId": "did:privy:cma4gg3wj001ijz0memhqm1j7",
+          "entries": 927,
+          "username": "xxiamthereaperxx",
+          "percentage": 4.162737437693655
+        },
+        {
+          "playerId": "did:privy:cmarkpqpa00d0kz0mkgo3iris",
+          "entries": 816,
+          "username": "Clipper",
+          "percentage": 3.6642866765458706
+        },
+        {
+          "playerId": "did:privy:cmgr0n6fu02qvld0djjvkjm59",
+          "entries": 709,
+          "username": "Clixmaster",
+          "percentage": 3.1837981049889983
+        },
+        {
+          "playerId": "did:privy:cmh5xb70v02bqle0dqojmbfmi",
+          "entries": 701,
+          "username": "DelSolx",
+          "percentage": 3.147873725807176
+        },
+        {
+          "playerId": "did:privy:cmhzfppy300hzjm0civauitwq",
+          "entries": 538,
+          "username": "2xJeeterx3",
+          "percentage": 2.4159144999775473
+        },
+        {
+          "playerId": "did:privy:cmfpue0zf002zjr0cb14u2qr0",
+          "entries": 381,
+          "username": "ecole462469",
+          "percentage": 1.7108985585342855
+        }
+      ],
+      "lastDrawing": {
+        "timestamp": 1765750336277,
+        "winners": [
+          {
+            "playerId": "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+            "username": "ehiwna",
+            "entries": 5000,
+            "reward": 3.5956412111666736
+          },
+          {
+            "playerId": "did:privy:cma8r35lw00oalc0mmu10cck7",
+            "username": "CheckItup",
+            "entries": 5000,
+            "reward": 3.5956412111666736
+          },
+          {
+            "playerId": "did:privy:cmeygisuf00wyl50civj2950w",
+            "username": "Wolfeee",
+            "entries": 1121,
+            "reward": 3.5956412111666736
+          }
+        ],
+        "rewardPerWinner": 3.5956412111666736,
+        "totalPoolAmount": 10.78692363350002
+      },
+      "config": {
+        "threshold": 10,
+        "instarugThreshold": 6,
+        "rugpoolPercentage": 0.5
+      }
+    }
+  },
+  {
+    "gameId": "20251215-3889ed88c81a42fc",
+    "rugpool": {
+      "instarugCount": 9,
+      "rugpoolAmount": 7.440795633500021,
+      "totalEntries": 22269,
+      "threshold": 10,
+      "playersWithEntries": 155,
+      "solPerEntry": 0.001,
+      "maxEntriesPerPlayer": 5000,
+      "playerEntries": [
+        {
+          "playerId": "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+          "entries": 5000,
+          "username": "ehiwna",
+          "percentage": 22.452736988638915
+        },
+        {
+          "playerId": "did:privy:cma0m5z4r00afjx0mjpryyqo5",
+          "entries": 4450,
+          "username": "jKolby",
+          "percentage": 19.982935919888632
+        },
+        {
+          "playerId": "did:privy:cmeygisuf00wyl50civj2950w",
+          "entries": 1070,
+          "username": "Wolfeee",
+          "percentage": 4.8048857155687275
+        },
+        {
+          "playerId": "did:privy:cmc56ql2o01ewl70m2961dl9c",
+          "entries": 980,
+          "username": "restlessgambler",
+          "percentage": 4.400736449773227
+        },
+        {
+          "playerId": "did:privy:cma4gg3wj001ijz0memhqm1j7",
+          "entries": 927,
+          "username": "xxiamthereaperxx",
+          "percentage": 4.162737437693655
+        },
+        {
+          "playerId": "did:privy:cmarkpqpa00d0kz0mkgo3iris",
+          "entries": 816,
+          "username": "Clipper",
+          "percentage": 3.6642866765458706
+        },
+        {
+          "playerId": "did:privy:cmgr0n6fu02qvld0djjvkjm59",
+          "entries": 709,
+          "username": "Clixmaster",
+          "percentage": 3.1837981049889983
+        },
+        {
+          "playerId": "did:privy:cmh5xb70v02bqle0dqojmbfmi",
+          "entries": 701,
+          "username": "DelSolx",
+          "percentage": 3.147873725807176
+        },
+        {
+          "playerId": "did:privy:cmhzfppy300hzjm0civauitwq",
+          "entries": 538,
+          "username": "2xJeeterx3",
+          "percentage": 2.4159144999775473
+        },
+        {
+          "playerId": "did:privy:cmfpue0zf002zjr0cb14u2qr0",
+          "entries": 381,
+          "username": "ecole462469",
+          "percentage": 1.7108985585342855
+        }
+      ],
+      "lastDrawing": {
+        "timestamp": 1765750336277,
+        "winners": [
+          {
+            "playerId": "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+            "username": "ehiwna",
+            "entries": 5000,
+            "reward": 3.5956412111666736
+          },
+          {
+            "playerId": "did:privy:cma8r35lw00oalc0mmu10cck7",
+            "username": "CheckItup",
+            "entries": 5000,
+            "reward": 3.5956412111666736
+          },
+          {
+            "playerId": "did:privy:cmeygisuf00wyl50civj2950w",
+            "username": "Wolfeee",
+            "entries": 1121,
+            "reward": 3.5956412111666736
+          }
+        ],
+        "rewardPerWinner": 3.5956412111666736,
+        "totalPoolAmount": 10.78692363350002
+      },
+      "config": {
+        "threshold": 10,
+        "instarugThreshold": 6,
+        "rugpoolPercentage": 0.5
+      }
+    }
+  },
+  {
+    "gameId": "20251215-3889ed88c81a42fc",
+    "rugpool": {
+      "instarugCount": 9,
+      "rugpoolAmount": 7.440795633500021,
+      "totalEntries": 22269,
+      "threshold": 10,
+      "playersWithEntries": 155,
+      "solPerEntry": 0.001,
+      "maxEntriesPerPlayer": 5000,
+      "playerEntries": [
+        {
+          "playerId": "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+          "entries": 5000,
+          "username": "ehiwna",
+          "percentage": 22.452736988638915
+        },
+        {
+          "playerId": "did:privy:cma0m5z4r00afjx0mjpryyqo5",
+          "entries": 4450,
+          "username": "jKolby",
+          "percentage": 19.982935919888632
+        },
+        {
+          "playerId": "did:privy:cmeygisuf00wyl50civj2950w",
+          "entries": 1070,
+          "username": "Wolfeee",
+          "percentage": 4.8048857155687275
+        },
+        {
+          "playerId": "did:privy:cmc56ql2o01ewl70m2961dl9c",
+          "entries": 980,
+          "username": "restlessgambler",
+          "percentage": 4.400736449773227
+        },
+        {
+          "playerId": "did:privy:cma4gg3wj001ijz0memhqm1j7",
+          "entries": 927,
+          "username": "xxiamthereaperxx",
+          "percentage": 4.162737437693655
+        },
+        {
+          "playerId": "did:privy:cmarkpqpa00d0kz0mkgo3iris",
+          "entries": 816,
+          "username": "Clipper",
+          "percentage": 3.6642866765458706
+        },
+        {
+          "playerId": "did:privy:cmgr0n6fu02qvld0djjvkjm59",
+          "entries": 709,
+          "username": "Clixmaster",
+          "percentage": 3.1837981049889983
+        },
+        {
+          "playerId": "did:privy:cmh5xb70v02bqle0dqojmbfmi",
+          "entries": 701,
+          "username": "DelSolx",
+          "percentage": 3.147873725807176
+        },
+        {
+          "playerId": "did:privy:cmhzfppy300hzjm0civauitwq",
+          "entries": 538,
+          "username": "2xJeeterx3",
+          "percentage": 2.4159144999775473
+        },
+        {
+          "playerId": "did:privy:cmfpue0zf002zjr0cb14u2qr0",
+          "entries": 381,
+          "username": "ecole462469",
+          "percentage": 1.7108985585342855
+        }
+      ],
+      "lastDrawing": {
+        "timestamp": 1765750336277,
+        "winners": [
+          {
+            "playerId": "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+            "username": "ehiwna",
+            "entries": 5000,
+            "reward": 3.5956412111666736
+          },
+          {
+            "playerId": "did:privy:cma8r35lw00oalc0mmu10cck7",
+            "username": "CheckItup",
+            "entries": 5000,
+            "reward": 3.5956412111666736
+          },
+          {
+            "playerId": "did:privy:cmeygisuf00wyl50civj2950w",
+            "username": "Wolfeee",
+            "entries": 1121,
+            "reward": 3.5956412111666736
+          }
+        ],
+        "rewardPerWinner": 3.5956412111666736,
+        "totalPoolAmount": 10.78692363350002
+      },
+      "config": {
+        "threshold": 10,
+        "instarugThreshold": 6,
+        "rugpoolPercentage": 0.5
+      }
+    }
+  },
+  {
+    "gameId": "20251215-3889ed88c81a42fc",
+    "rugpool": {
+      "instarugCount": 9,
+      "rugpoolAmount": 7.440795633500021,
+      "totalEntries": 22269,
+      "threshold": 10,
+      "playersWithEntries": 155,
+      "solPerEntry": 0.001,
+      "maxEntriesPerPlayer": 5000,
+      "playerEntries": [
+        {
+          "playerId": "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+          "entries": 5000,
+          "username": "ehiwna",
+          "percentage": 22.452736988638915
+        },
+        {
+          "playerId": "did:privy:cma0m5z4r00afjx0mjpryyqo5",
+          "entries": 4450,
+          "username": "jKolby",
+          "percentage": 19.982935919888632
+        },
+        {
+          "playerId": "did:privy:cmeygisuf00wyl50civj2950w",
+          "entries": 1070,
+          "username": "Wolfeee",
+          "percentage": 4.8048857155687275
+        },
+        {
+          "playerId": "did:privy:cmc56ql2o01ewl70m2961dl9c",
+          "entries": 980,
+          "username": "restlessgambler",
+          "percentage": 4.400736449773227
+        },
+        {
+          "playerId": "did:privy:cma4gg3wj001ijz0memhqm1j7",
+          "entries": 927,
+          "username": "xxiamthereaperxx",
+          "percentage": 4.162737437693655
+        },
+        {
+          "playerId": "did:privy:cmarkpqpa00d0kz0mkgo3iris",
+          "entries": 816,
+          "username": "Clipper",
+          "percentage": 3.6642866765458706
+        },
+        {
+          "playerId": "did:privy:cmgr0n6fu02qvld0djjvkjm59",
+          "entries": 709,
+          "username": "Clixmaster",
+          "percentage": 3.1837981049889983
+        },
+        {
+          "playerId": "did:privy:cmh5xb70v02bqle0dqojmbfmi",
+          "entries": 701,
+          "username": "DelSolx",
+          "percentage": 3.147873725807176
+        },
+        {
+          "playerId": "did:privy:cmhzfppy300hzjm0civauitwq",
+          "entries": 538,
+          "username": "2xJeeterx3",
+          "percentage": 2.4159144999775473
+        },
+        {
+          "playerId": "did:privy:cmfpue0zf002zjr0cb14u2qr0",
+          "entries": 381,
+          "username": "ecole462469",
+          "percentage": 1.7108985585342855
+        }
+      ],
+      "lastDrawing": {
+        "timestamp": 1765750336277,
+        "winners": [
+          {
+            "playerId": "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+            "username": "ehiwna",
+            "entries": 5000,
+            "reward": 3.5956412111666736
+          },
+          {
+            "playerId": "did:privy:cma8r35lw00oalc0mmu10cck7",
+            "username": "CheckItup",
+            "entries": 5000,
+            "reward": 3.5956412111666736
+          },
+          {
+            "playerId": "did:privy:cmeygisuf00wyl50civj2950w",
+            "username": "Wolfeee",
+            "entries": 1121,
+            "reward": 3.5956412111666736
+          }
+        ],
+        "rewardPerWinner": 3.5956412111666736,
+        "totalPoolAmount": 10.78692363350002
+      },
+      "config": {
+        "threshold": 10,
+        "instarugThreshold": 6,
+        "rugpoolPercentage": 0.5
+      }
+    }
+  },
+  {
+    "gameId": "20251215-3889ed88c81a42fc",
+    "rugpool": {
+      "instarugCount": 9,
+      "rugpoolAmount": 7.440795633500021,
+      "totalEntries": 22269,
+      "threshold": 10,
+      "playersWithEntries": 155,
+      "solPerEntry": 0.001,
+      "maxEntriesPerPlayer": 5000,
+      "playerEntries": [
+        {
+          "playerId": "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+          "entries": 5000,
+          "username": "ehiwna",
+          "percentage": 22.452736988638915
+        },
+        {
+          "playerId": "did:privy:cma0m5z4r00afjx0mjpryyqo5",
+          "entries": 4450,
+          "username": "jKolby",
+          "percentage": 19.982935919888632
+        },
+        {
+          "playerId": "did:privy:cmeygisuf00wyl50civj2950w",
+          "entries": 1070,
+          "username": "Wolfeee",
+          "percentage": 4.8048857155687275
+        },
+        {
+          "playerId": "did:privy:cmc56ql2o01ewl70m2961dl9c",
+          "entries": 980,
+          "username": "restlessgambler",
+          "percentage": 4.400736449773227
+        },
+        {
+          "playerId": "did:privy:cma4gg3wj001ijz0memhqm1j7",
+          "entries": 927,
+          "username": "xxiamthereaperxx",
+          "percentage": 4.162737437693655
+        },
+        {
+          "playerId": "did:privy:cmarkpqpa00d0kz0mkgo3iris",
+          "entries": 816,
+          "username": "Clipper",
+          "percentage": 3.6642866765458706
+        },
+        {
+          "playerId": "did:privy:cmgr0n6fu02qvld0djjvkjm59",
+          "entries": 709,
+          "username": "Clixmaster",
+          "percentage": 3.1837981049889983
+        },
+        {
+          "playerId": "did:privy:cmh5xb70v02bqle0dqojmbfmi",
+          "entries": 701,
+          "username": "DelSolx",
+          "percentage": 3.147873725807176
+        },
+        {
+          "playerId": "did:privy:cmhzfppy300hzjm0civauitwq",
+          "entries": 538,
+          "username": "2xJeeterx3",
+          "percentage": 2.4159144999775473
+        },
+        {
+          "playerId": "did:privy:cmfpue0zf002zjr0cb14u2qr0",
+          "entries": 381,
+          "username": "ecole462469",
+          "percentage": 1.7108985585342855
+        }
+      ],
+      "lastDrawing": {
+        "timestamp": 1765750336277,
+        "winners": [
+          {
+            "playerId": "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+            "username": "ehiwna",
+            "entries": 5000,
+            "reward": 3.5956412111666736
+          },
+          {
+            "playerId": "did:privy:cma8r35lw00oalc0mmu10cck7",
+            "username": "CheckItup",
+            "entries": 5000,
+            "reward": 3.5956412111666736
+          },
+          {
+            "playerId": "did:privy:cmeygisuf00wyl50civj2950w",
+            "username": "Wolfeee",
+            "entries": 1121,
+            "reward": 3.5956412111666736
+          }
+        ],
+        "rewardPerWinner": 3.5956412111666736,
+        "totalPoolAmount": 10.78692363350002
+      },
+      "config": {
+        "threshold": 10,
+        "instarugThreshold": 6,
+        "rugpoolPercentage": 0.5
+      }
+    }
+  },
+  {
+    "gameId": "20251215-3889ed88c81a42fc",
+    "rugpool": {
+      "instarugCount": 9,
+      "rugpoolAmount": 7.440795633500021,
+      "totalEntries": 22269,
+      "threshold": 10,
+      "playersWithEntries": 155,
+      "solPerEntry": 0.001,
+      "maxEntriesPerPlayer": 5000,
+      "playerEntries": [
+        {
+          "playerId": "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+          "entries": 5000,
+          "username": "ehiwna",
+          "percentage": 22.452736988638915
+        },
+        {
+          "playerId": "did:privy:cma0m5z4r00afjx0mjpryyqo5",
+          "entries": 4450,
+          "username": "jKolby",
+          "percentage": 19.982935919888632
+        },
+        {
+          "playerId": "did:privy:cmeygisuf00wyl50civj2950w",
+          "entries": 1070,
+          "username": "Wolfeee",
+          "percentage": 4.8048857155687275
+        },
+        {
+          "playerId": "did:privy:cmc56ql2o01ewl70m2961dl9c",
+          "entries": 980,
+          "username": "restlessgambler",
+          "percentage": 4.400736449773227
+        },
+        {
+          "playerId": "did:privy:cma4gg3wj001ijz0memhqm1j7",
+          "entries": 927,
+          "username": "xxiamthereaperxx",
+          "percentage": 4.162737437693655
+        },
+        {
+          "playerId": "did:privy:cmarkpqpa00d0kz0mkgo3iris",
+          "entries": 816,
+          "username": "Clipper",
+          "percentage": 3.6642866765458706
+        },
+        {
+          "playerId": "did:privy:cmgr0n6fu02qvld0djjvkjm59",
+          "entries": 709,
+          "username": "Clixmaster",
+          "percentage": 3.1837981049889983
+        },
+        {
+          "playerId": "did:privy:cmh5xb70v02bqle0dqojmbfmi",
+          "entries": 701,
+          "username": "DelSolx",
+          "percentage": 3.147873725807176
+        },
+        {
+          "playerId": "did:privy:cmhzfppy300hzjm0civauitwq",
+          "entries": 538,
+          "username": "2xJeeterx3",
+          "percentage": 2.4159144999775473
+        },
+        {
+          "playerId": "did:privy:cmfpue0zf002zjr0cb14u2qr0",
+          "entries": 381,
+          "username": "ecole462469",
+          "percentage": 1.7108985585342855
+        }
+      ],
+      "lastDrawing": {
+        "timestamp": 1765750336277,
+        "winners": [
+          {
+            "playerId": "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+            "username": "ehiwna",
+            "entries": 5000,
+            "reward": 3.5956412111666736
+          },
+          {
+            "playerId": "did:privy:cma8r35lw00oalc0mmu10cck7",
+            "username": "CheckItup",
+            "entries": 5000,
+            "reward": 3.5956412111666736
+          },
+          {
+            "playerId": "did:privy:cmeygisuf00wyl50civj2950w",
+            "username": "Wolfeee",
+            "entries": 1121,
+            "reward": 3.5956412111666736
+          }
+        ],
+        "rewardPerWinner": 3.5956412111666736,
+        "totalPoolAmount": 10.78692363350002
+      },
+      "config": {
+        "threshold": 10,
+        "instarugThreshold": 6,
+        "rugpoolPercentage": 0.5
+      }
+    }
+  }
+]

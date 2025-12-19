@@ -1,0 +1,292 @@
+{
+  "total_samples": 597,
+  "fields": {
+    "id": {
+      "types": [
+        "str"
+      ],
+      "frequency": 597
+    },
+    "username": {
+      "types": [
+        "str"
+      ],
+      "frequency": 597
+    },
+    "level": {
+      "types": [
+        "int"
+      ],
+      "frequency": 597
+    },
+    "pnl": {
+      "types": [
+        "int",
+        "float"
+      ],
+      "frequency": 597
+    },
+    "pnlPercent": {
+      "types": [
+        "int",
+        "float"
+      ],
+      "frequency": 597
+    },
+    "sidebetActive": {
+      "types": [
+        "NoneType"
+      ],
+      "frequency": 597
+    },
+    "sideBet": {
+      "types": [
+        "NoneType"
+      ],
+      "frequency": 597
+    },
+    "shortPosition": {
+      "types": [
+        "NoneType"
+      ],
+      "frequency": 597
+    },
+    "hasActiveTrades": {
+      "types": [
+        "bool"
+      ],
+      "frequency": 597
+    },
+    "positionQty": {
+      "types": [
+        "int",
+        "float"
+      ],
+      "frequency": 597
+    },
+    "avgCost": {
+      "types": [
+        "int",
+        "float"
+      ],
+      "frequency": 597
+    },
+    "totalInvested": {
+      "types": [
+        "float"
+      ],
+      "frequency": 597
+    },
+    "selectedCoin": {
+      "types": [
+        "NoneType"
+      ],
+      "frequency": 597
+    },
+    "position": {
+      "types": [
+        "int"
+      ],
+      "frequency": 597
+    },
+    "regularPnl": {
+      "types": [
+        "int",
+        "float"
+      ],
+      "frequency": 593
+    },
+    "sidebetPnl": {
+      "types": [
+        "int"
+      ],
+      "frequency": 593
+    },
+    "shortPnl": {
+      "types": [
+        "int"
+      ],
+      "frequency": 593
+    }
+  },
+  "sample_entries": [
+    {
+      "id": "did:privy:cmaibr7rt0094jp0mc2mbpfu4",
+      "username": "Dutch",
+      "level": 7,
+      "pnl": 0,
+      "pnlPercent": 0,
+      "sidebetActive": null,
+      "sideBet": null,
+      "shortPosition": null,
+      "hasActiveTrades": true,
+      "positionQty": 0.001,
+      "avgCost": 1,
+      "totalInvested": 0.001,
+      "selectedCoin": null,
+      "position": 56
+    },
+    {
+      "id": "did:privy:cmaibr7rt0094jp0mc2mbpfu4",
+      "username": "Dutch",
+      "level": 7,
+      "pnl": 0,
+      "pnlPercent": 0,
+      "sidebetActive": null,
+      "sideBet": null,
+      "shortPosition": null,
+      "hasActiveTrades": true,
+      "positionQty": 0.001,
+      "avgCost": 1,
+      "totalInvested": 0.001,
+      "selectedCoin": null,
+      "position": 56
+    },
+    {
+      "id": "did:privy:cmaibr7rt0094jp0mc2mbpfu4",
+      "username": "Dutch",
+      "level": 7,
+      "pnl": 0,
+      "pnlPercent": 0,
+      "sidebetActive": null,
+      "sideBet": null,
+      "shortPosition": null,
+      "hasActiveTrades": true,
+      "positionQty": 0.001,
+      "avgCost": 1,
+      "totalInvested": 0.001,
+      "selectedCoin": null,
+      "position": 56
+    },
+    {
+      "id": "did:privy:cmaibr7rt0094jp0mc2mbpfu4",
+      "username": "Dutch",
+      "level": 7,
+      "pnl": 0,
+      "pnlPercent": 0,
+      "sidebetActive": null,
+      "sideBet": null,
+      "shortPosition": null,
+      "hasActiveTrades": true,
+      "positionQty": 0.001,
+      "avgCost": 1,
+      "totalInvested": 0.001,
+      "selectedCoin": null,
+      "position": 56
+    },
+    {
+      "id": "did:privy:cmaibr7rt0094jp0mc2mbpfu4",
+      "username": "Dutch",
+      "level": 7,
+      "pnl": 6.413e-06,
+      "regularPnl": 6.413e-06,
+      "sidebetPnl": 0,
+      "shortPnl": 0,
+      "sidebetActive": null,
+      "sideBet": null,
+      "shortPosition": null,
+      "pnlPercent": 0.6413,
+      "hasActiveTrades": true,
+      "positionQty": 0.001,
+      "avgCost": 1,
+      "totalInvested": 0.001,
+      "selectedCoin": null,
+      "position": 56
+    },
+    {
+      "id": "did:privy:cmaibr7rt0094jp0mc2mbpfu4",
+      "username": "Dutch",
+      "level": 7,
+      "pnl": 2.3072e-05,
+      "regularPnl": 2.3072e-05,
+      "sidebetPnl": 0,
+      "shortPnl": 0,
+      "sidebetActive": null,
+      "sideBet": null,
+      "shortPosition": null,
+      "pnlPercent": 2.3072,
+      "hasActiveTrades": true,
+      "positionQty": 0.001,
+      "avgCost": 1,
+      "totalInvested": 0.001,
+      "selectedCoin": null,
+      "position": 56
+    },
+    {
+      "id": "did:privy:cmaibr7rt0094jp0mc2mbpfu4",
+      "username": "Dutch",
+      "level": 7,
+      "pnl": 5.3441e-05,
+      "regularPnl": 5.3441e-05,
+      "sidebetPnl": 0,
+      "shortPnl": 0,
+      "sidebetActive": null,
+      "sideBet": null,
+      "shortPosition": null,
+      "pnlPercent": 5.344099999999999,
+      "hasActiveTrades": true,
+      "positionQty": 0.001,
+      "avgCost": 1,
+      "totalInvested": 0.001,
+      "selectedCoin": null,
+      "position": 56
+    },
+    {
+      "id": "did:privy:cmaibr7rt0094jp0mc2mbpfu4",
+      "username": "Dutch",
+      "level": 7,
+      "pnl": 0.000285911,
+      "regularPnl": 0.000285911,
+      "sidebetPnl": 0,
+      "shortPnl": 0,
+      "sidebetActive": null,
+      "sideBet": null,
+      "shortPosition": null,
+      "pnlPercent": 28.591100000000004,
+      "hasActiveTrades": true,
+      "positionQty": 0.001,
+      "avgCost": 1,
+      "totalInvested": 0.001,
+      "selectedCoin": null,
+      "position": 57
+    },
+    {
+      "id": "did:privy:cmaibr7rt0094jp0mc2mbpfu4",
+      "username": "Dutch",
+      "level": 7,
+      "pnl": 0.000285193,
+      "regularPnl": 0.000285193,
+      "sidebetPnl": 0,
+      "shortPnl": 0,
+      "sidebetActive": null,
+      "sideBet": null,
+      "shortPosition": null,
+      "pnlPercent": 28.519299999999998,
+      "hasActiveTrades": true,
+      "positionQty": 0.001,
+      "avgCost": 1,
+      "totalInvested": 0.001,
+      "selectedCoin": null,
+      "position": 57
+    },
+    {
+      "id": "did:privy:cmaibr7rt0094jp0mc2mbpfu4",
+      "username": "Dutch",
+      "level": 7,
+      "pnl": 0.00032807,
+      "regularPnl": 0.00032807,
+      "sidebetPnl": 0,
+      "shortPnl": 0,
+      "sidebetActive": null,
+      "sideBet": null,
+      "shortPosition": null,
+      "pnlPercent": 32.807,
+      "hasActiveTrades": true,
+      "positionQty": 0.001,
+      "avgCost": 1,
+      "totalInvested": 0.001,
+      "selectedCoin": null,
+      "position": 36
+    }
+  ]
+}
