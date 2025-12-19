@@ -18,6 +18,28 @@ from mcp.server.fastmcp import FastMCP
 mcp = FastMCP("claude-flow")
 
 
+def _extract_yaml_description(content: str) -> str:
+    """Extract description from YAML frontmatter.
+    
+    Args:
+        content: File content with potential YAML frontmatter
+    
+    Returns:
+        Description string or "No description"
+    """
+    if not content.startswith("---"):
+        return "No description"
+    
+    lines = content.split("\n")
+    for line in lines[1:]:
+        if line.strip() == "---":
+            break
+        if line.startswith("description:"):
+            return line.split(":", 1)[1].strip().strip('"')
+    
+    return "No description"
+
+
 @mcp.tool()
 def search_knowledge(
     query: str,
@@ -54,21 +76,15 @@ def list_commands() -> list[dict[str, str]]:
         return [{"error": "Commands directory not found"}]
     
     for cmd_file in sorted(commands_dir.glob("*.md")):
+        if cmd_file.name == "CONTEXT.md":
+            continue
         try:
             content = cmd_file.read_text()
-            # Extract YAML frontmatter description
-            description = ""
-            if content.startswith("---"):
-                lines = content.split("\n")
-                for line in lines[1:]:
-                    if line.strip() == "---":
-                        break
-                    if line.startswith("description:"):
-                        description = line.split(":", 1)[1].strip().strip('"')
+            description = _extract_yaml_description(content)
             
             commands.append({
                 "name": cmd_file.stem,
-                "description": description or "No description",
+                "description": description,
                 "file": str(cmd_file.relative_to(PROJECT_ROOT)),
             })
         except Exception as e:
@@ -120,21 +136,15 @@ def list_agents() -> list[dict[str, str]]:
         return [{"error": "Agents directory not found"}]
     
     for agent_file in sorted(agents_dir.glob("*.md")):
+        if agent_file.name == "CONTEXT.md":
+            continue
         try:
             content = agent_file.read_text()
-            # Extract YAML frontmatter description
-            description = ""
-            if content.startswith("---"):
-                lines = content.split("\n")
-                for line in lines[1:]:
-                    if line.strip() == "---":
-                        break
-                    if line.startswith("description:"):
-                        description = line.split(":", 1)[1].strip().strip('"')
+            description = _extract_yaml_description(content)
             
             agents.append({
                 "name": agent_file.stem,
-                "description": description or "No description",
+                "description": description,
                 "file": str(agent_file.relative_to(PROJECT_ROOT)),
             })
         except Exception as e:

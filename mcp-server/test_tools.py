@@ -7,6 +7,29 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(PROJECT_ROOT / "rag-pipeline"))
 
+
+def _extract_yaml_description(content: str) -> str:
+    """Extract description from YAML frontmatter.
+    
+    Args:
+        content: File content with potential YAML frontmatter
+    
+    Returns:
+        Description string or "No description"
+    """
+    if not content.startswith("---"):
+        return "No description"
+    
+    lines = content.split("\n")
+    for line in lines[1:]:
+        if line.strip() == "---":
+            break
+        if line.startswith("description:"):
+            return line.split(":", 1)[1].strip().strip('"')
+    
+    return "No description"
+
+
 def test_list_commands():
     """Test listing commands."""
     print("\n=== Testing list_commands ===")
@@ -18,18 +41,11 @@ def test_list_commands():
             continue
         try:
             content = cmd_file.read_text()
-            description = ""
-            if content.startswith("---"):
-                lines = content.split("\n")
-                for line in lines[1:]:
-                    if line.strip() == "---":
-                        break
-                    if line.startswith("description:"):
-                        description = line.split(":", 1)[1].strip().strip('"')
+            description = _extract_yaml_description(content)
             
             commands.append({
                 "name": cmd_file.stem,
-                "description": description or "No description",
+                "description": description,
             })
         except Exception as e:
             print(f"Error reading {cmd_file.name}: {e}")
@@ -64,18 +80,11 @@ def test_list_agents():
             continue
         try:
             content = agent_file.read_text()
-            description = ""
-            if content.startswith("---"):
-                lines = content.split("\n")
-                for line in lines[1:]:
-                    if line.strip() == "---":
-                        break
-                    if line.startswith("description:"):
-                        description = line.split(":", 1)[1].strip().strip('"')
+            description = _extract_yaml_description(content)
             
             agents.append({
                 "name": agent_file.stem,
-                "description": description or "No description",
+                "description": description,
             })
         except Exception as e:
             print(f"Error reading {agent_file.name}: {e}")
