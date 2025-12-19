@@ -18,6 +18,8 @@ from mcp.server.fastmcp import FastMCP
 mcp = FastMCP("claude-flow")
 
 
+import yaml
+
 def _extract_yaml_description(content: str) -> str:
     """Extract description from YAML frontmatter.
     
@@ -30,13 +32,20 @@ def _extract_yaml_description(content: str) -> str:
     if not content.startswith("---"):
         return "No description"
     
-    lines = content.split("\n")
-    for line in lines[1:]:
-        if line.strip() == "---":
-            break
-        if line.startswith("description:"):
-            return line.split(":", 1)[1].strip().strip('"')
-    
+    try:
+        frontmatter_end = content.find("\n---\n", 1)
+        if frontmatter_end == -1:
+            return "No description"
+        
+        frontmatter_text = content[4:frontmatter_end]
+        data = yaml.safe_load(frontmatter_text)
+        
+        if isinstance(data, dict) and "description" in data:
+            return str(data["description"])
+    except yaml.YAMLError:
+        # Fallback for malformed YAML, or could log an error
+        pass
+
     return "No description"
 
 
