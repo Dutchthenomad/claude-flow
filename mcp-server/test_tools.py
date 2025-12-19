@@ -30,30 +30,26 @@ def _extract_yaml_description(content: str) -> str:
     return "No description"
 
 
+# Import the actual functions from server.py
+from server import list_commands, _extract_yaml_description
+
 def test_list_commands():
     """Test listing commands."""
     print("\n=== Testing list_commands ===")
-    commands_dir = PROJECT_ROOT / "commands"
-    commands = []
     
-    for cmd_file in sorted(commands_dir.glob("*.md")):
-        if cmd_file.name == "CONTEXT.md":
-            continue
-        try:
-            content = cmd_file.read_text()
-            description = _extract_yaml_description(content)
-            
-            commands.append({
-                "name": cmd_file.stem,
-                "description": description,
-            })
-        except Exception as e:
-            print(f"Error reading {cmd_file.name}: {e}")
-    
-    print(f"Found {len(commands)} commands:")
-    for cmd in commands[:5]:
-        print(f"  - {cmd['name']}: {cmd['description']}")
-    return len(commands) > 0
+    try:
+        commands = list_commands()
+        if any("error" in cmd for cmd in commands):
+             print(f"Errors found in commands: {commands}")
+             return False
+
+        print(f"Found {len(commands)} commands:")
+        for cmd in commands[:5]:
+            print(f"  - {cmd['name']}: {cmd['description']}")
+        return len(commands) > 0
+    except Exception as e:
+        print(f"Error calling list_commands: {e}")
+        return False
 
 def test_get_command_details():
     """Test getting command details."""
