@@ -36,13 +36,13 @@ Technical architecture and execution flow of Claude-Flow's CI/CD pipeline.
 ┌─────────────────────────────┐    ┌────────────────────────┐
 │    GitHub Actions Runner     │    │   External Services    │
 │  ┌────────────────────────┐ │    │  ┌──────────────────┐ │
-│  │  Workflow Orchestrator │ │    │  │    Codecov       │ │
-│  └────────────────────────┘ │    │  │    Trivy DB      │ │
-│  ┌────────────────────────┐ │    │  │    CodeQL DB     │ │
-│  │   Job Executor         │ │    │  └──────────────────┘ │
-│  │  - Code Review         │ │    └────────────────────────┘
-│  │  - PR Labeler          │ │                │
-│  │  - Coverage            │ │                │
+│  │  Workflow Orchestrator │ │    │  │    CodeRabbit    │ │
+│  └────────────────────────┘ │    │  │    Qodo AI       │ │
+│  ┌────────────────────────┐ │    │  │    Codecov       │ │
+│  │   Job Executor         │ │    │  │    Trivy DB      │ │
+│  │  - Code Review         │ │    │  │    CodeQL DB     │ │
+│  │  - PR Labeler          │ │    │  └──────────────────┘ │
+│  │  - Coverage            │ │    └────────────────────────┘
 │  │  - Security            │ │                │
 │  │  - Release             │ │                │
 │  └────────────────────────┘ │                │
@@ -51,7 +51,7 @@ Technical architecture and execution flow of Claude-Flow's CI/CD pipeline.
                ▼                                │
 ┌─────────────────────────────────────────────┴┐
 │            GitHub API / UI                    │
-│  - PR Comments                                │
+│  - PR Comments (CodeRabbit 🐰, Qodo)         │
 │  - Status Checks                              │
 │  - Security Alerts                            │
 │  - Releases                                   │
@@ -66,6 +66,17 @@ Technical architecture and execution flow of Claude-Flow's CI/CD pipeline.
 ```
 Developer creates PR
         │
+        ├─→ [CodeRabbit AI] (1-2 min, GitHub App)
+        │   ├─ 5 Iron Laws validation
+        │   ├─ Context-aware analysis
+        │   ├─ Tool checks (ruff, shellcheck, etc.)
+        │   └─ Learning-based suggestions
+        │
+        ├─→ [Qodo AI Workflow] (1-2 min, if configured)
+        │   ├─ AI code review
+        │   ├─ PR description generation
+        │   └─ Improvement suggestions
+        │
         ├─→ [PR Labeler Workflow] (30 sec)
         │   ├─ File-based labeling
         │   ├─ Size labeling
@@ -75,8 +86,7 @@ Developer creates PR
         │   ├─ Complexity Analysis (parallel)
         │   │   └─ Radon, Lizard
         │   ├─ Security Scan (parallel)
-        │   │   ├─ Bandit
-        │   │   └─ Trivy
+        │   │   └─ Bandit
         │   └─ Impact Analysis (parallel)
         │       └─ Git diff analysis
         │

@@ -1,0 +1,228 @@
+# CodeRabbit Configuration for Claude-Flow
+# https://docs.coderabbit.ai/guides/configure-coderabbit
+
+# Language settings
+language: "en-US"
+
+# Early access features
+early_access: false
+
+# Enable/disable reviews
+reviews:
+  # Main review toggle
+  enabled: true
+  
+  # Review profile - balanced for comprehensive analysis
+  profile: "chill"  # Options: assertive, chill
+  
+  # Request changes vs. comment
+  request_changes_workflow: false
+  
+  # High-level summary of changes
+  high_level_summary: true
+  
+  # Poem in review summary (disable for professional context)
+  poem: false
+  
+  # Review status comment
+  review_status: true
+  
+  # Collapse walkthrough details by default
+  collapse_walkthrough: true
+  
+  # Auto-review settings
+  auto_review:
+    enabled: true
+    
+    # Trigger events for automatic reviews
+    drafts: false  # Don't review draft PRs
+    base_branches:
+      - main
+      - develop
+  
+  # Tools and integrations
+  tools:
+    # GitHub Checks integration
+    github-checks:
+      enabled: true
+      timeout_ms: 90000
+    
+    # Ruff for Python linting (aligns with existing tools)
+    ruff:
+      enabled: true
+      
+    # Shellcheck for bash scripts
+    shellcheck:
+      enabled: true
+    
+    # markdownlint for docs
+    markdownlint:
+      enabled: true
+    
+    # YAML linting
+    yamllint:
+      enabled: true
+    
+    # Gitleaks for secret scanning (complements existing security)
+    gitleaks:
+      enabled: true
+  
+  # Path-based instructions for different areas
+  path_instructions:
+    - path: "rag-pipeline/**/*.py"
+      instructions: |
+        Python code in the RAG pipeline:
+        - Follow PEP 8 style guidelines
+        - Use type hints for all function signatures
+        - Ensure 100% test coverage for new code (TDD principle)
+        - Document complex algorithms with docstrings
+        - Validate input sanitization to prevent injection attacks
+    
+    - path: "commands/*.md"
+      instructions: |
+        Slash command definitions:
+        - Maintain YAML frontmatter structure
+        - Clear, actionable descriptions
+        - Include usage examples
+        - Reference relevant agents when applicable
+    
+    - path: "agents/*.md"
+      instructions: |
+        Agent definitions:
+        - Clearly define agent role and responsibilities
+        - Include specific constraints and guidelines
+        - Reference relevant skills and commands
+    
+    - path: ".github/workflows/*.yml"
+      instructions: |
+        GitHub Actions workflows:
+        - Follow existing naming conventions
+        - Use concurrency groups to prevent conflicts
+        - Include descriptive comments for complex steps
+        - Set appropriate timeouts
+        - Handle secrets securely
+    
+    - path: "docs/**/*.md"
+      instructions: |
+        Documentation:
+        - Keep consistent with existing doc structure
+        - Update table of contents when adding sections
+        - Include code examples where relevant
+        - Cross-reference related documentation
+
+# Chat settings
+chat:
+  # Enable ChatOps commands in PR comments
+  auto_reply: true
+
+# Knowledge base for Claude-Flow specific context
+knowledge_base:
+  # Learnings that persist across reviews
+  learnings:
+    enabled: true
+  
+  # Opt-out of sharing learnings with CodeRabbit (privacy)
+  opt_out: false
+
+# Custom instructions for Claude-Flow methodology
+instructions: |
+  You are reviewing code for the Claude-Flow project, a systematic development workflow
+  for producing high-quality, test-driven software with Claude Code.
+  
+  ## The 5 Iron Laws (Critical - Always Enforce)
+  
+  1. **TDD (Test-Driven Development)**: NO production code without a failing test first
+     - Flag any production code changes without corresponding test changes
+     - Verify tests were written before implementation (check git history if possible)
+     - Ensure tests cover edge cases and error conditions
+  
+  2. **Verification**: Evidence before claims, always
+     - Code must demonstrate it works (tests, manual verification)
+     - Changes should include verification steps in PR description
+     - Flag unverified claims or assumptions
+  
+  3. **Debugging**: NO fixes without root cause investigation
+     - Bug fixes must include root cause analysis
+     - Temporary workarounds must be clearly marked
+     - Suggest systematic debugging approach for complex issues
+  
+  4. **Planning**: Plans must be executable with ZERO context
+     - PR descriptions should be self-contained
+     - Commands and steps should be explicit and reproducible
+     - Avoid assumptions about implicit knowledge
+  
+  5. **Isolation**: Isolated workspace for each feature
+     - One feature per branch/PR
+     - No scope creep - flag unrelated changes
+     - Keep changes minimal and focused
+  
+  ## Code Quality Standards
+  
+  - **Python**: Follow PEP 8, use type hints, docstrings for public APIs
+  - **Shell Scripts**: Use shellcheck, quote variables, handle errors
+  - **Markdown**: Consistent formatting, valid links, proper heading hierarchy
+  - **YAML**: Consistent indentation, descriptive keys, comments for complex logic
+  
+  ## Security Requirements
+  
+  - No secrets or credentials in code
+  - Sanitize all user inputs
+  - Use parameterized queries for database access
+  - Validate file paths to prevent directory traversal
+  - Check for command injection vulnerabilities
+  
+  ## Testing Requirements
+  
+  - Maintain >70% code coverage (current standard)
+  - Test edge cases and error conditions
+  - Use descriptive test names
+  - Follow existing test patterns in the codebase
+  - Mock external dependencies appropriately
+  
+  ## Documentation Requirements
+  
+  - Update docs when changing functionality
+  - Keep README.md in sync with actual capabilities
+  - Update command references when modifying commands
+  - Maintain CONTEXT.md files in directories
+  
+  ## Integration with Other Review Tools
+  
+  This repository uses multiple review tools that work together:
+  - **Qodo**: AI-powered suggestions (runs separately)
+  - **Automated checks**: Complexity, security, coverage
+  - **CodeRabbit**: Comprehensive code review (you!)
+  
+  Focus on:
+  - Code quality and best practices
+  - Claude-Flow methodology compliance
+  - Security and maintainability
+  - Areas other tools might miss
+  
+  Avoid:
+  - Duplicate comments with other tools
+  - Nitpicking formatting (linters handle this)
+  - Contradicting established patterns without good reason
+
+# Tone and style
+tone_instructions: |
+  - Be constructive and educational, not prescriptive
+  - Reference specific Claude-Flow principles when relevant
+  - Suggest improvements with reasoning, not just commands
+  - Acknowledge good practices when you see them
+  - For serious issues (security, TDD violations), be direct but professional
+
+# Abort review conditions (save tokens on invalid PRs)
+abort_on:
+  # Don't review if there are no changes
+  no_changes: true
+  
+  # Don't review auto-generated release notes
+  generated_files:
+    - "CHANGELOG.md"
+    - "**/package-lock.json"
+    - "**/yarn.lock"
+    - "**/poetry.lock"
+    - "**/.pytest_cache/**"
+    - "**/__pycache__/**"
+    - "**/node_modules/**"
