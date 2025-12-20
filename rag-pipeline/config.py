@@ -19,10 +19,28 @@ KNOWLEDGE_PATHS = [
 ]
 
 # Raw WebSocket captures (indexed separately with event_chunker)
-RUGS_RAW_CAPTURES_PATH = Path("/home/nomad/rugs_recordings/raw_captures")
+# Check multiple possible locations
+_POSSIBLE_CAPTURE_PATHS = [
+    PROJECT_ROOT / "rag-pipeline" / "RAW SOCKETS" / "rugs_recordings" / "raw_captures",
+    Path.home() / "rugs_recordings" / "raw_captures",
+    Path("/home/nomad/rugs_recordings/raw_captures"),
+]
+RUGS_RAW_CAPTURES_PATH = next(
+    (p for p in _POSSIBLE_CAPTURE_PATHS if p.exists()),
+    _POSSIBLE_CAPTURE_PATHS[0],  # Default to first if none exist
+)
+
+# Generated outputs from WebSocket ingestion
+RUGS_GENERATED_PATH = PROJECT_ROOT / "knowledge" / "rugs-events" / "generated"
+
+# Field dictionary for validation
+RUGS_FIELD_DICTIONARY = PROJECT_ROOT / "knowledge" / "rugs-events" / "FIELD_DICTIONARY.md"
 
 # REPLAYER event documentation (symlinked or copied)
 REPLAYER_EVENTS_SPEC = Path("/home/nomad/Desktop/REPLAYER/docs/specs")
+
+# ChromaDB collection for WebSocket events (separate from main knowledge)
+RUGS_EVENTS_COLLECTION = "rugs_events"
 
 # File patterns to include
 INCLUDE_PATTERNS = ["*.md", "*.py", "*.yaml", "*.yml", "*.json"]

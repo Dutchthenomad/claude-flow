@@ -303,6 +303,179 @@ def get_capture_summary(file_path: Path) -> dict:
     }
 
 
+# =============================================================================
+# Schema Chunking (for discovered schemas and field indexes)
+# =============================================================================
+
+
+@dataclass
+class SchemaChunk:
+    """A chunk of schema/field documentation for embedding."""
+
+    text: str
+    source: str
+    event_type: str
+    doc_type: str  # "schema", "field", "overview"
+    field_path: str | None = None
+
+
+def chunk_event_schema(schema: dict) -> Iterator[SchemaChunk]:
+    """Chunk event schema for vector embedding.
+
+    Creates semantic chunks from a generated JSON schema that are
+    useful for RAG retrieval.
+
+    Args:
+        schema: JSON Schema dict from schema_generator
+
+    Yields:
+        SchemaChunk for each semantic unit
+    """
+    event_name = schema.get("title", "unknown")
+    frequency = schema.get("x-frequency", 0)
+
+    # Overview chunk
+    overview_lines = [
+        f"Event: {event_name}",
+        f"Type: WebSocket broadcast event",
+        f"Frequency: {frequency:,} occurrences in recordings",
+        "",
+        "This event is part of the rugs.fun WebSocket protocol.",
+    ]
+
+    yield SchemaChunk(
+        text="\n".join(overview_lines),
+        source=f"schemas/{event_name}.json",
+        event_type=event_name,
+        doc_type="schema",
+    )
+
+    # Field chunks from properties
+    if "properties" in schema:
+        yield from _chunk_schema_properties(
+            schema["properties"],
+            event_name,
+            prefix="",
+        )
+
+
+def _chunk_schema_properties(
+    properties: dict,
+    event_name: str,
+    prefix: str,
+) -> Iterator[SchemaChunk]:
+    """Recursively chunk schema properties.
+
+    Args:
+        properties: Properties dict from schema
+        event_name: Parent event name
+        prefix: Current path prefix
+
+    Yields:
+        SchemaChunk for each field
+    """
+    for name, prop in properties.items():
+        path = f"{prefix}.{name}" if prefix else name
+        prop_type = prop.get("type", "unknown")
+
+        # Build field description
+        lines = [
+            f"Field: {path}",
+            f"Event: {event_name}",
+            f"Type: {prop_type}",
+        ]
+
+        if "x-frequency" in prop:
+            lines.append(f"Frequency: {prop['x-frequency']:,} occurrences")
+
+        if "examples" in prop:
+            examples = prop["examples"][:3]
+            lines.append(f"Example values: {examples}")
+
+        yield SchemaChunk(
+            text="\n".join(lines),
+            source=f"schemas/{event_name}.json#{path}",
+            event_type=event_name,
+            doc_type="field",
+            field_path=path,
+        )
+
+        # Recurse into nested objects
+        if prop_type == "object" and "properties" in prop:
+            yield from _chunk_schema_properties(
+                prop["properties"],
+                event_name,
+                path,
+            )
+
+        # Recurse into array items
+        if prop_type == "array" and "items" in prop:
+            items = prop["items"]
+            if items.get("type") == "object" and "properties" in items:
+                yield from _chunk_schema_properties(
+                    items["properties"],
+                    event_name,
+                    f"{path}[]",
+                )
+
+
+def chunk_field_index(index: dict) -> Iterator[SchemaChunk]:
+    """Chunk field index for vector embedding.
+
+    Creates chunks from the flat field index that enable
+    semantic search for field information.
+
+    Args:
+        index: Field index dict from schema_generator
+
+    Yields:
+        SchemaChunk for each field entry
+    """
+    for path, info in sorted(index.items()):
+        # Get event(s) this field appears in
+        events = info.get("events", [info.get("event", "unknown")])
+        if isinstance(events, str):
+            events = [events]
+
+        lines = [
+            f"Field Path: {path}",
+            f"Type: {info.get('type', 'unknown')}",
+            f"Events: {', '.join(events)}",
+            f"Frequency: {info.get('frequency', 0):,} occurrences",
+        ]
+
+        samples = info.get("samples", [])
+        if samples:
+            lines.append(f"Sample values: {samples[:3]}")
+
+        yield SchemaChunk(
+            text="\n".join(lines),
+            source=f"field_index.json#{path}",
+            event_type=events[0],
+            doc_type="field",
+            field_path=path,
+        )
+
+
+def chunk_discovery_result(result) -> Iterator[SchemaChunk]:
+    """Chunk all events from a discovery result.
+
+    Convenience function that generates schemas and chunks them.
+
+    Args:
+        result: DiscoveryResult from event_discovery
+
+    Yields:
+        SchemaChunk for each event and field
+    """
+    from ingestion.schema_generator import generate_all_schemas
+
+    schemas = generate_all_schemas(result)
+
+    for event_name, schema in schemas.items():
+        yield from chunk_event_schema(schema)
+
+
 if __name__ == "__main__":
     # Test with sample capture
     import sys
