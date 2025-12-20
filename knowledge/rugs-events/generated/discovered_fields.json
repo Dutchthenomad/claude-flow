@@ -1,0 +1,3072 @@
+{
+  "seq": {
+    "events": [
+      "connect",
+      "gameStateUpdate",
+      "standard/newTrade",
+      "newChatMessage",
+      "battleEventUpdate",
+      "goldenHourUpdate",
+      "goldenHourDrawing",
+      "rugRoyaleUpdate",
+      "sidebetEventUpdate",
+      "maintenanceUpdate",
+      "newSideBet",
+      "chatHistory",
+      "getLeaderboard",
+      "authenticate",
+      "playerUpdate",
+      "getPlayerCosmetics",
+      "gameStatePlayerUpdate",
+      "usernameStatus",
+      "mutedPlayers",
+      "leaderboardData",
+      "playerCosmetics",
+      "inboxMessages",
+      "getPlayerLeaderboardPosition",
+      "playerLeaderboardPosition",
+      "checkUsername",
+      "rugpassStatus",
+      "gameNotification",
+      "rugpoolDrawing",
+      "rugpoolStatus"
+    ],
+    "type": "number",
+    "frequency": 19207,
+    "samples": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  },
+  "ts": {
+    "events": [
+      "connect",
+      "gameStateUpdate",
+      "standard/newTrade",
+      "newChatMessage",
+      "battleEventUpdate",
+      "goldenHourUpdate",
+      "goldenHourDrawing",
+      "rugRoyaleUpdate",
+      "sidebetEventUpdate",
+      "maintenanceUpdate",
+      "newSideBet",
+      "chatHistory",
+      "getLeaderboard",
+      "authenticate",
+      "playerUpdate",
+      "getPlayerCosmetics",
+      "gameStatePlayerUpdate",
+      "usernameStatus",
+      "mutedPlayers",
+      "leaderboardData",
+      "playerCosmetics",
+      "inboxMessages",
+      "getPlayerLeaderboardPosition",
+      "playerLeaderboardPosition",
+      "checkUsername",
+      "rugpassStatus",
+      "gameNotification",
+      "rugpoolDrawing",
+      "rugpoolStatus"
+    ],
+    "type": "string",
+    "frequency": 19207,
+    "samples": [
+      "2025-12-12T17:16:58.624285",
+      "2025-12-14T11:51:33.809733",
+      "2025-12-14T19:18:09.945210",
+      "2025-12-14T19:35:37.549758",
+      "2025-12-14T19:46:57.839678"
+    ]
+  },
+  "event": {
+    "events": [
+      "connect",
+      "gameStateUpdate",
+      "standard/newTrade",
+      "newChatMessage",
+      "battleEventUpdate",
+      "goldenHourUpdate",
+      "goldenHourDrawing",
+      "rugRoyaleUpdate",
+      "sidebetEventUpdate",
+      "maintenanceUpdate",
+      "newSideBet",
+      "chatHistory",
+      "getLeaderboard",
+      "authenticate",
+      "playerUpdate",
+      "getPlayerCosmetics",
+      "gameStatePlayerUpdate",
+      "usernameStatus",
+      "mutedPlayers",
+      "leaderboardData",
+      "playerCosmetics",
+      "inboxMessages",
+      "getPlayerLeaderboardPosition",
+      "playerLeaderboardPosition",
+      "checkUsername",
+      "rugpassStatus",
+      "gameNotification",
+      "rugpoolDrawing",
+      "rugpoolStatus"
+    ],
+    "type": "string",
+    "frequency": 19207,
+    "samples": [
+      "connect",
+      "gameStateUpdate",
+      "standard/newTrade",
+      "newChatMessage",
+      "battleEventUpdate"
+    ]
+  },
+  "data": {
+    "events": [
+      "connect",
+      "gameStateUpdate",
+      "standard/newTrade",
+      "newChatMessage",
+      "battleEventUpdate",
+      "goldenHourUpdate",
+      "goldenHourDrawing",
+      "rugRoyaleUpdate",
+      "sidebetEventUpdate",
+      "maintenanceUpdate",
+      "newSideBet",
+      "chatHistory",
+      "getLeaderboard",
+      "authenticate",
+      "playerUpdate",
+      "getPlayerCosmetics",
+      "gameStatePlayerUpdate",
+      "usernameStatus",
+      "mutedPlayers",
+      "leaderboardData",
+      "playerCosmetics",
+      "inboxMessages",
+      "getPlayerLeaderboardPosition",
+      "playerLeaderboardPosition",
+      "checkUsername",
+      "rugpassStatus",
+      "gameNotification",
+      "rugpoolDrawing",
+      "rugpoolStatus"
+    ],
+    "type": "null",
+    "frequency": 19207,
+    "samples": [
+      null,
+      "<object with 36 keys>",
+      "<object with 21 keys>",
+      "<object with 27 keys>"
+    ]
+  },
+  "data.gameId": {
+    "events": [
+      "gameStateUpdate",
+      "gameStatePlayerUpdate"
+    ],
+    "type": "string",
+    "frequency": 9883,
+    "samples": [
+      "20251212-6114b2ff44ef4b71",
+      "20251212-6f491efbd808458b",
+      "20251214-fe3c0e433c0d429d",
+      "20251214-f670dc0ed0b94d10",
+      "20251214-fe844a594d0044dc"
+    ]
+  },
+  "data.cooldownTimer": {
+    "type": "number",
+    "frequency": 5089,
+    "samples": [
+      14900,
+      14800,
+      14700,
+      14600,
+      14500
+    ],
+    "event": "gameStateUpdate"
+  },
+  "data.cooldownPaused": {
+    "type": "boolean",
+    "frequency": 5089,
+    "samples": [
+      false
+    ],
+    "event": "gameStateUpdate"
+  },
+  "data.allowPreRoundBuys": {
+    "type": "boolean",
+    "frequency": 5089,
+    "samples": [
+      false,
+      true
+    ],
+    "event": "gameStateUpdate"
+  },
+  "data.leaderboard": {
+    "events": [
+      "gameStateUpdate",
+      "rugRoyaleUpdate"
+    ],
+    "type": "array",
+    "frequency": 5102,
+    "samples": []
+  },
+  "data.leaderboard[]": {
+    "events": [
+      "gameStateUpdate",
+      "rugRoyaleUpdate"
+    ],
+    "type": "object",
+    "frequency": 5032,
+    "samples": []
+  },
+  "data.leaderboard[].id": {
+    "type": "string",
+    "frequency": 50059,
+    "samples": [
+      "did:privy:cmaos0abo03t9kz0mquf6fa4n",
+      "did:privy:cmgdz0so100bejm0cfaewe0rw",
+      "did:privy:cmi8zyfq4007fl20booupw2jj",
+      "did:privy:cmflbi9nj00wijp0cp8q2tpxa",
+      "did:privy:cmflau4gu00nhjv0cfgyq5mer"
+    ],
+    "event": "gameStateUpdate"
+  },
+  "data.leaderboard[].username": {
+    "events": [
+      "gameStateUpdate",
+      "rugRoyaleUpdate"
+    ],
+    "type": "string",
+    "frequency": 50189,
+    "samples": [
+      "Boss",
+      "getSmoked",
+      "BooMStick1776",
+      "osmraisa",
+      "jiabra"
+    ]
+  },
+  "data.leaderboard[].level": {
+    "events": [
+      "gameStateUpdate",
+      "rugRoyaleUpdate"
+    ],
+    "type": "number",
+    "frequency": 50189,
+    "samples": [
+      28,
+      19,
+      16,
+      8,
+      7
+    ]
+  },
+  "data.leaderboard[].pnl": {
+    "type": "number",
+    "frequency": 50059,
+    "samples": [
+      0.014450205,
+      0.002079603,
+      0.000966814,
+      0.000505089,
+      0.000482129
+    ],
+    "event": "gameStateUpdate"
+  },
+  "data.leaderboard[].regularPnl": {
+    "type": "number",
+    "frequency": 16700,
+    "samples": [
+      0.014450205,
+      0.002079603,
+      0.000966814,
+      0.000505089,
+      0.000482129
+    ],
+    "event": "gameStateUpdate"
+  },
+  "data.leaderboard[].sidebetPnl": {
+    "type": "number",
+    "frequency": 16700,
+    "samples": [
+      0,
+      0.052000000000000005,
+      0.012,
+      0.004,
+      -0.082
+    ],
+    "event": "gameStateUpdate"
+  },
+  "data.leaderboard[].shortPnl": {
+    "type": "number",
+    "frequency": 16700,
+    "samples": [
+      0
+    ],
+    "event": "gameStateUpdate"
+  },
+  "data.leaderboard[].sidebetActive": {
+    "type": "null",
+    "frequency": 50059,
+    "samples": [
+      null,
+      true
+    ],
+    "event": "gameStateUpdate"
+  },
+  "data.leaderboard[].sideBet": {
+    "type": "null",
+    "frequency": 50059,
+    "samples": [
+      null
+    ],
+    "event": "gameStateUpdate"
+  },
+  "data.leaderboard[].shortPosition": {
+    "type": "null",
+    "frequency": 50059,
+    "samples": [
+      null
+    ],
+    "event": "gameStateUpdate"
+  },
+  "data.leaderboard[].pnlPercent": {
+    "type": "number",
+    "frequency": 50059,
+    "samples": [
+      16.055783333333334,
+      6.301827654656221,
+      12.085175,
+      2.295859090909091,
+      2.2958523809523808
+    ],
+    "event": "gameStateUpdate"
+  },
+  "data.leaderboard[].hasActiveTrades": {
+    "type": "boolean",
+    "frequency": 50059,
+    "samples": [
+      true
+    ],
+    "event": "gameStateUpdate"
+  },
+  "data.leaderboard[].positionQty": {
+    "type": "number",
+    "frequency": 50059,
+    "samples": [
+      0,
+      0.001,
+      0.1,
+      0.03,
+      0.01
+    ],
+    "event": "gameStateUpdate"
+  },
+  "data.leaderboard[].avgCost": {
+    "type": "number",
+    "frequency": 50059,
+    "samples": [
+      0,
+      1,
+      0.999999999,
+      0.999999995,
+      0.999999996
+    ],
+    "event": "gameStateUpdate"
+  },
+  "data.leaderboard[].totalInvested": {
+    "type": "number",
+    "frequency": 50059,
+    "samples": [
+      0.09,
+      0.032999998,
+      0.008,
+      0.022,
+      0.021
+    ],
+    "event": "gameStateUpdate"
+  },
+  "data.leaderboard[].selectedCoin": {
+    "type": "null",
+    "frequency": 50059,
+    "samples": [
+      null
+    ],
+    "event": "gameStateUpdate"
+  },
+  "data.leaderboard[].position": {
+    "type": "number",
+    "frequency": 50059,
+    "samples": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "event": "gameStateUpdate"
+  },
+  "data.connectedPlayers": {
+    "type": "number",
+    "frequency": 5089,
+    "samples": [
+      200,
+      201,
+      202,
+      206,
+      205
+    ],
+    "event": "gameStateUpdate"
+  },
+  "data.provablyFair": {
+    "type": "object",
+    "frequency": 5089,
+    "samples": [],
+    "event": "gameStateUpdate"
+  },
+  "data.provablyFair.serverSeedHash": {
+    "type": "string",
+    "frequency": 5089,
+    "samples": [
+      "f8fb5fc595f23a0c148ad4ebabf4996b20190dd988932a0e52db55b043fc673a",
+      "79740423cccd1b29c75bd5b669f1da0fb6020563a539e48ae5a8dac335d1202b",
+      "39118e6b97ce6762e5a90785541c500f2179eb974f1c5b3f32d91b2a935a286e",
+      "9637786faab3efb6363fb0c42eaeeb506105b17de95810763f5c0a02148a7cc4",
+      "7516eb892bf7cc57a4c0587f92d5d541b4db53c7e05873ae948efa3e9ff59b13"
+    ],
+    "event": "gameStateUpdate"
+  },
+  "data.provablyFair.version": {
+    "type": "string",
+    "frequency": 5089,
+    "samples": [
+      "v3"
+    ],
+    "event": "gameStateUpdate"
+  },
+  "data.leaderboard[].sideBet.startedAtTick": {
+    "type": "number",
+    "frequency": 2406,
+    "samples": [
+      0
+    ],
+    "event": "gameStateUpdate"
+  },
+  "data.leaderboard[].sideBet.gameId": {
+    "type": "string",
+    "frequency": 2406,
+    "samples": [
+      "20251212-6114b2ff44ef4b71",
+      "20251212-6f491efbd808458b",
+      "20251214-fe3c0e433c0d429d",
+      "20251214-f670dc0ed0b94d10",
+      "20251215-3b292f2e706f44e9"
+    ],
+    "event": "gameStateUpdate"
+  },
+  "data.leaderboard[].sideBet.end": {
+    "type": "number",
+    "frequency": 2406,
+    "samples": [
+      40
+    ],
+    "event": "gameStateUpdate"
+  },
+  "data.leaderboard[].sideBet.betAmount": {
+    "type": "number",
+    "frequency": 2406,
+    "samples": [
+      0.001,
+      0.003,
+      0.01,
+      0.005,
+      0.029
+    ],
+    "event": "gameStateUpdate"
+  },
+  "data.leaderboard[].sideBet.xPayout": {
+    "type": "number",
+    "frequency": 2406,
+    "samples": [
+      5
+    ],
+    "event": "gameStateUpdate"
+  },
+  "data.leaderboard[].sideBet.coinAddress": {
+    "type": "string",
+    "frequency": 2406,
+    "samples": [
+      "So11111111111111111111111111111111111111112",
+      "0xPractice"
+    ],
+    "event": "gameStateUpdate"
+  },
+  "data.leaderboard[].sideBet.bonusPortion": {
+    "type": "number",
+    "frequency": 2406,
+    "samples": [
+      0,
+      0.05,
+      0.004,
+      0.101
+    ],
+    "event": "gameStateUpdate"
+  },
+  "data.leaderboard[].sideBet.realPortion": {
+    "type": "number",
+    "frequency": 2406,
+    "samples": [
+      0.001,
+      0.003,
+      0.01,
+      0.005,
+      0.029
+    ],
+    "event": "gameStateUpdate"
+  },
+  "data.active": {
+    "type": "boolean",
+    "frequency": 35,
+    "samples": [
+      true
+    ],
+    "event": "gameStateUpdate"
+  },
+  "data.price": {
+    "type": "number",
+    "frequency": 35,
+    "samples": [
+      1
+    ],
+    "event": "gameStateUpdate"
+  },
+  "data.rugged": {
+    "type": "boolean",
+    "frequency": 35,
+    "samples": [
+      false
+    ],
+    "event": "gameStateUpdate"
+  },
+  "data.tickCount": {
+    "type": "number",
+    "frequency": 35,
+    "samples": [
+      0
+    ],
+    "event": "gameStateUpdate"
+  },
+  "data.pauseMessage": {
+    "type": "string",
+    "frequency": 35,
+    "samples": [
+      ""
+    ],
+    "event": "gameStateUpdate"
+  },
+  "data.gameVersion": {
+    "type": "string",
+    "frequency": 35,
+    "samples": [
+      "v3"
+    ],
+    "event": "gameStateUpdate"
+  },
+  "data.partialPrices": {
+    "type": "object",
+    "frequency": 35,
+    "samples": [],
+    "event": "gameStateUpdate"
+  },
+  "data.partialPrices.startTick": {
+    "type": "number",
+    "frequency": 35,
+    "samples": [
+      0
+    ],
+    "event": "gameStateUpdate"
+  },
+  "data.partialPrices.endTick": {
+    "type": "number",
+    "frequency": 35,
+    "samples": [
+      0
+    ],
+    "event": "gameStateUpdate"
+  },
+  "data.partialPrices.values": {
+    "type": "object",
+    "frequency": 35,
+    "samples": [
+      "<object with 1 keys>"
+    ],
+    "event": "gameStateUpdate"
+  },
+  "data.leaderboard[].selectedCoin.address": {
+    "type": "string",
+    "frequency": 2575,
+    "samples": [
+      "0xPractice"
+    ],
+    "event": "gameStateUpdate"
+  },
+  "data.leaderboard[].selectedCoin.ticker": {
+    "type": "string",
+    "frequency": 2575,
+    "samples": [
+      "FREE"
+    ],
+    "event": "gameStateUpdate"
+  },
+  "data.leaderboard[].selectedCoin.name": {
+    "type": "string",
+    "frequency": 2575,
+    "samples": [
+      "Free Practice Token"
+    ],
+    "event": "gameStateUpdate"
+  },
+  "data.leaderboard[].selectedCoin.max_bet": {
+    "type": "number",
+    "frequency": 2575,
+    "samples": [
+      10000
+    ],
+    "event": "gameStateUpdate"
+  },
+  "data.leaderboard[].selectedCoin.max_win": {
+    "type": "number",
+    "frequency": 2575,
+    "samples": [
+      50000
+    ],
+    "event": "gameStateUpdate"
+  },
+  "data.leaderboard[].selectedCoin.logoURI": {
+    "type": "string",
+    "frequency": 2575,
+    "samples": [
+      "/icons/Icon_Free_Solana.png"
+    ],
+    "event": "gameStateUpdate"
+  },
+  "source": {
+    "events": [
+      "gameStateUpdate",
+      "standard/newTrade",
+      "newChatMessage",
+      "battleEventUpdate",
+      "goldenHourUpdate",
+      "goldenHourDrawing",
+      "rugRoyaleUpdate",
+      "sidebetEventUpdate",
+      "maintenanceUpdate",
+      "newSideBet",
+      "chatHistory",
+      "getLeaderboard",
+      "authenticate",
+      "playerUpdate",
+      "getPlayerCosmetics",
+      "gameStatePlayerUpdate",
+      "usernameStatus",
+      "mutedPlayers",
+      "leaderboardData",
+      "playerCosmetics",
+      "inboxMessages",
+      "getPlayerLeaderboardPosition",
+      "playerLeaderboardPosition",
+      "checkUsername",
+      "rugpassStatus",
+      "rugpoolDrawing",
+      "rugpoolStatus"
+    ],
+    "type": "string",
+    "frequency": 10456,
+    "samples": [
+      "cdp_intercept"
+    ]
+  },
+  "direction": {
+    "events": [
+      "gameStateUpdate",
+      "standard/newTrade",
+      "newChatMessage",
+      "battleEventUpdate",
+      "goldenHourUpdate",
+      "goldenHourDrawing",
+      "rugRoyaleUpdate",
+      "sidebetEventUpdate",
+      "maintenanceUpdate",
+      "newSideBet",
+      "chatHistory",
+      "getLeaderboard",
+      "authenticate",
+      "playerUpdate",
+      "getPlayerCosmetics",
+      "gameStatePlayerUpdate",
+      "usernameStatus",
+      "mutedPlayers",
+      "leaderboardData",
+      "playerCosmetics",
+      "inboxMessages",
+      "getPlayerLeaderboardPosition",
+      "playerLeaderboardPosition",
+      "checkUsername",
+      "rugpassStatus",
+      "rugpoolDrawing",
+      "rugpoolStatus"
+    ],
+    "type": "string",
+    "frequency": 10456,
+    "samples": [
+      "received",
+      "sent"
+    ]
+  },
+  "raw": {
+    "events": [
+      "gameStateUpdate",
+      "standard/newTrade",
+      "newChatMessage",
+      "battleEventUpdate",
+      "goldenHourUpdate",
+      "rugRoyaleUpdate",
+      "sidebetEventUpdate",
+      "newSideBet",
+      "chatHistory",
+      "getLeaderboard",
+      "authenticate",
+      "playerUpdate",
+      "getPlayerCosmetics",
+      "gameStatePlayerUpdate",
+      "usernameStatus",
+      "mutedPlayers",
+      "leaderboardData",
+      "playerCosmetics",
+      "inboxMessages",
+      "getPlayerLeaderboardPosition",
+      "playerLeaderboardPosition",
+      "checkUsername",
+      "rugpassStatus",
+      "rugpoolDrawing",
+      "rugpoolStatus"
+    ],
+    "type": "string",
+    "frequency": 1202,
+    "samples": [
+      "42[\"gameStateUpdate\",{\"gameHistory\":[{\"id\":\"20251215-2ca0652697eb4eee\",\"timestamp\":1765777829022,\"pr...",
+      "42[\"gameStateUpdate\",{\"active\":true,\"price\":0.3290892506637079,\"partialPrices\":{\"startTick\":392,\"end...",
+      "42[\"gameStateUpdate\",{\"active\":true,\"price\":0.25258443673728415,\"partialPrices\":{\"startTick\":393,\"en...",
+      "42[\"gameStateUpdate\",{\"active\":true,\"price\":0.24886105410741494,\"partialPrices\":{\"startTick\":394,\"en...",
+      "42[\"gameStateUpdate\",{\"active\":true,\"price\":0.2036838062364362,\"partialPrices\":{\"startTick\":395,\"end..."
+    ]
+  },
+  "data[]": {
+    "events": [
+      "standard/newTrade",
+      "newChatMessage",
+      "battleEventUpdate",
+      "goldenHourUpdate",
+      "goldenHourDrawing",
+      "sidebetEventUpdate",
+      "maintenanceUpdate",
+      "newSideBet",
+      "gameNotification"
+    ],
+    "type": "object",
+    "frequency": 1197,
+    "samples": []
+  },
+  "data[].__trace": {
+    "events": [
+      "standard/newTrade",
+      "newChatMessage",
+      "battleEventUpdate",
+      "goldenHourUpdate",
+      "goldenHourDrawing",
+      "sidebetEventUpdate",
+      "maintenanceUpdate",
+      "newSideBet",
+      "gameNotification"
+    ],
+    "type": "boolean",
+    "frequency": 1197,
+    "samples": [
+      true
+    ]
+  },
+  "data[].traceparent": {
+    "events": [
+      "standard/newTrade",
+      "newChatMessage",
+      "battleEventUpdate",
+      "goldenHourUpdate",
+      "goldenHourDrawing",
+      "sidebetEventUpdate",
+      "maintenanceUpdate",
+      "newSideBet",
+      "gameNotification"
+    ],
+    "type": "string",
+    "frequency": 1197,
+    "samples": [
+      "00-b919294cf518e485acace9c1c391ff34-11e953610ea53aff-01",
+      "00-e5745f7152844a84442fdde7d30fcd8b-a82ab0f7f5946dbe-01",
+      "00-280b3d8a6216706e1a5582a0980c85c0-907cf4a67d458c32-01",
+      "00-2efd2469d5f055838c87baef0b85f6a5-20b838f83aa07256-01",
+      "00-126b638b055f2818a2971f6bdba8def8-ccc6ff3d1b7f6605-01"
+    ]
+  },
+  "data[].id": {
+    "events": [
+      "standard/newTrade",
+      "goldenHourDrawing"
+    ],
+    "type": "string",
+    "frequency": 607,
+    "samples": [
+      "9d33997e-2bad-4893-9de5-8e8ec708891a",
+      "e3c68cb1-b2ed-4224-8568-fe1d099ad643",
+      "30c7a2f0-4083-4ae5-9651-2f34be2ddce1",
+      "cd1cd4cb-0cd8-487c-b540-ebd55d8ad3d9",
+      "340931ed-9274-44ca-bb34-b09851502022"
+    ]
+  },
+  "data[].gameId": {
+    "events": [
+      "standard/newTrade",
+      "goldenHourDrawing",
+      "newSideBet"
+    ],
+    "type": "string",
+    "frequency": 624,
+    "samples": [
+      "20251212-25dcb17086a24ad7",
+      "20251212-6114b2ff44ef4b71",
+      "20251214-83c1efa1085340c7",
+      "20251214-fe3c0e433c0d429d",
+      "20251214-f670dc0ed0b94d10"
+    ]
+  },
+  "data[].playerId": {
+    "events": [
+      "standard/newTrade",
+      "newChatMessage",
+      "newSideBet"
+    ],
+    "type": "string",
+    "frequency": 1023,
+    "samples": [
+      "did:privy:cmbmoqwxf00uxk40movpxyhjw",
+      "did:privy:cmaos0abo03t9kz0mquf6fa4n",
+      "did:privy:cmb0dxecy00nckz0nnrs6y7kf",
+      "did:privy:cmeq23kw503hel40b0y7v49mb",
+      "did:privy:cma7ajzpp003tl40nptk0ap8x"
+    ]
+  },
+  "data[].type": {
+    "events": [
+      "standard/newTrade",
+      "newSideBet",
+      "gameNotification"
+    ],
+    "type": "string",
+    "frequency": 609,
+    "samples": [
+      "sell",
+      "buy",
+      "placed",
+      "event",
+      "goldenhour"
+    ]
+  },
+  "data[].price": {
+    "events": [
+      "standard/newTrade",
+      "newSideBet"
+    ],
+    "type": "number",
+    "frequency": 607,
+    "samples": [
+      0.8317710102714284,
+      0.8283719646298878,
+      0.5799041862572357,
+      0.5866625847865298,
+      0.48945183535715886
+    ]
+  },
+  "data[].tickIndex": {
+    "events": [
+      "standard/newTrade",
+      "newSideBet"
+    ],
+    "type": "number",
+    "frequency": 607,
+    "samples": [
+      7,
+      13,
+      25,
+      26,
+      39
+    ]
+  },
+  "data[].coin": {
+    "type": "string",
+    "frequency": 590,
+    "samples": [
+      "solana"
+    ],
+    "event": "standard/newTrade"
+  },
+  "data[].amount": {
+    "type": "number",
+    "frequency": 590,
+    "samples": [
+      4.158855049,
+      5,
+      0.09,
+      0.123,
+      0.125730454
+    ],
+    "event": "standard/newTrade"
+  },
+  "data[].qty": {
+    "type": "number",
+    "frequency": 590,
+    "samples": [
+      5,
+      6.035935803,
+      0.155198051,
+      0.209660549,
+      0.256880141
+    ],
+    "event": "standard/newTrade"
+  },
+  "data[].bonusPortion": {
+    "type": "number",
+    "frequency": 590,
+    "samples": [
+      4.158855048,
+      5,
+      0,
+      3.334586306,
+      5.430553868
+    ],
+    "event": "standard/newTrade"
+  },
+  "data[].realPortion": {
+    "type": "number",
+    "frequency": 590,
+    "samples": [
+      0,
+      0.09,
+      0.123,
+      0.125730453,
+      0.03
+    ],
+    "event": "standard/newTrade"
+  },
+  "data[].username": {
+    "events": [
+      "standard/newTrade",
+      "newChatMessage",
+      "newSideBet"
+    ],
+    "type": "string",
+    "frequency": 1023,
+    "samples": [
+      "Zer02Her0",
+      "Boss",
+      "GLOSS",
+      "Justforfun4",
+      "Manno1k"
+    ]
+  },
+  "data[].level": {
+    "events": [
+      "standard/newTrade",
+      "newChatMessage",
+      "newSideBet"
+    ],
+    "type": "number",
+    "frequency": 1023,
+    "samples": [
+      72,
+      28,
+      20,
+      41,
+      52
+    ]
+  },
+  "data[].leverage": {
+    "type": "number",
+    "frequency": 278,
+    "samples": [
+      1
+    ],
+    "event": "standard/newTrade"
+  },
+  "data.__trace": {
+    "events": [
+      "standard/newTrade",
+      "newChatMessage",
+      "battleEventUpdate",
+      "goldenHourUpdate",
+      "goldenHourDrawing",
+      "sidebetEventUpdate",
+      "maintenanceUpdate",
+      "newSideBet",
+      "chatHistory",
+      "authenticate",
+      "usernameStatus",
+      "mutedPlayers",
+      "leaderboardData",
+      "playerCosmetics",
+      "inboxMessages",
+      "playerLeaderboardPosition",
+      "rugpassStatus",
+      "rugpoolDrawing",
+      "rugpoolStatus"
+    ],
+    "type": "boolean",
+    "frequency": 742,
+    "samples": [
+      true
+    ]
+  },
+  "data.traceparent": {
+    "events": [
+      "standard/newTrade",
+      "newChatMessage",
+      "battleEventUpdate",
+      "goldenHourUpdate",
+      "goldenHourDrawing",
+      "sidebetEventUpdate",
+      "maintenanceUpdate",
+      "newSideBet",
+      "chatHistory",
+      "authenticate",
+      "usernameStatus",
+      "mutedPlayers",
+      "leaderboardData",
+      "playerCosmetics",
+      "inboxMessages",
+      "playerLeaderboardPosition",
+      "rugpassStatus",
+      "rugpoolDrawing",
+      "rugpoolStatus"
+    ],
+    "type": "string",
+    "frequency": 742,
+    "samples": [
+      "00-dfb772992005c7fb7a05690b2d570aee-9178970b020e67a5-01",
+      "00-6becc03d87e5abd178189f28e0f7243e-718a6308048d6407-01",
+      "00-0e8811ff0f0dea6bfa34ebf7d328084c-c5183707345017eb-01",
+      "00-7a02fdad2be971e4ebb43374a9fc7646-0f689f13a38bca65-01",
+      "00-e2ef284a3efeda8e906ae4988cf4be44-5ca8964e9b4723c1-01"
+    ]
+  },
+  "data[].message": {
+    "events": [
+      "newChatMessage",
+      "maintenanceUpdate",
+      "gameNotification"
+    ],
+    "type": "string",
+    "frequency": 422,
+    "samples": [
+      "fuk u bowtrix",
+      "im abt ti",
+      "get fked",
+      "dem rinsed???",
+      "bow gonna all in that create lmao"
+    ]
+  },
+  "data[].timestamp": {
+    "events": [
+      "newChatMessage",
+      "goldenHourDrawing",
+      "newSideBet"
+    ],
+    "type": "number",
+    "frequency": 450,
+    "samples": [
+      1765577835613,
+      1765577844154,
+      1765577849674,
+      1765577850155,
+      1765577862654
+    ]
+  },
+  "data[].filtered": {
+    "type": "boolean",
+    "frequency": 416,
+    "samples": [
+      false
+    ],
+    "event": "newChatMessage"
+  },
+  "data[].role": {
+    "type": "null",
+    "frequency": 416,
+    "samples": [
+      null,
+      "mod"
+    ],
+    "event": "newChatMessage"
+  },
+  "data[].tag": {
+    "type": "string",
+    "frequency": 416,
+    "samples": [
+      "ghoul",
+      null,
+      "ogplayer",
+      "warrior",
+      "777"
+    ],
+    "event": "newChatMessage"
+  },
+  "data[].verified": {
+    "type": "boolean",
+    "frequency": 416,
+    "samples": [
+      true,
+      false
+    ],
+    "event": "newChatMessage"
+  },
+  "data[].discordUsername": {
+    "type": "string",
+    "frequency": 416,
+    "samples": [
+      "zyzco.",
+      "bowtrix.",
+      "demaux",
+      null,
+      "shankles."
+    ],
+    "event": "newChatMessage"
+  },
+  "data[].replyTo": {
+    "type": "null",
+    "frequency": 416,
+    "samples": [
+      null
+    ],
+    "event": "newChatMessage"
+  },
+  "data[].replyTo.key": {
+    "type": "string",
+    "frequency": 2,
+    "samples": [
+      "did:privy:cmaop45uz00hlla0lwfqcm6h9-1765577850155",
+      "did:privy:cmir9p77o03qll80buq90wzvv-1765577896369"
+    ],
+    "event": "newChatMessage"
+  },
+  "data[].replyTo.username": {
+    "type": "string",
+    "frequency": 2,
+    "samples": [
+      "Zyzco",
+      "Greenoodles"
+    ],
+    "event": "newChatMessage"
+  },
+  "data[].replyTo.message": {
+    "type": "string",
+    "frequency": 2,
+    "samples": [
+      "dem rinsed???",
+      "How is this not just a scam sites. Like really"
+    ],
+    "event": "newChatMessage"
+  },
+  "data[].status": {
+    "events": [
+      "battleEventUpdate",
+      "goldenHourUpdate",
+      "sidebetEventUpdate"
+    ],
+    "type": "string",
+    "frequency": 151,
+    "samples": [
+      "SCHEDULED",
+      "ACTIVE",
+      "ENDING",
+      "COMPLETED",
+      "INACTIVE"
+    ]
+  },
+  "data[].startTime": {
+    "type": "null",
+    "frequency": 33,
+    "samples": [
+      null
+    ],
+    "event": "battleEventUpdate"
+  },
+  "data[].endTime": {
+    "type": "null",
+    "frequency": 33,
+    "samples": [
+      null
+    ],
+    "event": "battleEventUpdate"
+  },
+  "data[].nextEventStartTime": {
+    "type": "null",
+    "frequency": 33,
+    "samples": [
+      null
+    ],
+    "event": "battleEventUpdate"
+  },
+  "data[].currentEvent": {
+    "events": [
+      "battleEventUpdate",
+      "goldenHourUpdate",
+      "sidebetEventUpdate"
+    ],
+    "type": "null",
+    "frequency": 151,
+    "samples": [
+      null
+    ]
+  },
+  "data[].nextEvent": {
+    "type": "null",
+    "frequency": 33,
+    "samples": [
+      null
+    ],
+    "event": "battleEventUpdate"
+  },
+  "data[].leaderboard": {
+    "events": [
+      "battleEventUpdate",
+      "sidebetEventUpdate"
+    ],
+    "type": "array",
+    "frequency": 37,
+    "samples": []
+  },
+  "data[].fullLeaderboardSize": {
+    "type": "number",
+    "frequency": 33,
+    "samples": [
+      0
+    ],
+    "event": "battleEventUpdate"
+  },
+  "data[].playerPosition": {
+    "events": [
+      "battleEventUpdate",
+      "sidebetEventUpdate"
+    ],
+    "type": "null",
+    "frequency": 37,
+    "samples": [
+      null
+    ]
+  },
+  "data[].participantCount": {
+    "type": "number",
+    "frequency": 33,
+    "samples": [
+      0
+    ],
+    "event": "battleEventUpdate"
+  },
+  "data[].activeBattleCount": {
+    "type": "number",
+    "frequency": 33,
+    "samples": [
+      0
+    ],
+    "event": "battleEventUpdate"
+  },
+  "data[].lobbyCreationDisabled": {
+    "type": "boolean",
+    "frequency": 33,
+    "samples": [
+      false
+    ],
+    "event": "battleEventUpdate"
+  },
+  "data[].queue": {
+    "type": "object",
+    "frequency": 33,
+    "samples": [],
+    "event": "battleEventUpdate"
+  },
+  "data[].queue.active": {
+    "type": "boolean",
+    "frequency": 33,
+    "samples": [
+      false
+    ],
+    "event": "battleEventUpdate"
+  },
+  "data[].queue.queueSize": {
+    "type": "number",
+    "frequency": 33,
+    "samples": [
+      0
+    ],
+    "event": "battleEventUpdate"
+  },
+  "data[].queue.availableLobbies": {
+    "type": "number",
+    "frequency": 33,
+    "samples": [
+      0
+    ],
+    "event": "battleEventUpdate"
+  },
+  "data[].isShowingPreviousEvent": {
+    "type": "null",
+    "frequency": 33,
+    "samples": [
+      null
+    ],
+    "event": "battleEventUpdate"
+  },
+  "data[].eventSchedule": {
+    "type": "array",
+    "frequency": 33,
+    "samples": [],
+    "event": "battleEventUpdate"
+  },
+  "data[].config": {
+    "events": [
+      "battleEventUpdate",
+      "sidebetEventUpdate"
+    ],
+    "type": "object",
+    "frequency": 37,
+    "samples": []
+  },
+  "data[].config.token": {
+    "type": "string",
+    "frequency": 33,
+    "samples": [
+      "0xPractice"
+    ],
+    "event": "battleEventUpdate"
+  },
+  "data[].config.startingBalance": {
+    "type": "number",
+    "frequency": 33,
+    "samples": [
+      100
+    ],
+    "event": "battleEventUpdate"
+  },
+  "data[].config.prepTimeMinutes": {
+    "events": [
+      "battleEventUpdate",
+      "sidebetEventUpdate"
+    ],
+    "type": "number",
+    "frequency": 37,
+    "samples": [
+      30
+    ]
+  },
+  "data[].config.levelRequired": {
+    "events": [
+      "battleEventUpdate",
+      "sidebetEventUpdate"
+    ],
+    "type": "number",
+    "frequency": 37,
+    "samples": [
+      1
+    ]
+  },
+  "data[].activeEventId": {
+    "events": [
+      "goldenHourUpdate",
+      "sidebetEventUpdate"
+    ],
+    "type": "string",
+    "frequency": 118,
+    "samples": [
+      "admin-8ef16a3a-d63d-430a-9224-012b3a11e6c3",
+      null,
+      "admin-1179db3a-0bc9-429b-ab58-65d29a9c90c3"
+    ]
+  },
+  "data[].currentEvent.id": {
+    "events": [
+      "goldenHourUpdate",
+      "sidebetEventUpdate"
+    ],
+    "type": "string",
+    "frequency": 114,
+    "samples": [
+      "admin-8ef16a3a-d63d-430a-9224-012b3a11e6c3",
+      "admin-1179db3a-0bc9-429b-ab58-65d29a9c90c3"
+    ]
+  },
+  "data[].currentEvent.startTime": {
+    "events": [
+      "goldenHourUpdate",
+      "sidebetEventUpdate"
+    ],
+    "type": "string",
+    "frequency": 114,
+    "samples": [
+      "2025-12-14T05:05:00.000Z",
+      "2025-12-15T05:30:00.000Z"
+    ]
+  },
+  "data[].currentEvent.endTime": {
+    "events": [
+      "goldenHourUpdate",
+      "sidebetEventUpdate"
+    ],
+    "type": "string",
+    "frequency": 114,
+    "samples": [
+      "2025-12-15T05:05:00.000Z",
+      "2025-12-15T06:00:00.000Z"
+    ]
+  },
+  "data[].currentEvent.prepTimeMinutes": {
+    "events": [
+      "goldenHourUpdate",
+      "sidebetEventUpdate"
+    ],
+    "type": "number",
+    "frequency": 114,
+    "samples": [
+      0,
+      30
+    ]
+  },
+  "data[].currentEvent.levelRequired": {
+    "events": [
+      "goldenHourUpdate",
+      "sidebetEventUpdate"
+    ],
+    "type": "number",
+    "frequency": 114,
+    "samples": [
+      10
+    ]
+  },
+  "data[].currentEvent.status": {
+    "events": [
+      "goldenHourUpdate",
+      "sidebetEventUpdate"
+    ],
+    "type": "string",
+    "frequency": 114,
+    "samples": [
+      "SCHEDULED"
+    ]
+  },
+  "data[].currentEvent.createdAt": {
+    "events": [
+      "goldenHourUpdate",
+      "sidebetEventUpdate"
+    ],
+    "type": "string",
+    "frequency": 114,
+    "samples": [
+      "2025-12-14T05:01:15.318Z",
+      "2025-12-15T05:00:22.120Z"
+    ]
+  },
+  "data[].currentEvent.createdBy": {
+    "events": [
+      "goldenHourUpdate",
+      "sidebetEventUpdate"
+    ],
+    "type": "string",
+    "frequency": 114,
+    "samples": [
+      "admin"
+    ]
+  },
+  "data[].currentEvent.prizeAmount": {
+    "type": "number",
+    "frequency": 100,
+    "samples": [
+      0.05
+    ],
+    "event": "goldenHourUpdate"
+  },
+  "data[].currentEvent.maxEntries": {
+    "type": "number",
+    "frequency": 100,
+    "samples": [
+      50
+    ],
+    "event": "goldenHourUpdate"
+  },
+  "data[].currentEvent.durationMinutes": {
+    "type": "number",
+    "frequency": 100,
+    "samples": [
+      60
+    ],
+    "event": "goldenHourUpdate"
+  },
+  "data[].upcomingEvents": {
+    "events": [
+      "goldenHourUpdate",
+      "sidebetEventUpdate"
+    ],
+    "type": "array",
+    "frequency": 118,
+    "samples": []
+  },
+  "data[].events": {
+    "events": [
+      "goldenHourUpdate",
+      "sidebetEventUpdate"
+    ],
+    "type": "array",
+    "frequency": 118,
+    "samples": []
+  },
+  "data[].events[]": {
+    "events": [
+      "goldenHourUpdate",
+      "sidebetEventUpdate"
+    ],
+    "type": "object",
+    "frequency": 114,
+    "samples": []
+  },
+  "data[].events[].id": {
+    "events": [
+      "goldenHourUpdate",
+      "sidebetEventUpdate"
+    ],
+    "type": "string",
+    "frequency": 114,
+    "samples": [
+      "admin-8ef16a3a-d63d-430a-9224-012b3a11e6c3",
+      "admin-1179db3a-0bc9-429b-ab58-65d29a9c90c3"
+    ]
+  },
+  "data[].events[].startTime": {
+    "events": [
+      "goldenHourUpdate",
+      "sidebetEventUpdate"
+    ],
+    "type": "string",
+    "frequency": 114,
+    "samples": [
+      "2025-12-14T05:05:00.000Z",
+      "2025-12-15T05:30:00.000Z"
+    ]
+  },
+  "data[].events[].endTime": {
+    "events": [
+      "goldenHourUpdate",
+      "sidebetEventUpdate"
+    ],
+    "type": "string",
+    "frequency": 114,
+    "samples": [
+      "2025-12-15T05:05:00.000Z",
+      "2025-12-15T06:00:00.000Z"
+    ]
+  },
+  "data[].events[].prepTimeMinutes": {
+    "events": [
+      "goldenHourUpdate",
+      "sidebetEventUpdate"
+    ],
+    "type": "number",
+    "frequency": 114,
+    "samples": [
+      0,
+      30
+    ]
+  },
+  "data[].events[].levelRequired": {
+    "events": [
+      "goldenHourUpdate",
+      "sidebetEventUpdate"
+    ],
+    "type": "number",
+    "frequency": 114,
+    "samples": [
+      10
+    ]
+  },
+  "data[].events[].status": {
+    "events": [
+      "goldenHourUpdate",
+      "sidebetEventUpdate"
+    ],
+    "type": "string",
+    "frequency": 114,
+    "samples": [
+      "SCHEDULED"
+    ]
+  },
+  "data[].events[].createdAt": {
+    "events": [
+      "goldenHourUpdate",
+      "sidebetEventUpdate"
+    ],
+    "type": "string",
+    "frequency": 114,
+    "samples": [
+      "2025-12-14T05:01:15.318Z",
+      "2025-12-15T05:00:22.120Z"
+    ]
+  },
+  "data[].events[].createdBy": {
+    "events": [
+      "goldenHourUpdate",
+      "sidebetEventUpdate"
+    ],
+    "type": "string",
+    "frequency": 114,
+    "samples": [
+      "admin"
+    ]
+  },
+  "data[].events[].prizeAmount": {
+    "type": "number",
+    "frequency": 100,
+    "samples": [
+      0.05
+    ],
+    "event": "goldenHourUpdate"
+  },
+  "data[].events[].maxEntries": {
+    "type": "number",
+    "frequency": 100,
+    "samples": [
+      50
+    ],
+    "event": "goldenHourUpdate"
+  },
+  "data[].events[].durationMinutes": {
+    "type": "number",
+    "frequency": 100,
+    "samples": [
+      60
+    ],
+    "event": "goldenHourUpdate"
+  },
+  "data[].currentGameIsGolden": {
+    "type": "boolean",
+    "frequency": 100,
+    "samples": [
+      true
+    ],
+    "event": "goldenHourUpdate"
+  },
+  "data[].entries": {
+    "type": "array",
+    "frequency": 17,
+    "samples": [],
+    "event": "goldenHourDrawing"
+  },
+  "data[].entries[]": {
+    "type": "object",
+    "frequency": 17,
+    "samples": [],
+    "event": "goldenHourDrawing"
+  },
+  "data[].entries[].playerId": {
+    "type": "string",
+    "frequency": 1070,
+    "samples": [
+      "did:privy:cm9g1p6iw00zwjp0m40iwldnz",
+      "did:privy:cmgdz0so100bejm0cfaewe0rw",
+      "did:privy:cmflkqdrb00p7k00bwga8e74k",
+      "did:privy:cmf3y1ruc00hel80b9dw2viai",
+      "did:privy:cmfl7dex700cai50are2bqx71"
+    ],
+    "event": "goldenHourDrawing"
+  },
+  "data[].entries[].username": {
+    "type": "string",
+    "frequency": 1070,
+    "samples": [
+      "ereas",
+      "getSmoked",
+      "kkimb",
+      "wilkinsso",
+      "churcanton"
+    ],
+    "event": "goldenHourDrawing"
+  },
+  "data[].entries[].entryCount": {
+    "type": "number",
+    "frequency": 1070,
+    "samples": [
+      50,
+      1,
+      4,
+      11,
+      2
+    ],
+    "event": "goldenHourDrawing"
+  },
+  "data[].entries[].entryPercentage": {
+    "type": "number",
+    "frequency": 1070,
+    "samples": [
+      3.3921302578018993,
+      0.06784260515603799,
+      0.27137042062415195,
+      0.7462686567164178,
+      0.13568521031207598
+    ],
+    "event": "goldenHourDrawing"
+  },
+  "data[].winnerIndex": {
+    "type": "number",
+    "frequency": 17,
+    "samples": [
+      54,
+      37,
+      55,
+      49,
+      65
+    ],
+    "event": "goldenHourDrawing"
+  },
+  "data[].prizeAmount": {
+    "type": "number",
+    "frequency": 17,
+    "samples": [
+      0.05
+    ],
+    "event": "goldenHourDrawing"
+  },
+  "data[].winnerPlayerId": {
+    "type": "string",
+    "frequency": 17,
+    "samples": [
+      "did:privy:cma8r35lw00oalc0mmu10cck7",
+      "did:privy:cmj3bsmny02ull10cj5x3mi5s",
+      "did:privy:cmius905i02sul50cuc40nlmy",
+      "did:privy:cmhu2bijc001tjv0c21v0r1bg",
+      "did:privy:cmar0szmh000ll70mp3fck490"
+    ],
+    "event": "goldenHourDrawing"
+  },
+  "data.status": {
+    "type": "string",
+    "frequency": 13,
+    "samples": [
+      "INACTIVE"
+    ],
+    "event": "rugRoyaleUpdate"
+  },
+  "data.activeEventId": {
+    "type": "null",
+    "frequency": 13,
+    "samples": [
+      null
+    ],
+    "event": "rugRoyaleUpdate"
+  },
+  "data.currentEvent": {
+    "type": "null",
+    "frequency": 13,
+    "samples": [
+      null
+    ],
+    "event": "rugRoyaleUpdate"
+  },
+  "data.upcomingEvents": {
+    "type": "array",
+    "frequency": 13,
+    "samples": [],
+    "event": "rugRoyaleUpdate"
+  },
+  "data.events": {
+    "type": "array",
+    "frequency": 13,
+    "samples": [],
+    "event": "rugRoyaleUpdate"
+  },
+  "data.leaderboard[].playerId": {
+    "type": "string",
+    "frequency": 130,
+    "samples": [
+      "did:privy:cmauh6pop009cjp0ljal0roxf",
+      "did:privy:cm9g1p6iw00zwjp0m40iwldnz",
+      "did:privy:cmgr0n6fu02qvld0djjvkjm59",
+      "did:privy:cmabbmtrv00tfji0mzvjg6sky",
+      "did:privy:cmicplomw073nlb0csabawf4g"
+    ],
+    "event": "rugRoyaleUpdate"
+  },
+  "data.leaderboard[].balance": {
+    "type": "number",
+    "frequency": 130,
+    "samples": [
+      5000.965514619,
+      3700.308356835,
+      3616.915686586,
+      2921.892738975,
+      2837.556936212
+    ],
+    "event": "rugRoyaleUpdate"
+  },
+  "data.leaderboard[].lastUpdated": {
+    "type": "number",
+    "frequency": 130,
+    "samples": [
+      1765458003618,
+      1765458003617,
+      1765458003619,
+      1765458003623
+    ],
+    "event": "rugRoyaleUpdate"
+  },
+  "data.leaderboard[].rank": {
+    "type": "number",
+    "frequency": 130,
+    "samples": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "event": "rugRoyaleUpdate"
+  },
+  "data.history": {
+    "type": "array",
+    "frequency": 13,
+    "samples": [],
+    "event": "rugRoyaleUpdate"
+  },
+  "data.history[]": {
+    "type": "object",
+    "frequency": 13,
+    "samples": [],
+    "event": "rugRoyaleUpdate"
+  },
+  "data.history[].id": {
+    "type": "string",
+    "frequency": 13,
+    "samples": [
+      "rugroyale-2025-12-11-1765452603914"
+    ],
+    "event": "rugRoyaleUpdate"
+  },
+  "data.history[].startTime": {
+    "type": "string",
+    "frequency": 13,
+    "samples": [
+      "2025-12-11T12:00:00.000Z"
+    ],
+    "event": "rugRoyaleUpdate"
+  },
+  "data.history[].endTime": {
+    "type": "string",
+    "frequency": 13,
+    "samples": [
+      "2025-12-11T13:00:00.000Z"
+    ],
+    "event": "rugRoyaleUpdate"
+  },
+  "data.history[].leaderboard": {
+    "type": "array",
+    "frequency": 13,
+    "samples": [],
+    "event": "rugRoyaleUpdate"
+  },
+  "data.history[].leaderboard[]": {
+    "type": "object",
+    "frequency": 13,
+    "samples": [],
+    "event": "rugRoyaleUpdate"
+  },
+  "data.history[].leaderboard[].playerId": {
+    "type": "string",
+    "frequency": 260,
+    "samples": [
+      "did:privy:cmauh6pop009cjp0ljal0roxf",
+      "did:privy:cm9g1p6iw00zwjp0m40iwldnz",
+      "did:privy:cmgr0n6fu02qvld0djjvkjm59",
+      "did:privy:cmabbmtrv00tfji0mzvjg6sky",
+      "did:privy:cmicplomw073nlb0csabawf4g"
+    ],
+    "event": "rugRoyaleUpdate"
+  },
+  "data.history[].leaderboard[].username": {
+    "type": "string",
+    "frequency": 260,
+    "samples": [
+      "bowtrix",
+      "ereas",
+      "Clixmaster",
+      "Lola",
+      "Blowjob"
+    ],
+    "event": "rugRoyaleUpdate"
+  },
+  "data.history[].leaderboard[].balance": {
+    "type": "number",
+    "frequency": 260,
+    "samples": [
+      5000.965514619,
+      3700.308356835,
+      3616.915686586,
+      2921.892738975,
+      2837.556936212
+    ],
+    "event": "rugRoyaleUpdate"
+  },
+  "data.history[].leaderboard[].level": {
+    "type": "number",
+    "frequency": 260,
+    "samples": [
+      66,
+      40,
+      56,
+      16,
+      20
+    ],
+    "event": "rugRoyaleUpdate"
+  },
+  "data.history[].leaderboard[].lastUpdated": {
+    "type": "number",
+    "frequency": 260,
+    "samples": [
+      1765458003618,
+      1765458003617,
+      1765458003619,
+      1765458003623,
+      1765458003626
+    ],
+    "event": "rugRoyaleUpdate"
+  },
+  "data.history[].leaderboard[].rank": {
+    "type": "number",
+    "frequency": 260,
+    "samples": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "event": "rugRoyaleUpdate"
+  },
+  "data.history[].winners": {
+    "type": "array",
+    "frequency": 13,
+    "samples": [],
+    "event": "rugRoyaleUpdate"
+  },
+  "data.history[].winners[]": {
+    "type": "object",
+    "frequency": 13,
+    "samples": [],
+    "event": "rugRoyaleUpdate"
+  },
+  "data.history[].winners[].playerId": {
+    "type": "string",
+    "frequency": 130,
+    "samples": [
+      "did:privy:cmauh6pop009cjp0ljal0roxf",
+      "did:privy:cm9g1p6iw00zwjp0m40iwldnz",
+      "did:privy:cmgr0n6fu02qvld0djjvkjm59",
+      "did:privy:cmabbmtrv00tfji0mzvjg6sky",
+      "did:privy:cmicplomw073nlb0csabawf4g"
+    ],
+    "event": "rugRoyaleUpdate"
+  },
+  "data.history[].winners[].username": {
+    "type": "string",
+    "frequency": 130,
+    "samples": [
+      "bowtrix",
+      "ereas",
+      "Clixmaster",
+      "Lola",
+      "Blowjob"
+    ],
+    "event": "rugRoyaleUpdate"
+  },
+  "data.history[].winners[].rank": {
+    "type": "number",
+    "frequency": 130,
+    "samples": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "event": "rugRoyaleUpdate"
+  },
+  "data.history[].winners[].amount": {
+    "type": "number",
+    "frequency": 130,
+    "samples": [
+      1,
+      0.5,
+      0.25,
+      0.05,
+      0.025
+    ],
+    "event": "rugRoyaleUpdate"
+  },
+  "data.history[].savedAt": {
+    "type": "string",
+    "frequency": 13,
+    "samples": [
+      "2025-12-11T13:00:10.328Z"
+    ],
+    "event": "rugRoyaleUpdate"
+  },
+  "data.playerPosition": {
+    "type": "null",
+    "frequency": 13,
+    "samples": [
+      null
+    ],
+    "event": "rugRoyaleUpdate"
+  },
+  "data.timeRemaining": {
+    "type": "null",
+    "frequency": 13,
+    "samples": [
+      null
+    ],
+    "event": "rugRoyaleUpdate"
+  },
+  "data.finalRound": {
+    "type": "boolean",
+    "frequency": 13,
+    "samples": [
+      false
+    ],
+    "event": "rugRoyaleUpdate"
+  },
+  "data.isInFinalRound": {
+    "type": "boolean",
+    "frequency": 13,
+    "samples": [
+      false
+    ],
+    "event": "rugRoyaleUpdate"
+  },
+  "data.config": {
+    "type": "object",
+    "frequency": 13,
+    "samples": [],
+    "event": "rugRoyaleUpdate"
+  },
+  "data.config.token": {
+    "type": "string",
+    "frequency": 13,
+    "samples": [
+      "0xPractice"
+    ],
+    "event": "rugRoyaleUpdate"
+  },
+  "data.config.startingBalance": {
+    "type": "number",
+    "frequency": 13,
+    "samples": [
+      100
+    ],
+    "event": "rugRoyaleUpdate"
+  },
+  "data.config.prepTimeMinutes": {
+    "type": "number",
+    "frequency": 13,
+    "samples": [
+      30
+    ],
+    "event": "rugRoyaleUpdate"
+  },
+  "data.config.levelRequired": {
+    "type": "number",
+    "frequency": 13,
+    "samples": [
+      1
+    ],
+    "event": "rugRoyaleUpdate"
+  },
+  "data.config.prizeTiers": {
+    "type": "object",
+    "frequency": 13,
+    "samples": [],
+    "event": "rugRoyaleUpdate"
+  },
+  "data.config.prizeTiers.1": {
+    "type": "number",
+    "frequency": 13,
+    "samples": [
+      3
+    ],
+    "event": "rugRoyaleUpdate"
+  },
+  "data.config.prizeTiers.2": {
+    "type": "number",
+    "frequency": 13,
+    "samples": [
+      1
+    ],
+    "event": "rugRoyaleUpdate"
+  },
+  "data.config.prizeTiers.3": {
+    "type": "number",
+    "frequency": 13,
+    "samples": [
+      0.5
+    ],
+    "event": "rugRoyaleUpdate"
+  },
+  "data.config.prizeTiers.4": {
+    "type": "number",
+    "frequency": 13,
+    "samples": [
+      0.15
+    ],
+    "event": "rugRoyaleUpdate"
+  },
+  "data.config.prizeTiers.5": {
+    "type": "number",
+    "frequency": 13,
+    "samples": [
+      0.1
+    ],
+    "event": "rugRoyaleUpdate"
+  },
+  "data.config.prizeTiers.6-10": {
+    "type": "number",
+    "frequency": 13,
+    "samples": [
+      0.05
+    ],
+    "event": "rugRoyaleUpdate"
+  },
+  "data[].leaderboard[]": {
+    "type": "object",
+    "frequency": 4,
+    "samples": [],
+    "event": "sidebetEventUpdate"
+  },
+  "data[].leaderboard[].playerId": {
+    "type": "string",
+    "frequency": 40,
+    "samples": [
+      "did:privy:cmg5lwof500w2l70cczg34vy5",
+      "did:privy:cmi2l1t2w0017jv0czi6sjaun",
+      "did:privy:cmd05rz9501w9ky0m9toct0e2",
+      "did:privy:cmg4l25ke00q8jp0erx1scv64",
+      "did:privy:cmbduibgp00bzlc0nip1qi88c"
+    ],
+    "event": "sidebetEventUpdate"
+  },
+  "data[].leaderboard[].username": {
+    "type": "string",
+    "frequency": 40,
+    "samples": [
+      "Rampage",
+      "culosucio",
+      "Jhhh",
+      "Lostroyale",
+      "Sokingg"
+    ],
+    "event": "sidebetEventUpdate"
+  },
+  "data[].leaderboard[].sidebetsHit": {
+    "type": "number",
+    "frequency": 40,
+    "samples": [
+      2
+    ],
+    "event": "sidebetEventUpdate"
+  },
+  "data[].leaderboard[].sidebetsPlaced": {
+    "type": "number",
+    "frequency": 40,
+    "samples": [
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "event": "sidebetEventUpdate"
+  },
+  "data[].leaderboard[].accuracy": {
+    "type": "number",
+    "frequency": 40,
+    "samples": [
+      33.33333333333333,
+      28.57142857142857,
+      25,
+      22.22222222222222,
+      20
+    ],
+    "event": "sidebetEventUpdate"
+  },
+  "data[].leaderboard[].avgTicksOff": {
+    "type": "number",
+    "frequency": 40,
+    "samples": [
+      7.166666666666667,
+      7.666666666666667,
+      9.857142857142858,
+      5.125,
+      4.555555555555555
+    ],
+    "event": "sidebetEventUpdate"
+  },
+  "data[].leaderboard[].level": {
+    "type": "number",
+    "frequency": 40,
+    "samples": [
+      6,
+      3,
+      10,
+      8,
+      13
+    ],
+    "event": "sidebetEventUpdate"
+  },
+  "data[].leaderboard[].lastUpdated": {
+    "type": "number",
+    "frequency": 40,
+    "samples": [
+      1763960402120
+    ],
+    "event": "sidebetEventUpdate"
+  },
+  "data[].leaderboard[].rank": {
+    "type": "number",
+    "frequency": 40,
+    "samples": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "event": "sidebetEventUpdate"
+  },
+  "data[].history": {
+    "type": "array",
+    "frequency": 4,
+    "samples": [],
+    "event": "sidebetEventUpdate"
+  },
+  "data[].history[]": {
+    "type": "object",
+    "frequency": 4,
+    "samples": [],
+    "event": "sidebetEventUpdate"
+  },
+  "data[].history[].id": {
+    "type": "string",
+    "frequency": 4,
+    "samples": [
+      "sidebetevent-2025-11-24-1763958303311"
+    ],
+    "event": "sidebetEventUpdate"
+  },
+  "data[].history[].startTime": {
+    "type": "string",
+    "frequency": 4,
+    "samples": [
+      "2025-11-24T04:55:00.000Z"
+    ],
+    "event": "sidebetEventUpdate"
+  },
+  "data[].history[].endTime": {
+    "type": "string",
+    "frequency": 4,
+    "samples": [
+      "2025-11-24T05:00:00.000Z"
+    ],
+    "event": "sidebetEventUpdate"
+  },
+  "data[].history[].leaderboard": {
+    "type": "array",
+    "frequency": 4,
+    "samples": [],
+    "event": "sidebetEventUpdate"
+  },
+  "data[].history[].leaderboard[]": {
+    "type": "object",
+    "frequency": 4,
+    "samples": [],
+    "event": "sidebetEventUpdate"
+  },
+  "data[].history[].leaderboard[].playerId": {
+    "type": "string",
+    "frequency": 80,
+    "samples": [
+      "did:privy:cmg5lwof500w2l70cczg34vy5",
+      "did:privy:cmi2l1t2w0017jv0czi6sjaun",
+      "did:privy:cmd05rz9501w9ky0m9toct0e2",
+      "did:privy:cmg4l25ke00q8jp0erx1scv64",
+      "did:privy:cmbduibgp00bzlc0nip1qi88c"
+    ],
+    "event": "sidebetEventUpdate"
+  },
+  "data[].history[].leaderboard[].username": {
+    "type": "string",
+    "frequency": 80,
+    "samples": [
+      "Rampage",
+      "culosucio",
+      "Jhhh",
+      "Lostroyale",
+      "Sokingg"
+    ],
+    "event": "sidebetEventUpdate"
+  },
+  "data[].history[].leaderboard[].sidebetsHit": {
+    "type": "number",
+    "frequency": 80,
+    "samples": [
+      2,
+      1
+    ],
+    "event": "sidebetEventUpdate"
+  },
+  "data[].history[].leaderboard[].sidebetsPlaced": {
+    "type": "number",
+    "frequency": 80,
+    "samples": [
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "event": "sidebetEventUpdate"
+  },
+  "data[].history[].leaderboard[].accuracy": {
+    "type": "number",
+    "frequency": 80,
+    "samples": [
+      33.33333333333333,
+      28.57142857142857,
+      25,
+      22.22222222222222,
+      20
+    ],
+    "event": "sidebetEventUpdate"
+  },
+  "data[].history[].leaderboard[].avgTicksOff": {
+    "type": "number",
+    "frequency": 80,
+    "samples": [
+      7.166666666666667,
+      7.666666666666667,
+      9.857142857142858,
+      5.125,
+      4.555555555555555
+    ],
+    "event": "sidebetEventUpdate"
+  },
+  "data[].history[].leaderboard[].level": {
+    "type": "number",
+    "frequency": 80,
+    "samples": [
+      6,
+      3,
+      10,
+      8,
+      13
+    ],
+    "event": "sidebetEventUpdate"
+  },
+  "data[].history[].leaderboard[].lastUpdated": {
+    "type": "number",
+    "frequency": 80,
+    "samples": [
+      1763960402120
+    ],
+    "event": "sidebetEventUpdate"
+  },
+  "data[].history[].leaderboard[].rank": {
+    "type": "number",
+    "frequency": 80,
+    "samples": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "event": "sidebetEventUpdate"
+  },
+  "data[].history[].winners": {
+    "type": "array",
+    "frequency": 4,
+    "samples": [],
+    "event": "sidebetEventUpdate"
+  },
+  "data[].history[].winners[]": {
+    "type": "object",
+    "frequency": 4,
+    "samples": [],
+    "event": "sidebetEventUpdate"
+  },
+  "data[].history[].winners[].playerId": {
+    "type": "string",
+    "frequency": 40,
+    "samples": [
+      "did:privy:cmg5lwof500w2l70cczg34vy5",
+      "did:privy:cmi2l1t2w0017jv0czi6sjaun",
+      "did:privy:cmd05rz9501w9ky0m9toct0e2",
+      "did:privy:cmg4l25ke00q8jp0erx1scv64",
+      "did:privy:cmbduibgp00bzlc0nip1qi88c"
+    ],
+    "event": "sidebetEventUpdate"
+  },
+  "data[].history[].winners[].username": {
+    "type": "string",
+    "frequency": 40,
+    "samples": [
+      "Rampage",
+      "culosucio",
+      "Jhhh",
+      "Lostroyale",
+      "Sokingg"
+    ],
+    "event": "sidebetEventUpdate"
+  },
+  "data[].history[].winners[].rank": {
+    "type": "number",
+    "frequency": 40,
+    "samples": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "event": "sidebetEventUpdate"
+  },
+  "data[].history[].winners[].amount": {
+    "type": "number",
+    "frequency": 40,
+    "samples": [
+      1,
+      0.5,
+      0.25,
+      0.1,
+      0.025
+    ],
+    "event": "sidebetEventUpdate"
+  },
+  "data[].history[].savedAt": {
+    "type": "string",
+    "frequency": 4,
+    "samples": [
+      "2025-11-24T05:00:08.681Z"
+    ],
+    "event": "sidebetEventUpdate"
+  },
+  "data[].timeRemaining": {
+    "type": "null",
+    "frequency": 4,
+    "samples": [
+      null
+    ],
+    "event": "sidebetEventUpdate"
+  },
+  "data[].finalRound": {
+    "type": "boolean",
+    "frequency": 4,
+    "samples": [
+      false
+    ],
+    "event": "sidebetEventUpdate"
+  },
+  "data[].isInFinalRound": {
+    "type": "boolean",
+    "frequency": 4,
+    "samples": [
+      false
+    ],
+    "event": "sidebetEventUpdate"
+  },
+  "data[].config.prizeTiers": {
+    "type": "object",
+    "frequency": 4,
+    "samples": [],
+    "event": "sidebetEventUpdate"
+  },
+  "data[].config.prizeTiers.1": {
+    "type": "number",
+    "frequency": 4,
+    "samples": [
+      1
+    ],
+    "event": "sidebetEventUpdate"
+  },
+  "data[].config.prizeTiers.2": {
+    "type": "number",
+    "frequency": 4,
+    "samples": [
+      0.5
+    ],
+    "event": "sidebetEventUpdate"
+  },
+  "data[].config.prizeTiers.3": {
+    "type": "number",
+    "frequency": 4,
+    "samples": [
+      0.25
+    ],
+    "event": "sidebetEventUpdate"
+  },
+  "data[].config.prizeTiers.4": {
+    "type": "number",
+    "frequency": 4,
+    "samples": [
+      0.1
+    ],
+    "event": "sidebetEventUpdate"
+  },
+  "data[].config.prizeTiers.5-10": {
+    "type": "number",
+    "frequency": 4,
+    "samples": [
+      0.025
+    ],
+    "event": "sidebetEventUpdate"
+  },
+  "data[].active": {
+    "type": "boolean",
+    "frequency": 4,
+    "samples": [
+      false
+    ],
+    "event": "maintenanceUpdate"
+  },
+  "data[].mega": {
+    "type": "boolean",
+    "frequency": 4,
+    "samples": [
+      false
+    ],
+    "event": "maintenanceUpdate"
+  },
+  "data[].betAmount": {
+    "type": "number",
+    "frequency": 17,
+    "samples": [
+      0.1,
+      0.013,
+      0.2,
+      0.287,
+      0.284
+    ],
+    "event": "newSideBet"
+  },
+  "data[].xPayout": {
+    "type": "number",
+    "frequency": 17,
+    "samples": [
+      5
+    ],
+    "event": "newSideBet"
+  },
+  "data[].coinAddress": {
+    "type": "string",
+    "frequency": 17,
+    "samples": [
+      "So11111111111111111111111111111111111111112"
+    ],
+    "event": "newSideBet"
+  },
+  "data[].endTick": {
+    "type": "number",
+    "frequency": 17,
+    "samples": [
+      72,
+      105,
+      44,
+      305,
+      414
+    ],
+    "event": "newSideBet"
+  },
+  "data[].startTick": {
+    "type": "number",
+    "frequency": 17,
+    "samples": [
+      32,
+      65,
+      4,
+      265,
+      374
+    ],
+    "event": "newSideBet"
+  },
+  "data.period": {
+    "events": [
+      "getLeaderboard",
+      "getPlayerLeaderboardPosition"
+    ],
+    "type": "string",
+    "frequency": 16,
+    "samples": [
+      "7d"
+    ]
+  },
+  "data.rugpool": {
+    "type": "object",
+    "frequency": 4792,
+    "samples": [],
+    "event": "gameStatePlayerUpdate"
+  },
+  "data.rugpool.instarugCount": {
+    "type": "number",
+    "frequency": 4792,
+    "samples": [
+      9,
+      0
+    ],
+    "event": "gameStatePlayerUpdate"
+  },
+  "data.rugpool.rugpoolAmount": {
+    "type": "number",
+    "frequency": 4792,
+    "samples": [
+      7.440795633500021,
+      5.523102353500032,
+      5.984329655000043,
+      0
+    ],
+    "event": "gameStatePlayerUpdate"
+  },
+  "data.rugpool.totalEntries": {
+    "type": "number",
+    "frequency": 4792,
+    "samples": [
+      22269,
+      15655,
+      16931,
+      0
+    ],
+    "event": "gameStatePlayerUpdate"
+  },
+  "data.rugpool.threshold": {
+    "type": "number",
+    "frequency": 4792,
+    "samples": [
+      10
+    ],
+    "event": "gameStatePlayerUpdate"
+  },
+  "data.rugpool.playersWithEntries": {
+    "type": "number",
+    "frequency": 4792,
+    "samples": [
+      155,
+      136,
+      142,
+      0
+    ],
+    "event": "gameStatePlayerUpdate"
+  },
+  "data.rugpool.solPerEntry": {
+    "type": "number",
+    "frequency": 4792,
+    "samples": [
+      0.001
+    ],
+    "event": "gameStatePlayerUpdate"
+  },
+  "data.rugpool.maxEntriesPerPlayer": {
+    "type": "number",
+    "frequency": 4792,
+    "samples": [
+      5000
+    ],
+    "event": "gameStatePlayerUpdate"
+  },
+  "data.rugpool.playerEntries": {
+    "type": "array",
+    "frequency": 4792,
+    "samples": [],
+    "event": "gameStatePlayerUpdate"
+  },
+  "data.rugpool.playerEntries[]": {
+    "type": "object",
+    "frequency": 4574,
+    "samples": [],
+    "event": "gameStatePlayerUpdate"
+  },
+  "data.rugpool.playerEntries[].playerId": {
+    "type": "string",
+    "frequency": 45740,
+    "samples": [
+      "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+      "did:privy:cma0m5z4r00afjx0mjpryyqo5",
+      "did:privy:cmeygisuf00wyl50civj2950w",
+      "did:privy:cmc56ql2o01ewl70m2961dl9c",
+      "did:privy:cma4gg3wj001ijz0memhqm1j7"
+    ],
+    "event": "gameStatePlayerUpdate"
+  },
+  "data.rugpool.playerEntries[].entries": {
+    "type": "number",
+    "frequency": 45740,
+    "samples": [
+      5000,
+      4450,
+      1070,
+      980,
+      927
+    ],
+    "event": "gameStatePlayerUpdate"
+  },
+  "data.rugpool.playerEntries[].username": {
+    "type": "string",
+    "frequency": 45740,
+    "samples": [
+      "ehiwna",
+      "jKolby",
+      "Wolfeee",
+      "restlessgambler",
+      "xxiamthereaperxx"
+    ],
+    "event": "gameStatePlayerUpdate"
+  },
+  "data.rugpool.playerEntries[].percentage": {
+    "type": "number",
+    "frequency": 45740,
+    "samples": [
+      22.452736988638915,
+      19.982935919888632,
+      4.8048857155687275,
+      4.400736449773227,
+      4.162737437693655
+    ],
+    "event": "gameStatePlayerUpdate"
+  },
+  "data.rugpool.lastDrawing": {
+    "type": "object",
+    "frequency": 4792,
+    "samples": [],
+    "event": "gameStatePlayerUpdate"
+  },
+  "data.rugpool.lastDrawing.timestamp": {
+    "type": "number",
+    "frequency": 4792,
+    "samples": [
+      1765750336277,
+      1765794262774,
+      1765819354240
+    ],
+    "event": "gameStatePlayerUpdate"
+  },
+  "data.rugpool.lastDrawing.winners": {
+    "type": "array",
+    "frequency": 4792,
+    "samples": [],
+    "event": "gameStatePlayerUpdate"
+  },
+  "data.rugpool.lastDrawing.winners[]": {
+    "type": "object",
+    "frequency": 4792,
+    "samples": [],
+    "event": "gameStatePlayerUpdate"
+  },
+  "data.rugpool.lastDrawing.winners[].playerId": {
+    "type": "string",
+    "frequency": 14376,
+    "samples": [
+      "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+      "did:privy:cma8r35lw00oalc0mmu10cck7",
+      "did:privy:cmeygisuf00wyl50civj2950w",
+      "did:privy:cmi5nq4qv00beld0b8739uw7r",
+      "did:privy:cma72xdks0064jr0naeukzwp6"
+    ],
+    "event": "gameStatePlayerUpdate"
+  },
+  "data.rugpool.lastDrawing.winners[].username": {
+    "type": "string",
+    "frequency": 14376,
+    "samples": [
+      "ehiwna",
+      "CheckItup",
+      "Wolfeee",
+      "Demaux69",
+      "gnome"
+    ],
+    "event": "gameStatePlayerUpdate"
+  },
+  "data.rugpool.lastDrawing.winners[].entries": {
+    "type": "number",
+    "frequency": 14376,
+    "samples": [
+      5000,
+      1121,
+      1917,
+      9,
+      2548
+    ],
+    "event": "gameStatePlayerUpdate"
+  },
+  "data.rugpool.lastDrawing.winners[].reward": {
+    "type": "number",
+    "frequency": 14376,
+    "samples": [
+      3.5956412111666736,
+      2.213582226666671,
+      1.994776551666681
+    ],
+    "event": "gameStatePlayerUpdate"
+  },
+  "data.rugpool.lastDrawing.rewardPerWinner": {
+    "type": "number",
+    "frequency": 4792,
+    "samples": [
+      3.5956412111666736,
+      2.213582226666671,
+      1.994776551666681
+    ],
+    "event": "gameStatePlayerUpdate"
+  },
+  "data.rugpool.lastDrawing.totalPoolAmount": {
+    "type": "number",
+    "frequency": 4792,
+    "samples": [
+      10.78692363350002,
+      6.640746680000013,
+      5.984329655000043
+    ],
+    "event": "gameStatePlayerUpdate"
+  },
+  "data.rugpool.config": {
+    "type": "object",
+    "frequency": 4792,
+    "samples": [],
+    "event": "gameStatePlayerUpdate"
+  },
+  "data.rugpool.config.threshold": {
+    "type": "number",
+    "frequency": 4792,
+    "samples": [
+      10
+    ],
+    "event": "gameStatePlayerUpdate"
+  },
+  "data.rugpool.config.instarugThreshold": {
+    "type": "number",
+    "frequency": 4792,
+    "samples": [
+      6
+    ],
+    "event": "gameStatePlayerUpdate"
+  },
+  "data.rugpool.config.rugpoolPercentage": {
+    "type": "number",
+    "frequency": 4792,
+    "samples": [
+      0.5
+    ],
+    "event": "gameStatePlayerUpdate"
+  },
+  "data.trades": {
+    "type": "array",
+    "frequency": 7,
+    "samples": [],
+    "event": "gameStatePlayerUpdate"
+  },
+  "data.leaderboardEntry": {
+    "type": "object",
+    "frequency": 597,
+    "samples": [],
+    "event": "gameStatePlayerUpdate"
+  },
+  "data.leaderboardEntry.id": {
+    "type": "string",
+    "frequency": 597,
+    "samples": [
+      "did:privy:cmaibr7rt0094jp0mc2mbpfu4"
+    ],
+    "event": "gameStatePlayerUpdate"
+  },
+  "data.leaderboardEntry.username": {
+    "type": "string",
+    "frequency": 597,
+    "samples": [
+      "Dutch"
+    ],
+    "event": "gameStatePlayerUpdate"
+  },
+  "data.leaderboardEntry.level": {
+    "type": "number",
+    "frequency": 597,
+    "samples": [
+      7
+    ],
+    "event": "gameStatePlayerUpdate"
+  },
+  "data.leaderboardEntry.pnl": {
+    "type": "number",
+    "frequency": 597,
+    "samples": [
+      0,
+      2.6863e-05,
+      5.9716e-05,
+      3.8531e-05,
+      2.3302e-05
+    ],
+    "event": "gameStatePlayerUpdate"
+  },
+  "data.leaderboardEntry.regularPnl": {
+    "type": "number",
+    "frequency": 593,
+    "samples": [
+      0,
+      2.6863e-05,
+      5.9716e-05,
+      3.8531e-05,
+      2.3302e-05
+    ],
+    "event": "gameStatePlayerUpdate"
+  },
+  "data.leaderboardEntry.sidebetPnl": {
+    "type": "number",
+    "frequency": 593,
+    "samples": [
+      0
+    ],
+    "event": "gameStatePlayerUpdate"
+  },
+  "data.leaderboardEntry.shortPnl": {
+    "type": "number",
+    "frequency": 593,
+    "samples": [
+      0
+    ],
+    "event": "gameStatePlayerUpdate"
+  },
+  "data.leaderboardEntry.sidebetActive": {
+    "type": "null",
+    "frequency": 597,
+    "samples": [
+      null
+    ],
+    "event": "gameStatePlayerUpdate"
+  },
+  "data.leaderboardEntry.sideBet": {
+    "type": "null",
+    "frequency": 597,
+    "samples": [
+      null
+    ],
+    "event": "gameStatePlayerUpdate"
+  },
+  "data.leaderboardEntry.shortPosition": {
+    "type": "null",
+    "frequency": 597,
+    "samples": [
+      null
+    ],
+    "event": "gameStatePlayerUpdate"
+  },
+  "data.leaderboardEntry.pnlPercent": {
+    "type": "number",
+    "frequency": 597,
+    "samples": [
+      0,
+      2.6862999999999997,
+      5.9716,
+      3.8531000000000004,
+      2.3302
+    ],
+    "event": "gameStatePlayerUpdate"
+  },
+  "data.leaderboardEntry.hasActiveTrades": {
+    "type": "boolean",
+    "frequency": 597,
+    "samples": [
+      true
+    ],
+    "event": "gameStatePlayerUpdate"
+  },
+  "data.leaderboardEntry.positionQty": {
+    "type": "number",
+    "frequency": 597,
+    "samples": [
+      0.001202876,
+      0,
+      0.001
+    ],
+    "event": "gameStatePlayerUpdate"
+  },
+  "data.leaderboardEntry.avgCost": {
+    "type": "number",
+    "frequency": 597,
+    "samples": [
+      0.831340055,
+      0.831340295,
+      0,
+      1
+    ],
+    "event": "gameStatePlayerUpdate"
+  },
+  "data.leaderboardEntry.totalInvested": {
+    "type": "number",
+    "frequency": 597,
+    "samples": [
+      0.001
+    ],
+    "event": "gameStatePlayerUpdate"
+  },
+  "data.leaderboardEntry.selectedCoin": {
+    "type": "null",
+    "frequency": 597,
+    "samples": [
+      null
+    ],
+    "event": "gameStatePlayerUpdate"
+  },
+  "data.leaderboardEntry.position": {
+    "type": "number",
+    "frequency": 597,
+    "samples": [
+      16,
+      17,
+      15,
+      18,
+      19
+    ],
+    "event": "gameStatePlayerUpdate"
+  },
+  "data.playerId": {
+    "type": "string",
+    "frequency": 8,
+    "samples": [
+      "did:privy:cmaibr7rt0094jp0mc2mbpfu4"
+    ],
+    "event": "getPlayerLeaderboardPosition"
+  }
+}

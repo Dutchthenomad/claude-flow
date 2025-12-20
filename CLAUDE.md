@@ -78,6 +78,17 @@ Location: `integrations/`
 - Community tools (superpowers, etc.)
 - MCP servers
 
+## Rugs.fun Knowledge Base Laws
+
+The `knowledge/rugs-events/` folder has strict **CANONICAL PROMOTION LAWS**.
+
+Any agent working with rugs.fun WebSocket data MUST:
+1. Read `/home/nomad/Desktop/claude-flow/knowledge/rugs-events/CONTEXT.md` first
+2. Follow the CANONICAL PROMOTION LAWS exactly
+3. NEVER modify `WEBSOCKET_EVENTS_SPEC.md` without explicit user approval
+
+**Violation = session failure.** See `knowledge/rugs-events/CONTEXT.md` for full laws.
+
 ## Contributing
 1. Follow the 5 Iron Laws
 2. Use `/tdd` for all new features

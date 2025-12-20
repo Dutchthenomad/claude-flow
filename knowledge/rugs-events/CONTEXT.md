@@ -125,5 +125,59 @@ When editing `WEBSOCKET_EVENTS_SPEC.md`:
 
 ---
 
+## CANONICAL PROMOTION LAWS
+
+**These are LAWS, not guidelines. Violation = session failure.**
+
+### Law 1: Single Source of Truth
+The ONLY document containing CANONICAL data is:
+```
+/home/nomad/Desktop/claude-flow/knowledge/rugs-events/WEBSOCKET_EVENTS_SPEC.md
+```
+
+No other document may contain CANONICAL-status field definitions unless
+explicitly authorized by the user in writing.
+
+### Law 2: Human Authorization Gate
+NO agent may promote a field to CANONICAL status without explicit human approval.
+
+**Required workflow:**
+1. Agent presents field for promotion with evidence
+2. Human reviews and explicitly says "approved"
+3. Only then may agent modify WEBSOCKET_EVENTS_SPEC.md
+4. Any edit without approval = unauthorized modification
+
+### Law 3: Physical Validation
+Each field promotion requires individual validation:
+- Raw capture evidence (file:line)
+- Type verification (matches observed data)
+- Example values (real, not fabricated)
+- Phase context (when does this field appear)
+
+### Law 4: Verification Tiers
+
+| Status | Meaning | Authority | Can Modify Spec |
+|--------|---------|-----------|-----------------|
+| `THEORETICAL` | Documented externally, never observed | Auto | NO |
+| `OBSERVED` | Seen in raw captures | Auto | NO |
+| `VERIFIED` | Confirmed in multiple captures, validated | Auto | NO |
+| `CANONICAL` | User-authorized, in spec | **Human only** | YES (after approval) |
+
+### Law 5: Audit Trail
+All CANONICAL promotions must be logged with:
+- Date of approval
+- Evidence used (capture file:line)
+- User authorization reference
+
+### Promotion Flow
+```
+THEORETICAL → OBSERVED → VERIFIED → CANONICAL
+     ↓            ↓           ↓           ↓
+  (capture)   (validated)  (reviewed)  (USER APPROVES)
+    auto         auto        auto       HUMAN GATE
+```
+
+---
+
 *This knowledge base is the authoritative source for rugs.fun protocol documentation.*
-*Last updated: December 18, 2025*
+*Last updated: December 19, 2025*

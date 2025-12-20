@@ -1,0 +1,5017 @@
+{
+  "connect": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "connect",
+    "type": "object",
+    "properties": {
+      "data": {
+        "type": "null",
+        "x-frequency": 7,
+        "examples": [
+          null
+        ]
+      },
+      "event": {
+        "type": "string",
+        "x-frequency": 7,
+        "examples": [
+          "connect"
+        ]
+      },
+      "seq": {
+        "type": "number",
+        "x-frequency": 7,
+        "examples": [
+          1
+        ]
+      },
+      "ts": {
+        "type": "string",
+        "x-frequency": 7,
+        "examples": [
+          "2025-12-12T17:16:58.624285",
+          "2025-12-14T11:51:33.809733",
+          "2025-12-14T19:18:09.945210",
+          "2025-12-14T19:35:37.549758",
+          "2025-12-14T19:46:57.839678"
+        ]
+      }
+    },
+    "x-frequency": 7
+  },
+  "gameStateUpdate": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "gameStateUpdate",
+    "type": "object",
+    "properties": {
+      "data": {
+        "type": "object",
+        "x-frequency": 12360,
+        "examples": [
+          "<object with 36 keys>",
+          "<object with 21 keys>"
+        ],
+        "properties": {
+          "active": {
+            "type": "boolean",
+            "x-frequency": 35,
+            "examples": [
+              true
+            ]
+          },
+          "allowPreRoundBuys": {
+            "type": "boolean",
+            "x-frequency": 5089,
+            "examples": [
+              false,
+              true
+            ]
+          },
+          "connectedPlayers": {
+            "type": "number",
+            "x-frequency": 5089,
+            "examples": [
+              200,
+              201,
+              202,
+              206,
+              205
+            ]
+          },
+          "cooldownPaused": {
+            "type": "boolean",
+            "x-frequency": 5089,
+            "examples": [
+              false
+            ]
+          },
+          "cooldownTimer": {
+            "type": "number",
+            "x-frequency": 5089,
+            "examples": [
+              14900,
+              14800,
+              14700,
+              14600,
+              14500
+            ]
+          },
+          "gameId": {
+            "type": "string",
+            "x-frequency": 5089,
+            "examples": [
+              "20251212-6114b2ff44ef4b71",
+              "20251212-6f491efbd808458b",
+              "20251214-fe3c0e433c0d429d",
+              "20251214-f670dc0ed0b94d10",
+              "20251214-fe844a594d0044dc"
+            ]
+          },
+          "gameVersion": {
+            "type": "string",
+            "x-frequency": 35,
+            "examples": [
+              "v3"
+            ]
+          },
+          "leaderboard": {
+            "type": "array",
+            "x-frequency": 5089,
+            "items": {
+              "type": "object",
+              "properties": {
+                "avgCost": {
+                  "type": "number",
+                  "x-frequency": 50059,
+                  "examples": [
+                    0,
+                    1,
+                    0.999999999,
+                    0.999999995,
+                    0.999999996
+                  ]
+                },
+                "hasActiveTrades": {
+                  "type": "boolean",
+                  "x-frequency": 50059,
+                  "examples": [
+                    true
+                  ]
+                },
+                "id": {
+                  "type": "string",
+                  "x-frequency": 50059,
+                  "examples": [
+                    "did:privy:cmaos0abo03t9kz0mquf6fa4n",
+                    "did:privy:cmgdz0so100bejm0cfaewe0rw",
+                    "did:privy:cmi8zyfq4007fl20booupw2jj",
+                    "did:privy:cmflbi9nj00wijp0cp8q2tpxa",
+                    "did:privy:cmflau4gu00nhjv0cfgyq5mer"
+                  ]
+                },
+                "level": {
+                  "type": "number",
+                  "x-frequency": 50059,
+                  "examples": [
+                    28,
+                    19,
+                    16,
+                    8,
+                    7
+                  ]
+                },
+                "pnl": {
+                  "type": "number",
+                  "x-frequency": 50059,
+                  "examples": [
+                    0.014450205,
+                    0.002079603,
+                    0.000966814,
+                    0.000505089,
+                    0.000482129
+                  ]
+                },
+                "pnlPercent": {
+                  "type": "number",
+                  "x-frequency": 50059,
+                  "examples": [
+                    16.055783333333334,
+                    6.301827654656221,
+                    12.085175,
+                    2.295859090909091,
+                    2.2958523809523808
+                  ]
+                },
+                "position": {
+                  "type": "number",
+                  "x-frequency": 50059,
+                  "examples": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ]
+                },
+                "positionQty": {
+                  "type": "number",
+                  "x-frequency": 50059,
+                  "examples": [
+                    0,
+                    0.001,
+                    0.1,
+                    0.03,
+                    0.01
+                  ]
+                },
+                "regularPnl": {
+                  "type": "number",
+                  "x-frequency": 16700,
+                  "examples": [
+                    0.014450205,
+                    0.002079603,
+                    0.000966814,
+                    0.000505089,
+                    0.000482129
+                  ]
+                },
+                "selectedCoin": {
+                  "type": "null",
+                  "x-frequency": 50059,
+                  "examples": [
+                    null
+                  ],
+                  "properties": {
+                    "address": {
+                      "type": "string",
+                      "x-frequency": 2575,
+                      "examples": [
+                        "0xPractice"
+                      ]
+                    },
+                    "logoURI": {
+                      "type": "string",
+                      "x-frequency": 2575,
+                      "examples": [
+                        "/icons/Icon_Free_Solana.png"
+                      ]
+                    },
+                    "max_bet": {
+                      "type": "number",
+                      "x-frequency": 2575,
+                      "examples": [
+                        10000
+                      ]
+                    },
+                    "max_win": {
+                      "type": "number",
+                      "x-frequency": 2575,
+                      "examples": [
+                        50000
+                      ]
+                    },
+                    "name": {
+                      "type": "string",
+                      "x-frequency": 2575,
+                      "examples": [
+                        "Free Practice Token"
+                      ]
+                    },
+                    "ticker": {
+                      "type": "string",
+                      "x-frequency": 2575,
+                      "examples": [
+                        "FREE"
+                      ]
+                    }
+                  }
+                },
+                "shortPnl": {
+                  "type": "number",
+                  "x-frequency": 16700,
+                  "examples": [
+                    0
+                  ]
+                },
+                "shortPosition": {
+                  "type": "null",
+                  "x-frequency": 50059,
+                  "examples": [
+                    null
+                  ]
+                },
+                "sideBet": {
+                  "type": "null",
+                  "x-frequency": 50059,
+                  "examples": [
+                    null
+                  ],
+                  "properties": {
+                    "betAmount": {
+                      "type": "number",
+                      "x-frequency": 2406,
+                      "examples": [
+                        0.001,
+                        0.003,
+                        0.01,
+                        0.005,
+                        0.029
+                      ]
+                    },
+                    "bonusPortion": {
+                      "type": "number",
+                      "x-frequency": 2406,
+                      "examples": [
+                        0,
+                        0.05,
+                        0.004,
+                        0.101
+                      ]
+                    },
+                    "coinAddress": {
+                      "type": "string",
+                      "x-frequency": 2406,
+                      "examples": [
+                        "So11111111111111111111111111111111111111112",
+                        "0xPractice"
+                      ]
+                    },
+                    "end": {
+                      "type": "number",
+                      "x-frequency": 2406,
+                      "examples": [
+                        40
+                      ]
+                    },
+                    "gameId": {
+                      "type": "string",
+                      "x-frequency": 2406,
+                      "examples": [
+                        "20251212-6114b2ff44ef4b71",
+                        "20251212-6f491efbd808458b",
+                        "20251214-fe3c0e433c0d429d",
+                        "20251214-f670dc0ed0b94d10",
+                        "20251215-3b292f2e706f44e9"
+                      ]
+                    },
+                    "realPortion": {
+                      "type": "number",
+                      "x-frequency": 2406,
+                      "examples": [
+                        0.001,
+                        0.003,
+                        0.01,
+                        0.005,
+                        0.029
+                      ]
+                    },
+                    "startedAtTick": {
+                      "type": "number",
+                      "x-frequency": 2406,
+                      "examples": [
+                        0
+                      ]
+                    },
+                    "xPayout": {
+                      "type": "number",
+                      "x-frequency": 2406,
+                      "examples": [
+                        5
+                      ]
+                    }
+                  }
+                },
+                "sidebetActive": {
+                  "type": "null",
+                  "x-frequency": 50059,
+                  "examples": [
+                    null,
+                    true
+                  ]
+                },
+                "sidebetPnl": {
+                  "type": "number",
+                  "x-frequency": 16700,
+                  "examples": [
+                    0,
+                    0.052000000000000005,
+                    0.012,
+                    0.004,
+                    -0.082
+                  ]
+                },
+                "totalInvested": {
+                  "type": "number",
+                  "x-frequency": 50059,
+                  "examples": [
+                    0.09,
+                    0.032999998,
+                    0.008,
+                    0.022,
+                    0.021
+                  ]
+                },
+                "username": {
+                  "type": "string",
+                  "x-frequency": 50059,
+                  "examples": [
+                    "Boss",
+                    "getSmoked",
+                    "BooMStick1776",
+                    "osmraisa",
+                    "jiabra"
+                  ]
+                }
+              }
+            }
+          },
+          "partialPrices": {
+            "type": "object",
+            "x-frequency": 35,
+            "properties": {
+              "endTick": {
+                "type": "number",
+                "x-frequency": 35,
+                "examples": [
+                  0
+                ]
+              },
+              "startTick": {
+                "type": "number",
+                "x-frequency": 35,
+                "examples": [
+                  0
+                ]
+              },
+              "values": {
+                "type": "object",
+                "x-frequency": 35,
+                "examples": [
+                  "<object with 1 keys>"
+                ]
+              }
+            }
+          },
+          "pauseMessage": {
+            "type": "string",
+            "x-frequency": 35,
+            "examples": [
+              ""
+            ]
+          },
+          "price": {
+            "type": "number",
+            "x-frequency": 35,
+            "examples": [
+              1
+            ]
+          },
+          "provablyFair": {
+            "type": "object",
+            "x-frequency": 5089,
+            "properties": {
+              "serverSeedHash": {
+                "type": "string",
+                "x-frequency": 5089,
+                "examples": [
+                  "f8fb5fc595f23a0c148ad4ebabf4996b20190dd988932a0e52db55b043fc673a",
+                  "79740423cccd1b29c75bd5b669f1da0fb6020563a539e48ae5a8dac335d1202b",
+                  "39118e6b97ce6762e5a90785541c500f2179eb974f1c5b3f32d91b2a935a286e",
+                  "9637786faab3efb6363fb0c42eaeeb506105b17de95810763f5c0a02148a7cc4",
+                  "7516eb892bf7cc57a4c0587f92d5d541b4db53c7e05873ae948efa3e9ff59b13"
+                ]
+              },
+              "version": {
+                "type": "string",
+                "x-frequency": 5089,
+                "examples": [
+                  "v3"
+                ]
+              }
+            }
+          },
+          "rugged": {
+            "type": "boolean",
+            "x-frequency": 35,
+            "examples": [
+              false
+            ]
+          },
+          "tickCount": {
+            "type": "number",
+            "x-frequency": 35,
+            "examples": [
+              0
+            ]
+          }
+        }
+      },
+      "direction": {
+        "type": "string",
+        "x-frequency": 4817,
+        "examples": [
+          "received"
+        ]
+      },
+      "event": {
+        "type": "string",
+        "x-frequency": 12360,
+        "examples": [
+          "gameStateUpdate"
+        ]
+      },
+      "raw": {
+        "type": "string",
+        "x-frequency": 543,
+        "examples": [
+          "42[\"gameStateUpdate\",{\"gameHistory\":[{\"id\":\"20251215-2ca0652697eb4eee\",\"timestamp\":1765777829022,\"pr...",
+          "42[\"gameStateUpdate\",{\"active\":true,\"price\":0.3290892506637079,\"partialPrices\":{\"startTick\":392,\"end...",
+          "42[\"gameStateUpdate\",{\"active\":true,\"price\":0.25258443673728415,\"partialPrices\":{\"startTick\":393,\"en...",
+          "42[\"gameStateUpdate\",{\"active\":true,\"price\":0.24886105410741494,\"partialPrices\":{\"startTick\":394,\"en...",
+          "42[\"gameStateUpdate\",{\"active\":true,\"price\":0.2036838062364362,\"partialPrices\":{\"startTick\":395,\"end..."
+        ]
+      },
+      "seq": {
+        "type": "number",
+        "x-frequency": 12360,
+        "examples": [
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "source": {
+        "type": "string",
+        "x-frequency": 4817,
+        "examples": [
+          "cdp_intercept"
+        ]
+      },
+      "ts": {
+        "type": "string",
+        "x-frequency": 12360,
+        "examples": [
+          "2025-12-12T17:16:58.952637",
+          "2025-12-12T17:16:58.964233",
+          "2025-12-12T17:16:59.181524",
+          "2025-12-12T17:16:59.301255",
+          "2025-12-12T17:16:59.693576"
+        ]
+      }
+    },
+    "x-frequency": 12360
+  },
+  "standard/newTrade": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "standard/newTrade",
+    "type": "object",
+    "properties": {
+      "data": {
+        "type": "array",
+        "x-frequency": 902,
+        "properties": {
+          "__trace": {
+            "type": "boolean",
+            "x-frequency": 312,
+            "examples": [
+              true
+            ]
+          },
+          "traceparent": {
+            "type": "string",
+            "x-frequency": 312,
+            "examples": [
+              "00-dfb772992005c7fb7a05690b2d570aee-9178970b020e67a5-01",
+              "00-6becc03d87e5abd178189f28e0f7243e-718a6308048d6407-01",
+              "00-0e8811ff0f0dea6bfa34ebf7d328084c-c5183707345017eb-01",
+              "00-7a02fdad2be971e4ebb43374a9fc7646-0f689f13a38bca65-01",
+              "00-e2ef284a3efeda8e906ae4988cf4be44-5ca8964e9b4723c1-01"
+            ]
+          }
+        },
+        "items": {
+          "type": "object",
+          "properties": {
+            "__trace": {
+              "type": "boolean",
+              "x-frequency": 590,
+              "examples": [
+                true
+              ]
+            },
+            "amount": {
+              "type": "number",
+              "x-frequency": 590,
+              "examples": [
+                4.158855049,
+                5,
+                0.09,
+                0.123,
+                0.125730454
+              ]
+            },
+            "bonusPortion": {
+              "type": "number",
+              "x-frequency": 590,
+              "examples": [
+                4.158855048,
+                5,
+                0,
+                3.334586306,
+                5.430553868
+              ]
+            },
+            "coin": {
+              "type": "string",
+              "x-frequency": 590,
+              "examples": [
+                "solana"
+              ]
+            },
+            "gameId": {
+              "type": "string",
+              "x-frequency": 590,
+              "examples": [
+                "20251212-25dcb17086a24ad7",
+                "20251212-6114b2ff44ef4b71",
+                "20251214-83c1efa1085340c7",
+                "20251214-fe3c0e433c0d429d",
+                "20251214-f670dc0ed0b94d10"
+              ]
+            },
+            "id": {
+              "type": "string",
+              "x-frequency": 590,
+              "examples": [
+                "9d33997e-2bad-4893-9de5-8e8ec708891a",
+                "e3c68cb1-b2ed-4224-8568-fe1d099ad643",
+                "30c7a2f0-4083-4ae5-9651-2f34be2ddce1",
+                "cd1cd4cb-0cd8-487c-b540-ebd55d8ad3d9",
+                "340931ed-9274-44ca-bb34-b09851502022"
+              ]
+            },
+            "level": {
+              "type": "number",
+              "x-frequency": 590,
+              "examples": [
+                72,
+                28,
+                20,
+                41,
+                52
+              ]
+            },
+            "leverage": {
+              "type": "number",
+              "x-frequency": 278,
+              "examples": [
+                1
+              ]
+            },
+            "playerId": {
+              "type": "string",
+              "x-frequency": 590,
+              "examples": [
+                "did:privy:cmbmoqwxf00uxk40movpxyhjw",
+                "did:privy:cmaos0abo03t9kz0mquf6fa4n",
+                "did:privy:cmb0dxecy00nckz0nnrs6y7kf",
+                "did:privy:cmeq23kw503hel40b0y7v49mb",
+                "did:privy:cma7ajzpp003tl40nptk0ap8x"
+              ]
+            },
+            "price": {
+              "type": "number",
+              "x-frequency": 590,
+              "examples": [
+                0.8317710102714284,
+                0.8283719646298878,
+                0.5799041862572357,
+                0.5866625847865298,
+                0.48945183535715886
+              ]
+            },
+            "qty": {
+              "type": "number",
+              "x-frequency": 590,
+              "examples": [
+                5,
+                6.035935803,
+                0.155198051,
+                0.209660549,
+                0.256880141
+              ]
+            },
+            "realPortion": {
+              "type": "number",
+              "x-frequency": 590,
+              "examples": [
+                0,
+                0.09,
+                0.123,
+                0.125730453,
+                0.03
+              ]
+            },
+            "tickIndex": {
+              "type": "number",
+              "x-frequency": 590,
+              "examples": [
+                7,
+                13,
+                25,
+                26,
+                39
+              ]
+            },
+            "traceparent": {
+              "type": "string",
+              "x-frequency": 590,
+              "examples": [
+                "00-b919294cf518e485acace9c1c391ff34-11e953610ea53aff-01",
+                "00-e5745f7152844a84442fdde7d30fcd8b-a82ab0f7f5946dbe-01",
+                "00-280b3d8a6216706e1a5582a0980c85c0-907cf4a67d458c32-01",
+                "00-2efd2469d5f055838c87baef0b85f6a5-20b838f83aa07256-01",
+                "00-126b638b055f2818a2971f6bdba8def8-ccc6ff3d1b7f6605-01"
+              ]
+            },
+            "type": {
+              "type": "string",
+              "x-frequency": 590,
+              "examples": [
+                "sell",
+                "buy"
+              ]
+            },
+            "username": {
+              "type": "string",
+              "x-frequency": 590,
+              "examples": [
+                "Zer02Her0",
+                "Boss",
+                "GLOSS",
+                "Justforfun4",
+                "Manno1k"
+              ]
+            }
+          }
+        }
+      },
+      "direction": {
+        "type": "string",
+        "x-frequency": 312,
+        "examples": [
+          "received"
+        ]
+      },
+      "event": {
+        "type": "string",
+        "x-frequency": 902,
+        "examples": [
+          "standard/newTrade"
+        ]
+      },
+      "raw": {
+        "type": "string",
+        "x-frequency": 24,
+        "examples": [
+          "42[\"standard/newTrade\",{\"__trace\":true,\"traceparent\":\"00-ca0c2b75caadfb813f40d87fe3d17a2c-b0c2d4dac0...",
+          "42[\"standard/newTrade\",{\"__trace\":true,\"traceparent\":\"00-1fcbea51771379e7611c2213ab7c377a-ac27fb279b...",
+          "42[\"standard/newTrade\",{\"__trace\":true,\"traceparent\":\"00-b0d0917e3c9d40a2e396bcdf1080639f-d28e0fdadd...",
+          "42[\"standard/newTrade\",{\"__trace\":true,\"traceparent\":\"00-50e88c240783523ab6a835c31a3bdd56-08d23ea14a...",
+          "42[\"standard/newTrade\",{\"__trace\":true,\"traceparent\":\"00-a9ba7346f9f5103ad2ef8305dad037e3-4780d4354d..."
+        ]
+      },
+      "seq": {
+        "type": "number",
+        "x-frequency": 902,
+        "examples": [
+          9,
+          18,
+          27,
+          36,
+          45
+        ]
+      },
+      "source": {
+        "type": "string",
+        "x-frequency": 312,
+        "examples": [
+          "cdp_intercept"
+        ]
+      },
+      "ts": {
+        "type": "string",
+        "x-frequency": 902,
+        "examples": [
+          "2025-12-12T17:17:00.118810",
+          "2025-12-12T17:17:02.258359",
+          "2025-12-12T17:17:04.122813",
+          "2025-12-12T17:17:06.165486",
+          "2025-12-12T17:17:08.134109"
+        ]
+      }
+    },
+    "x-frequency": 902
+  },
+  "newChatMessage": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "newChatMessage",
+    "type": "object",
+    "properties": {
+      "data": {
+        "type": "array",
+        "x-frequency": 586,
+        "properties": {
+          "__trace": {
+            "type": "boolean",
+            "x-frequency": 170,
+            "examples": [
+              true
+            ]
+          },
+          "traceparent": {
+            "type": "string",
+            "x-frequency": 170,
+            "examples": [
+              "00-c1a1507544272c3b9bde563c7116695d-c7e135f9a01af3b3-01",
+              "00-f4604eef20a73acda60edae5d84dccbd-64f3fc7301740ce6-01",
+              "00-c21755ecf17becfa1f5aa658f4814235-117691c1e6bcda15-01",
+              "00-b0dfddae7a4cd48a698a4146ea4287f3-2ac1dfac04083f3f-01",
+              "00-5142780eee1214a55adbb3cbd53c40c3-c52fd2c8833a78b1-01"
+            ]
+          }
+        },
+        "items": {
+          "type": "object",
+          "properties": {
+            "__trace": {
+              "type": "boolean",
+              "x-frequency": 416,
+              "examples": [
+                true
+              ]
+            },
+            "discordUsername": {
+              "type": "string",
+              "x-frequency": 416,
+              "examples": [
+                "zyzco.",
+                "bowtrix.",
+                "demaux",
+                null,
+                "shankles."
+              ]
+            },
+            "filtered": {
+              "type": "boolean",
+              "x-frequency": 416,
+              "examples": [
+                false
+              ]
+            },
+            "level": {
+              "type": "number",
+              "x-frequency": 416,
+              "examples": [
+                55,
+                66,
+                32,
+                8,
+                56
+              ]
+            },
+            "message": {
+              "type": "string",
+              "x-frequency": 416,
+              "examples": [
+                "fuk u bowtrix",
+                "im abt ti",
+                "get fked",
+                "dem rinsed???",
+                "bow gonna all in that create lmao"
+              ]
+            },
+            "playerId": {
+              "type": "string",
+              "x-frequency": 416,
+              "examples": [
+                "did:privy:cmaop45uz00hlla0lwfqcm6h9",
+                "did:privy:cmauh6pop009cjp0ljal0roxf",
+                "did:privy:cmi5nq4qv00beld0b8739uw7r",
+                "did:privy:cmir9p77o03qll80buq90wzvv",
+                "did:privy:cm8nvqpyn00jwxh9axxyrwnml"
+              ]
+            },
+            "replyTo": {
+              "type": "null",
+              "x-frequency": 416,
+              "examples": [
+                null
+              ],
+              "properties": {
+                "key": {
+                  "type": "string",
+                  "x-frequency": 2,
+                  "examples": [
+                    "did:privy:cmaop45uz00hlla0lwfqcm6h9-1765577850155",
+                    "did:privy:cmir9p77o03qll80buq90wzvv-1765577896369"
+                  ]
+                },
+                "message": {
+                  "type": "string",
+                  "x-frequency": 2,
+                  "examples": [
+                    "dem rinsed???",
+                    "How is this not just a scam sites. Like really"
+                  ]
+                },
+                "username": {
+                  "type": "string",
+                  "x-frequency": 2,
+                  "examples": [
+                    "Zyzco",
+                    "Greenoodles"
+                  ]
+                }
+              }
+            },
+            "role": {
+              "type": "null",
+              "x-frequency": 416,
+              "examples": [
+                null,
+                "mod"
+              ]
+            },
+            "tag": {
+              "type": "string",
+              "x-frequency": 416,
+              "examples": [
+                "ghoul",
+                null,
+                "ogplayer",
+                "warrior",
+                "777"
+              ]
+            },
+            "timestamp": {
+              "type": "number",
+              "x-frequency": 416,
+              "examples": [
+                1765577835613,
+                1765577844154,
+                1765577849674,
+                1765577850155,
+                1765577862654
+              ]
+            },
+            "traceparent": {
+              "type": "string",
+              "x-frequency": 416,
+              "examples": [
+                "00-110726a3a245375ebdad6a1dc00bfbbf-a3cde4042e4e1588-01",
+                "00-48ab2a7c73103d6c2aaa7c224294dc36-525f4a42ff24eb49-01",
+                "00-8b304b74873814b6d1fad1bbeda36d76-0b787262c6264737-01",
+                "00-2bdb33019e520a483bbc811cd42f96e3-4c8b13353c370b61-01",
+                "00-aeeec8b027b5a797214c015095b19326-324f22f56f210200-01"
+              ]
+            },
+            "username": {
+              "type": "string",
+              "x-frequency": 416,
+              "examples": [
+                "Zyzco",
+                "bowtrix",
+                "Demaux69",
+                "Greenoodles",
+                "shankles"
+              ]
+            },
+            "verified": {
+              "type": "boolean",
+              "x-frequency": 416,
+              "examples": [
+                true,
+                false
+              ]
+            }
+          }
+        }
+      },
+      "direction": {
+        "type": "string",
+        "x-frequency": 170,
+        "examples": [
+          "received"
+        ]
+      },
+      "event": {
+        "type": "string",
+        "x-frequency": 586,
+        "examples": [
+          "newChatMessage"
+        ]
+      },
+      "raw": {
+        "type": "string",
+        "x-frequency": 17,
+        "examples": [
+          "42[\"newChatMessage\",{\"__trace\":true,\"traceparent\":\"00-58a2dcfaa51dcac17dd59b0048bc2520-3333539bef743...",
+          "42[\"newChatMessage\",{\"__trace\":true,\"traceparent\":\"00-be8bb39c5a0b6788d03cf669a0f7a455-c81a21a58f840...",
+          "42[\"newChatMessage\",{\"__trace\":true,\"traceparent\":\"00-e3965630f393db9b91b6ed03fd76cf3e-c5bbb1cb39b28...",
+          "42[\"newChatMessage\",{\"__trace\":true,\"traceparent\":\"00-e866d8738d57ce42454c0a40062aa99c-c2476f5b77f1f...",
+          "42[\"newChatMessage\",{\"__trace\":true,\"traceparent\":\"00-c72b1c2643e642669237c82d2f5877fd-2b9378597fd45..."
+        ]
+      },
+      "seq": {
+        "type": "number",
+        "x-frequency": 586,
+        "examples": [
+          75,
+          114,
+          140,
+          143,
+          200
+        ]
+      },
+      "source": {
+        "type": "string",
+        "x-frequency": 170,
+        "examples": [
+          "cdp_intercept"
+        ]
+      },
+      "ts": {
+        "type": "string",
+        "x-frequency": 586,
+        "examples": [
+          "2025-12-12T17:17:14.785930",
+          "2025-12-12T17:17:23.331018",
+          "2025-12-12T17:17:28.862859",
+          "2025-12-12T17:17:29.322974",
+          "2025-12-12T17:17:41.825581"
+        ]
+      }
+    },
+    "x-frequency": 586
+  },
+  "battleEventUpdate": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "battleEventUpdate",
+    "type": "object",
+    "properties": {
+      "data": {
+        "type": "array",
+        "x-frequency": 63,
+        "properties": {
+          "__trace": {
+            "type": "boolean",
+            "x-frequency": 30,
+            "examples": [
+              true
+            ]
+          },
+          "traceparent": {
+            "type": "string",
+            "x-frequency": 30,
+            "examples": [
+              "00-4fc7a86262b4519b62afa29f4243fc84-23d89e4582a1b5d1-01",
+              "00-4fc7a86262b4519b62afa29f4243fc84-018dcd13ac1de419-01",
+              "00-c37856d5e5c8910e2f87852550c88ff0-1224bec03bc0e70f-01",
+              "00-c37856d5e5c8910e2f87852550c88ff0-88b96235037c8ee7-01",
+              "00-f6aef826ce4fe23d83743977bff111e5-c3e26dd526209b90-01"
+            ]
+          }
+        },
+        "items": {
+          "type": "object",
+          "properties": {
+            "__trace": {
+              "type": "boolean",
+              "x-frequency": 33,
+              "examples": [
+                true
+              ]
+            },
+            "activeBattleCount": {
+              "type": "number",
+              "x-frequency": 33,
+              "examples": [
+                0
+              ]
+            },
+            "config": {
+              "type": "object",
+              "x-frequency": 33,
+              "properties": {
+                "levelRequired": {
+                  "type": "number",
+                  "x-frequency": 33,
+                  "examples": [
+                    1
+                  ]
+                },
+                "prepTimeMinutes": {
+                  "type": "number",
+                  "x-frequency": 33,
+                  "examples": [
+                    30
+                  ]
+                },
+                "startingBalance": {
+                  "type": "number",
+                  "x-frequency": 33,
+                  "examples": [
+                    100
+                  ]
+                },
+                "token": {
+                  "type": "string",
+                  "x-frequency": 33,
+                  "examples": [
+                    "0xPractice"
+                  ]
+                }
+              }
+            },
+            "currentEvent": {
+              "type": "null",
+              "x-frequency": 33,
+              "examples": [
+                null
+              ]
+            },
+            "endTime": {
+              "type": "null",
+              "x-frequency": 33,
+              "examples": [
+                null
+              ]
+            },
+            "eventSchedule": {
+              "type": "array",
+              "x-frequency": 33
+            },
+            "fullLeaderboardSize": {
+              "type": "number",
+              "x-frequency": 33,
+              "examples": [
+                0
+              ]
+            },
+            "isShowingPreviousEvent": {
+              "type": "null",
+              "x-frequency": 33,
+              "examples": [
+                null
+              ]
+            },
+            "leaderboard": {
+              "type": "array",
+              "x-frequency": 33
+            },
+            "lobbyCreationDisabled": {
+              "type": "boolean",
+              "x-frequency": 33,
+              "examples": [
+                false
+              ]
+            },
+            "nextEvent": {
+              "type": "null",
+              "x-frequency": 33,
+              "examples": [
+                null
+              ]
+            },
+            "nextEventStartTime": {
+              "type": "null",
+              "x-frequency": 33,
+              "examples": [
+                null
+              ]
+            },
+            "participantCount": {
+              "type": "number",
+              "x-frequency": 33,
+              "examples": [
+                0
+              ]
+            },
+            "playerPosition": {
+              "type": "null",
+              "x-frequency": 33,
+              "examples": [
+                null
+              ]
+            },
+            "queue": {
+              "type": "object",
+              "x-frequency": 33,
+              "properties": {
+                "active": {
+                  "type": "boolean",
+                  "x-frequency": 33,
+                  "examples": [
+                    false
+                  ]
+                },
+                "availableLobbies": {
+                  "type": "number",
+                  "x-frequency": 33,
+                  "examples": [
+                    0
+                  ]
+                },
+                "queueSize": {
+                  "type": "number",
+                  "x-frequency": 33,
+                  "examples": [
+                    0
+                  ]
+                }
+              }
+            },
+            "startTime": {
+              "type": "null",
+              "x-frequency": 33,
+              "examples": [
+                null
+              ]
+            },
+            "status": {
+              "type": "string",
+              "x-frequency": 33,
+              "examples": [
+                "SCHEDULED"
+              ]
+            },
+            "traceparent": {
+              "type": "string",
+              "x-frequency": 33,
+              "examples": [
+                "00-779fbe6b1307f0042d9e26927f450883-24a534c666dcada7-01",
+                "00-001c4e8b5ea3e308e7ba5f7279863781-9f35bfa3daecb20e-01",
+                "00-9a489f250d019553dce15c970afe2bb6-361a98ca3ea5e4bf-01",
+                "00-425e3afb545df656f439c5c4c75e9cce-02c184c23d0791d7-01",
+                "00-08c1aadc18c8355963863ce7325eee92-76facbb06c7f560a-01"
+              ]
+            }
+          }
+        }
+      },
+      "direction": {
+        "type": "string",
+        "x-frequency": 30,
+        "examples": [
+          "received"
+        ]
+      },
+      "event": {
+        "type": "string",
+        "x-frequency": 63,
+        "examples": [
+          "battleEventUpdate"
+        ]
+      },
+      "raw": {
+        "type": "string",
+        "x-frequency": 5,
+        "examples": [
+          "42[\"battleEventUpdate\",{\"__trace\":true,\"traceparent\":\"00-8e73b4bafb07333a28bec8f6f03c0d5d-ce97b09e54...",
+          "42[\"battleEventUpdate\",{\"__trace\":true,\"traceparent\":\"00-8e73b4bafb07333a28bec8f6f03c0d5d-78f2a9bd7e...",
+          "42[\"battleEventUpdate\",{\"__trace\":true,\"traceparent\":\"00-c209db16d04303310a2859ed436f859d-5bfd4ad3c9...",
+          "42[\"battleEventUpdate\",{\"__trace\":true,\"traceparent\":\"00-c209db16d04303310a2859ed436f859d-555d4d4c30...",
+          "42[\"battleEventUpdate\",{\"__trace\":true,\"traceparent\":\"00-abf588ea987af77f3deb281cc0f72aca-a22c69357e..."
+        ]
+      },
+      "seq": {
+        "type": "number",
+        "x-frequency": 63,
+        "examples": [
+          169,
+          201,
+          657,
+          938,
+          4
+        ]
+      },
+      "source": {
+        "type": "string",
+        "x-frequency": 30,
+        "examples": [
+          "cdp_intercept"
+        ]
+      },
+      "ts": {
+        "type": "string",
+        "x-frequency": 63,
+        "examples": [
+          "2025-12-12T17:17:34.821523",
+          "2025-12-14T11:52:16.893527",
+          "2025-12-14T11:53:15.946978",
+          "2025-12-14T11:54:16.256079",
+          "2025-12-14T19:18:10.645693"
+        ]
+      }
+    },
+    "x-frequency": 63
+  },
+  "goldenHourUpdate": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "goldenHourUpdate",
+    "type": "object",
+    "properties": {
+      "data": {
+        "type": "array",
+        "x-frequency": 178,
+        "properties": {
+          "__trace": {
+            "type": "boolean",
+            "x-frequency": 78,
+            "examples": [
+              true
+            ]
+          },
+          "traceparent": {
+            "type": "string",
+            "x-frequency": 78,
+            "examples": [
+              "00-4fc7a86262b4519b62afa29f4243fc84-48b76cd049c9da86-01",
+              "00-c37856d5e5c8910e2f87852550c88ff0-dc70d3b2ae386486-01",
+              "00-3565ca98850b5c9e211e9d22707fc3a8-862879b3ff1ccc15-01",
+              "00-0cd8425a5b9e25a29557cb84fe939a60-a79ba02e862716e6-01",
+              "00-363615c8bde3fada83b7e210100c985c-34e8b9f3e6db9c7d-01"
+            ]
+          }
+        },
+        "items": {
+          "type": "object",
+          "properties": {
+            "__trace": {
+              "type": "boolean",
+              "x-frequency": 100,
+              "examples": [
+                true
+              ]
+            },
+            "activeEventId": {
+              "type": "string",
+              "x-frequency": 100,
+              "examples": [
+                "admin-8ef16a3a-d63d-430a-9224-012b3a11e6c3"
+              ]
+            },
+            "currentEvent": {
+              "type": "object",
+              "x-frequency": 100,
+              "properties": {
+                "createdAt": {
+                  "type": "string",
+                  "x-frequency": 100,
+                  "examples": [
+                    "2025-12-14T05:01:15.318Z"
+                  ]
+                },
+                "createdBy": {
+                  "type": "string",
+                  "x-frequency": 100,
+                  "examples": [
+                    "admin"
+                  ]
+                },
+                "durationMinutes": {
+                  "type": "number",
+                  "x-frequency": 100,
+                  "examples": [
+                    60
+                  ]
+                },
+                "endTime": {
+                  "type": "string",
+                  "x-frequency": 100,
+                  "examples": [
+                    "2025-12-15T05:05:00.000Z"
+                  ]
+                },
+                "id": {
+                  "type": "string",
+                  "x-frequency": 100,
+                  "examples": [
+                    "admin-8ef16a3a-d63d-430a-9224-012b3a11e6c3"
+                  ]
+                },
+                "levelRequired": {
+                  "type": "number",
+                  "x-frequency": 100,
+                  "examples": [
+                    10
+                  ]
+                },
+                "maxEntries": {
+                  "type": "number",
+                  "x-frequency": 100,
+                  "examples": [
+                    50
+                  ]
+                },
+                "prepTimeMinutes": {
+                  "type": "number",
+                  "x-frequency": 100,
+                  "examples": [
+                    0
+                  ]
+                },
+                "prizeAmount": {
+                  "type": "number",
+                  "x-frequency": 100,
+                  "examples": [
+                    0.05
+                  ]
+                },
+                "startTime": {
+                  "type": "string",
+                  "x-frequency": 100,
+                  "examples": [
+                    "2025-12-14T05:05:00.000Z"
+                  ]
+                },
+                "status": {
+                  "type": "string",
+                  "x-frequency": 100,
+                  "examples": [
+                    "SCHEDULED"
+                  ]
+                }
+              }
+            },
+            "currentGameIsGolden": {
+              "type": "boolean",
+              "x-frequency": 100,
+              "examples": [
+                true
+              ]
+            },
+            "events": {
+              "type": "array",
+              "x-frequency": 100,
+              "items": {
+                "type": "object",
+                "properties": {
+                  "createdAt": {
+                    "type": "string",
+                    "x-frequency": 100,
+                    "examples": [
+                      "2025-12-14T05:01:15.318Z"
+                    ]
+                  },
+                  "createdBy": {
+                    "type": "string",
+                    "x-frequency": 100,
+                    "examples": [
+                      "admin"
+                    ]
+                  },
+                  "durationMinutes": {
+                    "type": "number",
+                    "x-frequency": 100,
+                    "examples": [
+                      60
+                    ]
+                  },
+                  "endTime": {
+                    "type": "string",
+                    "x-frequency": 100,
+                    "examples": [
+                      "2025-12-15T05:05:00.000Z"
+                    ]
+                  },
+                  "id": {
+                    "type": "string",
+                    "x-frequency": 100,
+                    "examples": [
+                      "admin-8ef16a3a-d63d-430a-9224-012b3a11e6c3"
+                    ]
+                  },
+                  "levelRequired": {
+                    "type": "number",
+                    "x-frequency": 100,
+                    "examples": [
+                      10
+                    ]
+                  },
+                  "maxEntries": {
+                    "type": "number",
+                    "x-frequency": 100,
+                    "examples": [
+                      50
+                    ]
+                  },
+                  "prepTimeMinutes": {
+                    "type": "number",
+                    "x-frequency": 100,
+                    "examples": [
+                      0
+                    ]
+                  },
+                  "prizeAmount": {
+                    "type": "number",
+                    "x-frequency": 100,
+                    "examples": [
+                      0.05
+                    ]
+                  },
+                  "startTime": {
+                    "type": "string",
+                    "x-frequency": 100,
+                    "examples": [
+                      "2025-12-14T05:05:00.000Z"
+                    ]
+                  },
+                  "status": {
+                    "type": "string",
+                    "x-frequency": 100,
+                    "examples": [
+                      "SCHEDULED"
+                    ]
+                  }
+                }
+              }
+            },
+            "status": {
+              "type": "string",
+              "x-frequency": 100,
+              "examples": [
+                "ACTIVE",
+                "ENDING",
+                "COMPLETED"
+              ]
+            },
+            "traceparent": {
+              "type": "string",
+              "x-frequency": 100,
+              "examples": [
+                "00-e5dfb376634858127568dbe7fff21dd3-d15d37508fd21dc6-01",
+                "00-2ac135c0592826871cb466de828c718e-faf4af693008e98e-01",
+                "00-2e1876208749bda32b4a4b04dc5770e0-469328e378f1c6c3-01",
+                "00-01cba55ffccba2286920ef289459c6b0-474451f4e94ff8d0-01",
+                "00-73d656e96d3e1298704b3cdd708d9edb-55d033ae52ac4263-01"
+              ]
+            },
+            "upcomingEvents": {
+              "type": "array",
+              "x-frequency": 100
+            }
+          }
+        }
+      },
+      "direction": {
+        "type": "string",
+        "x-frequency": 78,
+        "examples": [
+          "received"
+        ]
+      },
+      "event": {
+        "type": "string",
+        "x-frequency": 178,
+        "examples": [
+          "goldenHourUpdate"
+        ]
+      },
+      "raw": {
+        "type": "string",
+        "x-frequency": 8,
+        "examples": [
+          "42[\"goldenHourUpdate\",{\"__trace\":true,\"traceparent\":\"00-8e73b4bafb07333a28bec8f6f03c0d5d-bbf07d223a4...",
+          "42[\"goldenHourUpdate\",{\"__trace\":true,\"traceparent\":\"00-74c3d6528e9ebcf58978b2e65d08aab5-dd0cf07f80d...",
+          "42[\"goldenHourUpdate\",{\"__trace\":true,\"traceparent\":\"00-0f62e3fe639c303a1ad85aecf663eb1e-81c2a6f7719...",
+          "42[\"goldenHourUpdate\",{\"__trace\":true,\"traceparent\":\"00-c209db16d04303310a2859ed436f859d-c33e7375f16...",
+          "42[\"goldenHourUpdate\",{\"__trace\":true,\"traceparent\":\"00-1f8a18ce00fb9d3e67f096f1451dd244-f8b71381806..."
+        ]
+      },
+      "seq": {
+        "type": "number",
+        "x-frequency": 178,
+        "examples": [
+          13,
+          81,
+          174,
+          303,
+          401
+        ]
+      },
+      "source": {
+        "type": "string",
+        "x-frequency": 78,
+        "examples": [
+          "cdp_intercept"
+        ]
+      },
+      "ts": {
+        "type": "string",
+        "x-frequency": 178,
+        "examples": [
+          "2025-12-14T11:51:35.698386",
+          "2025-12-14T11:51:50.776031",
+          "2025-12-14T11:52:10.729163",
+          "2025-12-14T11:52:25.769038",
+          "2025-12-14T11:52:40.764771"
+        ]
+      }
+    },
+    "x-frequency": 178
+  },
+  "goldenHourDrawing": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "goldenHourDrawing",
+    "type": "object",
+    "properties": {
+      "data": {
+        "type": "array",
+        "x-frequency": 27,
+        "properties": {
+          "__trace": {
+            "type": "boolean",
+            "x-frequency": 10,
+            "examples": [
+              true
+            ]
+          },
+          "traceparent": {
+            "type": "string",
+            "x-frequency": 10,
+            "examples": [
+              "00-1cedae154c705f079bf05f9666920d62-c572ad3fd33ce017-01",
+              "00-547d666480c446644587c522025a458e-80d974a3e6f4974e-01",
+              "00-2b52e18fb9d76071b2895a408c0aa90e-46a9ccebaa7c42d0-01",
+              "00-611c1c3258823342427b5cf73487b45c-e098f0cb989ab795-01",
+              "00-3a4f42a17e4b752c2d4a8ad280b125a7-b8a16195d2206325-01"
+            ]
+          }
+        },
+        "items": {
+          "type": "object",
+          "properties": {
+            "__trace": {
+              "type": "boolean",
+              "x-frequency": 17,
+              "examples": [
+                true
+              ]
+            },
+            "entries": {
+              "type": "array",
+              "x-frequency": 17,
+              "items": {
+                "type": "object",
+                "properties": {
+                  "entryCount": {
+                    "type": "number",
+                    "x-frequency": 1070,
+                    "examples": [
+                      50,
+                      1,
+                      4,
+                      11,
+                      2
+                    ]
+                  },
+                  "entryPercentage": {
+                    "type": "number",
+                    "x-frequency": 1070,
+                    "examples": [
+                      3.3921302578018993,
+                      0.06784260515603799,
+                      0.27137042062415195,
+                      0.7462686567164178,
+                      0.13568521031207598
+                    ]
+                  },
+                  "playerId": {
+                    "type": "string",
+                    "x-frequency": 1070,
+                    "examples": [
+                      "did:privy:cm9g1p6iw00zwjp0m40iwldnz",
+                      "did:privy:cmgdz0so100bejm0cfaewe0rw",
+                      "did:privy:cmflkqdrb00p7k00bwga8e74k",
+                      "did:privy:cmf3y1ruc00hel80b9dw2viai",
+                      "did:privy:cmfl7dex700cai50are2bqx71"
+                    ]
+                  },
+                  "username": {
+                    "type": "string",
+                    "x-frequency": 1070,
+                    "examples": [
+                      "ereas",
+                      "getSmoked",
+                      "kkimb",
+                      "wilkinsso",
+                      "churcanton"
+                    ]
+                  }
+                }
+              }
+            },
+            "gameId": {
+              "type": "string",
+              "x-frequency": 17,
+              "examples": [
+                "20251214-83c1efa1085340c7",
+                "20251214-fe3c0e433c0d429d",
+                "20251214-f670dc0ed0b94d10",
+                "20251215-8e73a72051b6458f",
+                "20251215-031ad4b575ac4f4d"
+              ]
+            },
+            "id": {
+              "type": "string",
+              "x-frequency": 17,
+              "examples": [
+                "a3621235-6e83-48aa-81ca-4685272ebada",
+                "8fc1f93f-32ba-4e0c-a4a1-f0e418dac9ca",
+                "5e196b55-a7db-4de9-8f8d-890b0be37420",
+                "5d01be01-1c0c-42ba-9a93-3715f7ff6835",
+                "78ddf233-b9e7-4182-b6e5-09c95ea395a1"
+              ]
+            },
+            "prizeAmount": {
+              "type": "number",
+              "x-frequency": 17,
+              "examples": [
+                0.05
+              ]
+            },
+            "timestamp": {
+              "type": "number",
+              "x-frequency": 17,
+              "examples": [
+                1765731135035,
+                1765731176620,
+                1765731298238,
+                1765757934835,
+                1765757984337
+              ]
+            },
+            "traceparent": {
+              "type": "string",
+              "x-frequency": 17,
+              "examples": [
+                "00-323c8e5f85e3cdc3d6e9f8c20f4b1cb8-4be7fca0561a4256-01",
+                "00-2202b9fba4bcc46b76d2afe073cefb43-6cb59317b31ba045-01",
+                "00-e00111a87f63208626213572ee00d56e-e8366b63dc42f94d-01",
+                "00-3aad264d7db5065e57463a2077b004ba-74435876684d9eb5-01",
+                "00-b171b6d458826ba80dbbd3c88b09e9bc-e6ee53a13decdfbd-01"
+              ]
+            },
+            "winnerIndex": {
+              "type": "number",
+              "x-frequency": 17,
+              "examples": [
+                54,
+                37,
+                55,
+                49,
+                65
+              ]
+            },
+            "winnerPlayerId": {
+              "type": "string",
+              "x-frequency": 17,
+              "examples": [
+                "did:privy:cma8r35lw00oalc0mmu10cck7",
+                "did:privy:cmj3bsmny02ull10cj5x3mi5s",
+                "did:privy:cmius905i02sul50cuc40nlmy",
+                "did:privy:cmhu2bijc001tjv0c21v0r1bg",
+                "did:privy:cmar0szmh000ll70mp3fck490"
+              ]
+            }
+          }
+        }
+      },
+      "direction": {
+        "type": "string",
+        "x-frequency": 10,
+        "examples": [
+          "received"
+        ]
+      },
+      "event": {
+        "type": "string",
+        "x-frequency": 27,
+        "examples": [
+          "goldenHourDrawing"
+        ]
+      },
+      "seq": {
+        "type": "number",
+        "x-frequency": 27,
+        "examples": [
+          192,
+          475,
+          1141,
+          292,
+          607
+        ]
+      },
+      "source": {
+        "type": "string",
+        "x-frequency": 10,
+        "examples": [
+          "cdp_intercept"
+        ]
+      },
+      "ts": {
+        "type": "string",
+        "x-frequency": 27,
+        "examples": [
+          "2025-12-14T11:52:16.387658",
+          "2025-12-14T11:52:57.532887",
+          "2025-12-14T11:54:58.828005",
+          "2025-12-14T19:18:57.756937",
+          "2025-12-14T19:19:46.476136"
+        ]
+      }
+    },
+    "x-frequency": 27
+  },
+  "rugRoyaleUpdate": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "rugRoyaleUpdate",
+    "type": "object",
+    "properties": {
+      "data": {
+        "type": "object",
+        "x-frequency": 13,
+        "properties": {
+          "activeEventId": {
+            "type": "null",
+            "x-frequency": 13,
+            "examples": [
+              null
+            ]
+          },
+          "config": {
+            "type": "object",
+            "x-frequency": 13,
+            "properties": {
+              "levelRequired": {
+                "type": "number",
+                "x-frequency": 13,
+                "examples": [
+                  1
+                ]
+              },
+              "prepTimeMinutes": {
+                "type": "number",
+                "x-frequency": 13,
+                "examples": [
+                  30
+                ]
+              },
+              "prizeTiers": {
+                "type": "object",
+                "x-frequency": 13,
+                "properties": {
+                  "1": {
+                    "type": "number",
+                    "x-frequency": 13,
+                    "examples": [
+                      3
+                    ]
+                  },
+                  "2": {
+                    "type": "number",
+                    "x-frequency": 13,
+                    "examples": [
+                      1
+                    ]
+                  },
+                  "3": {
+                    "type": "number",
+                    "x-frequency": 13,
+                    "examples": [
+                      0.5
+                    ]
+                  },
+                  "4": {
+                    "type": "number",
+                    "x-frequency": 13,
+                    "examples": [
+                      0.15
+                    ]
+                  },
+                  "5": {
+                    "type": "number",
+                    "x-frequency": 13,
+                    "examples": [
+                      0.1
+                    ]
+                  },
+                  "6-10": {
+                    "type": "number",
+                    "x-frequency": 13,
+                    "examples": [
+                      0.05
+                    ]
+                  }
+                }
+              },
+              "startingBalance": {
+                "type": "number",
+                "x-frequency": 13,
+                "examples": [
+                  100
+                ]
+              },
+              "token": {
+                "type": "string",
+                "x-frequency": 13,
+                "examples": [
+                  "0xPractice"
+                ]
+              }
+            }
+          },
+          "currentEvent": {
+            "type": "null",
+            "x-frequency": 13,
+            "examples": [
+              null
+            ]
+          },
+          "events": {
+            "type": "array",
+            "x-frequency": 13
+          },
+          "finalRound": {
+            "type": "boolean",
+            "x-frequency": 13,
+            "examples": [
+              false
+            ]
+          },
+          "history": {
+            "type": "array",
+            "x-frequency": 13,
+            "items": {
+              "type": "object",
+              "properties": {
+                "endTime": {
+                  "type": "string",
+                  "x-frequency": 13,
+                  "examples": [
+                    "2025-12-11T13:00:00.000Z"
+                  ]
+                },
+                "id": {
+                  "type": "string",
+                  "x-frequency": 13,
+                  "examples": [
+                    "rugroyale-2025-12-11-1765452603914"
+                  ]
+                },
+                "leaderboard": {
+                  "type": "array",
+                  "x-frequency": 13,
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "balance": {
+                        "type": "number",
+                        "x-frequency": 260,
+                        "examples": [
+                          5000.965514619,
+                          3700.308356835,
+                          3616.915686586,
+                          2921.892738975,
+                          2837.556936212
+                        ]
+                      },
+                      "lastUpdated": {
+                        "type": "number",
+                        "x-frequency": 260,
+                        "examples": [
+                          1765458003618,
+                          1765458003617,
+                          1765458003619,
+                          1765458003623,
+                          1765458003626
+                        ]
+                      },
+                      "level": {
+                        "type": "number",
+                        "x-frequency": 260,
+                        "examples": [
+                          66,
+                          40,
+                          56,
+                          16,
+                          20
+                        ]
+                      },
+                      "playerId": {
+                        "type": "string",
+                        "x-frequency": 260,
+                        "examples": [
+                          "did:privy:cmauh6pop009cjp0ljal0roxf",
+                          "did:privy:cm9g1p6iw00zwjp0m40iwldnz",
+                          "did:privy:cmgr0n6fu02qvld0djjvkjm59",
+                          "did:privy:cmabbmtrv00tfji0mzvjg6sky",
+                          "did:privy:cmicplomw073nlb0csabawf4g"
+                        ]
+                      },
+                      "rank": {
+                        "type": "number",
+                        "x-frequency": 260,
+                        "examples": [
+                          1,
+                          2,
+                          3,
+                          4,
+                          5
+                        ]
+                      },
+                      "username": {
+                        "type": "string",
+                        "x-frequency": 260,
+                        "examples": [
+                          "bowtrix",
+                          "ereas",
+                          "Clixmaster",
+                          "Lola",
+                          "Blowjob"
+                        ]
+                      }
+                    }
+                  }
+                },
+                "savedAt": {
+                  "type": "string",
+                  "x-frequency": 13,
+                  "examples": [
+                    "2025-12-11T13:00:10.328Z"
+                  ]
+                },
+                "startTime": {
+                  "type": "string",
+                  "x-frequency": 13,
+                  "examples": [
+                    "2025-12-11T12:00:00.000Z"
+                  ]
+                },
+                "winners": {
+                  "type": "array",
+                  "x-frequency": 13,
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "amount": {
+                        "type": "number",
+                        "x-frequency": 130,
+                        "examples": [
+                          1,
+                          0.5,
+                          0.25,
+                          0.05,
+                          0.025
+                        ]
+                      },
+                      "playerId": {
+                        "type": "string",
+                        "x-frequency": 130,
+                        "examples": [
+                          "did:privy:cmauh6pop009cjp0ljal0roxf",
+                          "did:privy:cm9g1p6iw00zwjp0m40iwldnz",
+                          "did:privy:cmgr0n6fu02qvld0djjvkjm59",
+                          "did:privy:cmabbmtrv00tfji0mzvjg6sky",
+                          "did:privy:cmicplomw073nlb0csabawf4g"
+                        ]
+                      },
+                      "rank": {
+                        "type": "number",
+                        "x-frequency": 130,
+                        "examples": [
+                          1,
+                          2,
+                          3,
+                          4,
+                          5
+                        ]
+                      },
+                      "username": {
+                        "type": "string",
+                        "x-frequency": 130,
+                        "examples": [
+                          "bowtrix",
+                          "ereas",
+                          "Clixmaster",
+                          "Lola",
+                          "Blowjob"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "isInFinalRound": {
+            "type": "boolean",
+            "x-frequency": 13,
+            "examples": [
+              false
+            ]
+          },
+          "leaderboard": {
+            "type": "array",
+            "x-frequency": 13,
+            "items": {
+              "type": "object",
+              "properties": {
+                "balance": {
+                  "type": "number",
+                  "x-frequency": 130,
+                  "examples": [
+                    5000.965514619,
+                    3700.308356835,
+                    3616.915686586,
+                    2921.892738975,
+                    2837.556936212
+                  ]
+                },
+                "lastUpdated": {
+                  "type": "number",
+                  "x-frequency": 130,
+                  "examples": [
+                    1765458003618,
+                    1765458003617,
+                    1765458003619,
+                    1765458003623
+                  ]
+                },
+                "level": {
+                  "type": "number",
+                  "x-frequency": 130,
+                  "examples": [
+                    66,
+                    40,
+                    56,
+                    16,
+                    20
+                  ]
+                },
+                "playerId": {
+                  "type": "string",
+                  "x-frequency": 130,
+                  "examples": [
+                    "did:privy:cmauh6pop009cjp0ljal0roxf",
+                    "did:privy:cm9g1p6iw00zwjp0m40iwldnz",
+                    "did:privy:cmgr0n6fu02qvld0djjvkjm59",
+                    "did:privy:cmabbmtrv00tfji0mzvjg6sky",
+                    "did:privy:cmicplomw073nlb0csabawf4g"
+                  ]
+                },
+                "rank": {
+                  "type": "number",
+                  "x-frequency": 130,
+                  "examples": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ]
+                },
+                "username": {
+                  "type": "string",
+                  "x-frequency": 130,
+                  "examples": [
+                    "bowtrix",
+                    "ereas",
+                    "Clixmaster",
+                    "Lola",
+                    "Blowjob"
+                  ]
+                }
+              }
+            }
+          },
+          "playerPosition": {
+            "type": "null",
+            "x-frequency": 13,
+            "examples": [
+              null
+            ]
+          },
+          "status": {
+            "type": "string",
+            "x-frequency": 13,
+            "examples": [
+              "INACTIVE"
+            ]
+          },
+          "timeRemaining": {
+            "type": "null",
+            "x-frequency": 13,
+            "examples": [
+              null
+            ]
+          },
+          "upcomingEvents": {
+            "type": "array",
+            "x-frequency": 13
+          }
+        }
+      },
+      "direction": {
+        "type": "string",
+        "x-frequency": 9,
+        "examples": [
+          "received"
+        ]
+      },
+      "event": {
+        "type": "string",
+        "x-frequency": 13,
+        "examples": [
+          "rugRoyaleUpdate"
+        ]
+      },
+      "raw": {
+        "type": "string",
+        "x-frequency": 2,
+        "examples": [
+          "42[\"rugRoyaleUpdate\",{\"status\":\"INACTIVE\",\"activeEventId\":null,\"currentEvent\":null,\"upcomingEvents\":..."
+        ]
+      },
+      "seq": {
+        "type": "number",
+        "x-frequency": 13,
+        "examples": [
+          5,
+          7,
+          28,
+          21,
+          17
+        ]
+      },
+      "source": {
+        "type": "string",
+        "x-frequency": 9,
+        "examples": [
+          "cdp_intercept"
+        ]
+      },
+      "ts": {
+        "type": "string",
+        "x-frequency": 13,
+        "examples": [
+          "2025-12-14T19:18:10.650663",
+          "2025-12-14T19:35:38.023933",
+          "2025-12-14T19:46:58.187801",
+          "2025-12-14T20:17:11.419936",
+          "2025-12-15T03:43:08.639547+00:00"
+        ]
+      }
+    },
+    "x-frequency": 13
+  },
+  "sidebetEventUpdate": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "sidebetEventUpdate",
+    "type": "object",
+    "properties": {
+      "data": {
+        "type": "array",
+        "x-frequency": 51,
+        "properties": {
+          "__trace": {
+            "type": "boolean",
+            "x-frequency": 33,
+            "examples": [
+              true
+            ]
+          },
+          "traceparent": {
+            "type": "string",
+            "x-frequency": 33,
+            "examples": [
+              "00-4fc7a86262b4519b62afa29f4243fc84-292d6310a14fb015-01",
+              "00-c37856d5e5c8910e2f87852550c88ff0-6a2d0e87f81ad953-01",
+              "00-e815c828aac943887e520279b4281cc1-c63344a04ee1aaaa-01",
+              "00-92523f902403b52450cfa2d0884b2715-36a198f7f7759d69-01",
+              "00-678b5efbb6477ac5498cfc42e4d80cb9-4ea2b69ca948c5f3-01"
+            ]
+          }
+        },
+        "items": {
+          "type": "object",
+          "properties": {
+            "__trace": {
+              "type": "boolean",
+              "x-frequency": 18,
+              "examples": [
+                true
+              ]
+            },
+            "activeEventId": {
+              "type": "null",
+              "x-frequency": 18,
+              "examples": [
+                null,
+                "admin-1179db3a-0bc9-429b-ab58-65d29a9c90c3"
+              ]
+            },
+            "config": {
+              "type": "object",
+              "x-frequency": 4,
+              "properties": {
+                "levelRequired": {
+                  "type": "number",
+                  "x-frequency": 4,
+                  "examples": [
+                    1
+                  ]
+                },
+                "prepTimeMinutes": {
+                  "type": "number",
+                  "x-frequency": 4,
+                  "examples": [
+                    30
+                  ]
+                },
+                "prizeTiers": {
+                  "type": "object",
+                  "x-frequency": 4,
+                  "properties": {
+                    "1": {
+                      "type": "number",
+                      "x-frequency": 4,
+                      "examples": [
+                        1
+                      ]
+                    },
+                    "2": {
+                      "type": "number",
+                      "x-frequency": 4,
+                      "examples": [
+                        0.5
+                      ]
+                    },
+                    "3": {
+                      "type": "number",
+                      "x-frequency": 4,
+                      "examples": [
+                        0.25
+                      ]
+                    },
+                    "4": {
+                      "type": "number",
+                      "x-frequency": 4,
+                      "examples": [
+                        0.1
+                      ]
+                    },
+                    "5-10": {
+                      "type": "number",
+                      "x-frequency": 4,
+                      "examples": [
+                        0.025
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "currentEvent": {
+              "type": "null",
+              "x-frequency": 18,
+              "examples": [
+                null
+              ],
+              "properties": {
+                "createdAt": {
+                  "type": "string",
+                  "x-frequency": 14,
+                  "examples": [
+                    "2025-12-15T05:00:22.120Z"
+                  ]
+                },
+                "createdBy": {
+                  "type": "string",
+                  "x-frequency": 14,
+                  "examples": [
+                    "admin"
+                  ]
+                },
+                "endTime": {
+                  "type": "string",
+                  "x-frequency": 14,
+                  "examples": [
+                    "2025-12-15T06:00:00.000Z"
+                  ]
+                },
+                "id": {
+                  "type": "string",
+                  "x-frequency": 14,
+                  "examples": [
+                    "admin-1179db3a-0bc9-429b-ab58-65d29a9c90c3"
+                  ]
+                },
+                "levelRequired": {
+                  "type": "number",
+                  "x-frequency": 14,
+                  "examples": [
+                    10
+                  ]
+                },
+                "prepTimeMinutes": {
+                  "type": "number",
+                  "x-frequency": 14,
+                  "examples": [
+                    30
+                  ]
+                },
+                "startTime": {
+                  "type": "string",
+                  "x-frequency": 14,
+                  "examples": [
+                    "2025-12-15T05:30:00.000Z"
+                  ]
+                },
+                "status": {
+                  "type": "string",
+                  "x-frequency": 14,
+                  "examples": [
+                    "SCHEDULED"
+                  ]
+                }
+              }
+            },
+            "events": {
+              "type": "array",
+              "x-frequency": 18,
+              "items": {
+                "type": "object",
+                "properties": {
+                  "createdAt": {
+                    "type": "string",
+                    "x-frequency": 14,
+                    "examples": [
+                      "2025-12-15T05:00:22.120Z"
+                    ]
+                  },
+                  "createdBy": {
+                    "type": "string",
+                    "x-frequency": 14,
+                    "examples": [
+                      "admin"
+                    ]
+                  },
+                  "endTime": {
+                    "type": "string",
+                    "x-frequency": 14,
+                    "examples": [
+                      "2025-12-15T06:00:00.000Z"
+                    ]
+                  },
+                  "id": {
+                    "type": "string",
+                    "x-frequency": 14,
+                    "examples": [
+                      "admin-1179db3a-0bc9-429b-ab58-65d29a9c90c3"
+                    ]
+                  },
+                  "levelRequired": {
+                    "type": "number",
+                    "x-frequency": 14,
+                    "examples": [
+                      10
+                    ]
+                  },
+                  "prepTimeMinutes": {
+                    "type": "number",
+                    "x-frequency": 14,
+                    "examples": [
+                      30
+                    ]
+                  },
+                  "startTime": {
+                    "type": "string",
+                    "x-frequency": 14,
+                    "examples": [
+                      "2025-12-15T05:30:00.000Z"
+                    ]
+                  },
+                  "status": {
+                    "type": "string",
+                    "x-frequency": 14,
+                    "examples": [
+                      "SCHEDULED"
+                    ]
+                  }
+                }
+              }
+            },
+            "finalRound": {
+              "type": "boolean",
+              "x-frequency": 4,
+              "examples": [
+                false
+              ]
+            },
+            "history": {
+              "type": "array",
+              "x-frequency": 4,
+              "items": {
+                "type": "object",
+                "properties": {
+                  "endTime": {
+                    "type": "string",
+                    "x-frequency": 4,
+                    "examples": [
+                      "2025-11-24T05:00:00.000Z"
+                    ]
+                  },
+                  "id": {
+                    "type": "string",
+                    "x-frequency": 4,
+                    "examples": [
+                      "sidebetevent-2025-11-24-1763958303311"
+                    ]
+                  },
+                  "leaderboard": {
+                    "type": "array",
+                    "x-frequency": 4,
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "accuracy": {
+                          "type": "number",
+                          "x-frequency": 80,
+                          "examples": [
+                            33.33333333333333,
+                            28.57142857142857,
+                            25,
+                            22.22222222222222,
+                            20
+                          ]
+                        },
+                        "avgTicksOff": {
+                          "type": "number",
+                          "x-frequency": 80,
+                          "examples": [
+                            7.166666666666667,
+                            7.666666666666667,
+                            9.857142857142858,
+                            5.125,
+                            4.555555555555555
+                          ]
+                        },
+                        "lastUpdated": {
+                          "type": "number",
+                          "x-frequency": 80,
+                          "examples": [
+                            1763960402120
+                          ]
+                        },
+                        "level": {
+                          "type": "number",
+                          "x-frequency": 80,
+                          "examples": [
+                            6,
+                            3,
+                            10,
+                            8,
+                            13
+                          ]
+                        },
+                        "playerId": {
+                          "type": "string",
+                          "x-frequency": 80,
+                          "examples": [
+                            "did:privy:cmg5lwof500w2l70cczg34vy5",
+                            "did:privy:cmi2l1t2w0017jv0czi6sjaun",
+                            "did:privy:cmd05rz9501w9ky0m9toct0e2",
+                            "did:privy:cmg4l25ke00q8jp0erx1scv64",
+                            "did:privy:cmbduibgp00bzlc0nip1qi88c"
+                          ]
+                        },
+                        "rank": {
+                          "type": "number",
+                          "x-frequency": 80,
+                          "examples": [
+                            1,
+                            2,
+                            3,
+                            4,
+                            5
+                          ]
+                        },
+                        "sidebetsHit": {
+                          "type": "number",
+                          "x-frequency": 80,
+                          "examples": [
+                            2,
+                            1
+                          ]
+                        },
+                        "sidebetsPlaced": {
+                          "type": "number",
+                          "x-frequency": 80,
+                          "examples": [
+                            6,
+                            7,
+                            8,
+                            9,
+                            10
+                          ]
+                        },
+                        "username": {
+                          "type": "string",
+                          "x-frequency": 80,
+                          "examples": [
+                            "Rampage",
+                            "culosucio",
+                            "Jhhh",
+                            "Lostroyale",
+                            "Sokingg"
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "savedAt": {
+                    "type": "string",
+                    "x-frequency": 4,
+                    "examples": [
+                      "2025-11-24T05:00:08.681Z"
+                    ]
+                  },
+                  "startTime": {
+                    "type": "string",
+                    "x-frequency": 4,
+                    "examples": [
+                      "2025-11-24T04:55:00.000Z"
+                    ]
+                  },
+                  "winners": {
+                    "type": "array",
+                    "x-frequency": 4,
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "amount": {
+                          "type": "number",
+                          "x-frequency": 40,
+                          "examples": [
+                            1,
+                            0.5,
+                            0.25,
+                            0.1,
+                            0.025
+                          ]
+                        },
+                        "playerId": {
+                          "type": "string",
+                          "x-frequency": 40,
+                          "examples": [
+                            "did:privy:cmg5lwof500w2l70cczg34vy5",
+                            "did:privy:cmi2l1t2w0017jv0czi6sjaun",
+                            "did:privy:cmd05rz9501w9ky0m9toct0e2",
+                            "did:privy:cmg4l25ke00q8jp0erx1scv64",
+                            "did:privy:cmbduibgp00bzlc0nip1qi88c"
+                          ]
+                        },
+                        "rank": {
+                          "type": "number",
+                          "x-frequency": 40,
+                          "examples": [
+                            1,
+                            2,
+                            3,
+                            4,
+                            5
+                          ]
+                        },
+                        "username": {
+                          "type": "string",
+                          "x-frequency": 40,
+                          "examples": [
+                            "Rampage",
+                            "culosucio",
+                            "Jhhh",
+                            "Lostroyale",
+                            "Sokingg"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "isInFinalRound": {
+              "type": "boolean",
+              "x-frequency": 4,
+              "examples": [
+                false
+              ]
+            },
+            "leaderboard": {
+              "type": "array",
+              "x-frequency": 4,
+              "items": {
+                "type": "object",
+                "properties": {
+                  "accuracy": {
+                    "type": "number",
+                    "x-frequency": 40,
+                    "examples": [
+                      33.33333333333333,
+                      28.57142857142857,
+                      25,
+                      22.22222222222222,
+                      20
+                    ]
+                  },
+                  "avgTicksOff": {
+                    "type": "number",
+                    "x-frequency": 40,
+                    "examples": [
+                      7.166666666666667,
+                      7.666666666666667,
+                      9.857142857142858,
+                      5.125,
+                      4.555555555555555
+                    ]
+                  },
+                  "lastUpdated": {
+                    "type": "number",
+                    "x-frequency": 40,
+                    "examples": [
+                      1763960402120
+                    ]
+                  },
+                  "level": {
+                    "type": "number",
+                    "x-frequency": 40,
+                    "examples": [
+                      6,
+                      3,
+                      10,
+                      8,
+                      13
+                    ]
+                  },
+                  "playerId": {
+                    "type": "string",
+                    "x-frequency": 40,
+                    "examples": [
+                      "did:privy:cmg5lwof500w2l70cczg34vy5",
+                      "did:privy:cmi2l1t2w0017jv0czi6sjaun",
+                      "did:privy:cmd05rz9501w9ky0m9toct0e2",
+                      "did:privy:cmg4l25ke00q8jp0erx1scv64",
+                      "did:privy:cmbduibgp00bzlc0nip1qi88c"
+                    ]
+                  },
+                  "rank": {
+                    "type": "number",
+                    "x-frequency": 40,
+                    "examples": [
+                      1,
+                      2,
+                      3,
+                      4,
+                      5
+                    ]
+                  },
+                  "sidebetsHit": {
+                    "type": "number",
+                    "x-frequency": 40,
+                    "examples": [
+                      2
+                    ]
+                  },
+                  "sidebetsPlaced": {
+                    "type": "number",
+                    "x-frequency": 40,
+                    "examples": [
+                      6,
+                      7,
+                      8,
+                      9,
+                      10
+                    ]
+                  },
+                  "username": {
+                    "type": "string",
+                    "x-frequency": 40,
+                    "examples": [
+                      "Rampage",
+                      "culosucio",
+                      "Jhhh",
+                      "Lostroyale",
+                      "Sokingg"
+                    ]
+                  }
+                }
+              }
+            },
+            "playerPosition": {
+              "type": "null",
+              "x-frequency": 4,
+              "examples": [
+                null
+              ]
+            },
+            "status": {
+              "type": "string",
+              "x-frequency": 18,
+              "examples": [
+                "INACTIVE",
+                "PREP"
+              ]
+            },
+            "timeRemaining": {
+              "type": "null",
+              "x-frequency": 4,
+              "examples": [
+                null
+              ]
+            },
+            "traceparent": {
+              "type": "string",
+              "x-frequency": 18,
+              "examples": [
+                "00-08c1aadc18c8355963863ce7325eee92-78e684c497ee1d06-01",
+                "00-bfbe5e36affc0cdbb914a552ee9115f0-7788c10a0b507208-01",
+                "00-4bc53b2875b25890e503fbb61becd716-ee3114a90c174a71-01",
+                "00-8bd73008ccac9487ac7c97d69679d5ed-132189082612983e-01",
+                "00-71959f89c123b3a2624ebba5338dfb21-d4f088b06195344c-01"
+              ]
+            },
+            "upcomingEvents": {
+              "type": "array",
+              "x-frequency": 18
+            }
+          }
+        }
+      },
+      "direction": {
+        "type": "string",
+        "x-frequency": 33,
+        "examples": [
+          "received"
+        ]
+      },
+      "event": {
+        "type": "string",
+        "x-frequency": 51,
+        "examples": [
+          "sidebetEventUpdate"
+        ]
+      },
+      "raw": {
+        "type": "string",
+        "x-frequency": 9,
+        "examples": [
+          "42[\"sidebetEventUpdate\",{\"__trace\":true,\"traceparent\":\"00-8e73b4bafb07333a28bec8f6f03c0d5d-6d1ef5efc...",
+          "42[\"sidebetEventUpdate\",{\"__trace\":true,\"traceparent\":\"00-bd5e0fcf5dc36b2d33ab1ba651a3827f-2c9def577...",
+          "42[\"sidebetEventUpdate\",{\"__trace\":true,\"traceparent\":\"00-82d35cb5f823e4d08f38edeb3bb9b899-cad15c4c1...",
+          "42[\"sidebetEventUpdate\",{\"__trace\":true,\"traceparent\":\"00-a80507c342656c500f7507ca60c7825b-8b9265acc...",
+          "42[\"sidebetEventUpdate\",{\"__trace\":true,\"traceparent\":\"00-c209db16d04303310a2859ed436f859d-dc7d3a9c2..."
+        ]
+      },
+      "seq": {
+        "type": "number",
+        "x-frequency": 51,
+        "examples": [
+          6,
+          8,
+          29,
+          22,
+          133
+        ]
+      },
+      "source": {
+        "type": "string",
+        "x-frequency": 33,
+        "examples": [
+          "cdp_intercept"
+        ]
+      },
+      "ts": {
+        "type": "string",
+        "x-frequency": 51,
+        "examples": [
+          "2025-12-14T19:18:10.652184",
+          "2025-12-14T19:35:38.028219",
+          "2025-12-14T19:46:58.192954",
+          "2025-12-14T20:17:11.424400",
+          "2025-12-15T03:43:08.646214+00:00"
+        ]
+      }
+    },
+    "x-frequency": 51
+  },
+  "maintenanceUpdate": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "maintenanceUpdate",
+    "type": "object",
+    "properties": {
+      "data": {
+        "type": "array",
+        "x-frequency": 6,
+        "properties": {
+          "__trace": {
+            "type": "boolean",
+            "x-frequency": 2,
+            "examples": [
+              true
+            ]
+          },
+          "traceparent": {
+            "type": "string",
+            "x-frequency": 2,
+            "examples": [
+              "00-0b052a14ca14d99f3838c3f2ccbd127d-18f257d870534948-01",
+              "00-b635203ba7c53f530db61c3810c1d375-c68a29b7c847ec3c-01"
+            ]
+          }
+        },
+        "items": {
+          "type": "object",
+          "properties": {
+            "__trace": {
+              "type": "boolean",
+              "x-frequency": 4,
+              "examples": [
+                true
+              ]
+            },
+            "active": {
+              "type": "boolean",
+              "x-frequency": 4,
+              "examples": [
+                false
+              ]
+            },
+            "mega": {
+              "type": "boolean",
+              "x-frequency": 4,
+              "examples": [
+                false
+              ]
+            },
+            "message": {
+              "type": "string",
+              "x-frequency": 4,
+              "examples": [
+                "Server will reboot after this round. Will take approximately 3 minutes."
+              ]
+            },
+            "traceparent": {
+              "type": "string",
+              "x-frequency": 4,
+              "examples": [
+                "00-c3ec2cac69eb66b6ce9cc4c95774c7e0-f417c8db1d40fb7c-01",
+                "00-08456411b75e73ec77500b90de50c03c-92abda77222bdedd-01",
+                "00-584269909d973fecdfecc834ef52855a-3d7ae81b62bb6161-01",
+                "00-65812918ff332e0aa1967c7602e1deb8-9c62807e15b6b916-01"
+              ]
+            }
+          }
+        }
+      },
+      "direction": {
+        "type": "string",
+        "x-frequency": 2,
+        "examples": [
+          "received"
+        ]
+      },
+      "event": {
+        "type": "string",
+        "x-frequency": 6,
+        "examples": [
+          "maintenanceUpdate"
+        ]
+      },
+      "seq": {
+        "type": "number",
+        "x-frequency": 6,
+        "examples": [
+          8,
+          10
+        ]
+      },
+      "source": {
+        "type": "string",
+        "x-frequency": 2,
+        "examples": [
+          "cdp_intercept"
+        ]
+      },
+      "ts": {
+        "type": "string",
+        "x-frequency": 6,
+        "examples": [
+          "2025-12-14T19:18:10.657917",
+          "2025-12-14T19:35:38.030241",
+          "2025-12-14T19:46:58.195717",
+          "2025-12-14T20:17:11.428493",
+          "2025-12-15T03:43:08.668376+00:00"
+        ]
+      }
+    },
+    "x-frequency": 6
+  },
+  "newSideBet": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "newSideBet",
+    "type": "object",
+    "properties": {
+      "data": {
+        "type": "array",
+        "x-frequency": 36,
+        "properties": {
+          "__trace": {
+            "type": "boolean",
+            "x-frequency": 19,
+            "examples": [
+              true
+            ]
+          },
+          "traceparent": {
+            "type": "string",
+            "x-frequency": 19,
+            "examples": [
+              "00-fc856d15bd63b39791db41a0ac4d5901-fc6dedfc8a4ddc97-01",
+              "00-3225cfb3fdfc884db6862ef289c18585-02b7c4bae9456c30-01",
+              "00-bf6407dc340974e1337d19708fd6d111-aaab9ecafbf72b4a-01",
+              "00-dbf3e78494a3072fe42da156aaaaf7b4-c118c540d8dd9b0a-01",
+              "00-48c3212ddfb917368f6e5e30c7d03b2e-d27f7f690c2575c2-01"
+            ]
+          }
+        },
+        "items": {
+          "type": "object",
+          "properties": {
+            "__trace": {
+              "type": "boolean",
+              "x-frequency": 17,
+              "examples": [
+                true
+              ]
+            },
+            "betAmount": {
+              "type": "number",
+              "x-frequency": 17,
+              "examples": [
+                0.1,
+                0.013,
+                0.2,
+                0.287,
+                0.284
+              ]
+            },
+            "coinAddress": {
+              "type": "string",
+              "x-frequency": 17,
+              "examples": [
+                "So11111111111111111111111111111111111111112"
+              ]
+            },
+            "endTick": {
+              "type": "number",
+              "x-frequency": 17,
+              "examples": [
+                72,
+                105,
+                44,
+                305,
+                414
+              ]
+            },
+            "gameId": {
+              "type": "string",
+              "x-frequency": 17,
+              "examples": [
+                "20251215-8e73a72051b6458f",
+                "20251215-7233f8519253401d",
+                "20251215-c1e81694e9ce43c9",
+                "20251215-2fa079dd10bd417d",
+                "20251215-8899c41977654b2d"
+              ]
+            },
+            "level": {
+              "type": "number",
+              "x-frequency": 17,
+              "examples": [
+                57,
+                40,
+                21,
+                53,
+                31
+              ]
+            },
+            "playerId": {
+              "type": "string",
+              "x-frequency": 17,
+              "examples": [
+                "did:privy:cmcmrs9kb02jwjo0nhnlrjtto",
+                "did:privy:cmfpue0zf002zjr0cb14u2qr0",
+                "did:privy:cmi22jn9001m7l10dbwsjj9bp",
+                "did:privy:cmhu2bijc001tjv0c21v0r1bg",
+                "did:privy:cmapdir1q0145ih0mk08gy3ap"
+              ]
+            },
+            "price": {
+              "type": "number",
+              "x-frequency": 17,
+              "examples": [
+                1.0842147652620817,
+                0.9372595754575003,
+                1.0035868231013891,
+                3.140023579982579,
+                36.030757893469364
+              ]
+            },
+            "startTick": {
+              "type": "number",
+              "x-frequency": 17,
+              "examples": [
+                32,
+                65,
+                4,
+                265,
+                374
+              ]
+            },
+            "tickIndex": {
+              "type": "number",
+              "x-frequency": 17,
+              "examples": [
+                32,
+                65,
+                4,
+                265,
+                374
+              ]
+            },
+            "timestamp": {
+              "type": "number",
+              "x-frequency": 17,
+              "examples": [
+                1765757912433,
+                1765757920810,
+                1765758001120,
+                1765758066446,
+                1765758093969
+              ]
+            },
+            "traceparent": {
+              "type": "string",
+              "x-frequency": 17,
+              "examples": [
+                "00-3265ebee890380be9c72f84e2616b666-2172c7f6e4704e31-01",
+                "00-cc2201b94d972fb206f7330e7e6fa46a-4855650358af81f0-01",
+                "00-b83380d8ba0cf09694e5e52d07b0a852-9d14b7bb4906302a-01",
+                "00-51bb0a9f5b34e79387a16d1ad2cbf21c-dd0fef0bc36022c9-01",
+                "00-dfb006d803b341767715d956419a486a-d4faf7d0670361b9-01"
+              ]
+            },
+            "type": {
+              "type": "string",
+              "x-frequency": 17,
+              "examples": [
+                "placed"
+              ]
+            },
+            "username": {
+              "type": "string",
+              "x-frequency": 17,
+              "examples": [
+                "d3e",
+                "ecole462469",
+                "SideBets",
+                "Smokeyy",
+                "solGrant"
+              ]
+            },
+            "xPayout": {
+              "type": "number",
+              "x-frequency": 17,
+              "examples": [
+                5
+              ]
+            }
+          }
+        }
+      },
+      "direction": {
+        "type": "string",
+        "x-frequency": 19,
+        "examples": [
+          "received"
+        ]
+      },
+      "event": {
+        "type": "string",
+        "x-frequency": 36,
+        "examples": [
+          "newSideBet"
+        ]
+      },
+      "raw": {
+        "type": "string",
+        "x-frequency": 9,
+        "examples": [
+          "42[\"newSideBet\",{\"__trace\":true,\"traceparent\":\"00-1e90ad10e745612f15a315d851907346-f88b600a6e76ed72-...",
+          "42[\"newSideBet\",{\"__trace\":true,\"traceparent\":\"00-1eedccb390625fc6acc08c441a3de84d-2aa613cb6df9789e-...",
+          "42[\"newSideBet\",{\"__trace\":true,\"traceparent\":\"00-0276cbf4ff47fae3ab8c3aad52db7c0c-74f1a7c48cc5d26a-...",
+          "42[\"newSideBet\",{\"__trace\":true,\"traceparent\":\"00-8335ac8ef90faff6ebb93b23f7df41ca-45256aba812f1114-...",
+          "42[\"newSideBet\",{\"__trace\":true,\"traceparent\":\"00-b5af775206110d274a2c7df35e923e25-3cec5c84202d7f8a-..."
+        ]
+      },
+      "seq": {
+        "type": "number",
+        "x-frequency": 36,
+        "examples": [
+          198,
+          234,
+          788,
+          1113,
+          1238
+        ]
+      },
+      "source": {
+        "type": "string",
+        "x-frequency": 19,
+        "examples": [
+          "cdp_intercept"
+        ]
+      },
+      "ts": {
+        "type": "string",
+        "x-frequency": 36,
+        "examples": [
+          "2025-12-14T19:18:33.736229",
+          "2025-12-14T19:18:41.898834",
+          "2025-12-14T19:20:02.063618",
+          "2025-12-14T19:21:08.176250",
+          "2025-12-14T19:21:34.275890"
+        ]
+      }
+    },
+    "x-frequency": 36
+  },
+  "chatHistory": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "chatHistory",
+    "type": "object",
+    "properties": {
+      "data": {
+        "type": "null",
+        "x-frequency": 28,
+        "examples": [
+          null
+        ],
+        "properties": {
+          "__trace": {
+            "type": "boolean",
+            "x-frequency": 14,
+            "examples": [
+              true
+            ]
+          },
+          "traceparent": {
+            "type": "string",
+            "x-frequency": 14,
+            "examples": [
+              "00-557b192cc3d5a495a982ce7eac7dbd8c-468934f7a2e5a840-01",
+              "00-5ad8c09b2091ab9330206e9447145caf-f7b7535e6b2b802e-01",
+              "00-a5ee6fd2f387ad08ae3a5df0409bee3a-077adfd31475a4a7-01",
+              "00-873ea60b98abcb233c79b247c3d85ece-dd655f909dfe8166-01",
+              "00-ae9d4a0378ad1acf48cc873d4ceb3160-f54b011f1aff9484-01"
+            ]
+          }
+        }
+      },
+      "direction": {
+        "type": "string",
+        "x-frequency": 28,
+        "examples": [
+          "sent",
+          "received"
+        ]
+      },
+      "event": {
+        "type": "string",
+        "x-frequency": 28,
+        "examples": [
+          "chatHistory"
+        ]
+      },
+      "raw": {
+        "type": "string",
+        "x-frequency": 8,
+        "examples": [
+          "42[\"chatHistory\"]",
+          "42[\"chatHistory\",{\"__trace\":true,\"traceparent\":\"00-3292fe1e7ab2f2ae2b8652c75fc5161d-1ec8ef8ee7fcef4c...",
+          "42[\"chatHistory\",{\"__trace\":true,\"traceparent\":\"00-58dad116195eff10a1dea7c0f23fba95-56c53b6f3913290a...",
+          "42[\"chatHistory\",{\"__trace\":true,\"traceparent\":\"00-53480174347f0581ecb353172cb4f5e8-291dae996ee7beee...",
+          "42[\"chatHistory\",{\"__trace\":true,\"traceparent\":\"00-cd40823fc9db83e8520ceaadd4e4789e-664d0c3608606582..."
+        ]
+      },
+      "seq": {
+        "type": "number",
+        "x-frequency": 28,
+        "examples": [
+          1,
+          19,
+          21,
+          77,
+          12
+        ]
+      },
+      "source": {
+        "type": "string",
+        "x-frequency": 28,
+        "examples": [
+          "cdp_intercept"
+        ]
+      },
+      "ts": {
+        "type": "string",
+        "x-frequency": 28,
+        "examples": [
+          "2025-12-15T03:43:07.096060+00:00",
+          "2025-12-15T03:43:08.781944+00:00",
+          "2025-12-15T03:43:09.317992+00:00",
+          "2025-12-15T03:43:10.902776+00:00",
+          "2025-12-15T03:44:59.725986+00:00"
+        ]
+      }
+    },
+    "x-frequency": 28
+  },
+  "getLeaderboard": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "getLeaderboard",
+    "type": "object",
+    "properties": {
+      "data": {
+        "type": "object",
+        "x-frequency": 8,
+        "properties": {
+          "period": {
+            "type": "string",
+            "x-frequency": 8,
+            "examples": [
+              "7d"
+            ]
+          }
+        }
+      },
+      "direction": {
+        "type": "string",
+        "x-frequency": 8,
+        "examples": [
+          "sent"
+        ]
+      },
+      "event": {
+        "type": "string",
+        "x-frequency": 8,
+        "examples": [
+          "getLeaderboard"
+        ]
+      },
+      "raw": {
+        "type": "string",
+        "x-frequency": 2,
+        "examples": [
+          "42[\"getLeaderboard\",{\"period\":\"7d\"}]"
+        ]
+      },
+      "seq": {
+        "type": "number",
+        "x-frequency": 8,
+        "examples": [
+          2,
+          3943
+        ]
+      },
+      "source": {
+        "type": "string",
+        "x-frequency": 8,
+        "examples": [
+          "cdp_intercept"
+        ]
+      },
+      "ts": {
+        "type": "string",
+        "x-frequency": 8,
+        "examples": [
+          "2025-12-15T03:43:07.096091+00:00",
+          "2025-12-15T03:44:59.726014+00:00",
+          "2025-12-15T04:04:47.460694+00:00",
+          "2025-12-15T04:09:47.113740+00:00",
+          "2025-12-15T05:15:53.289056+00:00"
+        ]
+      }
+    },
+    "x-frequency": 8
+  },
+  "authenticate": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "authenticate",
+    "type": "object",
+    "properties": {
+      "data": {
+        "type": "object",
+        "x-frequency": 7,
+        "properties": {
+          "__trace": {
+            "type": "boolean",
+            "x-frequency": 7,
+            "examples": [
+              true
+            ]
+          },
+          "traceparent": {
+            "type": "string",
+            "x-frequency": 7,
+            "examples": [
+              "00-c37856d5e5c8910e2f87852550c88ff0-9b7633bf7df314d1-01",
+              "00-92523f902403b52450cfa2d0884b2715-a3d65205859ce709-01",
+              "00-678b5efbb6477ac5498cfc42e4d80cb9-49b27be2aca3ad90-01",
+              "00-7cc15fe97edbb0b891648a579a8a9309-ab1cdd07613c8f50-01",
+              "00-1c995641e009e87229031ee3bdd317cb-f49b235078490b89-01"
+            ]
+          }
+        }
+      },
+      "direction": {
+        "type": "string",
+        "x-frequency": 7,
+        "examples": [
+          "sent"
+        ]
+      },
+      "event": {
+        "type": "string",
+        "x-frequency": 7,
+        "examples": [
+          "authenticate"
+        ]
+      },
+      "raw": {
+        "type": "string",
+        "x-frequency": 2,
+        "examples": [
+          "42[\"authenticate\",{\"__trace\":true,\"traceparent\":\"00-8e73b4bafb07333a28bec8f6f03c0d5d-0aeed9ab49ed39b...",
+          "42[\"authenticate\",{\"__trace\":true,\"traceparent\":\"00-c209db16d04303310a2859ed436f859d-191f880b3ee1236..."
+        ]
+      },
+      "seq": {
+        "type": "number",
+        "x-frequency": 7,
+        "examples": [
+          3
+        ]
+      },
+      "source": {
+        "type": "string",
+        "x-frequency": 7,
+        "examples": [
+          "cdp_intercept"
+        ]
+      },
+      "ts": {
+        "type": "string",
+        "x-frequency": 7,
+        "examples": [
+          "2025-12-15T03:43:07.096189+00:00",
+          "2025-12-15T03:44:59.726131+00:00",
+          "2025-12-15T04:04:47.460858+00:00",
+          "2025-12-15T05:15:53.289160+00:00",
+          "2025-12-15T05:39:20.267924+00:00"
+        ]
+      }
+    },
+    "x-frequency": 7
+  },
+  "playerUpdate": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "playerUpdate",
+    "type": "object",
+    "properties": {
+      "data": {
+        "type": "object",
+        "x-frequency": 50,
+        "examples": [
+          "<object with 27 keys>"
+        ]
+      },
+      "direction": {
+        "type": "string",
+        "x-frequency": 50,
+        "examples": [
+          "received"
+        ]
+      },
+      "event": {
+        "type": "string",
+        "x-frequency": 50,
+        "examples": [
+          "playerUpdate"
+        ]
+      },
+      "raw": {
+        "type": "string",
+        "x-frequency": 7,
+        "examples": [
+          "42[\"playerUpdate\",{\"id\":\"did:privy:cmaibr7rt0094jp0mc2mbpfu4\",\"role\":null,\"cash\":0.017619831,\"bonusB...",
+          "42[\"playerUpdate\",{\"id\":\"did:privy:cmaibr7rt0094jp0mc2mbpfu4\",\"role\":null,\"cash\":0.015124717,\"bonusB..."
+        ]
+      },
+      "seq": {
+        "type": "number",
+        "x-frequency": 50,
+        "examples": [
+          20,
+          160,
+          172,
+          13,
+          68
+        ]
+      },
+      "source": {
+        "type": "string",
+        "x-frequency": 50,
+        "examples": [
+          "cdp_intercept"
+        ]
+      },
+      "ts": {
+        "type": "string",
+        "x-frequency": 50,
+        "examples": [
+          "2025-12-15T03:43:09.293309+00:00",
+          "2025-12-15T03:43:14.693831+00:00",
+          "2025-12-15T03:43:15.236169+00:00",
+          "2025-12-15T03:45:01.286783+00:00",
+          "2025-12-15T03:45:04.474173+00:00"
+        ]
+      }
+    },
+    "x-frequency": 50
+  },
+  "getPlayerCosmetics": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "getPlayerCosmetics",
+    "type": "object",
+    "properties": {
+      "data": {
+        "type": "null",
+        "x-frequency": 7,
+        "examples": [
+          null
+        ]
+      },
+      "direction": {
+        "type": "string",
+        "x-frequency": 7,
+        "examples": [
+          "sent"
+        ]
+      },
+      "event": {
+        "type": "string",
+        "x-frequency": 7,
+        "examples": [
+          "getPlayerCosmetics"
+        ]
+      },
+      "raw": {
+        "type": "string",
+        "x-frequency": 2,
+        "examples": [
+          "42[\"getPlayerCosmetics\"]"
+        ]
+      },
+      "seq": {
+        "type": "number",
+        "x-frequency": 7,
+        "examples": [
+          22,
+          15,
+          11,
+          13,
+          9
+        ]
+      },
+      "source": {
+        "type": "string",
+        "x-frequency": 7,
+        "examples": [
+          "cdp_intercept"
+        ]
+      },
+      "ts": {
+        "type": "string",
+        "x-frequency": 7,
+        "examples": [
+          "2025-12-15T03:43:09.318370+00:00",
+          "2025-12-15T03:45:01.315041+00:00",
+          "2025-12-15T04:04:49.968484+00:00",
+          "2025-12-15T05:15:54.820891+00:00",
+          "2025-12-15T05:39:25.201305+00:00"
+        ]
+      }
+    },
+    "x-frequency": 7
+  },
+  "gameStatePlayerUpdate": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "gameStatePlayerUpdate",
+    "type": "object",
+    "properties": {
+      "data": {
+        "type": "object",
+        "x-frequency": 4794,
+        "properties": {
+          "gameId": {
+            "type": "string",
+            "x-frequency": 4794,
+            "examples": [
+              "20251215-89eb875cdef14caf",
+              "20251215-9a01e6bb7dc24df9",
+              "20251215-000858336e594d1b",
+              "20251215-66c98cbcffc64f2d",
+              "20251215-3889ed88c81a42fc"
+            ]
+          },
+          "leaderboardEntry": {
+            "type": "object",
+            "x-frequency": 597,
+            "properties": {
+              "avgCost": {
+                "type": "number",
+                "x-frequency": 597,
+                "examples": [
+                  0.831340055,
+                  0.831340295,
+                  0,
+                  1
+                ]
+              },
+              "hasActiveTrades": {
+                "type": "boolean",
+                "x-frequency": 597,
+                "examples": [
+                  true
+                ]
+              },
+              "id": {
+                "type": "string",
+                "x-frequency": 597,
+                "examples": [
+                  "did:privy:cmaibr7rt0094jp0mc2mbpfu4"
+                ]
+              },
+              "level": {
+                "type": "number",
+                "x-frequency": 597,
+                "examples": [
+                  7
+                ]
+              },
+              "pnl": {
+                "type": "number",
+                "x-frequency": 597,
+                "examples": [
+                  0,
+                  2.6863e-05,
+                  5.9716e-05,
+                  3.8531e-05,
+                  2.3302e-05
+                ]
+              },
+              "pnlPercent": {
+                "type": "number",
+                "x-frequency": 597,
+                "examples": [
+                  0,
+                  2.6862999999999997,
+                  5.9716,
+                  3.8531000000000004,
+                  2.3302
+                ]
+              },
+              "position": {
+                "type": "number",
+                "x-frequency": 597,
+                "examples": [
+                  16,
+                  17,
+                  15,
+                  18,
+                  19
+                ]
+              },
+              "positionQty": {
+                "type": "number",
+                "x-frequency": 597,
+                "examples": [
+                  0.001202876,
+                  0,
+                  0.001
+                ]
+              },
+              "regularPnl": {
+                "type": "number",
+                "x-frequency": 593,
+                "examples": [
+                  0,
+                  2.6863e-05,
+                  5.9716e-05,
+                  3.8531e-05,
+                  2.3302e-05
+                ]
+              },
+              "selectedCoin": {
+                "type": "null",
+                "x-frequency": 597,
+                "examples": [
+                  null
+                ]
+              },
+              "shortPnl": {
+                "type": "number",
+                "x-frequency": 593,
+                "examples": [
+                  0
+                ]
+              },
+              "shortPosition": {
+                "type": "null",
+                "x-frequency": 597,
+                "examples": [
+                  null
+                ]
+              },
+              "sideBet": {
+                "type": "null",
+                "x-frequency": 597,
+                "examples": [
+                  null
+                ]
+              },
+              "sidebetActive": {
+                "type": "null",
+                "x-frequency": 597,
+                "examples": [
+                  null
+                ]
+              },
+              "sidebetPnl": {
+                "type": "number",
+                "x-frequency": 593,
+                "examples": [
+                  0
+                ]
+              },
+              "totalInvested": {
+                "type": "number",
+                "x-frequency": 597,
+                "examples": [
+                  0.001
+                ]
+              },
+              "username": {
+                "type": "string",
+                "x-frequency": 597,
+                "examples": [
+                  "Dutch"
+                ]
+              }
+            }
+          },
+          "rugpool": {
+            "type": "object",
+            "x-frequency": 4792,
+            "properties": {
+              "config": {
+                "type": "object",
+                "x-frequency": 4792,
+                "properties": {
+                  "instarugThreshold": {
+                    "type": "number",
+                    "x-frequency": 4792,
+                    "examples": [
+                      6
+                    ]
+                  },
+                  "rugpoolPercentage": {
+                    "type": "number",
+                    "x-frequency": 4792,
+                    "examples": [
+                      0.5
+                    ]
+                  },
+                  "threshold": {
+                    "type": "number",
+                    "x-frequency": 4792,
+                    "examples": [
+                      10
+                    ]
+                  }
+                }
+              },
+              "instarugCount": {
+                "type": "number",
+                "x-frequency": 4792,
+                "examples": [
+                  9,
+                  0
+                ]
+              },
+              "lastDrawing": {
+                "type": "object",
+                "x-frequency": 4792,
+                "properties": {
+                  "rewardPerWinner": {
+                    "type": "number",
+                    "x-frequency": 4792,
+                    "examples": [
+                      3.5956412111666736,
+                      2.213582226666671,
+                      1.994776551666681
+                    ]
+                  },
+                  "timestamp": {
+                    "type": "number",
+                    "x-frequency": 4792,
+                    "examples": [
+                      1765750336277,
+                      1765794262774,
+                      1765819354240
+                    ]
+                  },
+                  "totalPoolAmount": {
+                    "type": "number",
+                    "x-frequency": 4792,
+                    "examples": [
+                      10.78692363350002,
+                      6.640746680000013,
+                      5.984329655000043
+                    ]
+                  },
+                  "winners": {
+                    "type": "array",
+                    "x-frequency": 4792,
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "entries": {
+                          "type": "number",
+                          "x-frequency": 14376,
+                          "examples": [
+                            5000,
+                            1121,
+                            1917,
+                            9,
+                            2548
+                          ]
+                        },
+                        "playerId": {
+                          "type": "string",
+                          "x-frequency": 14376,
+                          "examples": [
+                            "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+                            "did:privy:cma8r35lw00oalc0mmu10cck7",
+                            "did:privy:cmeygisuf00wyl50civj2950w",
+                            "did:privy:cmi5nq4qv00beld0b8739uw7r",
+                            "did:privy:cma72xdks0064jr0naeukzwp6"
+                          ]
+                        },
+                        "reward": {
+                          "type": "number",
+                          "x-frequency": 14376,
+                          "examples": [
+                            3.5956412111666736,
+                            2.213582226666671,
+                            1.994776551666681
+                          ]
+                        },
+                        "username": {
+                          "type": "string",
+                          "x-frequency": 14376,
+                          "examples": [
+                            "ehiwna",
+                            "CheckItup",
+                            "Wolfeee",
+                            "Demaux69",
+                            "gnome"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "maxEntriesPerPlayer": {
+                "type": "number",
+                "x-frequency": 4792,
+                "examples": [
+                  5000
+                ]
+              },
+              "playerEntries": {
+                "type": "array",
+                "x-frequency": 4792,
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "entries": {
+                      "type": "number",
+                      "x-frequency": 45740,
+                      "examples": [
+                        5000,
+                        4450,
+                        1070,
+                        980,
+                        927
+                      ]
+                    },
+                    "percentage": {
+                      "type": "number",
+                      "x-frequency": 45740,
+                      "examples": [
+                        22.452736988638915,
+                        19.982935919888632,
+                        4.8048857155687275,
+                        4.400736449773227,
+                        4.162737437693655
+                      ]
+                    },
+                    "playerId": {
+                      "type": "string",
+                      "x-frequency": 45740,
+                      "examples": [
+                        "did:privy:cmb8sq5at0022js0mp6w3f5hh",
+                        "did:privy:cma0m5z4r00afjx0mjpryyqo5",
+                        "did:privy:cmeygisuf00wyl50civj2950w",
+                        "did:privy:cmc56ql2o01ewl70m2961dl9c",
+                        "did:privy:cma4gg3wj001ijz0memhqm1j7"
+                      ]
+                    },
+                    "username": {
+                      "type": "string",
+                      "x-frequency": 45740,
+                      "examples": [
+                        "ehiwna",
+                        "jKolby",
+                        "Wolfeee",
+                        "restlessgambler",
+                        "xxiamthereaperxx"
+                      ]
+                    }
+                  }
+                }
+              },
+              "playersWithEntries": {
+                "type": "number",
+                "x-frequency": 4792,
+                "examples": [
+                  155,
+                  136,
+                  142,
+                  0
+                ]
+              },
+              "rugpoolAmount": {
+                "type": "number",
+                "x-frequency": 4792,
+                "examples": [
+                  7.440795633500021,
+                  5.523102353500032,
+                  5.984329655000043,
+                  0
+                ]
+              },
+              "solPerEntry": {
+                "type": "number",
+                "x-frequency": 4792,
+                "examples": [
+                  0.001
+                ]
+              },
+              "threshold": {
+                "type": "number",
+                "x-frequency": 4792,
+                "examples": [
+                  10
+                ]
+              },
+              "totalEntries": {
+                "type": "number",
+                "x-frequency": 4792,
+                "examples": [
+                  22269,
+                  15655,
+                  16931,
+                  0
+                ]
+              }
+            }
+          },
+          "trades": {
+            "type": "array",
+            "x-frequency": 7
+          }
+        }
+      },
+      "direction": {
+        "type": "string",
+        "x-frequency": 4794,
+        "examples": [
+          "received"
+        ]
+      },
+      "event": {
+        "type": "string",
+        "x-frequency": 4794,
+        "examples": [
+          "gameStatePlayerUpdate"
+        ]
+      },
+      "raw": {
+        "type": "string",
+        "x-frequency": 540,
+        "examples": [
+          "42[\"gameStatePlayerUpdate\",{\"gameId\":\"20251215-c5134ee5310046c5\",\"rugpool\":{\"instarugCount\":9,\"rugpo...",
+          "42[\"gameStatePlayerUpdate\",{\"gameId\":\"20251215-f48ffc6c649249c2\",\"rugpool\":{\"instarugCount\":9,\"rugpo...",
+          "42[\"gameStatePlayerUpdate\",{\"gameId\":\"20251215-6f7c8426fca841b8\",\"rugpool\":{\"instarugCount\":9,\"rugpo...",
+          "42[\"gameStatePlayerUpdate\",{\"gameId\":\"20251215-4258c8ec63304a46\",\"rugpool\":{\"instarugCount\":0,\"rugpo..."
+        ]
+      },
+      "seq": {
+        "type": "number",
+        "x-frequency": 4794,
+        "examples": [
+          23,
+          33,
+          35,
+          37,
+          39
+        ]
+      },
+      "source": {
+        "type": "string",
+        "x-frequency": 4794,
+        "examples": [
+          "cdp_intercept"
+        ]
+      },
+      "ts": {
+        "type": "string",
+        "x-frequency": 4794,
+        "examples": [
+          "2025-12-15T03:43:09.319591+00:00",
+          "2025-12-15T03:43:09.897882+00:00",
+          "2025-12-15T03:43:09.921451+00:00",
+          "2025-12-15T03:43:09.951823+00:00",
+          "2025-12-15T03:43:10.061615+00:00"
+        ]
+      }
+    },
+    "x-frequency": 4794
+  },
+  "usernameStatus": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "usernameStatus",
+    "type": "object",
+    "properties": {
+      "data": {
+        "type": "object",
+        "x-frequency": 14,
+        "properties": {
+          "__trace": {
+            "type": "boolean",
+            "x-frequency": 14,
+            "examples": [
+              true
+            ]
+          },
+          "traceparent": {
+            "type": "string",
+            "x-frequency": 14,
+            "examples": [
+              "00-c37856d5e5c8910e2f87852550c88ff0-4cd4a0f578f1091c-01",
+              "00-ef2fb9766ccb9430cbe6ea907e0ab9b2-f651be87afa15e4f-01",
+              "00-92523f902403b52450cfa2d0884b2715-7f6685e6862f1144-01",
+              "00-24592df240155eec3cc2b4b112d144dc-67073292116f80c9-01",
+              "00-678b5efbb6477ac5498cfc42e4d80cb9-753a5888761fb646-01"
+            ]
+          }
+        }
+      },
+      "direction": {
+        "type": "string",
+        "x-frequency": 14,
+        "examples": [
+          "received"
+        ]
+      },
+      "event": {
+        "type": "string",
+        "x-frequency": 14,
+        "examples": [
+          "usernameStatus"
+        ]
+      },
+      "raw": {
+        "type": "string",
+        "x-frequency": 4,
+        "examples": [
+          "42[\"usernameStatus\",{\"__trace\":true,\"traceparent\":\"00-8e73b4bafb07333a28bec8f6f03c0d5d-06e157203e0a8...",
+          "42[\"usernameStatus\",{\"__trace\":true,\"traceparent\":\"00-582c05b0fa21f587c169c8c6da59f1c2-719c18d5de543...",
+          "42[\"usernameStatus\",{\"__trace\":true,\"traceparent\":\"00-c209db16d04303310a2859ed436f859d-01d475b41a5d5...",
+          "42[\"usernameStatus\",{\"__trace\":true,\"traceparent\":\"00-c4e853ca2d16a8e8f167a0318a2fb0ac-5566245c89c4f..."
+        ]
+      },
+      "seq": {
+        "type": "number",
+        "x-frequency": 14,
+        "examples": [
+          24,
+          183,
+          17,
+          78,
+          146
+        ]
+      },
+      "source": {
+        "type": "string",
+        "x-frequency": 14,
+        "examples": [
+          "cdp_intercept"
+        ]
+      },
+      "ts": {
+        "type": "string",
+        "x-frequency": 14,
+        "examples": [
+          "2025-12-15T03:43:09.331433+00:00",
+          "2025-12-15T03:43:15.541741+00:00",
+          "2025-12-15T03:45:01.326133+00:00",
+          "2025-12-15T03:45:05.163040+00:00",
+          "2025-12-15T04:04:50.094531+00:00"
+        ]
+      }
+    },
+    "x-frequency": 14
+  },
+  "mutedPlayers": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "mutedPlayers",
+    "type": "object",
+    "properties": {
+      "data": {
+        "type": "object",
+        "x-frequency": 7,
+        "properties": {
+          "__trace": {
+            "type": "boolean",
+            "x-frequency": 7,
+            "examples": [
+              true
+            ]
+          },
+          "traceparent": {
+            "type": "string",
+            "x-frequency": 7,
+            "examples": [
+              "00-c37856d5e5c8910e2f87852550c88ff0-34132200311796fb-01",
+              "00-92523f902403b52450cfa2d0884b2715-69df8b21fa87c81b-01",
+              "00-678b5efbb6477ac5498cfc42e4d80cb9-de651bbae29e2895-01",
+              "00-7cc15fe97edbb0b891648a579a8a9309-822c3522d3959253-01",
+              "00-1c995641e009e87229031ee3bdd317cb-e8adf2e95c57fdb5-01"
+            ]
+          }
+        }
+      },
+      "direction": {
+        "type": "string",
+        "x-frequency": 7,
+        "examples": [
+          "received"
+        ]
+      },
+      "event": {
+        "type": "string",
+        "x-frequency": 7,
+        "examples": [
+          "mutedPlayers"
+        ]
+      },
+      "raw": {
+        "type": "string",
+        "x-frequency": 2,
+        "examples": [
+          "42[\"mutedPlayers\",{\"__trace\":true,\"traceparent\":\"00-8e73b4bafb07333a28bec8f6f03c0d5d-494904e363e5ea2...",
+          "42[\"mutedPlayers\",{\"__trace\":true,\"traceparent\":\"00-c209db16d04303310a2859ed436f859d-234eb0715a9640c..."
+        ]
+      },
+      "seq": {
+        "type": "number",
+        "x-frequency": 7,
+        "examples": [
+          25,
+          18,
+          14,
+          16,
+          12
+        ]
+      },
+      "source": {
+        "type": "string",
+        "x-frequency": 7,
+        "examples": [
+          "cdp_intercept"
+        ]
+      },
+      "ts": {
+        "type": "string",
+        "x-frequency": 7,
+        "examples": [
+          "2025-12-15T03:43:09.345974+00:00",
+          "2025-12-15T03:45:01.331730+00:00",
+          "2025-12-15T04:04:50.100386+00:00",
+          "2025-12-15T05:15:54.852806+00:00",
+          "2025-12-15T05:39:25.217564+00:00"
+        ]
+      }
+    },
+    "x-frequency": 7
+  },
+  "leaderboardData": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "leaderboardData",
+    "type": "object",
+    "properties": {
+      "data": {
+        "type": "object",
+        "x-frequency": 8,
+        "properties": {
+          "__trace": {
+            "type": "boolean",
+            "x-frequency": 8,
+            "examples": [
+              true
+            ]
+          },
+          "traceparent": {
+            "type": "string",
+            "x-frequency": 8,
+            "examples": [
+              "00-51d53b69d051939c5b908db4b9195665-73e405f0feaac31c-01",
+              "00-7536723b90f8c5db42cb294eabe61ef3-9a81302cea619bcc-01",
+              "00-a692ef52ddfc94c4d7498b58adc9ff4e-159d4ff48b44af08-01",
+              "00-17c064d1c213d15acf99f434dddd8ba0-697f24f6ed57ecb3-01",
+              "00-725536c06fd4944684a31332d530267c-bf8ac18e7e04a5d3-01"
+            ]
+          }
+        }
+      },
+      "direction": {
+        "type": "string",
+        "x-frequency": 8,
+        "examples": [
+          "received"
+        ]
+      },
+      "event": {
+        "type": "string",
+        "x-frequency": 8,
+        "examples": [
+          "leaderboardData"
+        ]
+      },
+      "raw": {
+        "type": "string",
+        "x-frequency": 2,
+        "examples": [
+          "42[\"leaderboardData\",{\"__trace\":true,\"traceparent\":\"00-8940a52d5cce414286b448a65f018b0a-f54d9218acd2...",
+          "42[\"leaderboardData\",{\"__trace\":true,\"traceparent\":\"00-e988d353d99d4ab1bac8471527c97889-992b6dbd09cd..."
+        ]
+      },
+      "seq": {
+        "type": "number",
+        "x-frequency": 8,
+        "examples": [
+          31,
+          24,
+          12,
+          3945,
+          8
+        ]
+      },
+      "source": {
+        "type": "string",
+        "x-frequency": 8,
+        "examples": [
+          "cdp_intercept"
+        ]
+      },
+      "ts": {
+        "type": "string",
+        "x-frequency": 8,
+        "examples": [
+          "2025-12-15T03:43:09.616810+00:00",
+          "2025-12-15T03:45:01.437057+00:00",
+          "2025-12-15T04:04:49.865282+00:00",
+          "2025-12-15T04:09:47.201760+00:00",
+          "2025-12-15T05:15:54.756454+00:00"
+        ]
+      }
+    },
+    "x-frequency": 8
+  },
+  "playerCosmetics": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "playerCosmetics",
+    "type": "object",
+    "properties": {
+      "data": {
+        "type": "object",
+        "x-frequency": 7,
+        "properties": {
+          "__trace": {
+            "type": "boolean",
+            "x-frequency": 7,
+            "examples": [
+              true
+            ]
+          },
+          "traceparent": {
+            "type": "string",
+            "x-frequency": 7,
+            "examples": [
+              "00-8d1ee3183410216c5e6a47ce9673b3f8-a9bed8c36f007aa1-01",
+              "00-2ef1e6d71c8c9e9b606612a4b8438989-fcae8a495ace543c-01",
+              "00-93c202cc7138be5fc62e9e49cdcfeef5-d07a91b79c777903-01",
+              "00-78746f90ac2501a322cd87ed324ca979-2e272e7d58854289-01",
+              "00-96d3dd2df76e241fe9cceb10976b9313-8f5499e394cbab19-01"
+            ]
+          }
+        }
+      },
+      "direction": {
+        "type": "string",
+        "x-frequency": 7,
+        "examples": [
+          "received"
+        ]
+      },
+      "event": {
+        "type": "string",
+        "x-frequency": 7,
+        "examples": [
+          "playerCosmetics"
+        ]
+      },
+      "raw": {
+        "type": "string",
+        "x-frequency": 2,
+        "examples": [
+          "42[\"playerCosmetics\",{\"__trace\":true,\"traceparent\":\"00-51126511534fe6eb6a2ad6d0787c9082-55962c8feaf4...",
+          "42[\"playerCosmetics\",{\"__trace\":true,\"traceparent\":\"00-3ac995d071b418bed55c493c53f3f5ee-d0e832ac346c..."
+        ]
+      },
+      "seq": {
+        "type": "number",
+        "x-frequency": 7,
+        "examples": [
+          76,
+          43,
+          33,
+          126,
+          37
+        ]
+      },
+      "source": {
+        "type": "string",
+        "x-frequency": 7,
+        "examples": [
+          "cdp_intercept"
+        ]
+      },
+      "ts": {
+        "type": "string",
+        "x-frequency": 7,
+        "examples": [
+          "2025-12-15T03:43:10.889832+00:00",
+          "2025-12-15T03:45:02.688004+00:00",
+          "2025-12-15T04:04:52.470221+00:00",
+          "2025-12-15T05:15:55.666968+00:00",
+          "2025-12-15T05:39:28.048483+00:00"
+        ]
+      }
+    },
+    "x-frequency": 7
+  },
+  "inboxMessages": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "inboxMessages",
+    "type": "object",
+    "properties": {
+      "data": {
+        "type": "object",
+        "x-frequency": 13,
+        "properties": {
+          "__trace": {
+            "type": "boolean",
+            "x-frequency": 13,
+            "examples": [
+              true
+            ]
+          },
+          "traceparent": {
+            "type": "string",
+            "x-frequency": 13,
+            "examples": [
+              "00-4099cd602746f215610daa0de0bc694d-8956ae2b82a5bac1-01",
+              "00-b3ba572a043b31be3ea38d126bc330a2-13648198004943b8-01",
+              "00-8d6e29f4be762888ceff87fbdcfb4158-3e68e78394447cd3-01",
+              "00-0fb17bb2183db0115de6ba94093b9099-9457c3a92d73c049-01",
+              "00-f3005bebb1667266ff28357afb13176a-4d07f8a37ea796d0-01"
+            ]
+          }
+        }
+      },
+      "direction": {
+        "type": "string",
+        "x-frequency": 13,
+        "examples": [
+          "received"
+        ]
+      },
+      "event": {
+        "type": "string",
+        "x-frequency": 13,
+        "examples": [
+          "inboxMessages"
+        ]
+      },
+      "raw": {
+        "type": "string",
+        "x-frequency": 3,
+        "examples": [
+          "42[\"inboxMessages\",{\"__trace\":true,\"traceparent\":\"00-78651bd0fd55e0810633490659b3f7d2-38dced94f25123...",
+          "42[\"inboxMessages\",{\"__trace\":true,\"traceparent\":\"00-b487e641f192e4a5f5894b613d95e673-184591a08ab98b...",
+          "42[\"inboxMessages\",{\"__trace\":true,\"traceparent\":\"00-742a30bd8212a0251265c3c8355d814a-b26fa72ae5f3f8..."
+        ]
+      },
+      "seq": {
+        "type": "number",
+        "x-frequency": 13,
+        "examples": [
+          78,
+          79,
+          40,
+          42,
+          77
+        ]
+      },
+      "source": {
+        "type": "string",
+        "x-frequency": 13,
+        "examples": [
+          "cdp_intercept"
+        ]
+      },
+      "ts": {
+        "type": "string",
+        "x-frequency": 13,
+        "examples": [
+          "2025-12-15T03:43:10.925545+00:00",
+          "2025-12-15T03:43:10.931571+00:00",
+          "2025-12-15T03:45:02.650341+00:00",
+          "2025-12-15T03:45:02.682386+00:00",
+          "2025-12-15T04:04:52.489219+00:00"
+        ]
+      }
+    },
+    "x-frequency": 13
+  },
+  "getPlayerLeaderboardPosition": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "getPlayerLeaderboardPosition",
+    "type": "object",
+    "properties": {
+      "data": {
+        "type": "object",
+        "x-frequency": 8,
+        "properties": {
+          "period": {
+            "type": "string",
+            "x-frequency": 8,
+            "examples": [
+              "7d"
+            ]
+          },
+          "playerId": {
+            "type": "string",
+            "x-frequency": 8,
+            "examples": [
+              "did:privy:cmaibr7rt0094jp0mc2mbpfu4"
+            ]
+          }
+        }
+      },
+      "direction": {
+        "type": "string",
+        "x-frequency": 8,
+        "examples": [
+          "sent"
+        ]
+      },
+      "event": {
+        "type": "string",
+        "x-frequency": 8,
+        "examples": [
+          "getPlayerLeaderboardPosition"
+        ]
+      },
+      "raw": {
+        "type": "string",
+        "x-frequency": 2,
+        "examples": [
+          "42[\"getPlayerLeaderboardPosition\",{\"playerId\":\"did:privy:cmaibr7rt0094jp0mc2mbpfu4\",\"period\":\"7d\"}]"
+        ]
+      },
+      "seq": {
+        "type": "number",
+        "x-frequency": 8,
+        "examples": [
+          136,
+          59,
+          91,
+          3944,
+          45
+        ]
+      },
+      "source": {
+        "type": "string",
+        "x-frequency": 8,
+        "examples": [
+          "cdp_intercept"
+        ]
+      },
+      "ts": {
+        "type": "string",
+        "x-frequency": 8,
+        "examples": [
+          "2025-12-15T03:43:14.259942+00:00",
+          "2025-12-15T03:45:04.093787+00:00",
+          "2025-12-15T04:04:53.160363+00:00",
+          "2025-12-15T04:09:47.118500+00:00",
+          "2025-12-15T05:15:57.315919+00:00"
+        ]
+      }
+    },
+    "x-frequency": 8
+  },
+  "playerLeaderboardPosition": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "playerLeaderboardPosition",
+    "type": "object",
+    "properties": {
+      "data": {
+        "type": "object",
+        "x-frequency": 8,
+        "properties": {
+          "__trace": {
+            "type": "boolean",
+            "x-frequency": 8,
+            "examples": [
+              true
+            ]
+          },
+          "traceparent": {
+            "type": "string",
+            "x-frequency": 8,
+            "examples": [
+              "00-f44cf0add30ecdce8b0cbf585578561a-0d01566eb141c5b7-01",
+              "00-f3628401273bd552f89a6c59d8c7980e-de428ba1dba04331-01",
+              "00-93b53c210c94d73c6a9771eb820a33c8-0209f897bad16e7c-01",
+              "00-9bbd91d7123cef437f55e7ed8340bbdc-0914abea6818cbc4-01",
+              "00-54ff18029df206c51617edbe49379385-c39883bf00b234a1-01"
+            ]
+          }
+        }
+      },
+      "direction": {
+        "type": "string",
+        "x-frequency": 8,
+        "examples": [
+          "received"
+        ]
+      },
+      "event": {
+        "type": "string",
+        "x-frequency": 8,
+        "examples": [
+          "playerLeaderboardPosition"
+        ]
+      },
+      "raw": {
+        "type": "string",
+        "x-frequency": 2,
+        "examples": [
+          "42[\"playerLeaderboardPosition\",{\"__trace\":true,\"traceparent\":\"00-f49fdfa32ff310c2be8f44cbd42cb68a-cf...",
+          "42[\"playerLeaderboardPosition\",{\"__trace\":true,\"traceparent\":\"00-b7d00c22871d75065f6e98dfe60ea67c-91..."
+        ]
+      },
+      "seq": {
+        "type": "number",
+        "x-frequency": 8,
+        "examples": [
+          173,
+          69,
+          136,
+          3946,
+          61
+        ]
+      },
+      "source": {
+        "type": "string",
+        "x-frequency": 8,
+        "examples": [
+          "cdp_intercept"
+        ]
+      },
+      "ts": {
+        "type": "string",
+        "x-frequency": 8,
+        "examples": [
+          "2025-12-15T03:43:15.253622+00:00",
+          "2025-12-15T03:45:04.483223+00:00",
+          "2025-12-15T04:04:53.998085+00:00",
+          "2025-12-15T04:09:47.215078+00:00",
+          "2025-12-15T05:15:57.784471+00:00"
+        ]
+      }
+    },
+    "x-frequency": 8
+  },
+  "checkUsername": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "checkUsername",
+    "type": "object",
+    "properties": {
+      "data": {
+        "type": "null",
+        "x-frequency": 7,
+        "examples": [
+          null
+        ]
+      },
+      "direction": {
+        "type": "string",
+        "x-frequency": 7,
+        "examples": [
+          "sent"
+        ]
+      },
+      "event": {
+        "type": "string",
+        "x-frequency": 7,
+        "examples": [
+          "checkUsername"
+        ]
+      },
+      "raw": {
+        "type": "string",
+        "x-frequency": 2,
+        "examples": [
+          "42[\"checkUsername\"]"
+        ]
+      },
+      "seq": {
+        "type": "number",
+        "x-frequency": 7,
+        "examples": [
+          174,
+          77,
+          143,
+          69,
+          175
+        ]
+      },
+      "source": {
+        "type": "string",
+        "x-frequency": 7,
+        "examples": [
+          "cdp_intercept"
+        ]
+      },
+      "ts": {
+        "type": "string",
+        "x-frequency": 7,
+        "examples": [
+          "2025-12-15T03:43:15.304795+00:00",
+          "2025-12-15T03:45:05.015075+00:00",
+          "2025-12-15T04:04:54.150670+00:00",
+          "2025-12-15T05:15:58.237007+00:00",
+          "2025-12-15T05:39:29.290876+00:00"
+        ]
+      }
+    },
+    "x-frequency": 7
+  },
+  "rugpassStatus": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "rugpassStatus",
+    "type": "object",
+    "properties": {
+      "data": {
+        "type": "object",
+        "x-frequency": 8,
+        "properties": {
+          "__trace": {
+            "type": "boolean",
+            "x-frequency": 8,
+            "examples": [
+              true
+            ]
+          },
+          "traceparent": {
+            "type": "string",
+            "x-frequency": 8,
+            "examples": [
+              "00-2e73cb06d2b249fe0f9ac7e605d791b1-81dc3717736d57ee-01",
+              "00-626b501b1019b7430bf96ef30d9a442c-6c51bad4a871fb93-01",
+              "00-096c617c4127127b1a1896a4f9398744-b0e0eca705853898-01",
+              "00-db7b194e5eb8219a5413eda3552404bf-e05457c24593cfe1-01",
+              "00-f66459c977ef671ea4c2984a2d198dfc-55c009b8bc043589-01"
+            ]
+          }
+        }
+      },
+      "direction": {
+        "type": "string",
+        "x-frequency": 8,
+        "examples": [
+          "received"
+        ]
+      },
+      "event": {
+        "type": "string",
+        "x-frequency": 8,
+        "examples": [
+          "rugpassStatus"
+        ]
+      },
+      "raw": {
+        "type": "string",
+        "x-frequency": 3,
+        "examples": [
+          "42[\"rugpassStatus\",{\"__trace\":true,\"traceparent\":\"00-aa76873569defee1611b5745ff1383ef-f7626ed2ca8571...",
+          "42[\"rugpassStatus\",{\"__trace\":true,\"traceparent\":\"00-682b4789ad796e1852f85f2f88cb4cee-3893bfc5657d5d...",
+          "42[\"rugpassStatus\",{\"__trace\":true,\"traceparent\":\"00-acc530c1fa710ac198e6279caa8ba390-3148a406cda5c6..."
+        ]
+      },
+      "seq": {
+        "type": "number",
+        "x-frequency": 8,
+        "examples": [
+          218,
+          148,
+          179,
+          121,
+          231
+        ]
+      },
+      "source": {
+        "type": "string",
+        "x-frequency": 8,
+        "examples": [
+          "cdp_intercept"
+        ]
+      },
+      "ts": {
+        "type": "string",
+        "x-frequency": 8,
+        "examples": [
+          "2025-12-15T03:43:19.405189+00:00",
+          "2025-12-15T03:45:09.287920+00:00",
+          "2025-12-15T04:04:58.170955+00:00",
+          "2025-12-15T05:16:03.690656+00:00",
+          "2025-12-15T05:39:34.330719+00:00"
+        ]
+      }
+    },
+    "x-frequency": 8
+  },
+  "gameNotification": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "gameNotification",
+    "type": "object",
+    "properties": {
+      "data": {
+        "type": "array",
+        "x-frequency": 2,
+        "items": {
+          "type": "object",
+          "properties": {
+            "__trace": {
+              "type": "boolean",
+              "x-frequency": 2,
+              "examples": [
+                true
+              ]
+            },
+            "message": {
+              "type": "string",
+              "x-frequency": 2,
+              "examples": [
+                "\u23f0 Event time has ended! This will be the FINAL ROUND.",
+                "\u23f0 Golden Hour has ended! Thanks for participating!"
+              ]
+            },
+            "traceparent": {
+              "type": "string",
+              "x-frequency": 2,
+              "examples": [
+                "00-40249df942713137c368e582bdfd2c79-251f50e999cdaeca-01",
+                "00-f74180e1b42328ee8bcabb91b3bb6118-b3ceb9633456eb3b-01"
+              ]
+            },
+            "type": {
+              "type": "string",
+              "x-frequency": 2,
+              "examples": [
+                "event",
+                "goldenhour"
+              ]
+            }
+          }
+        }
+      },
+      "event": {
+        "type": "string",
+        "x-frequency": 2,
+        "examples": [
+          "gameNotification"
+        ]
+      },
+      "seq": {
+        "type": "number",
+        "x-frequency": 2,
+        "examples": [
+          1051,
+          1143
+        ]
+      },
+      "ts": {
+        "type": "string",
+        "x-frequency": 2,
+        "examples": [
+          "2025-12-15T00:05:02.177950",
+          "2025-12-15T00:05:21.379793"
+        ]
+      }
+    },
+    "x-frequency": 2
+  },
+  "rugpoolDrawing": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "rugpoolDrawing",
+    "type": "object",
+    "properties": {
+      "data": {
+        "type": "object",
+        "x-frequency": 1,
+        "properties": {
+          "__trace": {
+            "type": "boolean",
+            "x-frequency": 1,
+            "examples": [
+              true
+            ]
+          },
+          "traceparent": {
+            "type": "string",
+            "x-frequency": 1,
+            "examples": [
+              "00-ed4eab3cb8080ee46d0b8e709f4a9094-541347dd274e491d-01"
+            ]
+          }
+        }
+      },
+      "direction": {
+        "type": "string",
+        "x-frequency": 1,
+        "examples": [
+          "received"
+        ]
+      },
+      "event": {
+        "type": "string",
+        "x-frequency": 1,
+        "examples": [
+          "rugpoolDrawing"
+        ]
+      },
+      "raw": {
+        "type": "string",
+        "x-frequency": 1,
+        "examples": [
+          "42[\"rugpoolDrawing\",{\"__trace\":true,\"traceparent\":\"00-ed4eab3cb8080ee46d0b8e709f4a9094-541347dd274e4..."
+        ]
+      },
+      "seq": {
+        "type": "number",
+        "x-frequency": 1,
+        "examples": [
+          417
+        ]
+      },
+      "source": {
+        "type": "string",
+        "x-frequency": 1,
+        "examples": [
+          "cdp_intercept"
+        ]
+      },
+      "ts": {
+        "type": "string",
+        "x-frequency": 1,
+        "examples": [
+          "2025-12-15T17:22:34.608314+00:00"
+        ]
+      }
+    },
+    "x-frequency": 1
+  },
+  "rugpoolStatus": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "rugpoolStatus",
+    "type": "object",
+    "properties": {
+      "data": {
+        "type": "object",
+        "x-frequency": 1,
+        "properties": {
+          "__trace": {
+            "type": "boolean",
+            "x-frequency": 1,
+            "examples": [
+              true
+            ]
+          },
+          "traceparent": {
+            "type": "string",
+            "x-frequency": 1,
+            "examples": [
+              "00-290d3efbee84e5bae0d9384e67a504d3-4e3ca5ea1afb43df-01"
+            ]
+          }
+        }
+      },
+      "direction": {
+        "type": "string",
+        "x-frequency": 1,
+        "examples": [
+          "received"
+        ]
+      },
+      "event": {
+        "type": "string",
+        "x-frequency": 1,
+        "examples": [
+          "rugpoolStatus"
+        ]
+      },
+      "raw": {
+        "type": "string",
+        "x-frequency": 1,
+        "examples": [
+          "42[\"rugpoolStatus\",{\"__trace\":true,\"traceparent\":\"00-290d3efbee84e5bae0d9384e67a504d3-4e3ca5ea1afb43..."
+        ]
+      },
+      "seq": {
+        "type": "number",
+        "x-frequency": 1,
+        "examples": [
+          436
+        ]
+      },
+      "source": {
+        "type": "string",
+        "x-frequency": 1,
+        "examples": [
+          "cdp_intercept"
+        ]
+      },
+      "ts": {
+        "type": "string",
+        "x-frequency": 1,
+        "examples": [
+          "2025-12-15T17:22:35.277830+00:00"
+        ]
+      }
+    },
+    "x-frequency": 1
+  }
+}
