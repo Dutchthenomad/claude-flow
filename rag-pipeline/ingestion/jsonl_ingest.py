@@ -22,6 +22,9 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import List
 
+# Maximum number of error messages to display in output
+MAX_DISPLAYED_ERRORS = 5
+
 
 @dataclass
 class IngestionResult:
@@ -269,10 +272,10 @@ def main():
 
     if result.errors:
         print(f"\nWarning: {len(result.errors)} parse errors occurred")
-        for error in result.errors[:5]:
+        for error in result.errors[:MAX_DISPLAYED_ERRORS]:
             print(f"  - {error}")
-        if len(result.errors) > 5:
-            print(f"  ... and {len(result.errors) - 5} more")
+        if len(result.errors) > MAX_DISPLAYED_ERRORS:
+            print(f"  ... and {len(result.errors) - MAX_DISPLAYED_ERRORS} more")
 
     return 0
 
