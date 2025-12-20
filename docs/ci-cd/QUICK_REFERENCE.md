@@ -2,6 +2,8 @@
 
 Quick command reference and common scenarios for Claude-Flow's CI/CD pipeline.
 
+> 💡 **New**: See [Review Arsenal Quick Reference](./REVIEW_ARSENAL_QUICKREF.md) for detailed guide on using CodeRabbit, Qodo, and automated checks together.
+
 ## Table of Contents
 
 - [Quick Commands](#quick-commands)
