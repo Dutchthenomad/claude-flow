@@ -142,7 +142,7 @@ jobs:
 
       - name: Post methodology reminder
         if: steps.check.outputs.methodology_files == 'true'
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             const files = `${{ steps.check.outputs.files }}`;

@@ -83,7 +83,7 @@ jobs:
 
       - name: Comment complexity results
         if: always()
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             const fs = require('fs');
@@ -132,7 +132,7 @@ jobs:
 
       - name: Comment security results
         if: always()
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             const fs = require('fs');
@@ -204,7 +204,7 @@ jobs:
           fi
 
       - name: Comment impact analysis
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             const fs = require('fs');
@@ -224,7 +224,7 @@ jobs:
     if: always()
     steps:
       - name: Create review summary
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             const summary = `## 🤖 Automated Code Review Complete
