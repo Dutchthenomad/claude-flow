@@ -59,7 +59,7 @@ jobs:
 
       - name: Upload coverage badge
         if: github.event_name == 'push' && github.ref == 'refs/heads/main' && steps.pytest.outputs.has_tests == 'true'
-        uses: stefanzweifel/git-auto-commit-action@v5
+        uses: stefanzweifel/git-auto-commit-action@v7
         with:
           commit_message: "Update coverage badge [skip ci]"
           file_pattern: coverage.svg
