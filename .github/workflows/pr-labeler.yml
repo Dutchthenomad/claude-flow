@@ -40,7 +40,7 @@ jobs:
           github_api_url: 'https://api.github.com'
 
       - name: Add labels based on PR title
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             const title = context.payload.pull_request.title.toLowerCase();
