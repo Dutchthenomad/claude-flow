@@ -46,6 +46,18 @@ claude-flow is responsible for:
 
 ---
 
+## Database Ownership (IMPORTANT)
+
+| Repository | Vector DB | Analytical DB | Purpose |
+|------------|-----------|---------------|---------|
+| **claude-flow** | ChromaDB | None | Semantic search over protocol docs |
+| **rugs-rl-bot** | None | DuckDB | Feature engineering for RL training |
+| **VECTRA-PLAYER** | None | None | Writes Parquet only (no queries) |
+
+**CRITICAL:** claude-flow does NOT use DuckDB. Each repository owns its database layer independently. Cross-repo validation (shown below) runs from the appropriate repository context.
+
+---
+
 ## Knowledge Sources
 
 ### 1. Protocol Documentation (Always Indexed)
@@ -199,10 +211,14 @@ When answering event questions, include:
 ### Validating Protocol Changes
 
 ```bash
-# In claude-flow
-python -c "from retrieval.retrieve import search; print(search('playerUpdate fields'))"
+# In claude-flow (ChromaDB semantic search)
+cd /home/nomad/Desktop/claude-flow/rag-pipeline
+source .venv/bin/activate
+python -m retrieval.retrieve "playerUpdate fields" -k 5
 
-# Compare with actual capture (VECTRA-PLAYER)
+# Cross-repo validation: Run from rugs-rl-bot (NOT claude-flow)
+# This uses DuckDB which is owned by rugs-rl-bot
+cd /home/nomad/Desktop/rugs-rl-bot
 duckdb -c "SELECT DISTINCT json_keys(raw_json) FROM '~/rugs_data/**/*.parquet' WHERE event_name = 'playerUpdate'"
 ```
 

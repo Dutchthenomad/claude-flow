@@ -1,0 +1,35 @@
+# Claude Flow JupyterLab Requirements
+# Extends rag-pipeline/requirements.txt
+
+# Core JupyterLab
+jupyterlab>=4.0.0
+ipykernel>=6.0.0
+notebook>=7.0.0
+
+# Interactive widgets for review workflow
+ipywidgets>=8.0.0
+jupyterlab-widgets>=3.0.0
+
+# Data handling
+pandas>=2.0.0
+tabulate>=0.9.0
+
+# Visualization
+matplotlib>=3.7.0
+plotly>=5.0.0
+
+# Notebook version control (strips outputs before commit)
+nbstripout>=0.6.0
+
+# Code formatting in notebooks
+black[jupyter]>=23.0.0
+
+# JSON viewing
+json5>=0.9.0
+
+# Progress bars
+tqdm>=4.0.0
+
+# Chrome DevTools Protocol (CDP) for event capture
+pychrome>=0.2.4
+websocket-client>=1.0.0
