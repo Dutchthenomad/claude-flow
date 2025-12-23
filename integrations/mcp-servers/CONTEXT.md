@@ -27,6 +27,7 @@ git pull origin <branch>  # MANDATORY after MCP push
 | `github` | 25+ | Repository, Issues, PRs, Code Search | ✅ Active |
 | `chrome-devtools` | 25+ | Browser debugging, performance, DOM | ✅ Active |
 | `puppeteer` | 7 | Basic browser automation | ✅ Active |
+| `ClaudeTalkToFigma` | 40+ | Figma design automation via plugin | ✅ Active |
 
 ### GitHub MCP Server (25+ tools)
 
@@ -115,6 +116,11 @@ git pull origin <branch>  # MANDATORY after MCP push
 - `mcp__puppeteer__puppeteer_select` - Select dropdown option
 - `mcp__puppeteer__puppeteer_hover` - Hover element
 - `mcp__puppeteer__puppeteer_evaluate` - Execute JS
+
+### Figma MCP Server (40+ tools)
+
+- Requires Figma desktop plugin + local WebSocket server on port 3055
+- MCP server runs via `bunx claude-talk-to-figma-mcp@latest`
 
 ## Workflow Integration
 

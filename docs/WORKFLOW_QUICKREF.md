@@ -484,9 +484,9 @@ gh pr merge --squash --delete-branch
 
 ---
 
-## Efficiency Mode (Token Optimization)
+## Token Efficiency (Default Mode)
 
-**Purpose**: Reduce token consumption during extended development sessions while maintaining quality.
+**Claude-flow uses token-efficient workflow by default.** Verbose mode available on request.
 
 ### When to Use Efficiency Mode
 - Multi-phase feature development (like Phase 10.1 → 10.2 → 10.3)
@@ -523,17 +523,16 @@ Even in efficiency mode, ALWAYS:
 - Debug systematically (4-phase)
 - Commit at logical milestones
 
-### Activation
+### Verbose Mode (On Request)
 
-User can activate efficiency mode by saying:
-- "Use efficiency mode"
-- "Streamline the workflow"
-- "Skip verbose steps"
-
-Or deactivate:
-- "Use standard mode"
+Efficiency is the default. User can request verbose mode by saying:
+- "Use verbose mode"
 - "Full workflow please"
 - "Be thorough"
+- "I need detailed explanations"
+
+To return to efficiency mode:
+- "Use efficiency mode" (or just start a new task)
 
 ---
 

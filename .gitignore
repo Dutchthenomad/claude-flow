@@ -61,3 +61,11 @@ temp/
 
 # Git worktrees (local dev)
 .worktrees/
+
+# Jupyter
+jupyter/jupyter.log
+jupyter/config.env
+jupyter/notebooks/.ipynb_checkpoints/
+.ipynb_checkpoints/
+.virtual_documents/
+*.ipynb_checkpoints
