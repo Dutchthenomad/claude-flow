@@ -124,6 +124,7 @@ Mention `@claude` in any issue or PR comment to get AI-powered assistance. Add t
 
 **Documentation**:
 - [Recursive Loop](docs/ci-cd/RECURSIVE_LOOP.md) - How local and remote integrate
+- [CodeRabbit Integration Guide](docs/ci-cd/CODERABBIT_INTEGRATION.md) - AI code review with methodology enforcement
 - [Qodo Integration Guide](docs/ci-cd/QODO_INTEGRATION.md) - AI code review setup
 - [CI/CD Guide](docs/ci-cd/CI_CD_GUIDE.md) - Complete reference
 - [Quick Reference](docs/ci-cd/QUICK_REFERENCE.md) - Command cheat sheet
@@ -138,11 +139,12 @@ We welcome contributions! Please see:
 - [Issue Templates](.github/ISSUE_TEMPLATE/) - Report bugs or request features
 
 All PRs are automatically reviewed for:
-- AI-powered code review (Qodo)
+- AI-powered code review (CodeRabbit, Qodo)
 - Code complexity (Radon)
-- Security issues (Bandit, Trivy)
+- Security issues (Bandit, Trivy, Gitleaks)
 - Test coverage (pytest)
 - Change impact
+- Claude-Flow methodology compliance
 
 ## MCP Server (Reduce Token Usage)
 

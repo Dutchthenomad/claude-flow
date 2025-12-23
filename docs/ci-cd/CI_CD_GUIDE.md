@@ -12,37 +12,68 @@ Complete reference for Claude-Flow's automated workflows and CI/CD pipeline.
 
 ## Overview
 
-Claude-Flow uses GitHub Actions for comprehensive automation including:
+Claude-Flow uses GitHub Actions and AI tools for comprehensive automation including:
 
-- **Qodo AI Code Review** - AI-powered code analysis and suggestions (NEW ✨)
+- **CodeRabbit AI Review** - Methodology-enforced code review with learning (NEW ✨)
+- **Qodo AI Code Review** - AI-powered code analysis and suggestions
 - **Automated Code Review** - Complexity analysis, security scanning, impact analysis
 - **Smart PR Labeling** - Area, size, and type-based automatic labels
 - **Test Coverage Tracking** - Coverage reports, badges, and PR comments
 - **Automated Releases** - Tag-based releases with changelogs
-- **Security Scanning** - CodeQL, Trivy, Bandit, and Dependabot
+- **Security Scanning** - CodeQL, Trivy, Bandit, Gitleaks, and Dependabot
 
 ### Architecture
 
 All workflows run in parallel where possible, completing in ~5 minutes:
 
 ```
-PR Event → [Qodo AI Review, Code Review, PR Labeler, Coverage] → Results
+PR Event → [CodeRabbit, Qodo AI Review, Code Review, PR Labeler, Coverage] → Results
 Tag Push → [Release Builder] → GitHub Release
 Schedule → [Security Scans] → Security Tab
 ```
 
 ### Key Features
 
-✅ **AI-Powered** - Qodo provides intelligent code review suggestions
+✅ **AI-Powered** - CodeRabbit and Qodo provide intelligent, multi-perspective reviews
+✅ **Methodology-Enforced** - CodeRabbit validates Claude-Flow's 5 Iron Laws
 ✅ **Fast** - Parallel execution, ~5 minutes total
 ✅ **Comprehensive** - Multi-layer security and quality checks
+✅ **Learning** - CodeRabbit improves over time based on your decisions
 ✅ **Informative** - Detailed PR comments with actionable insights
 ✅ **Automated** - Zero manual intervention required
 ✅ **Extensible** - Easy to customize and extend
 
 ## Workflows
 
-### 1. Qodo AI Code Review (`.github/workflows/qodo-review.yml`) ✨ NEW
+### 1. CodeRabbit AI Review (GitHub App) ✨ NEW
+
+**Triggers**: Pull requests (opened, synchronize, reopened), automatically via GitHub App
+
+**Purpose**: Methodology-enforced code review with persistent learning
+
+**Features**:
+- **5 Iron Laws Enforcement** - Validates TDD, Verification, Debugging, Planning, Isolation
+- **Context-Aware Analysis** - Deep understanding of Claude-Flow principles
+- **Persistent Learning** - Improves over time based on your decisions
+- **Tool Integration** - Built-in ruff, shellcheck, markdownlint, gitleaks
+- **Interactive Chat** - `@coderabbitai` commands for explanations and suggestions
+- **Path-Based Rules** - Custom instructions per directory/file type
+- **Zero Setup** - No workflow file or API keys needed
+
+**Configuration**: `.coderabbit.yaml` in repository root
+
+**Setup Required**: 
+- Install [CodeRabbit GitHub App](https://github.com/apps/coderabbit-ai)
+- Free for public repositories
+- No API keys needed
+
+**Output**: Inline comments with 🐰 emoji, summary review, GitHub checks
+
+**Learn More**: See [CodeRabbit Integration Guide](./CODERABBIT_INTEGRATION.md)
+
+---
+
+### 2. Qodo AI Code Review (`.github/workflows/qodo-review.yml`)
 
 **Triggers**: Pull requests (opened, synchronize, reopened, ready_for_review), issue comments
 
@@ -67,7 +98,7 @@ Schedule → [Security Scans] → Security Tab
 
 ---
 
-### 2. Automated Code Review (`.github/workflows/code-review.yml`)
+### 3. Automated Code Review (`.github/workflows/code-review.yml`)
 
 **Triggers**: Pull requests (opened, synchronize, reopened), manual dispatch
 

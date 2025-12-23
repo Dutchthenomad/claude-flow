@@ -234,10 +234,11 @@ jobs:
             - ✅ Code complexity analysis
             - 🔒 Security scan results
             - 📊 Change impact analysis
-            - 🤖 AI-powered review (Qodo - if configured)
+            - 🐰 CodeRabbit AI review (methodology enforcement)
+            - 🤖 Qodo AI review (if configured)
             
-            **Note**: Qodo AI reviews run independently. If you see additional AI-generated suggestions, 
-            review them alongside these automated checks.
+            **Note**: AI reviews (CodeRabbit 🐰 and Qodo) run independently as GitHub Apps. 
+            If you see additional AI-generated suggestions, review them alongside these automated checks.
             
             All checks completed. Review the individual reports for detailed findings.
             `;
