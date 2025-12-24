@@ -158,7 +158,9 @@ class TestMockGameHistoryCollector:
         assert 'id' in game
         assert 'prices' in game
         assert 'rugged' in game
-        assert game['id'].startswith('20251224-mock')
+        # Game ID should be in format YYYYMMDD-mockNNNN
+        assert '-mock' in game['id']
+        assert len(game['id'].split('-')[0]) == 8  # YYYYMMDD
 
 
 @pytest.fixture

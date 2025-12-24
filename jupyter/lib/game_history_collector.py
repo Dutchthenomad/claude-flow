@@ -406,7 +406,9 @@ class MockGameHistoryCollector(GameHistoryCollector):
         for i in range(count):
             self._mock_game_counter += 1
             
-            game_id = f"20251224-mock{self._mock_game_counter:04d}"
+            # Generate game ID with current date
+            date_str = datetime.now().strftime('%Y%m%d')
+            game_id = f"{date_str}-mock{self._mock_game_counter:04d}"
             
             # Generate mock price history
             prices = [1.0]
