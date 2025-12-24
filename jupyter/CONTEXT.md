@@ -25,12 +25,24 @@ jupyter/
 ├── requirements.txt     # Python dependencies
 ├── jupyter.log          # Server logs (git-ignored)
 ├── CONTEXT.md           # This file
+├── GAME_HISTORY_COLLECTOR_GUIDE.md  # GameHistoryCollector documentation
+├── lib/                 # Python library modules
+│   ├── __init__.py
+│   ├── cdp_notebook.py           # CDP event capture
+│   ├── game_history_collector.py # Game history collection
+│   ├── automation_bridge.py      # Browser automation & RL
+│   └── README.md                 # Library documentation
+├── tests/
+│   ├── test_game_history_collector.py
+│   └── demo_game_history_collector.py
 └── notebooks/
+    ├── _paths.py                  # Shared paths & utilities
     ├── 00_quickstart.ipynb        # Setup verification
     ├── 01_event_explorer.ipynb    # Browse captured events
     ├── 02_canonical_review.ipynb  # CANONICAL validation workflow
     ├── 03_coverage_dashboard.ipynb # Documentation coverage
     ├── 04_rl_bot_analysis.ipynb   # RL model evaluation
+    ├── game_history_collector_example.ipynb  # GameHistory demo
     └── templates/                 # Notebook templates
 ```
 
@@ -43,6 +55,19 @@ jupyter/
 | 02_canonical_review | Review and approve field promotions |
 | 03_coverage_dashboard | Visualize documentation gaps |
 | 04_rl_bot_analysis | Load and evaluate trained RL models |
+| game_history_collector_example | Demo GameHistoryCollector usage |
+
+## Library Modules
+
+The `lib/` directory provides Python modules for notebooks and automation:
+
+| Module | Purpose |
+|--------|---------|
+| `cdp_notebook` | Chrome DevTools Protocol event capture |
+| `game_history_collector` | Server-side game history collection for ML/RL |
+| `automation_bridge` | Browser automation and RL training integration |
+
+See `lib/README.md` for detailed documentation.
 
 ## Version Control
 
@@ -91,6 +116,29 @@ if RUGS_RL_BOT_PATH:
     sys.path.insert(0, str(RUGS_RL_BOT_PATH))
     from rugs_bot.sidebet.predictor import SidebetPredictor
 ```
+
+### Game History Collection (NEW)
+```python
+from lib import GameHistoryCollector, CDPCapture
+
+# Automatic game collection from gameHistory[] rolling window
+collector = GameHistoryCollector()
+
+# Option 1: Standalone
+collector.start_collecting()
+# ... manually process gameStateUpdate events ...
+
+# Option 2: Integrate with CDP
+capture = CDPCapture()
+capture.connect()
+collector.attach_to_capture(capture)
+# Games automatically collected!
+
+# Export for RL training
+collector.export_for_rl_training()
+```
+
+See `GAME_HISTORY_COLLECTOR_GUIDE.md` for complete documentation.
 
 ## Kernel
 
