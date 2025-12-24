@@ -16,6 +16,8 @@ KNOWLEDGE_PATHS = [
     PROJECT_ROOT / "skills",
     # Rugs.fun WebSocket event knowledge
     PROJECT_ROOT / "knowledge" / "rugs-events",
+    # Rugs.fun strategy knowledge base (L1-L7 layers)
+    PROJECT_ROOT / "knowledge" / "rugs-strategy",
 ]
 
 # Raw WebSocket captures (indexed separately with event_chunker)

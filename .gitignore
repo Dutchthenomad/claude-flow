@@ -69,3 +69,15 @@ jupyter/notebooks/.ipynb_checkpoints/
 .ipynb_checkpoints/
 .virtual_documents/
 *.ipynb_checkpoints
+
+# Claude Code local config
+.claude/
+
+# Source material archives (bulky, not version controlled)
+knowledge/RAG SUPERPACK/
+
+# Under review content (not yet canonical)
+knowledge/rugs-events/UNDER REVIEW FOR CANNON STATUS/
+
+# Cloned MCP servers
+mcp-server/talk-to-figma-mcp-server-repo-clone/

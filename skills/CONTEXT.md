@@ -7,6 +7,7 @@ This folder contains **agent skills** - model-invoked capabilities that Claude a
 | Skill | Description |
 |-------|-------------|
 | `workflow-methodology/` | Core development methodology (TDD, debugging, verification) |
+| `validation-report/` | Generate validation tier reports for rugs-strategy knowledge base |
 
 ## Integration Points
 - Skills are discovered via `SKILL.md` files in subdirectories

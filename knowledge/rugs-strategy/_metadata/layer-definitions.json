@@ -1,0 +1,71 @@
+{
+  "version": "1.0.0",
+  "created": "2025-12-24",
+  "layers": {
+    "L1": {
+      "name": "game-mechanics",
+      "description": "Core game rules, phases, PRNG, provably fair",
+      "bot_relevance": "critical",
+      "validation_priority": "P0"
+    },
+    "L2": {
+      "name": "protocol",
+      "description": "WebSocket events, fields, browser connection",
+      "bot_relevance": "critical",
+      "validation_priority": "P0"
+    },
+    "L3": {
+      "name": "ml-rl",
+      "description": "Feature engineering, reward design, training environments",
+      "bot_relevance": "critical",
+      "validation_priority": "P1"
+    },
+    "L4": {
+      "name": "vectra-codebase",
+      "description": "VECTRA-PLAYER architecture, event store, trading bot",
+      "bot_relevance": "high",
+      "validation_priority": "P1"
+    },
+    "L5": {
+      "name": "strategy-tactics",
+      "description": "Bankroll management, risk hedging, betting systems",
+      "bot_relevance": "high",
+      "validation_priority": "P2"
+    },
+    "L6": {
+      "name": "statistical-baselines",
+      "description": "Empirical analysis, trading zones, latency distribution",
+      "bot_relevance": "critical",
+      "validation_priority": "P1"
+    },
+    "L7": {
+      "name": "advanced-analytics",
+      "description": "PRNG reverse engineering, Bayesian models, HMM, change-point detection",
+      "bot_relevance": "medium",
+      "validation_priority": "P2"
+    }
+  },
+  "validation_tiers": {
+    "canonical": {
+      "description": "Single source of truth, human approval required",
+      "auto_promote": false
+    },
+    "verified": {
+      "description": "Validated against empirical data",
+      "auto_promote": true
+    },
+    "reviewed": {
+      "description": "Human reviewed content",
+      "auto_promote": false
+    },
+    "theoretical": {
+      "description": "Needs validation against data before promotion",
+      "auto_promote": false
+    }
+  },
+  "priority_levels": {
+    "P0": "Critical - block deployment if missing",
+    "P1": "High - needed for production",
+    "P2": "Medium - enhances capabilities"
+  }
+}

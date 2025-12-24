@@ -1,0 +1,247 @@
+---
+layer: 2
+domain: protocol/browser
+priority: P0
+bot_relevant: true
+validation_tier: canonical
+source_file: "RAG SUPERPACK/CORE ARCHITECTURE/BROWSER_CONNECTION_PROTOCOL.md"
+cross_refs:
+  - L2-protocol/websocket-spec.md
+  - L2-protocol/events-index.md
+last_validated: 2025-12-24
+---
+
+# Rugs.fun Browser Connection Protocol
+
+> Complete guide for connecting to rugs.fun via Chrome DevTools Protocol (CDP)
+> Last updated: 2025-12-24
+
+---
+
+## Overview
+
+Rugs.fun requires browser-based authentication via Phantom wallet. To capture authenticated WebSocket events, we connect to Chrome via CDP (Chrome DevTools Protocol) rather than establishing a separate WebSocket connection.
+
+**Why CDP?**
+- Rugs.fun server only sends auth-required events (`usernameStatus`, `playerUpdate`) to authenticated clients
+- Browser maintains the authenticated WebSocket connection via Phantom wallet
+- CDP allows us to intercept WebSocket frames from the browser's connection
+- Captures ALL events (both public and authenticated)
+
+---
+
+## Connection Architecture
+
+```
+┌────────────────────────────────────────────────────────────────┐
+│                     CDP Connection Flow                        │
+├────────────────────────────────────────────────────────────────┤
+│                                                                │
+│  ┌─────────────┐   CDP    ┌──────────────────┐   WebSocket   │
+│  │  Your App   │◄────────►│  Chrome Browser  │◄──────────────►│
+│  │ (REPLAYER)  │  :9222   │  (rugs.fun tab)  │  wss://api...  │
+│  └─────────────┘          └──────────────────┘                │
+│                                  │                             │
+│                                  │ Phantom Extension           │
+│                                  ▼                             │
+│                           ┌──────────────┐                     │
+│                           │ Wallet Auth  │                     │
+│                           │ (Player ID)  │                     │
+│                           └──────────────┘                     │
+│                                                                │
+└────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## Critical Connection Parameters
+
+### CDP Configuration
+
+| Parameter | Value | Description |
+|-----------|-------|-------------|
+| **CDP Port** | `9222` | Chrome remote debugging port |
+| **Profile Path** | `/home/nomad/.gamebot/chrome_profiles/rugs_bot` | Persistent Chrome profile |
+| **Target URL** | `https://rugs.fun` | Game URL |
+| **WebSocket URL** | `wss://api.rugs.fun/socket.io/` | (Auto-detected by CDP) |
+
+### Profile Contents
+
+The persistent Chrome profile contains:
+- **Phantom Wallet Extension** - Pre-installed and configured
+- **Wallet Connection** - Already authenticated to rugs.fun
+- **Player Identity** - User "Dutch" (`did:privy:cmaibr7rt0094jp0mc2mbpfu4`)
+- **Cookies/LocalStorage** - Session persistence
+
+---
+
+## Starting Chrome with CDP
+
+### Command Line
+
+```bash
+google-chrome \
+  --remote-debugging-port=9222 \
+  --user-data-dir=/home/nomad/.gamebot/chrome_profiles/rugs_bot \
+  --no-first-run \
+  "https://rugs.fun"
+```
+
+### Parameters Explained
+
+| Flag | Purpose |
+|------|---------|
+| `--remote-debugging-port=9222` | Enable CDP server on port 9222 |
+| `--user-data-dir=<path>` | Use persistent profile (wallet, cookies) |
+| `--no-first-run` | Skip first-run wizard |
+| URL argument | Navigate to rugs.fun on startup |
+
+### Important Notes
+
+1. **Profile Lock**: Only ONE Chrome instance can use the profile at a time
+2. **Headless Not Recommended**: Wallet extensions often fail in headless mode
+3. **Port Conflicts**: Ensure port 9222 is available (not used by other Chrome instances)
+4. **Window Visibility**: Keep browser window visible for wallet interaction
+
+---
+
+## Verifying CDP Connection
+
+### Check CDP Server
+
+```bash
+# Get Chrome version and protocol info
+curl -s http://localhost:9222/json/version | jq .
+
+# Get all inspectable pages (tabs)
+curl -s http://localhost:9222/json/list | jq .
+```
+
+---
+
+## Event Interception Flow
+
+### 1. Connect to CDP
+
+```python
+from browser_automation.cdp_browser_manager import CDPBrowserManager
+
+manager = CDPBrowserManager(
+    profile_path="/home/nomad/.gamebot/chrome_profiles/rugs_bot",
+    cdp_port=9222
+)
+
+await manager.connect()
+```
+
+### 2. Enable Network Domain
+
+```python
+await manager.page.send("Network.enable")
+```
+
+### 3. Listen for WebSocket Frames
+
+```python
+async def on_websocket_frame(event):
+    if event['method'] == 'Network.webSocketFrameReceived':
+        payload = event['params']['response']['payloadData']
+        # Parse Socket.IO frame
+        parsed = SocketIOParser.parse(payload)
+        print(f"Event: {parsed['event_name']}, Data: {parsed['data']}")
+
+manager.page.on("Network.webSocketFrameReceived", on_websocket_frame)
+```
+
+### 4. Parse Socket.IO Frames
+
+Socket.IO uses Engine.IO protocol with message type prefixes:
+
+| Prefix | Type | Description |
+|--------|------|-------------|
+| `0` | OPEN | Connection handshake |
+| `2` | PING | Keep-alive ping |
+| `3` | PONG | Keep-alive pong |
+| `4` | MESSAGE | Socket.IO event |
+| `42` | EVENT | Socket.IO event (JSON array) |
+
+**Parsing**:
+```python
+# Strip "42" prefix
+json_str = payload[2:]
+# Parse JSON array: [event_name, data]
+event_name, data = json.loads(json_str)
+```
+
+---
+
+## Key Events to Monitor
+
+### Auth-Required Events (Why CDP is Necessary)
+
+| Event | Description | Typical Frequency |
+|-------|-------------|-------------------|
+| `usernameStatus` | Player identity confirmation | Once on connect |
+| `playerUpdate` | Server-side balance/position sync | Sporadic (after trades) |
+| `buyOrderResponse` | Buy trade confirmation | On action |
+| `sellOrderResponse` | Sell trade confirmation | On action |
+| `sidebetResponse` | Sidebet confirmation | On action |
+| `playerLeaderboardPosition` | 7-day leaderboard rank | Sporadic |
+
+### Public Events (Also Captured)
+
+| Event | Description | Frequency |
+|-------|-------------|-----------|
+| `gameStateUpdate` | Core game state | ~4/sec |
+| `gameStatePlayerUpdate` | Your leaderboard entry | ~4/sec |
+| `standard/newTrade` | Trade broadcasts | Sporadic |
+| `newChatMessage` | Chat messages | Sporadic |
+
+---
+
+## Troubleshooting
+
+### No WebSocket Events Received
+
+**Problem**: CDP connected but no `Network.webSocketFrameReceived` events
+
+**Solutions**:
+1. Verify Network domain enabled: `await page.send("Network.enable")`
+2. Check WebSocket connection in browser DevTools (Network → WS filter)
+3. Ensure rugs.fun tab is active (background tabs may throttle events)
+4. Refresh rugs.fun page to re-establish WebSocket connection
+
+### Auth Events Not Appearing
+
+**Problem**: Only seeing `gameStateUpdate`, no `usernameStatus` or `playerUpdate`
+
+**Root Cause**: Likely not authenticated or intercepting wrong WebSocket connection
+
+**Solutions**:
+1. Verify Phantom shows "Connected" on rugs.fun
+2. Check username appears in top-right corner of rugs.fun UI
+3. Manually place a trade and watch for `buyOrderResponse` event
+4. Verify intercepting correct WebSocket URL: `wss://api.rugs.fun/socket.io/`
+
+---
+
+## Quick Start Checklist
+
+For connecting to rugs.fun via CDP:
+
+- [ ] Chrome installed with version ≥120
+- [ ] Profile exists at `/home/nomad/.gamebot/chrome_profiles/rugs_bot`
+- [ ] Phantom wallet extension installed in profile
+- [ ] Wallet connected to rugs.fun (username visible)
+- [ ] Port 9222 available (no other Chrome instances)
+- [ ] Start Chrome with CDP flags: `--remote-debugging-port=9222`
+- [ ] Verify CDP server: `curl http://localhost:9222/json/version`
+- [ ] Connect to CDP WebSocket: `ws://localhost:9222/devtools/page/...`
+- [ ] Enable Network domain: `Network.enable`
+- [ ] Listen for `Network.webSocketFrameReceived` events
+- [ ] Parse Socket.IO frames: Strip `42` prefix, parse JSON array
+- [ ] Filter for auth events: `usernameStatus`, `playerUpdate`, trade responses
+
+---
+
+*Last updated: December 24, 2025 | Migrated to rugs-strategy knowledge base*

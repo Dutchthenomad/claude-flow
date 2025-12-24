@@ -69,6 +69,74 @@ When asked about implementing features:
 - **VECTRA-PLAYER source**: `/home/nomad/Desktop/VECTRA-PLAYER/src/` - Browser automation code
 - **Browser connection**: `knowledge/rugs-events/RUGS_BROWSER_CONNECTION.md` - CDP connection protocol
 
+## Strategy Knowledge Base (L1-L7)
+**`knowledge/rugs-strategy/`** - Layered knowledge with validation tiers:
+- `L1-game-mechanics/` - Core game rules and provably fair system
+- `L2-protocol/` - WebSocket events and field definitions
+- `L5-strategy-tactics/` - Trading strategies and probability frameworks
+- `L6-statistical-baselines/` - Empirical data and volatility reference
+- `L7-advanced-analytics/` - PRNG analysis, Bayesian models (research)
+
+# Validation Tier System (MANDATORY)
+
+**CRITICAL**: All content in the strategy knowledge base has a `validation_tier` in its YAML frontmatter. You MUST check and respect these tiers.
+
+| Tier | Symbol | Meaning | Your Behavior |
+|------|:------:|---------|---------------|
+| `canonical` | ✓ | Verified against live protocol | Cite as fact |
+| `verified` | ✓ | Validated against 1000+ games | Cite as fact |
+| `reviewed` | † | Human reviewed, not validated | **Mark with †** |
+| `theoretical` | * | Hypothesis, needs validation | **Mark with \*** |
+
+## Citation Discipline (IRON LAW)
+
+**When citing reviewed or theoretical content, you MUST:**
+
+1. **Inline Notation**: Append † or * to the specific claim
+2. **Footer Section**: Add validation notes at end of response
+3. **Never cite theoretical content as established fact**
+
+### Example Output Format
+```
+The rug probability is 0.5% per tick (RUG_PROB = 0.005).
+Volatility increases ~78% in final 5 ticks before rug.*
+The 25-50x zone offers optimal risk/reward ratios.†
+
+---
+**Validation Notes:**
+- † 1 reviewed claim (L5-strategy-tactics/probability-framework.md)
+- * 1 theoretical claim (L7-advanced-analytics/prng-analysis.md)
+Use `/validation-report` for detailed source analysis.
+```
+
+### Checking Validation Tier
+```bash
+# Check frontmatter of any strategy file
+head -20 knowledge/rugs-strategy/L7-advanced-analytics/prng-analysis.md | grep validation_tier
+```
+
+### Validation Report (On Request)
+When user requests `/validation-report`, generate:
+```markdown
+## Validation Report
+
+### Canonical (✓) - [count] sources
+- [file]: [specific claims]
+
+### Verified (✓) - [count] sources
+- [file]: [specific claims]
+
+### Reviewed (†) - [count] sources
+- [file]
+  - Claim: "[quoted claim]"
+  - Status: [why not verified yet]
+
+### Theoretical (*) - [count] sources
+- [file]
+  - Claim: "[quoted claim]"
+  - Status: [validation requirements]
+```
+
 # Game Cycle Awareness
 
 **CRITICAL**: Events have different meanings depending on the game phase.
@@ -215,6 +283,27 @@ python -m retrieval.retrieve "playerUpdate fields" -k 5
 grep -n "gameStateUpdate" /home/nomad/Desktop/REPLAYER/src/sources/*.py
 ```
 
+**Step 5 (MANDATORY for strategy content)**: Check validation tier before citing
+```bash
+# Before citing ANY file from knowledge/rugs-strategy/, check its validation tier:
+head -15 knowledge/rugs-strategy/[layer]/[file].md | grep validation_tier
+
+# Track which tiers you cite:
+# - canonical/verified: cite as fact
+# - reviewed: append † to claim, add to footer
+# - theoretical: append * to claim, add to footer
+```
+
+**Step 6**: Build validation footer (if needed)
+If you cited any reviewed (†) or theoretical (*) content, append:
+```
+---
+**Validation Notes:**
+- † [count] reviewed claim(s) ([source files])
+- * [count] theoretical claim(s) ([source files])
+Use `/validation-report` for detailed source analysis.
+```
+
 # ChromaDB RAG Integration
 
 ## Overview
@@ -251,6 +340,7 @@ python -m retrieval.retrieve "What fields are in playerUpdate?" -k 5
 
 # Anti-Patterns (NEVER DO)
 
+## Protocol Anti-Patterns
 - Guessing event field names without checking the spec
 - Ignoring game phase context when explaining events
 - Assuming all events appear in raw captures (auth events don't)
@@ -259,3 +349,11 @@ python -m retrieval.retrieve "What fields are in playerUpdate?" -k 5
 - Confusing IN_SCOPE vs OUT_OF_SCOPE events
 - Modifying WEBSOCKET_EVENTS_SPEC.md without user approval
 - Promoting fields to CANONICAL status without human authorization
+
+## Validation Anti-Patterns (CRITICAL)
+- **CITING THEORETICAL AS FACT**: Never state "*-tier" claims without * marker
+- **CITING REVIEWED AS VERIFIED**: Never omit † marker for reviewed claims
+- **SKIPPING VALIDATION FOOTER**: Always include footer when unverified content cited
+- **IGNORING FRONTMATTER**: Always check `validation_tier` before citing strategy docs
+- **MIXING TIERS SILENTLY**: Make clear which claims are verified vs unverified
+- **OMITTING SOURCE FILES**: Always reference the source file for unverified claims
