@@ -1,5 +1,5 @@
 # WebSocket Events Specification
-**rugs.fun Socket.IO Protocol** | **Version**: 2.0 | **Date**: December 18, 2025
+**rugs.fun Socket.IO Protocol** | **Version**: 2.1 | **Date**: December 24, 2025
 
 > **Canonical Source**: This is the single source of truth for rugs.fun protocol documentation.
 > All downstream formats (JSONL, JSON indexes, vector embeddings) are derived from this file.
@@ -31,6 +31,9 @@ This document provides a formal specification of all WebSocket events broadcast 
 | `usernameStatus` | **YES** | Once on connection (if logged in) |
 | `playerUpdate` | **YES** | After **server-side** trades only |
 | `playerLeaderboardPosition` | **YES** | Once on connection (if logged in) |
+| `currentSidebet` | **YES** | After YOUR sidebet placement |
+| `currentSidebetResult` | **YES** | When YOUR sidebet resolves (win/loss) |
+| `newSideBet` | No | When ANY player places a sidebet |
 
 **Key Insight**: If the user is not logged in with their Phantom wallet, `usernameStatus`, `playerUpdate`, and `playerLeaderboardPosition` will NOT be sent.
 
@@ -133,6 +136,9 @@ Which events fire during which phases:
 | `playerUpdate` | ❌ | ✅ | ✅ | ✅ | After trades settle |
 | `gameStatePlayerUpdate` | ❌ | ✅ | ✅ | ✅ | After trades settle |
 | `sidebetResponse` | ❌ | ❌ | ✅ | ❌ | Active phase only |
+| `currentSidebet` | ❌ | ✅ | ✅ | ❌ | After YOUR sidebet placement |
+| `currentSidebetResult` | ❌ | ❌ | ✅ | ❌ | After 40 ticks from placement |
+| `newSideBet` | ❌ | ✅ | ✅ | ❌ | Any player sidebet |
 | `buyOrder/sellOrder` | ❌ | ✅ | ✅ | ❌ | Trading phases only |
 | `newChatMessage` | ✅ | ✅ | ✅ | ✅ | Always |
 | `goldenHourUpdate` | ✅ | ✅ | ✅ | ✅ | During events |
@@ -531,30 +537,52 @@ Array of recent game summaries:
 **Scope**: IN_SCOPE
 **Priority**: P1
 **Phases**: PRESALE, ACTIVE
+**Validated**: December 24, 2025 (empirical capture)
 
 ```json
 {
+  "id": "trade-uuid-here",
+  "gameId": "20251224-71c79a83d9074b04",
   "playerId": "did:privy:cm3xxxxxxxxxxxxxx",
-  "type": "BUY",
+  "username": "TraderName",
+  "level": 15,
+  "type": "buy",
+  "qty": 0.001,
   "amount": 0.001,
   "price": 1.234,
+  "tickIndex": 42,
+  "coin": "solana",
+  "leverage": 1,
+  "bonusPortion": 0,
+  "realPortion": 0.001,
   "timestamp": 1765069123456
 }
 ```
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `playerId` | string | Trader's player ID |
-| `type` | string | `"BUY"` or `"SELL"` |
-| `amount` | float | Trade amount (SOL) |
-| `price` | float | Execution price |
-| `timestamp` | int | Server timestamp (ms) |
+| Field | Type | Example | Description |
+|-------|------|---------|-------------|
+| `id` | string | `"trade-uuid"` | Unique trade identifier |
+| `gameId` | string | `"20251224-..."` | Game identifier |
+| `playerId` | string | `"did:privy:..."` | Trader's player ID |
+| `username` | string | `"TraderName"` | Trader's display name |
+| `level` | int | `15` | Trader's level |
+| `type` | string | `"buy"` / `"sell"` | Trade direction (lowercase) |
+| `qty` | float | `0.001` | Position size (units) |
+| `amount` | float | `0.001` | Trade amount (SOL) |
+| `price` | float | `1.234` | Execution price |
+| `tickIndex` | int | `42` | Tick when executed |
+| `coin` | string | `"solana"` | Token type |
+| `leverage` | int | `1` | Leverage multiplier (1 = no leverage) |
+| `bonusPortion` | float | `0` | Bonus SOL used in trade |
+| `realPortion` | float | `0.001` | Real SOL used in trade |
+| `timestamp` | int | `1765069123456` | Server timestamp (ms) |
 
 **Use Case**:
 - Track all market activity
 - Whale trade alerts
 - Volume analysis
 - ML training data (other players' behavior)
+- Leverage position tracking
 
 ---
 
@@ -566,29 +594,120 @@ Array of recent game summaries:
 **Scope**: IN_SCOPE
 **Priority**: P0
 **Phases**: PRESALE, ACTIVE, RUGGED
+**Validated**: December 24, 2025 (empirical capture - 27 fields confirmed)
 
 ```json
 {
+  "id": "did:privy:cmaibr7rt0094jp0mc2mbpfu4",
   "cash": 3.967072345,
   "cumulativePnL": 0.264879755,
   "positionQty": 0.2222919,
   "avgCost": 1.259605046,
-  "totalInvested": 0.251352892
+  "totalInvested": 0.251352892,
+  "pnlPercent": 48.9,
+  "authenticated": true,
+  "sidebets": [...],
+  "sideBet": {...},
+  "sidebetPnl": -0.002,
+  "shortPosition": null,
+  "levelInfo": {...},
+  "bonusBalance": 0.05,
+  "bonusWagerReq": 0.10,
+  "bonusWagered": 0.03,
+  "hasInteracted": true,
+  "selectedCoin": "solana",
+  "autobuysEnabled": false,
+  "autosellPrice": null,
+  "hitMaxWin": false,
+  "leveragedPositions": [],
+  "shitcoinBalances": {},
+  "role": null,
+  "xpBoost": 1.0,
+  "crateKeys": 3,
+  "recentCrateRewards": []
 }
 ```
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `cash` | float | **TRUE wallet balance** |
-| `cumulativePnL` | float | Total PnL this game |
-| `positionQty` | float | Current position size |
-| `avgCost` | float | Average entry price |
-| `totalInvested` | float | Total invested this game |
+#### P0 Fields - Core Trading (Critical)
+
+| Field | Type | Example | Description |
+|-------|------|---------|-------------|
+| `cash` | float | `3.967` | **TRUE wallet balance** (SOL) |
+| `cumulativePnL` | float | `0.265` | Total PnL this game |
+| `positionQty` | float | `0.222` | Current position size |
+| `avgCost` | float | `1.26` | Average entry price (VWAP) |
+| `totalInvested` | float | `0.251` | Total invested this game |
+
+#### P0 Fields - Sidebet State (Critical)
+
+| Field | Type | Example | Description |
+|-------|------|---------|-------------|
+| `id` | string | `"did:privy:..."` | Player's DID identity |
+| `sidebets` | array | `[{...}]` | **ALL active sidebets** |
+| `sideBet` | object/null | `{...}` | Current/most recent sidebet |
+| `sidebetPnl` | float | `-0.002` | Cumulative sidebet P&L |
+
+**`sidebets` array structure**:
+```json
+[
+  {
+    "gameId": "20251224-71c79a83d9074b04",
+    "betAmount": 0.001,
+    "xPayout": 5,
+    "startTick": 0,
+    "endTick": 40
+  }
+]
+```
+
+#### P1 Fields - Trading & Account State (High Priority)
+
+| Field | Type | Example | Description |
+|-------|------|---------|-------------|
+| `shortPosition` | object/null | `{qty, avgCost, ...}` | Active short position *(new feature - needs UI integration)* |
+| `pnlPercent` | float | `48.9` | Current PnL as percentage |
+| `authenticated` | bool | `true` | Wallet connection status |
+| `levelInfo` | object | `{...}` | Player level/XP progression |
+
+**`levelInfo` structure**:
+```json
+{
+  "level": 7,
+  "xp": 683,
+  "xpForNextLevel": 1500,
+  "totalXP": 4183
+}
+```
+
+#### P2 Fields - Medium Priority
+
+| Field | Type | Example | Description |
+|-------|------|---------|-------------|
+| `bonusBalance` | float | `0.05` | Promotional bonus balance (player retention, not used by bots) |
+| `bonusWagerReq` | float | `0.10` | Wagering requirement to unlock bonus |
+| `bonusWagered` | float | `0.03` | Progress toward bonus unlock |
+| `hasInteracted` | bool | `true` | Has placed any trades this session |
+| `selectedCoin` | string/null | `"solana"` | Practice token selection (for learning + Rug Royale tournaments) |
+| `autobuysEnabled` | bool | `false` | Auto-pilot buy feature (casual players, not used by bots) |
+| `autosellPrice` | float/null | `2.5` | Auto-pilot sell trigger (casual players, not used by bots) |
+| `hitMaxWin` | bool | `false` | Whether player hit per-game max win cap |
+| `leveragedPositions` | array | `[...]` | Active leveraged positions |
+| `shitcoinBalances` | object | `{...}` | Practice token balances (for learning + tournaments) |
+
+#### P3 Fields - Gamification (Low Priority)
+
+| Field | Type | Example | Description |
+|-------|------|---------|-------------|
+| `role` | string/null | `null` | Admin role (null for regular players) |
+| `xpBoost` | float | `1.5` | XP multiplier (promotional) |
+| `crateKeys` | int | `3` | Loot crate keys owned |
+| `recentCrateRewards` | array | `[...]` | Recent loot crate rewards |
 
 **Use Case**:
 - **Critical for verification layer**
 - Compare local `balance` calculation vs server `cash`
 - Compare local position vs server `positionQty`
+- Track sidebet state via `sidebets` array and `sidebetPnl`
 - Detect calculation drift
 
 ---
@@ -663,7 +782,145 @@ Same fields as leaderboard entry above, but specifically for the authenticated p
 
 ---
 
-### 8. Other Events
+### 8. `currentSidebet` (Sidebet Placement Confirmation) ✅ VERIFIED
+
+**Frequency**: After YOUR sidebet placement
+**Purpose**: Server confirms sidebet was accepted
+**Auth Required**: Yes
+**Scope**: IN_SCOPE
+**Priority**: P1
+**Phases**: PRESALE, ACTIVE
+**Validated**: December 24, 2025 (19 occurrences in empirical capture)
+
+```json
+{
+  "playerId": "did:privy:cmaibr7rt0094jp0mc2mbpfu4",
+  "gameId": "20251224-71c79a83d9074b04",
+  "username": "Dutch",
+  "level": 7,
+  "price": 1,
+  "betAmount": 0.001,
+  "xPayout": 5,
+  "coinAddress": "So11111111111111111111111111111111111111112",
+  "endTick": 40,
+  "startTick": 0,
+  "tickIndex": 0,
+  "timestamp": 1766591720857,
+  "type": "placed"
+}
+```
+
+| Field | Type | Example | Description |
+|-------|------|---------|-------------|
+| `playerId` | string | `"did:privy:..."` | Your player DID |
+| `gameId` | string | `"20251224-..."` | Current game |
+| `username` | string | `"Dutch"` | Your username |
+| `level` | int | `7` | Your level |
+| `betAmount` | float | `0.001` | SOL wagered |
+| `xPayout` | int | `5` | Always 5x multiplier |
+| `price` | float | `1.0` | Price when placed |
+| `coinAddress` | string | `"So111..."` | Token address |
+| `startTick` | int | `0` | Sidebet window start |
+| `endTick` | int | `40` | Sidebet window end (startTick + 40) |
+| `tickIndex` | int | `0` | Current tick when placed |
+| `timestamp` | int | `1766591720857` | Server timestamp (ms) |
+| `type` | string | `"placed"` | Always "placed" for confirmations |
+
+**Use Case**:
+- Confirm sidebet placement was accepted by server
+- Track sidebet window (startTick → endTick)
+- Bot action confirmation loop
+- Latency measurement
+
+---
+
+### 9. `currentSidebetResult` (Sidebet Resolution) ✅ VERIFIED
+
+**Frequency**: ~13-14 seconds after placement (40 ticks)
+**Purpose**: Server reports sidebet win/loss and payout
+**Auth Required**: Yes
+**Scope**: IN_SCOPE
+**Priority**: P1
+**Phases**: ACTIVE
+**Validated**: December 24, 2025 (19 occurrences in empirical capture)
+
+```json
+{
+  "playerId": "did:privy:cmaibr7rt0094jp0mc2mbpfu4",
+  "gameId": "20251224-71c79a83d9074b04",
+  "username": "Dutch",
+  "level": 7,
+  "betAmount": 0.001,
+  "payout": 0.005,
+  "profit": 0.004,
+  "xPayout": 5,
+  "coinAddress": "So11111111111111111111111111111111111111112",
+  "endTick": 40,
+  "startTick": 0,
+  "tickIndex": 28,
+  "price": 0.0196566440891481,
+  "timestamp": 1766591734291,
+  "type": "payout"
+}
+```
+
+| Field | Type | Example | Description |
+|-------|------|---------|-------------|
+| `payout` | float | `0.005` | Total returned (5x bet on win, 0 on loss) |
+| `profit` | float | `0.004` | Net profit (payout - betAmount) |
+| `tickIndex` | int | `28` | Tick when resolved |
+| `price` | float | `0.0196...` | Price at resolution tick |
+| `type` | string | `"payout"` | Always "payout" for results |
+| *(+ all fields from `currentSidebet`)* | | | |
+
+**Latency Observed**:
+- Placement → Result: ~13-14 seconds (40 ticks × ~250ms + processing)
+
+**Use Case**:
+- Accurate sidebet P&L tracking
+- Win/loss determination
+- Reward calculation for RL training
+
+---
+
+### 10. `newSideBet` (Other Players' Sidebets) ✅ VERIFIED
+
+**Frequency**: When ANY player places a sidebet
+**Purpose**: Broadcast sidebet activity to all clients
+**Auth Required**: No
+**Scope**: IN_SCOPE
+**Priority**: P2
+**Phases**: PRESALE, ACTIVE
+**Validated**: December 24, 2025 (34 occurrences in empirical capture)
+
+```json
+{
+  "playerId": "did:privy:cmfoi1a3m007ol80b8hts2atu",
+  "gameId": "20251224-d1e99a53500244e1",
+  "username": "B31",
+  "level": 35,
+  "price": 0.06206866697682252,
+  "betAmount": 0.01,
+  "xPayout": 5,
+  "coinAddress": "So11111111111111111111111111111111111111112",
+  "endTick": 326,
+  "startTick": 286,
+  "tickIndex": 286,
+  "timestamp": 1766591654448,
+  "type": "placed"
+}
+```
+
+Same fields as `currentSidebet` but for other players.
+
+**Use Case**:
+- Track sidebet volume/sentiment in real-time
+- Potential signal: high sidebet activity = market confidence
+- Analytics for strategy development
+
+---
+
+### 11. Other Events
 
 Events documented but currently lower priority for implementation:
 
@@ -676,6 +933,17 @@ Events documented but currently lower priority for implementation:
 | `globalSidebets` | No | FUTURE | P2 | ACTIVE | All active sidebets |
 | `goldenHourUpdate` | No | OUT_OF_SCOPE | P3 | All | Lottery event updates |
 | `goldenHourDrawing` | No | OUT_OF_SCOPE | P3 | All | Lottery drawing results |
+| `sidebetEventUpdate` | No | OUT_OF_SCOPE | P3 | All | Sidebet tournament scheduling 🔬 |
+| `pinpointPartyEventUpdate` | No | OUT_OF_SCOPE | P3 | All | Unknown game mode (investigate) 🔬 |
+| `diddyPartyUpdate` | No | OUT_OF_SCOPE | P3 | All | Unknown game mode (investigate) 🔬 |
+| `getLeaderboard` | No | OUT_OF_SCOPE | P3 | All | Client→Server leaderboard request 🔬 |
+| `getPlayerLeaderboardPosition` | No | OUT_OF_SCOPE | P3 | All | Client→Server rank request 🔬 |
+| `leaderboardData` | No | OUT_OF_SCOPE | P3 | All | Server→Client leaderboard response 🔬 |
+| `rugpassQuestCompleted` | Yes | OUT_OF_SCOPE | P3 | All | Quest completion notification |
+
+**🔬 = Flagged for future research** (post-core-bot deployment):
+- **Game mode events**: Potential expanded profit opportunities (sidebet tournaments, parties)
+- **Leaderboard events**: Higher-order ML/RL features from player behavior analytics
 
 ---
 
@@ -768,10 +1036,14 @@ Events documented but currently lower priority for implementation:
 |------|-----------------|-------|
 | Dec 6, 2025 | `gameStateUpdate` | Initial discovery, 200 samples |
 | Dec 9, 2025 | `usernameStatus`, `playerLeaderboardPosition`, `gameStateUpdate` | Live verification, auth requirements confirmed |
+| Dec 24, 2025 | `currentSidebet`, `currentSidebetResult`, `newSideBet` | Sidebet events CANONICAL (23,194 events, 11 games) |
+| Dec 24, 2025 | `playerUpdate` (22 new fields) | Expanded from 5→27 fields |
+| Dec 24, 2025 | `standard/newTrade` (14 fields) | Complete field enumeration |
+| Dec 24, 2025 | 7 OUT_OF_SCOPE events | Game modes + leaderboard queries |
 
 ---
 
-*Last updated: December 18, 2025 | Version 2.0*
+*Last updated: December 24, 2025 | Version 2.1*
 
 ---
 

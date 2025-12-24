@@ -79,5 +79,8 @@ knowledge/RAG SUPERPACK/
 # Under review content (not yet canonical)
 knowledge/rugs-events/UNDER REVIEW FOR CANNON STATUS/
 
+# Large raw capture files (>100MB GitHub limit)
+knowledge/rugs-events/captures/*/raw_captures/*.jsonl
+
 # Cloned MCP servers
 mcp-server/talk-to-figma-mcp-server-repo-clone/

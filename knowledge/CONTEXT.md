@@ -3,11 +3,43 @@
 ## Purpose
 Repository of scraped and curated documentation. This is the **source material** that feeds into the RAG pipeline.
 
+**claude-flow OWNS this knowledge base.** All protocol documentation, empirical validation, and agent knowledge lives here.
+
 ## Contents
-| Folder | Description |
-|--------|-------------|
-| `anthropic-docs/` | Official Claude Code and Anthropic documentation |
-| `rugs-events/` | Rugs.fun WebSocket protocol and CDP connection docs |
+| Folder | Description | Owner |
+|--------|-------------|-------|
+| `anthropic-docs/` | Official Claude Code and Anthropic documentation | claude-flow |
+| `rugs-events/` | Rugs.fun WebSocket protocol, CDP connection, empirical validation | claude-flow |
+| `rugs-strategy/` | Trading strategies, probability models, PRNG analysis (L1-L7 layers) | claude-flow |
+
+## Rugs.fun Knowledge Structure
+
+```
+rugs-events/
+├── WEBSOCKET_EVENTS_SPEC.md     # CANONICAL protocol documentation
+├── CONTEXT.md                    # CANONICAL PROMOTION LAWS
+├── staging/                      # Pre-ingestion empirical validation
+│   └── YYYY-MM-DD-description/   # Capture packages awaiting review
+└── captures/                     # Archived validated captures
+
+rugs-strategy/
+├── L1-game-mechanics/            # Core game rules
+├── L2-protocol/                  # Event schemas, confirmation mapping
+├── L5-strategy-tactics/          # Trading strategies
+├── L6-statistical-baselines/     # Empirical data
+└── L7-advanced-analytics/        # PRNG, Bayesian models (theoretical)
+```
+
+## Cross-Repository Coordination
+
+| Data Source | Owner | Consumers |
+|-------------|-------|-----------|
+| Parquet files (`~/rugs_data/`) | VECTRA-PLAYER writes | claude-flow, rugs-rl-bot read |
+| Protocol spec | **claude-flow** | VECTRA-PLAYER, rugs-rl-bot |
+| ChromaDB vectors | **claude-flow** | rugs-expert agent |
+| ML models | rugs-rl-bot | VECTRA-PLAYER (future) |
+
+See VECTRA-PLAYER's `docs/CROSS_REPO_COORDINATION.md` for full integration details.
 
 ## Planned Content
 - Claude Code documentation (complete)
