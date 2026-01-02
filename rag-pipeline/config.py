@@ -16,6 +16,8 @@ KNOWLEDGE_PATHS = [
     PROJECT_ROOT / "skills",
     # Rugs.fun WebSocket event knowledge
     PROJECT_ROOT / "knowledge" / "rugs-events",
+    # Rugs.fun game strategy & mechanics
+    PROJECT_ROOT / "knowledge" / "rugs-strategy",
 ]
 
 # Raw WebSocket captures (indexed separately with event_chunker)
@@ -49,8 +51,8 @@ INCLUDE_PATTERNS = ["*.md", "*.py", "*.yaml", "*.yml", "*.json"]
 JSONL_PATTERNS = ["*.jsonl"]
 
 # Chunking settings
-CHUNK_SIZE = 512  # tokens
-CHUNK_OVERLAP = 50  # tokens
+CHUNK_SIZE = 256  # tokens (reduced from 512 for better retrieval precision)
+CHUNK_OVERLAP = 64  # tokens (increased from 50 for better context preservation)
 
 # Embedding model
 EMBEDDING_MODEL = "all-MiniLM-L6-v2"  # 384 dimensions, fast

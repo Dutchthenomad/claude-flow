@@ -99,20 +99,30 @@ def chunk_markdown(
     chunk_overlap: int = 50,
 ) -> Iterator[Chunk]:
     """Chunk markdown with header context preservation.
-    
-    Tracks markdown headers and includes them in chunk metadata.
+
+    Tracks markdown headers and PREPENDS them to chunk text for better retrieval.
+    Headers are also stored in metadata for reference.
     """
     lines = text.split('\n')
     current_chunk_lines = []
     current_tokens = 0
     line_start = 1
     current_headers = []  # Stack of (level, text) tuples
-    
+
     header_pattern = re.compile(r'^(#{1,6})\s+(.+)$')
-    
+
+    def _build_chunk_text(chunk_lines: list, headers: list) -> str:
+        """Build chunk text with header context prepended."""
+        header_names = [h[1] for h in headers]
+        if header_names:
+            # Prepend header breadcrumb for better semantic search
+            header_prefix = "[" + " > ".join(header_names) + "]\n\n"
+            return header_prefix + '\n'.join(chunk_lines)
+        return '\n'.join(chunk_lines)
+
     for i, line in enumerate(lines, 1):
         line_tokens = count_tokens(line)
-        
+
         # Track headers
         match = header_pattern.match(line)
         if match:
@@ -121,17 +131,18 @@ def chunk_markdown(
             # Pop headers at same or lower level
             current_headers = [(l, t) for l, t in current_headers if l < level]
             current_headers.append((level, header_text))
-        
+
         if current_tokens + line_tokens > chunk_size and current_chunk_lines:
-            # Yield current chunk with header context
+            # Yield current chunk with header context PREPENDED
+            chunk_text = _build_chunk_text(current_chunk_lines, current_headers)
             yield Chunk(
-                text='\n'.join(current_chunk_lines),
+                text=chunk_text,
                 source=source,
                 line_start=line_start,
                 line_end=i - 1,
                 headers=[h[1] for h in current_headers],
             )
-            
+
             # Keep overlap lines
             overlap_lines = []
             overlap_tokens = 0
@@ -142,18 +153,19 @@ def chunk_markdown(
                     overlap_tokens += ol_tokens
                 else:
                     break
-            
+
             current_chunk_lines = overlap_lines
             current_tokens = overlap_tokens
             line_start = i - len(overlap_lines)
-        
+
         current_chunk_lines.append(line)
         current_tokens += line_tokens
-    
-    # Yield final chunk
+
+    # Yield final chunk with header context PREPENDED
     if current_chunk_lines:
+        chunk_text = _build_chunk_text(current_chunk_lines, current_headers)
         yield Chunk(
-            text='\n'.join(current_chunk_lines),
+            text=chunk_text,
             source=source,
             line_start=line_start,
             line_end=len(lines),

@@ -1,0 +1,215 @@
+{
+  "version": "3.0",
+  "date": "2025-12-28",
+  "fields": {
+    "gameStateUpdate": {
+      "P0_critical": {
+        "gameId": {"type": "string", "example": "20251228-f234bf1d33b84631"},
+        "active": {"type": "boolean", "example": true},
+        "price": {"type": "float", "example": 0.0125},
+        "rugged": {"type": "boolean", "example": false},
+        "tickCount": {"type": "int", "example": 142},
+        "leaderboard": {"type": "array", "description": "Top 10 players"},
+        "gameHistory": {"type": "array", "description": "Recent game results (server-side collection)"}
+      },
+      "P1_high": {
+        "cooldownTimer": {"type": "int", "example": 14900},
+        "allowPreRoundBuys": {"type": "boolean", "example": false},
+        "connectedPlayers": {"type": "int", "example": 200},
+        "provablyFair": {"type": "object", "description": "Server seed hash for verification"},
+        "partialPrices": {"type": "object", "description": "Price history window"},
+        "highestTodayPrices": {"type": "array", "description": "Top 3 prices today"}
+      },
+      "P2_medium": {
+        "pauseMessage": {"type": "string"},
+        "gameVersion": {"type": "string", "example": "v3"},
+        "highestTodayTimestamp": {"type": "int", "description": "Timestamp of highest price"}
+      }
+    },
+    "standard/newTrade": {
+      "P0_critical": {
+        "id": {"type": "string", "example": "9111d2c8-..."},
+        "gameId": {"type": "string", "example": "20251228-..."},
+        "playerId": {"type": "string", "example": "did:privy:..."},
+        "type": {"type": "string", "enum": ["buy", "sell"]},
+        "price": {"type": "float", "example": 0.831},
+        "qty": {"type": "float", "example": 0.001384584},
+        "tickIndex": {"type": "int", "example": 16},
+        "amount": {"type": "float", "example": 0.001}
+      },
+      "P1_high": {
+        "username": {"type": "string"},
+        "level": {"type": "int"},
+        "coin": {"type": "string", "example": "solana"},
+        "bonusPortion": {"type": "float"},
+        "realPortion": {"type": "float"},
+        "leverage": {"type": "int", "default": 1}
+      },
+      "P2_medium": {
+        "__trace": {"type": "boolean"},
+        "traceparent": {"type": "string", "description": "Distributed tracing header"}
+      }
+    },
+    "playerUpdate": {
+      "P0_identity": {
+        "id": {"type": "string", "example": "did:privy:..."},
+        "role": {"type": "string", "nullable": true},
+        "authenticated": {"type": "boolean"}
+      },
+      "P0_trading": {
+        "cash": {"type": "float", "example": 0.123},
+        "cumulativePnL": {"type": "float"},
+        "positionQty": {"type": "float"},
+        "avgCost": {"type": "float", "description": "Weighted average entry price"},
+        "totalInvested": {"type": "float"}
+      },
+      "P1_positions": {
+        "pnlPercent": {"type": "float"},
+        "sidebetPnl": {"type": "float"},
+        "shortPosition": {"type": "object", "nullable": true},
+        "leveragedPositions": {"type": "array"},
+        "sidebets": {"type": "array"}
+      },
+      "P1_config": {
+        "autobuysEnabled": {"type": "boolean"},
+        "autosellPrice": {"type": "float", "nullable": true},
+        "hasInteracted": {"type": "boolean"},
+        "hitMaxWin": {"type": "boolean"}
+      },
+      "P2_bonus": {
+        "bonusBalance": {"type": "float"},
+        "bonusWagerReq": {"type": "float"},
+        "shitcoinBalances": {"type": "object"}
+      },
+      "P3_gamification": {
+        "levelInfo": {"type": "object"},
+        "xpBoost": {"type": "float"},
+        "crateKeys": {"type": "int"},
+        "recentCrateRewards": {"type": "array"}
+      }
+    },
+    "gameStatePlayerUpdate": {
+      "P0_critical": {
+        "gameId": {"type": "string", "description": "Container-level game ID"},
+        "leaderboardEntry": {"type": "object", "description": "Player's leaderboard data"},
+        "rugpool": {"type": "object", "description": "Rugpool state and entries"}
+      },
+      "leaderboardEntry_fields": {
+        "id": {"type": "string"},
+        "username": {"type": "string"},
+        "level": {"type": "int"},
+        "pnl": {"type": "float"},
+        "regularPnl": {"type": "float"},
+        "sidebetPnl": {"type": "float"},
+        "shortPnl": {"type": "float"},
+        "pnlPercent": {"type": "float"},
+        "positionQty": {"type": "float"},
+        "avgCost": {"type": "float"},
+        "totalInvested": {"type": "float"},
+        "position": {"type": "int", "description": "Leaderboard rank"}
+      },
+      "rugpool_fields": {
+        "instarugCount": {"type": "int"},
+        "rugpoolAmount": {"type": "float"},
+        "totalEntries": {"type": "int"},
+        "threshold": {"type": "int"},
+        "playerEntries": {"type": "array"}
+      }
+    },
+    "goldenHourUpdate": {
+      "P1_status": {
+        "status": {"type": "string", "enum": ["ACTIVE", "INACTIVE", "SCHEDULED"]},
+        "currentGameIsGolden": {"type": "boolean"},
+        "activeEventId": {"type": "string", "nullable": true}
+      },
+      "P1_config": {
+        "prizeAmount": {"type": "float", "example": 0.05},
+        "maxEntries": {"type": "int", "example": 50},
+        "durationMinutes": {"type": "int", "example": 60},
+        "levelRequired": {"type": "int", "example": 10}
+      },
+      "P2_schedule": {
+        "currentEvent": {"type": "object"},
+        "upcomingEvents": {"type": "array"},
+        "events": {"type": "array"}
+      }
+    },
+    "currentSidebet": {
+      "P1_sidebet": {
+        "gameId": {"type": "string"},
+        "startTick": {"type": "int"},
+        "endTick": {"type": "int"},
+        "betAmount": {"type": "float"},
+        "xPayout": {"type": "int", "example": 5},
+        "coinAddress": {"type": "string"},
+        "bonusPortion": {"type": "float"},
+        "realPortion": {"type": "float"}
+      }
+    },
+    "currentSidebetResult": {
+      "P1_result": {
+        "outcome": {"type": "string", "enum": ["win", "loss"]},
+        "payout": {"type": "float"},
+        "rugTick": {"type": "int"},
+        "endTick": {"type": "int"},
+        "multiplier": {"type": "float"}
+      }
+    },
+    "success": {
+      "trade_variant": {
+        "ok": {"type": "boolean"},
+        "message": {"type": "string"},
+        "tradeId": {"type": "string"}
+      },
+      "sidebet_variant": {
+        "ok": {"type": "boolean"},
+        "betAmount": {"type": "float"},
+        "endTick": {"type": "int"}
+      }
+    }
+  },
+  "behavioral_patterns": {
+    "position_opening_sequence": {
+      "priority": "P0",
+      "events": ["buyOrder", "success", "standard/newTrade", "playerUpdate", "gameStatePlayerUpdate"],
+      "description": "Complete trade execution flow"
+    },
+    "buy_sell_flow": {
+      "priority": "P0",
+      "events": ["buyOrder/sellOrder", "success", "standard/newTrade"],
+      "timing": "20-50ms typical"
+    },
+    "sidebet_flow": {
+      "priority": "P1",
+      "events": ["requestSidebet", "success", "currentSidebet"],
+      "timing": "Similar to buy flow"
+    },
+    "forced_rug_liquidation": {
+      "priority": "P0",
+      "description": "Position auto-closed when rugged=true, before active:false"
+    },
+    "presale_entry_rejection": {
+      "priority": "P0",
+      "description": "Sidebet requests rejected in PRESALE with allowPreRoundBuys=false"
+    },
+    "delayed_active_false": {
+      "priority": "P0",
+      "description": "~2 second delay after rug before active:false",
+      "critical_note": "Don't rely on active:false for rug detection"
+    },
+    "avgCost_calculation": {
+      "priority": "P0",
+      "formula": "(old_qty * old_price + new_qty * new_price) / total_qty",
+      "description": "Weighted average entry price"
+    },
+    "golden_hour_meta_effect": {
+      "priority": "P1",
+      "description": "Games are shorter and more predictable during Golden Hour"
+    },
+    "empty_ack_pattern": {
+      "priority": "P2",
+      "format": "43XXXY[]",
+      "description": "Server confirms receipt without payload"
+    }
+  }
+}

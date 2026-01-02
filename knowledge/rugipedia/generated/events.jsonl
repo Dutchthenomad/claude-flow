@@ -1,0 +1,21 @@
+{"event": "gameStateUpdate", "direction": "server_to_client", "category": "GAME_STATE", "priority": "P0", "description": "Primary game tick event with complete game state", "fields_count": 36}
+{"event": "gameStatePlayerUpdate", "direction": "server_to_client", "category": "PLAYER_STATE", "priority": "P0", "description": "Player-specific position and stats update (container with gameId, leaderboardEntry, rugpool)", "fields_count": 25}
+{"event": "playerUpdate", "direction": "server_to_client", "category": "PLAYER_STATE", "priority": "P0", "description": "Complete player state including trading config, positions, balances, gamification", "fields_count": 30}
+{"event": "standard/newTrade", "direction": "server_to_client", "category": "TRADING_EVENT", "priority": "P0", "description": "Trade broadcast with full transaction details", "fields_count": 16}
+{"event": "buyOrder", "direction": "client_to_server", "category": "TRADING_ACTION", "priority": "P0", "description": "User BUY request (main or both)", "fields_count": 4}
+{"event": "sellOrder", "direction": "client_to_server", "category": "TRADING_ACTION", "priority": "P0", "description": "User SELL request (main or both)", "fields_count": 4}
+{"event": "requestSidebet", "direction": "client_to_server", "category": "SIDEBET_ACTION", "priority": "P1", "description": "User sidebet placement request", "fields_count": 5}
+{"event": "currentSidebet", "direction": "server_to_client", "category": "SIDEBET_EVENT", "priority": "P1", "description": "Sidebet confirmation with parameters", "fields_count": 8}
+{"event": "currentSidebetResult", "direction": "server_to_client", "category": "SIDEBET_EVENT", "priority": "P1", "description": "Sidebet payout notification", "fields_count": 6}
+{"event": "success", "direction": "server_to_client", "category": "SYSTEM_ACK", "priority": "P0", "description": "ACK response to client requests (trade or sidebet variant)", "fields_count": 3}
+{"event": "ping", "direction": "bidirectional", "category": "SYSTEM_HEARTBEAT", "priority": "P2", "description": "Socket.IO heartbeat mechanism", "fields_count": 0}
+{"event": "goldenHourUpdate", "direction": "server_to_client", "category": "SPECIAL_EVENT", "priority": "P1", "description": "Golden Hour status and state updates", "fields_count": 8}
+{"event": "goldenHourDrawing", "direction": "server_to_client", "category": "SPECIAL_EVENT", "priority": "P1", "description": "Golden Hour raffle drawing results", "fields_count": 7}
+{"event": "rugPassQuestCompleted", "direction": "server_to_client", "category": "GAMIFICATION", "priority": "P2", "description": "Quest completion notification", "fields_count": 3}
+{"event": "usernameStatus", "direction": "server_to_client", "category": "IDENTITY", "priority": "P2", "description": "Username validation response", "fields_count": 2}
+{"event": "playerLeaderboardPosition", "direction": "server_to_client", "category": "PLAYER_STATE", "priority": "P1", "description": "Player's leaderboard position", "fields_count": 4}
+{"event": "newChatMessage", "direction": "server_to_client", "category": "SOCIAL", "priority": "P3", "description": "Chat message broadcast", "fields_count": 10}
+{"event": "rugRoyaleUpdate", "direction": "server_to_client", "category": "SPECIAL_EVENT", "priority": "P3", "description": "Rug Royale mode status (OUT_OF_SCOPE)", "fields_count": 12}
+{"event": "battleEventUpdate", "direction": "server_to_client", "category": "SPECIAL_EVENT", "priority": "P3", "description": "Battle mode status (OUT_OF_SCOPE)", "fields_count": 10}
+{"event": "rugpoolDrawing", "direction": "server_to_client", "category": "SPECIAL_EVENT", "priority": "P2", "description": "Rugpool lottery drawing", "fields_count": 6}
+{"event": "rugpoolStatus", "direction": "server_to_client", "category": "SPECIAL_EVENT", "priority": "P2", "description": "Rugpool status update", "fields_count": 8}

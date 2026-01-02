@@ -90,9 +90,9 @@ python -m ingestion.ingest --source rugs-spec
 
 | Project | Location | How It Uses This |
 |---------|----------|------------------|
-| **REPLAYER** | `/home/nomad/Desktop/REPLAYER/` | Event handling implementation |
+| **VECTRA-PLAYER** | `/home/nomad/Desktop/VECTRA-PLAYER/` | Primary development codebase |
+| **REPLAYER** | `/home/nomad/Desktop/REPLAYER/` | Legacy/production system |
 | **rugs-rl-bot** | `/home/nomad/Desktop/rugs-rl-bot/` | RL environment design |
-| **VECTRA-PLAYER** | `/home/nomad/Desktop/VECTRA-PLAYER/` | References (source deleted) |
 | **rugs-expert agent** | `agents/rugs-expert.md` | Answers protocol questions |
 
 ## Data Sources

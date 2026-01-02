@@ -1,0 +1,125 @@
+{
+  "version": "3.0",
+  "date": "2025-12-28",
+  "priorities": {
+    "P0": {
+      "label": "Critical",
+      "description": "Core trading functionality - must implement",
+      "events": [
+        "gameStateUpdate",
+        "gameStatePlayerUpdate",
+        "playerUpdate",
+        "standard/newTrade",
+        "buyOrder",
+        "sellOrder",
+        "success"
+      ],
+      "fields": {
+        "gameStateUpdate": ["gameId", "active", "price", "rugged", "tickCount", "leaderboard", "gameHistory"],
+        "gameStatePlayerUpdate": ["gameId", "leaderboardEntry", "rugpool"],
+        "playerUpdate": ["id", "cash", "cumulativePnL", "positionQty", "avgCost", "totalInvested", "authenticated"],
+        "standard/newTrade": ["id", "gameId", "playerId", "type", "price", "qty", "tickIndex", "amount"]
+      }
+    },
+    "P1": {
+      "label": "High",
+      "description": "Important for full experience - should implement",
+      "events": [
+        "requestSidebet",
+        "currentSidebet",
+        "currentSidebetResult",
+        "goldenHourUpdate",
+        "goldenHourDrawing",
+        "playerLeaderboardPosition"
+      ],
+      "fields": {
+        "playerUpdate": ["pnlPercent", "sidebetPnl", "shortPosition", "leveragedPositions", "sidebets", "autobuysEnabled", "autosellPrice"],
+        "goldenHourUpdate": ["status", "currentGameIsGolden", "activeEventId", "prizeAmount", "entries"]
+      }
+    },
+    "P2": {
+      "label": "Medium",
+      "description": "Nice to have features",
+      "events": [
+        "ping",
+        "rugPassQuestCompleted",
+        "usernameStatus",
+        "rugpoolDrawing",
+        "rugpoolStatus"
+      ],
+      "fields": {
+        "playerUpdate": ["bonusBalance", "bonusWagerReq", "shitcoinBalances"],
+        "gameStatePlayerUpdate": ["rugpool.instarugCount", "rugpool.rugpoolAmount", "rugpool.threshold"]
+      }
+    },
+    "P3": {
+      "label": "Low",
+      "description": "Out of scope game modes",
+      "events": [
+        "newChatMessage",
+        "rugRoyaleUpdate",
+        "battleEventUpdate"
+      ],
+      "fields": {
+        "playerUpdate": ["levelInfo", "xpBoost", "crateKeys", "recentCrateRewards"]
+      }
+    }
+  },
+  "categories": {
+    "TRADING_ACTION": {
+      "description": "User trade requests",
+      "direction": "client_to_server",
+      "events": ["buyOrder", "sellOrder"]
+    },
+    "TRADING_EVENT": {
+      "description": "Trade broadcasts",
+      "direction": "server_to_client",
+      "events": ["standard/newTrade"]
+    },
+    "SIDEBET_ACTION": {
+      "description": "Sidebet placement",
+      "direction": "client_to_server",
+      "events": ["requestSidebet"]
+    },
+    "SIDEBET_EVENT": {
+      "description": "Sidebet results",
+      "direction": "server_to_client",
+      "events": ["currentSidebet", "currentSidebetResult"]
+    },
+    "PLAYER_STATE": {
+      "description": "Player-specific updates",
+      "direction": "server_to_client",
+      "events": ["playerUpdate", "gameStatePlayerUpdate", "playerLeaderboardPosition"]
+    },
+    "GAME_STATE": {
+      "description": "Global game state",
+      "direction": "server_to_client",
+      "events": ["gameStateUpdate"]
+    },
+    "SPECIAL_EVENT": {
+      "description": "Time-limited events",
+      "direction": "server_to_client",
+      "events": ["goldenHourUpdate", "goldenHourDrawing", "rugRoyaleUpdate", "battleEventUpdate", "rugpoolDrawing", "rugpoolStatus"]
+    },
+    "GAMIFICATION": {
+      "description": "XP, quests, rewards",
+      "direction": "server_to_client",
+      "events": ["rugPassQuestCompleted"]
+    },
+    "SYSTEM_HEARTBEAT": {
+      "description": "Connection keep-alive",
+      "direction": "bidirectional",
+      "events": ["ping"]
+    },
+    "SYSTEM_ACK": {
+      "description": "Request acknowledgments",
+      "direction": "server_to_client",
+      "events": ["success"]
+    },
+    "IDENTITY": {
+      "description": "Username/auth validation",
+      "direction": "server_to_client",
+      "events": ["usernameStatus"]
+    }
+  }
+}

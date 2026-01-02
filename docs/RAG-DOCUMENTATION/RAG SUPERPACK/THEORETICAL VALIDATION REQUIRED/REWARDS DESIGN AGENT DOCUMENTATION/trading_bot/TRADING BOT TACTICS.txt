@@ -1,0 +1,688 @@
+TRADING BOT TACTICS
+**THE FOLLOWING INFORMATION HAS BEEN COLLECTING FROM OLDER VERSIONS OF RESEARCH PROJECTS ON DIFFERENT METHODS FOR TRADING BOT METHODS AND TACTICS. ITS BEEN COLLECTED HERE IN A PIECE MEAL FORMAT AND IS MEANT TO BE USED AS INSPIRATION FOR DEVELOPING OPTIMIZED RL MODEL FEATURES. IT MAY CONTAIN REFERENCES TO DOCUMENTS OR CONTEXT THAT IS NO LONGER AVAILABLE AND SHOULD BE USED ONLY TO INFORM METHODS AND TACTICS USING THE MOST CURRENT KNOWLEDGE, SCRIPTS, AND SYSTEMS IN OUR PROJECT(S). USE COMMON SENSE JUDICIOUSLY:
+
+Predictive Modeling & Indicators
+This section focuses on the practical application of our research: building predictive models and identifying key indicators of game outcomes.
+
+6.1 Tick-by-Tick Analysis: The Pre-Rug Volatility Spike
+A key finding from our tick-by-tick analysis is that volatility increases by approximately 78% in the final 5 ticks before a rug. This is a critical early warning signal.
+
+Normal Volatility: 0.147
+Near-Rug Volatility (last 5 ticks): 0.262
+This volatility spike can be used as a primary input for a real-time rug prediction model.
+
+6.2 Player Behavior Analysis
+By analyzing the player_integrated_data.csv, we can classify players into different trading patterns. The presence of certain player types can be an indicator of game outcomes:
+
+Whales (low-frequency, high-volume): The actions of whales can significantly impact the market. A whale exiting a game can be a strong signal of an impending rug.
+Scalpers (high-frequency, low-volume): A high number of scalpers can indicate a healthy, active market, but can also contribute to volatility.
+Hodlers (buy-and-hold): A large number of hodlers can create a stable price floor, but their eventual exit can cause a sharp drop.
+6.3 Bayesian Models
+Our Bayesian models, detailed in BAYESIAN_MODELS.md, provide a framework for updating our beliefs about the probability of a rug in real-time. The core formula is:
+
+P(rug | evidence) = P(evidence | rug) * P(rug) / P(evidence)
+
+Where "evidence" can be:
+
+The current tick number
+The current peak multiplier
+The current volatility
+The presence of certain player types
+By continuously updating our probabilities with new evidence, we can create a dynamic risk assessment tool.
+
+7. Trading Strategies & Implementation
+This section consolidates our research into actionable trading strategies.
+
+7.1 Strategic Trading Zones
+Based on our analysis, we have identified six distinct trading zones:
+
+Low Risk Entry Zone (1x-2x): Safe entry, low volatility.
+Balanced Trading Zone (2x-4x): Optimal risk-reward.
+Growth Opportunity Zone (4x-9x): Good potential, but requires careful timing.
+High Risk/High Reward Zone (9x-25x): Quick scalping only.
+Danger Zone (25x-100x): Exit only.
+Extreme Zone (100x+): Immediate exit.
+7.2 Optimal Trading Strategies
+We have developed two primary strategies:
+
+Balanced Range Trading (3.2x → 4.8x):
+
+Entry: 3.2x
+Exit: 4.8x (50% gain)
+Stop Loss: 2.8x (12.5% loss)
+Risk-Reward Ratio: 1:4
+Expected Success Rate: ~65%
+Growth Zone Scalping (8.5x → 14x):
+
+Entry: 8.5x
+Exit: 14x (65% gain)
+Stop Loss: 7x (17.6% loss)
+Risk-Reward Ratio: ~1:3.7
+Expected Success Rate: ~55%
+7.3 Risk Management
+Position Sizing: Adjust your position size based on the trading zone, from 50% of bankroll in the low-risk zone to 0% in the extreme zone.
+Stop Loss Discipline: Always use stop losses and never move them lower.
+Tick Timer Awareness: Be more cautious as the game progresses, especially after 100+ ticks.
+8. Data Collection & Analysis Framework
+This section provides a "how-to" guide for ongoing research and analysis.
+
+8.1 Data Collection
+The primary method for data collection is via a WebSocket connection to the Rugs.fun server. The comprehensive_rugs_analysis_report.md contains a Python script (RugsDataCollector) that can be used for this purpose. The script should be run continuously to capture as many games as possible.
+
+8.2 Data Analysis Workflow
+Our analysis is performed by a series of Python scripts:
+
+analyze_rugs_data.py: Extracts basic game metrics and creates rugs_bayesian_data.csv.
+player_integrated_analysis.py: Combines game metrics with player trading data to create player_integrated_data.csv.
+tick_by_tick_analysis.py: Performs granular analysis of each tick and creates tick_by_tick_data.csv.
+These scripts should be run in order to generate the datasets required for our analysis. The resulting CSV files can then be used in Google Sheets, Jupyter notebooks, or other analysis tools.
+
+8.3 Living Document
+This PRNG_Master_Analysis.md document should be treated as a living document. As new data is collected and new insights are discovered, this document should be updated to reflect the latest state of our knowledge.
+
+9. Appendices
+9.1 Volatility Reference Guide
+The relationship between price and volatility follows a square root function: volatility = 0.005 * min(10, sqrt(price))
+
+Price	Volatility	Min Change	Max Change	Notes
+1x	0.50%	0.00%*	3.50%	Starting price
+2x	0.71%	0.00%*	3.71%	× √2 increase from 1x
+4x	1.00%	0.00%*	4.00%	× √2 increase from 2x
+9x	1.50%	0.00%*	4.50%	× √2.25 increase from 4x
+16x	2.00%	0.00%*	5.00%	× √1.78 increase from 9x
+25x	2.50%	0.50%	5.50%	One-quarter to max volatility
+36x	3.00%	1.00%	6.00%	× √1.44 increase from 25x
+49x	3.50%	1.50%	6.50%	× √1.36 increase from 36x
+64x	4.00%	2.00%	7.00%	× √1.31 increase from 49x
+81x	4.50%	2.50%	7.50%	× √1.27 increase from 64x
+100x	5.00%	3.00%	8.00%	Volatility cap reached
+>100x	5.00%	3.00%	8.00%	No further increase
+*Min change is capped at 0% (cannot be negative)
+
+9.2 Source Files
+For historical reference, the original research documents can be found in the same directory as this file.
+
+
+** RUGS.FUN USES A PRNG ALGORITHM TO GENERATE THE CHARTS IN GAME PLAY. THE FULL ALGORITHM IS AS FOLLOWS:
+
+// Price drift calculation
+function driftPrice(
+    price,
+    DRIFT_MIN,
+    DRIFT_MAX,
+    BIG_MOVE_CHANCE,
+    BIG_MOVE_MIN,
+    BIG_MOVE_MAX,
+    randFn,
+    version = 'v3',
+    GOD_CANDLE_CHANCE = 0.00001,
+    GOD_CANDLE_MOVE = 10.0,
+    STARTING_PRICE = 1.0
+) {
+    // v3 adds God Candle feature - rare massive price increase
+    if (version === 'v3' && randFn() < GOD_CANDLE_CHANCE && price <= 100 * STARTING_PRICE) {
+        return price * GOD_CANDLE_MOVE;
+    }
+    
+    let change = 0;
+    
+    if (randFn() < BIG_MOVE_CHANCE) {
+        const moveSize = BIG_MOVE_MIN + randFn() * (BIG_MOVE_MAX - BIG_MOVE_MIN);
+        change = randFn() > 0.5 ? moveSize : -moveSize;
+    } else {
+        const drift = DRIFT_MIN + randFn() * (DRIFT_MAX - DRIFT_MIN);
+        
+        // Version difference is in this volatility calculation
+        const volatility = version === 'v1' 
+            ? 0.005 * Math.sqrt(price)
+            : 0.005 * Math.min(10, Math.sqrt(price));
+            
+        change = drift + (volatility * (2 * randFn() - 1));
+    }
+    
+    let newPrice = price * (1 + change);
+
+    if (newPrice < 0) {
+        newPrice = 0;
+    }
+
+    return newPrice;
+}
+
+// Game verification function
+function verifyGame(serverSeed, gameId, version = 'v3') {
+    const combinedSeed = serverSeed + '-' + gameId;
+    const prng = new Math.seedrandom(combinedSeed);
+    
+    let price = 1.0;
+    let peakMultiplier = 1.0;
+    let rugged = false;
+    
+    for (let tick = 0; tick < 5000 && !rugged; tick++) {
+        if (prng() < RUG_PROB) {
+            rugged = true;
+            continue;
+        }
+        
+        const newPrice = driftPrice(
+            price,
+            DRIFT_MIN, 
+            DRIFT_MAX, 
+            BIG_MOVE_CHANCE, 
+            BIG_MOVE_MIN, 
+            BIG_MOVE_MAX,
+            prng.bind(prng),
+            version
+        );
+        
+        price = newPrice;
+        
+        if (price > peakMultiplier) {
+            peakMultiplier = price;
+        }
+    }
+    
+    return {
+        peakMultiplier: peakMultiplier,
+        rugged: rugged
+    };
+}
+        
+Rugs.fun uses a provably fair system to ensure game outcomes cannot be manipulated:
+
+Before each game: The server generates a random server seed and publishes only its hash (the server seed hash).
+During the game: The outcome is determined by combining the server seed with the game ID.
+After the game ends: The server reveals the original server seed.
+Verification process:
+First, you can verify that the revealed server seed matches the pre-published hash by using the SHA-256 algorithm.
+Second, you can use this tool to independently calculate the game outcome using the revealed server seed and game ID.
+If both checks pass, this proves the game outcome was predetermined and not manipulated.
+
+Since we know this, we can develop the trading bot parameters based on this foundational truth and build up from there. For instance, we can calculate price drift with something like this:
+🧮 Core Algorithm Implementation
+Price Drift Function
+function driftPrice(
+    price,
+    DRIFT_MIN,
+    DRIFT_MAX, 
+    BIG_MOVE_CHANCE,
+    BIG_MOVE_MIN,
+    BIG_MOVE_MAX,
+    randFn,
+    version = 'v3',
+    GOD_CANDLE_CHANCE = 0.00001,
+    GOD_CANDLE_MOVE = 10.0,
+    STARTING_PRICE = 1.0
+) {
+    // God Candle Check (v3+)
+    if (version === 'v3' && randFn() < GOD_CANDLE_CHANCE && price <= 100 * STARTING_PRICE) {
+        return price * GOD_CANDLE_MOVE;
+    }
+    
+    let change = 0;
+    
+    // Big Move vs Normal Drift
+    if (randFn() < BIG_MOVE_CHANCE) {
+        const moveSize = BIG_MOVE_MIN + randFn() * (BIG_MOVE_MAX - BIG_MOVE_MIN);
+        change = randFn() > 0.5 ? moveSize : -moveSize;
+    } else {
+        const drift = DRIFT_MIN + randFn() * (DRIFT_MAX - DRIFT_MIN);
+        const volatility = version === 'v1' 
+            ? 0.005 * Math.sqrt(price)
+            : 0.005 * Math.min(10, Math.sqrt(price)); // v2/v3 cap volatility
+        change = drift + (volatility * (2 * randFn() - 1));
+    }
+    
+    let newPrice = price * (1 + change);
+    return newPrice < 0 ? 0 : newPrice;
+}
+
+WE CAN THEN DEVELOP A BAYESIAN MODEL LIKE THIS: (DO NOT USE THIS VERBATIM AS THIS WAS DEVELOPED FOR AN OLDER MODEL USING MISSING FUNCTIONS AND DATA. WE MUST REDEVELOP VALIDATED SYSTEMS FROM SCRATCH)
+
+Trading Zone Analysis
+Based on volatility patterns, rug probability, and expected value calculations, I've identified six distinct trading zones in Rugs.fun with different risk-reward profiles:
+
+1. Low Risk Entry Zone (1x-2x)
+Volatility: 0.5%-0.7%
+Rug Probability: Very low (baseline 0.5% per tick)
+Strategy: Safe entry point, accumulate position
+Hold Time: Can be longer due to low rug risk
+Expected Value: Positive but modest
+2. Balanced Trading Zone (2x-4x)
+Volatility: 0.7%-1.0%
+Rug Probability: Low to moderate
+Strategy: Primary trading range for optimal risk-reward
+Hold Time: Medium
+Expected Value: Highest in the game due to balanced risk-reward
+3. Growth Opportunity Zone (4x-9x)
+Volatility: 1.0%-1.5%
+Rug Probability: Moderate
+Strategy: Enter on dips, exit on peaks
+Hold Time: Short to medium
+Expected Value: Good but requires careful timing
+4. High Risk/High Reward Zone (9x-25x)
+Volatility: 1.5%-2.5%
+Rug Probability: High
+Strategy: Quick scalping only, tight stop losses
+Hold Time: Very short
+Expected Value: Decreasing but still positive with skill
+5. Danger Zone (25x-100x)
+Volatility: 2.5%-5.0%
+Rug Probability: Very high
+Strategy: Exit only, not for entries
+Hold Time: Extremely short
+Expected Value: Negative for most traders
+6. Extreme Zone (100x+)
+Volatility: Capped at 5.0%
+Rug Probability: Extreme
+Strategy: Immediate exit, never enter
+Hold Time: None
+Expected Value: Strongly negative
+Optimal Trading Strategies
+Strategy 1: Balanced Range Trading (3.2x → 4.8x)
+This strategy targets the most favorable risk-reward zone in the game.
+
+Entry Point: 3.2x
+
+Located in the balanced trading zone
+Volatility around 0.9%
+Moderate momentum but before high-risk territory
+Exit Point: 4.8x
+
+50% gain from entry
+Still within reasonable risk zone
+Higher volatility signals increased risk
+Stop Loss: 2.8x
+
+12.5% loss from entry
+Near bottom of balanced zone
+Risk-reward ratio of 1:4 (risk 12.5% to gain 50%)
+Expected Success Rate: ~65%
+
+Based on average time to rug vs time to reach target
+Accounts for volatility and historical game patterns
+Strategy 2: Growth Zone Scalping (8.5x → 14x)
+A higher risk strategy with larger potential rewards.
+
+Entry Point: 8.5x
+
+Enter on a local dip in the growth zone
+Volatility around 1.46%
+Momentum indicator should be positive
+Exit Point: 14x
+
+65% gain from entry
+In high-risk territory but before extreme danger
+Takes advantage of increased volatility
+Stop Loss: 7x
+
+17.6% loss from entry
+Exits position before volatility becomes too low
+Risk-reward ratio of approximately 1:3.7
+Expected Success Rate: ~55%
+
+Lower than Strategy 1 due to increased rug probability
+Higher potential reward compensates for lower success rate
+Risk Management Guidelines
+Position Sizing
+
+Low Risk Zone: Up to 50% of bankroll
+Balanced Zone: 25-30% of bankroll
+Growth Zone: 15-20% of bankroll
+High Risk Zone: Max 10% of bankroll
+Danger Zone: Max 5% of bankroll
+Extreme Zone: 0% (exit only)
+Stop Loss Discipline
+
+Always set stop losses when entering
+Base stop loss percentage on the zone's volatility
+Never move stop losses lower once set
+Take Profit Levels
+
+Low Risk Zone: 25-50% gain
+Balanced Zone: 50-75% gain
+Growth Zone: 50-100% gain
+High Risk Zone: 25-50% gain (faster exits)
+Danger Zone: Any gain (immediate exit)
+Tick Timer Awareness
+
+Track approximate tick count when possible
+Be more cautious after 100+ ticks
+Consider reducing position size after 200+ ticks
+Extremely cautious after 500+ ticks
+Advanced Indicators to Watch
+Volatility Changes
+
+Sudden increases in candle size signal increased risk
+Price consolidation (small candles) may indicate coming big move
+Price Momentum
+
+Consecutive green candles increase rug probability
+Look for local dips for safer entries
+Price Action Patterns
+
+Double tops often indicate reversal
+Three consecutive red candles may signal buying opportunity
+Long wicks show rejection of price levels
+Player Behavior
+
+Watch for mass exits (many player icons appearing)
+VIP players exiting can signal upcoming rug
+Limitations and Considerations
+Game Variability: Each game is ultimately controlled by the PRNG
+Meta-Algorithm Influence: The meta-layer balancing system can affect these probabilities
+Experience Factor: Success rates likely higher for experienced players
+No Guarantees: All strategies come with inherent risk of complete loss
+Psychological Discipline: Sticking to exit and stop loss points is crucial
+Summary of Sweet Spots
+Strategy	Entry	Exit	Stop Loss	Expected Success	Risk-Reward
+Conservative	1.5x	2.2x	1.3x	75%	1:3.5
+Balanced	3.2x	4.8x	2.8x	65%	1:4
+Aggressive	8.5x	14x	7x	55%	1:3.7
+High Risk	16x	24x	13x	40%	1:3.3
+The most statistically favorable entry/exit combination appears to be the Balanced strategy (3.2x → 4.8x) due to its high expected success rate and excellent risk-reward ratio.
+
+
+Rugs.fun Volatility Reference Guide (Logarithmic Scale)
+Understanding the Logarithmic Volatility Curve
+The relationship between price and volatility follows a square root function: volatility = 0.005 * min(10, sqrt(price))
+
+When viewed on a logarithmic scale, this relationship becomes more intuitive:
+
+Equal distances on the chart represent equal percentage changes (e.g., 1→2 has same visual distance as 10→20)
+The square root curve appears more linear and easier to understand
+The volatility cap at 100x is clearly visible
+Quick Reference Table
+Price	Volatility	Min Change	Max Change	Notes
+1x	0.50%	0.00%*	3.50%	Starting price
+2x	0.71%	0.00%*	3.71%	× √2 increase from 1x
+4x	1.00%	0.00%*	4.00%	× √2 increase from 2x
+9x	1.50%	0.00%*	4.50%	× √2.25 increase from 4x
+16x	2.00%	0.00%*	5.00%	× √1.78 increase from 9x
+25x	2.50%	0.50%	5.50%	One-quarter to max volatility
+36x	3.00%	1.00%	6.00%	× √1.44 increase from 25x
+49x	3.50%	1.50%	6.50%	× √1.36 increase from 36x
+64x	4.00%	2.00%	7.00%	× √1.31 increase from 49x
+81x	4.50%	2.50%	7.50%	× √1.27 increase from 64x
+100x	5.00%	3.00%	8.00%	Volatility cap reached
+>100x	5.00%	3.00%	8.00%	No further increase
+*Min change is capped at 0% (cannot be negative)
+
+Logarithmic Pattern Insights
+On a logarithmic scale, you can see that:
+
+Early Volatility Growth: The steepest growth in volatility happens in the very early price range (1x to 4x)
+
+Perfect Squares: Volatility values at perfect square prices (1, 4, 9, 16, 25...) show clear patterns:
+
+1x → 0.5%
+4x → 1.0%
+9x → 1.5%
+16x → 2.0%
+25x → 2.5%
+...and so on
+Doubling Pattern: Each time the price multiplier quadruples (2²), the volatility doubles:
+
+1x → 0.5%
+4x → 1.0%
+16x → 2.0%
+64x → 4.0%
+Rule of Thumb: You can approximate volatility as 0.5% × √price up to 100x
+
+Game Strategy Implications
+1x to 4x: Relatively predictable with low volatility (0.5% to 1.0%)
+4x to 25x: Medium volatility zone (1.0% to 2.5%)
+25x to 100x: High volatility zone (2.5% to 5.0%)
+Above 100x: Maximum volatility zone (capped at 5.0%)
+Remember that these volatility values are separate from the random 15-25% "big moves" that have a 12.5% chance of occurring each tick, and from the 0.5% chance of a rug pull each tick.
+
+
+** WE CAN ALSO USE STATISTICALLY OPTIMIZED BANKROLL MANAGEMENT STRATEGIES SUCH AS MARTINGALE AND KELLY CRITERION LIKE IN THIS EXAMPLE:
+
+Statistical Probability Game Research - Complete Reference
+Executive Summary
+This document contains comprehensive research on building a statistical probability visualization system for a hypothetical betting game based on geometric distributions. The game involves a clock that stops randomly with specific probability mechanics, and players can bet on time windows for payouts.
+
+Mathematical Framework
+Core Probability Calculations
+Game Parameters:
+
+Tick Duration: 200ms (5 ticks/second)
+Stop Probability: p = 0.0005 (0.05% per tick)
+Bet Window: 10 seconds (50 ticks)
+Payout: 5-to-1 (total return 6x bet)
+Maximum Game Length: 999 ticks
+Key Formulas:
+
+Probability of Winning Single Bet:
+
+q = 1 - (1 - p)^M
+where M = 50 ticks per bet window
+q = 1 - (0.9995)^50 ≈ 0.0248 (2.48%)
+Expected Value per Bet:
+
+EV = q × (payout) + (1-q) × (-1)
+EV = 0.0248 × 5 + 0.9752 × (-1) = -0.8512
+Result: -85.12% expected return per dollar bet
+
+Geometric Distribution Properties:
+
+Mean stopping time: 1/p = 2000 ticks (unbounded)
+Truncated mean: ~500-600 ticks (bounded at 999)
+Median: ~1386 ticks (unbounded), 999 (truncated)
+Mode: 1 tick (highest probability)
+Critical Mathematical Insight: Memoryless Property
+Key Finding: Due to the geometric distribution's memoryless property, the probability of stopping in the next 50 ticks remains constant (2.48%) regardless of how many ticks have already passed. This means:
+
+Waiting until tick 200+ doesn't improve odds
+Historical data patterns don't predict future stops within a single game
+Timing-based strategies provide no mathematical advantage
+Betting Strategy Analysis
+Strategy 1: Fixed Betting
+Method: Bet same amount every 50 ticks
+Risk Level: Low variance
+Expected Outcome: Steady losses due to negative EV
+Bankroll Survival: Longer, gradual decline
+Strategy 2: Modified Martingale
+Method:
+Start with $1 bet
+First 5 bets: $1 each
+Then escalate: $2, $3, $4, $6, $8...
+Reset after win
+Risk Level: High variance
+Expected Outcome: Higher chance of quick losses or occasional big wins
+Bankroll Survival: Shorter, more volatile
+Strategy 3: Wait-and-Bet
+Method: Wait until specific tick count, then bet
+Mathematical Reality: No advantage due to memoryless property
+Recommendation: Not mathematically justified
+
+🧮 BAYESIAN MATHEMATICAL MODELS FOR PRNG ANALYSIS
+Mathematical foundation for probability calculations and risk assessment
+
+🎯 CORE BAYESIAN THEOREM
+Bayes' Formula for PRNG Analysis
+P(outcome | evidence) = P(evidence | outcome) × P(outcome) / P(evidence)
+Applied to PRNG:
+
+P(rug at tick t | current state) = P(current state | rug at tick t) × P(rug at tick t) / P(current state)
+📊 BASIC SURVIVAL MODELS
+1. Simple Survival Probability
+Question: What's the probability a game survives to tick N?
+
+Formula:
+
+P(survive to tick N) = Count(games with finalTick ≥ N) / Total games
+Google Sheets Implementation:
+
+=COUNTIF(B:B,">="&N)/COUNT(B:B)
+Where B:B contains duration_ticks data
+
+2. Expected Multiplier at Tick N
+Question: If a game reaches tick N, what's the expected peak multiplier?
+
+Formula:
+
+E[multiplier | tick ≥ N] = Σ(multiplier × P(multiplier | tick ≥ N))
+Google Sheets Implementation:
+
+=AVERAGEIF(B:B,">="&N,C:C)
+Where C:C contains peak_multiplier data
+
+3. Instarug Probability
+Question: What's the baseline probability of an instarug?
+
+Formula:
+
+P(instarug) = Count(games with finalTick < 11) / Total games
+Google Sheets Implementation:
+
+=COUNTIF(G:G,TRUE)/COUNT(G:G)
+Where G:G contains is_instarug boolean data
+
+🎲 CONDITIONAL PROBABILITY MODELS
+1. Risk Given Peak Multiplier
+Question: What's the rug risk if peak multiplier exceeds X?
+
+Formula:
+
+P(rug soon | peak > X) = Count(games with peak > X and short duration) / Count(games with peak > X)
+Google Sheets Implementation:
+
+=COUNTIFS(C:C,">"&X,B:B,"<"&THRESHOLD)/COUNTIF(C:C,">"&X)
+2. Survival Given Current Tick
+Question: If we're at tick T, what's the probability of reaching tick T+N?
+
+Formula:
+
+P(reach T+N | at T) = Count(games ≥ T+N) / Count(games ≥ T)
+Google Sheets Implementation:
+
+=COUNTIF(B:B,">="&(T+N))/COUNTIF(B:B,">="&T)
+📈 ADVANCED MULTI-FACTOR MODELS
+1. Weighted Risk Score
+Combines multiple risk factors
+
+Formula:
+
+Risk Score = w₁×Duration_Factor + w₂×Multiplier_Factor + w₃×Volume_Factor
+Where factors are normalized (0-1) and weights sum to 1
+
+Example Implementation:
+
+Duration_Factor = 1 - (current_tick / max_observed_ticks)
+Multiplier_Factor = current_peak / max_observed_peak
+Volume_Factor = recent_volume / average_volume
+2. Bayesian Update Model
+Updates probability as new evidence arrives
+
+Formula:
+
+P(rug | new_evidence) = P(new_evidence | rug) × P(rug) / P(new_evidence)
+Implementation Steps:
+
+Start with prior probability P(rug)
+Observe new evidence (price movement, volume, etc.)
+Calculate likelihood P(evidence | rug)
+Update posterior probability
+🎯 PRACTICAL CALCULATIONS
+1. Expected Value Calculation
+Question: What's the expected return if I exit at tick N?
+
+Formula:
+
+E[return] = P(survive to N) × multiplier_at_N × bet - bet
+Google Sheets Implementation:
+
+=(COUNTIF(B:B,">="&N)/COUNT(B:B)) * AVERAGEIF(B:B,">="&N,D:D) * bet_amount - bet_amount
+2. Optimal Exit Point
+Find tick that maximizes expected value
+
+Method: Calculate expected value for each potential exit tick and find maximum
+
+3. Risk-Adjusted Return
+Account for risk tolerance
+
+Formula:
+
+Risk_Adjusted_Return = Expected_Return - (Risk_Penalty × Variance)
+📊 CONFIDENCE INTERVALS
+1. Survival Probability Confidence
+95% confidence interval for survival probability
+
+Formula:
+
+CI = p ± 1.96 × √(p×(1-p)/n)
+Where p = survival probability, n = sample size
+
+2. Expected Multiplier Confidence
+Confidence interval for expected multiplier
+
+Formula:
+
+CI = μ ± 1.96 × (σ/√n)
+Where μ = mean multiplier, σ = standard deviation
+
+🔄 DYNAMIC UPDATING
+1. Real-Time Probability Updates
+Update survival probability as game progresses
+
+Current Survival Rate:
+
+=COUNTIF(B:B,">="&CURRENT_TICK)/COUNT(B:B)
+Next Tick Survival:
+
+=COUNTIF(B:B,">="&(CURRENT_TICK+1))/COUNTIF(B:B,">="&CURRENT_TICK)
+2. Momentum Indicators
+Track probability changes
+
+Acceleration Risk:
+
+Risk_Change = P(rug | current_tick) - P(rug | current_tick-1)
+🎮 GAME-SPECIFIC APPLICATIONS
+1. Entry Point Analysis
+Best tick to enter based on risk/reward
+
+Formula:
+
+Entry_Score = Expected_Multiplier × Survival_Probability - Entry_Risk
+2. Portfolio Risk Management
+Multiple games risk assessment
+
+Formula:
+
+Portfolio_Risk = 1 - Π(1 - Individual_Game_Risk)
+3. Bankroll Management
+Optimal bet sizing
+
+Kelly Criterion Application:
+
+Optimal_Bet = (bp - q) / b
+Where b = odds, p = win probability, q = loss probability
+
+📋 STATISTICAL VALIDATION
+1. Model Accuracy Testing
+Backtesting predictions against actual outcomes
+
+2. Distribution Fitting
+Test if data follows expected distributions (exponential, normal, etc.)
+
+3. Correlation Analysis
+Identify relationships between variables
+
+🎯 IMPLEMENTATION PRIORITIES
+Basic (Current Capability)
+Simple survival curves
+Expected multiplier calculations
+Instarug probability
+Intermediate (Next Steps)
+Conditional probabilities
+Multi-factor risk scores
+Confidence intervals
+Advanced (Future Development)
+Dynamic Bayesian networks
+Machine learning integration
+Real-time optimization
+Note: All formulas can be implemented in Google Sheets using our existing CSV data (rugs_bayesian_data.csv). Advanced models will benefit from the expanded data schema documented in COMPLETE_DATA_SCHEMA.md.
+
+

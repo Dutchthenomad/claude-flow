@@ -123,16 +123,18 @@ def query(
         where=where,
         include=["documents", "metadatas", "distances"],
     )
-    
+
     output = []
     if results["documents"] and results["documents"][0]:
         for i, doc in enumerate(results["documents"][0]):
             meta = results["metadatas"][0][i]
             distance = results["distances"][0][i]
+            doc_id = results["ids"][0][i] if results.get("ids") else None
             # Convert distance to similarity score (cosine)
             score = 1 - distance
             
             output.append({
+                "id": doc_id,
                 "text": doc,
                 "source": meta["source"],
                 "line_start": meta["line_start"],
@@ -142,6 +144,34 @@ def query(
             })
     
     return output
+
+
+def get_all_documents() -> list[dict[str, Any]]:
+    """Fetch all documents and their metadata from the collection.
+
+    Returns:
+        List of dicts with keys: id, text, source, line_start, line_end, headers
+    """
+    collection = get_collection()
+    results = collection.get(
+        include=["documents", "metadatas"],
+    )
+
+    docs: list[dict[str, Any]] = []
+    for i, text in enumerate(results.get("documents") or []):
+        meta = (results.get("metadatas") or [])[i]
+        doc_id = (results.get("ids") or [None])[i]
+        docs.append(
+            {
+                "id": doc_id,
+                "text": text,
+                "source": meta["source"],
+                "line_start": meta["line_start"],
+                "line_end": meta["line_end"],
+                "headers": meta["headers"].split("|") if meta.get("headers") else [],
+            }
+        )
+    return docs
 
 
 def clear():

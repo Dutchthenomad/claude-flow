@@ -1,0 +1,68 @@
+{
+  "session": {
+    "id": "cleanup-2025-12-22",
+    "started": "2025-12-22T21:00:00Z",
+    "description": "Documentation cleanup - 7 conflicts"
+  },
+  "last_updated": "2025-12-22T21:55:00Z",
+  "updated_by": "claude",
+  "agents": {
+    "claude": {
+      "status": "waiting_on_codex",
+      "current_task": null,
+      "completed_tasks": ["P0-1", "P0-2", "P1-1", "P2-1", "P2-2"]
+    },
+    "codex": {
+      "status": "ready",
+      "current_task": null,
+      "available_tasks": ["P1-2"]
+    }
+  },
+  "tasks": {
+    "P0-1": {
+      "name": "Fix scope creep in rugs-expert",
+      "owner": "claude",
+      "status": "completed",
+      "file": "agents/rugs-expert.md",
+      "notes": "Reduced from 484 to 262 lines. Removed LIVE ACCESS claims, CDP interception code."
+    },
+    "P0-2": {
+      "name": "Clarify RAG ownership",
+      "owner": "claude",
+      "status": "completed",
+      "file": "docs/CROSS_REPO_COORDINATION.md",
+      "notes": "Added Database Ownership table. Clarified DuckDB is rugs-rl-bot only."
+    },
+    "P1-1": {
+      "name": "Generate knowledge base files",
+      "owner": "claude",
+      "status": "completed",
+      "notes": "ChromaDB index rebuilt with 485 chunks from 76 files."
+    },
+    "P1-2": {
+      "name": "Token efficiency default",
+      "owner": "codex",
+      "status": "ready",
+      "file": "docs/WORKFLOW_QUICKREF.md",
+      "notes": "ONLY remaining task. Codex should start immediately."
+    },
+    "P2-1": {
+      "name": "Remove outdated CDP code",
+      "owner": "claude",
+      "status": "completed",
+      "notes": "Done as part of P0-1"
+    },
+    "P2-2": {
+      "name": "Consolidate CDP docs",
+      "owner": "claude",
+      "status": "completed",
+      "notes": "Done as part of P0-1"
+    }
+  },
+  "file_locks": {},
+  "completed": ["P0-1", "P0-2", "P1-1", "P2-1", "P2-2"],
+  "remaining": ["P1-2"],
+  "blockers": [],
+  "validation_ready": false,
+  "next_sync": "After Codex completes P1-2, run final validation checklist from AGENTS.md"
+}

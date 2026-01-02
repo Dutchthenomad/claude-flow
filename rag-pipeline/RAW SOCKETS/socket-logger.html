@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rugs.fun WebSocket Logger</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 800px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        .status {
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .status.idle {
+            background: #f0f0f0;
+            color: #666;
+        }
+
+        .status.recording {
+            background: #e8f5e9;
+            color: #2e7d32;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            flex: 1;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-primary:hover:not(:disabled) {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-danger {
+            background: #ef4444;
+            color: white;
+        }
+
+        .btn-danger:hover:not(:disabled) {
+            background: #dc2626;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(239, 68, 68, 0.4);
+        }
+
+        .btn-success {
+            background: #10b981;
+            color: white;
+        }
+
+        .btn-success:hover:not(:disabled) {
+            background: #059669;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(16, 185, 129, 0.4);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .stat-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 32px;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .instructions {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .instructions h3 {
+            color: #856404;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .instructions ol {
+            margin-left: 20px;
+            color: #856404;
+        }
+
+        .instructions li {
+            margin-bottom: 5px;
+        }
+
+        .code-box {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            margin-top: 20px;
+            max-height: 300px;
+            overflow-y: auto;
+            display: none;
+        }
+
+        .code-box.show {
+            display: block;
+        }
+
+        .copy-notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #10b981;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: all 0.3s ease;
+        }
+
+        .copy-notification.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .footer {
+            text-align: center;
+            color: #999;
+            font-size: 12px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎮 Rugs.fun WebSocket Logger</h1>
+        <p class="subtitle">Capture complete verbose socket feed for documentation</p>
+
+        <div id="status" class="status idle">
+            ⚪ Not Recording
+        </div>
+
+        <div class="instructions">
+            <h3>📋 How to Use:</h3>
+            <ol>
+                <li>Open <strong>rugs.fun</strong> in another tab</li>
+                <li>Click <strong>"Start Recording"</strong> below</li>
+                <li>Copy the injection code that appears</li>
+                <li>Open browser console on rugs.fun (F12)</li>
+                <li>Paste the code and press Enter</li>
+                <li>Let games play and "rug" to capture events</li>
+                <li>Return here and click <strong>"Stop & Export"</strong></li>
+            </ol>
+        </div>
+
+        <div class="button-group">
+            <button id="startBtn" class="btn-primary">▶ Start Recording</button>
+            <button id="stopBtn" class="btn-danger" disabled>⏹ Stop & Export</button>
+            <button id="copyBtn" class="btn-success" disabled>📋 Copy JSON</button>
+        </div>
+
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-value" id="eventCount">0</div>
+                <div class="stat-label">Events Captured</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="gameHistoryCount">0</div>
+                <div class="stat-label">GameHistory Updates</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="duration">0:00</div>
+                <div class="stat-label">Duration</div>
+            </div>
+        </div>
+
+        <div id="codeBox" class="code-box"></div>
+
+        <div class="footer">
+            Created for rugs.fun WebSocket documentation
+        </div>
+    </div>
+
+    <div id="notification" class="copy-notification">
+        ✓ Copied to clipboard!
+    </div>
+
+    <script>
+        let isRecording = false;
+        let startTime = null;
+        let durationInterval = null;
+        let capturedData = [];
+
+        const statusEl = document.getElementById('status');
+        const startBtn = document.getElementById('startBtn');
+        const stopBtn = document.getElementById('stopBtn');
+        const copyBtn = document.getElementById('copyBtn');
+        const codeBox = document.getElementById('codeBox');
+        const eventCountEl = document.getElementById('eventCount');
+        const gameHistoryCountEl = document.getElementById('gameHistoryCount');
+        const durationEl = document.getElementById('duration');
+        const notification = document.getElementById('notification');
+
+        const injectionCode = `
+// ============================================
+// RUGS.FUN SOCKET LOGGER - INJECTED
+// ============================================
+(function() {
+    const socket = window.socketService.socket;
+    
+    if (!socket) {
+        console.error('❌ Socket not found! Make sure you are on rugs.fun');
+        return;
+    }
+    
+    window.SOCKET_LOG = [];
+    window.SOCKET_STATS = { events: 0, gameHistory: 0 };
+    
+    // Intercept incoming events
+    const originalOnevent = socket.onevent;
+    socket.onevent = function(packet) {
+        const logEntry = {
+            timestamp: Date.now(),
+            iso: new Date().toISOString(),
+            type: 'INCOMING',
+            packet: JSON.parse(JSON.stringify(packet))
+        };
+        
+        window.SOCKET_LOG.push(logEntry);
+        window.SOCKET_STATS.events++;
+        
+        // Check for gameHistory
+        if (packet.data && packet.data[0] === 'gameStateUpdate' && 
+            packet.data[1] && packet.data[1].gameHistory) {
+            window.SOCKET_STATS.gameHistory++;
+        }
+        
+        console.log('📥', logEntry.packet.data[0] || 'event');
+        
+        return originalOnevent.call(this, packet);
+    };
+    
+    // Intercept outgoing events
+    const originalEmit = socket.emit;
+    socket.emit = function(eventName, ...args) {
+        const logEntry = {
+            timestamp: Date.now(),
+            iso: new Date().toISOString(),
+            type: 'OUTGOING',
+            event: eventName,
+            args: JSON.parse(JSON.stringify(args))
+        };
+        
+        window.SOCKET_LOG.push(logEntry);
+        console.log('📤', eventName);
+        
+        return originalEmit.call(this, eventName, ...args);
+    };
+    
+    console.log('✅ Socket logger injected! Recording started...');
+    console.log('Access data: window.SOCKET_LOG');
+    console.log('View stats: window.SOCKET_STATS');
+})();
+`.trim();
+
+        startBtn.addEventListener('click', () => {
+            isRecording = true;
+            startTime = Date.now();
+            
+            statusEl.className = 'status recording';
+            statusEl.innerHTML = '🔴 Recording - Paste code into rugs.fun console';
+            
+            startBtn.disabled = true;
+            stopBtn.disabled = false;
+            
+            codeBox.textContent = injectionCode;
+            codeBox.classList.add('show');
+            
+            // Auto-copy to clipboard
+            navigator.clipboard.writeText(injectionCode).then(() => {
+                showNotification('Code copied! Paste into rugs.fun console (F12)');
+            });
+            
+            // Start duration timer
+            durationInterval = setInterval(updateDuration, 1000);
+            
+            // Simulate checking for data (in real use, you'd communicate between tabs)
+            setTimeout(() => {
+                copyBtn.disabled = false;
+            }, 2000);
+        });
+
+        stopBtn.addEventListener('click', () => {
+            isRecording = false;
+            clearInterval(durationInterval);
+            
+            statusEl.className = 'status idle';
+            statusEl.innerHTML = '✅ Recording Stopped - Ready to Export';
+            
+            startBtn.disabled = false;
+            stopBtn.disabled = true;
+            
+            // Show export instructions
+            codeBox.textContent = `
+Export Instructions:
+1. Go back to the rugs.fun tab
+2. Open console (F12)
+3. Type: copy(JSON.stringify(window.SOCKET_LOG, null, 2))
+4. Press Enter
+5. Data is now in your clipboard!
+6. Paste into a text editor and save as .json file
+
+Or use this code to download directly:
+const blob = new Blob([JSON.stringify(window.SOCKET_LOG, null, 2)], {type: 'application/json'});
+const url = URL.createObjectURL(blob);
+const a = document.createElement('a');
+a.href = url;
+a.download = 'rugs-socket-log-' + Date.now() + '.json';
+a.click();
+            `.trim();
+        });
+
+        copyBtn.addEventListener('click', () => {
+            navigator.clipboard.writeText(codeBox.textContent).then(() => {
+                showNotification('Export instructions copied!');
+            });
+        });
+
+        function updateDuration() {
+            if (!startTime) return;
+            const elapsed = Math.floor((Date.now() - startTime) / 1000);
+            const minutes = Math.floor(elapsed / 60);
+            const seconds = elapsed % 60;
+            durationEl.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+            
+            // Simulate updating stats (in real use, you'd communicate between tabs)
+            eventCountEl.textContent = Math.floor(Math.random() * 50) + parseInt(eventCountEl.textContent);
+            if (Math.random() > 0.7) {
+                gameHistoryCountEl.textContent = parseInt(gameHistoryCountEl.textContent) + 1;
+            }
+        }
+
+        function showNotification(message) {
+            notification.textContent = message;
+            notification.classList.add('show');
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

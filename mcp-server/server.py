@@ -53,19 +53,21 @@ def _extract_yaml_description(content: str) -> str:
 def search_knowledge(
     query: str,
     top_k: int = 5,
+    backend: str | None = None,
 ) -> list[dict[str, Any]]:
     """Search the claude-flow knowledge base using semantic search.
     
     Args:
         query: Natural language query (e.g., "How do I use TDD workflow?")
         top_k: Number of results to return (default: 5)
+        backend: Optional backend override ("native" or "langchain_hybrid")
     
     Returns:
         List of relevant document chunks with source, text, and score
     """
     try:
         from retrieval.retrieve import search
-        results = search(query, top_k=top_k)
+        results = search(query, top_k=top_k, backend=backend)
         return results
     except Exception as e:
         return [{"error": f"Search failed: {str(e)}"}]

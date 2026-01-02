@@ -1,4 +1,5 @@
 """Query interface for RAG pipeline."""
+import os
 import sys
 from pathlib import Path
 from typing import Any
@@ -14,12 +15,15 @@ from storage.store import query, count
 def search(
     query_text: str,
     top_k: int = DEFAULT_TOP_K,
+    *,
+    backend: str | None = None,
 ) -> list[dict[str, Any]]:
     """Search for relevant documents.
     
     Args:
         query_text: Natural language query
         top_k: Number of results to return
+        backend: Optional backend override ("native" or "langchain_hybrid")
         
     Returns:
         List of result dicts with text, source, line, headers, score
@@ -27,6 +31,12 @@ def search(
     if count() == 0:
         print("Warning: Index is empty. Run ingestion first.")
         return []
+
+    selected_backend = (backend or os.getenv("CLAUDE_FLOW_RAG_BACKEND", "native")).strip()
+    if selected_backend in {"langchain_hybrid", "hybrid", "langchain"}:
+        from retrieval import langchain_hybrid
+
+        return langchain_hybrid.search(query_text, top_k=top_k)
     
     # Embed query
     query_embedding = embed_text(query_text)
@@ -41,6 +51,8 @@ def search_with_filter(
     query_text: str,
     source_filter: str | None = None,
     top_k: int = DEFAULT_TOP_K,
+    *,
+    backend: str | None = None,
 ) -> list[dict[str, Any]]:
     """Search with source path filter.
     
@@ -48,11 +60,12 @@ def search_with_filter(
         query_text: Natural language query
         source_filter: Filter to sources containing this string
         top_k: Number of results to return
+        backend: Optional backend override ("native" or "langchain_hybrid")
         
     Returns:
         List of result dicts
     """
-    results = search(query_text, top_k=top_k * 2)  # Get more, then filter
+    results = search(query_text, top_k=top_k * 2, backend=backend)  # Get more, then filter
     
     if source_filter:
         results = [r for r in results if source_filter in r["source"]]

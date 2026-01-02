@@ -1,0 +1,18 @@
+# Optional: enable LangChain hybrid retrieval in MCP server environment
+#
+# Install:
+#   cd mcp-server
+#   pip install -r requirements.txt
+#   pip install -r requirements-langchain.txt
+#
+# Then enable:
+#   export CLAUDE_FLOW_RAG_BACKEND=langchain_hybrid
+
+langchain-core>=1.0.0,<2.0.0
+langchain-text-splitters>=1.0.0,<2.0.0
+langchain-classic>=1.0.0,<2.0.0
+
+langsmith>=0.1.17,<1.0.0
+jsonpatch>=1.33,<2.0.0
+uuid-utils>=0.12.0,<1.0
+SQLAlchemy>=1.4.0,<3.0.0

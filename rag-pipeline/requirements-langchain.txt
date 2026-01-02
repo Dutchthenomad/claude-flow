@@ -1,0 +1,19 @@
+# Optional: LangChain-powered retrieval (hybrid + rerank)
+#
+# Install into the existing rag-pipeline venv:
+#   rag-pipeline/.venv/bin/pip install -r rag-pipeline/requirements-langchain.txt
+#
+# Or, to develop against the local monorepo at /home/nomad/Desktop/LANGCHAIN:
+#   rag-pipeline/.venv/bin/pip install -e /home/nomad/Desktop/LANGCHAIN/libs/core \
+#     -e /home/nomad/Desktop/LANGCHAIN/libs/text-splitters \
+#     -e /home/nomad/Desktop/LANGCHAIN/libs/langchain
+
+langchain-core>=1.0.0,<2.0.0
+langchain-text-splitters>=1.0.0,<2.0.0
+langchain-classic>=1.0.0,<2.0.0
+
+# Transitive deps (listed explicitly to avoid partial installs)
+langsmith>=0.1.17,<1.0.0
+jsonpatch>=1.33,<2.0.0
+uuid-utils>=0.12.0,<1.0
+SQLAlchemy>=1.4.0,<3.0.0
