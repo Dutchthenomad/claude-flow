@@ -3,9 +3,9 @@
     "claude-flow": {
       "type": "stdio",
       "command": "python",
-      "args": ["/home/nomad/Desktop/claude-flow/mcp-server/server.py"],
+      "args": ["/home/user/claude-flow/mcp-server/server.py"],
       "env": {
-        "CLAUDE_PLUGIN_ROOT": "/home/nomad/Desktop/claude-flow"
+        "CLAUDE_PLUGIN_ROOT": "/home/user/claude-flow"
       },
       "description": "Claude-Flow knowledge base with semantic search, command/agent access, and workflow context"
     }
