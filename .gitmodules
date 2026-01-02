@@ -1,0 +1,3 @@
+[submodule "integrations/hostinger-vps-infrastructure"]
+	path = integrations/hostinger-vps-infrastructure
+	url = https://github.com/Dutchthenomad/hostinger-vps-infrastructure.git
