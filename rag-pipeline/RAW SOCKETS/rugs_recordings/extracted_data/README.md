@@ -108,6 +108,12 @@ These values can be used to independently verify that game outcomes were determi
 4. If they match, the outcome was provably fair
 5. Use the seed to regenerate the price curve and verify the peak multiplier
 
+**IMPORTANT FINDING:** Initial verification testing (using `verify_provably_fair.py`) shows that simple SHA-256 hashing of the server seeds does not match the provided hashes. This suggests:
+- The server seed may need to be salted, prefixed, or combined with additional data before hashing
+- A different hash algorithm or process may be used
+- Game version differences may affect the hashing procedure
+- Further investigation of Rugs.fun's provably fair implementation is needed for proper verification
+
 ## Usage Examples
 
 ### Loading Data in Python
@@ -164,10 +170,11 @@ Simply open the CSV file in your preferred spreadsheet application. All fields a
 
 ## Scripts
 
-The following scripts were used to generate this data:
+The following scripts were used to generate and analyze this data:
 
 1. **extract_game_data.py** - Main extraction script that parses JSONL files and outputs organized data
 2. **create_detailed_csv.py** - Converts JSONL to CSV format for spreadsheet analysis
+3. **verify_provably_fair.py** - Verification script to test server seed hashes (see finding above)
 
 Both scripts are located in the parent directory (`/rag-pipeline/RAW SOCKETS/rugs_recordings/`).
 
