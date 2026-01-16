@@ -90,9 +90,13 @@ def main():
     print("VERIFICATION SUMMARY")
     print("=" * 80)
     print(f"Total games: {total_count}")
-    print(f"Verified: {verified_count} ({verified_count/total_count*100:.1f}%)")
-    print(f"Failed: {failed_count} ({failed_count/total_count*100:.1f}%)")
-    print(f"Missing data: {missing_data_count} ({missing_data_count/total_count*100:.1f}%)")
+    
+    if total_count > 0:
+        print(f"Verified: {verified_count} ({verified_count/total_count*100:.1f}%)")
+        print(f"Failed: {failed_count} ({failed_count/total_count*100:.1f}%)")
+        print(f"Missing data: {missing_data_count} ({missing_data_count/total_count*100:.1f}%)")
+    else:
+        print("No games found to verify.")
     print()
     
     if verified_count == total_count:

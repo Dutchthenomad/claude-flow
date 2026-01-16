@@ -84,12 +84,18 @@ def deduplicate_games(games: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     """Remove duplicate games based on game ID."""
     seen_ids = set()
     unique_games = []
+    duplicate_count = 0
     
     for game in games:
         game_id = game.get('id')
         if game_id and game_id not in seen_ids:
             seen_ids.add(game_id)
             unique_games.append(game)
+        elif game_id:
+            duplicate_count += 1
+    
+    if duplicate_count > 0:
+        print(f"  Note: Removed {duplicate_count} duplicate game records")
     
     return unique_games
 
@@ -104,7 +110,7 @@ def format_timestamp(ts_ms: int) -> str:
     try:
         dt = datetime.fromtimestamp(ts_ms / 1000.0)
         return dt.strftime('%Y-%m-%d %H:%M:%S')
-    except:
+    except (ValueError, OSError, OverflowError, TypeError):
         return str(ts_ms)
 
 
